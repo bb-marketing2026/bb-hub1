@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #fff; }
+    .doc { box-sizing: border-box; max-width: 210mm; margin: 0 auto; background: inherit; padding: 40px clamp(20px,5vw,16mm) 80px; font-family: var(--font-body); font-weight: 300; color: var(--bb-grey-800); font-size: 10pt; line-height: 1.5; }
+    .doc h1,.doc h2,.doc h3,.doc h4 { font-family: var(--font-heading); color: var(--bb-grey-700); margin: 0; }
+    .doc h1 { font-weight: 600; }
+    .doc h2 { font-weight: 600; font-size: 16pt; color: var(--bb-pink); letter-spacing: -0.01em; margin: 24px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--bb-pink); text-wrap: balance; }
+    .doc h3 { font-weight: 600; font-size: 11.5pt; color: var(--bb-grey-700); margin: 15px 0 5px; text-wrap: balance; }
+    .doc h4 { font-weight: 600; font-size: 9.5pt; color: var(--bb-pink-700); margin: 12px 0 3px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .doc p { margin: 0 0 9px; text-wrap: pretty; }
+    .doc ul,.doc ol { margin: 0 0 9px; padding-left: 17px; }
+    .doc li { margin: 0 0 4px; text-wrap: pretty; } .doc li::marker { color: var(--bb-pink-400); }
+    .doc strong { font-weight: 600; color: var(--bb-grey-800); }
+    .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; }
+    .cover { background: var(--bb-gradient-brand); border-radius: 18px; padding: 44px 38px; color: #fff; margin-bottom: 8px; }
+    .cover .eyebrow { color: rgba(255,255,255,0.92); }
+    .cover h1 { color: #fff; font-size: 32pt; line-height: 1.04; margin: 14px 0 12px; letter-spacing: -0.015em; }
+    .cover .lede { color: rgba(255,255,255,0.95); font-size: 12pt; max-width: 94%; margin: 0; font-weight: 300; line-height: 1.5; }
+    .cover-meta { display: flex; gap: 26px; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.35); flex-wrap: wrap; }
+    .cover-meta div { font-size: 8.5pt; } .cover-meta span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; opacity: 0.8; margin-bottom: 2px; }
+    .wordmark { font-family: var(--font-logo); font-size: 16pt; letter-spacing: 0.14em; color: #fff; }
+    .doc table.t { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 9.3pt; }
+    .doc table.t th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 7px 10px; border-bottom: 1.5px solid var(--bb-pink-200); font-size: 8.6pt; }
+    .doc table.t td { padding: 7px 10px; border-bottom: 1px solid var(--bb-grey-200); vertical-align: top; }
+    .doc table.t tr:nth-child(even) td { background: var(--bb-grey-50); }
+    .doc table.t .role { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); }
+    .doc table.t .num { font-family: var(--font-mono); color: var(--bb-pink-700); font-weight: 600; white-space: nowrap; font-size: 8.6pt; }
+    .doc table.t .stg { font-family: var(--font-mono); color: var(--bb-pink-700); font-weight: 600; font-size: 8.4pt; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .note { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); border-radius: 8px; padding: 10px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 11px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag .lbl,.note .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .section-intro { color: var(--bb-grey-500); font-size: 10.5pt; margin-bottom: 12px; }
+    .part-kicker { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 2px; }
+    .rolecard { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 15px; margin-bottom: 11px; }
+    .rolecard h3 { margin: 0 0 3px; color: var(--bb-pink); font-size: 11pt; }
+    .rolecard .from { font-family: var(--font-mono); font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bb-grey-500); margin-bottom: 6px; }
+    .rolecard p { margin: 0; font-size: 9.4pt; }
+    .numlist { counter-reset: n; padding: 0; margin: 6px 0 10px; list-style: none; }
+    .numlist > li { position: relative; padding-left: 34px; margin-bottom: 10px; }
+    .numlist > li::before { counter-increment: n; content: counter(n); position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--bb-pink); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 10pt; display: flex; align-items: center; justify-content: center; }
+    .numlist > li strong { color: var(--bb-pink-700); }
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin: 6px 0 14px; }
+    .stat { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 14px; }
+    .stat .v { font-family: var(--font-heading); font-weight: 600; font-size: 16pt; color: var(--bb-pink); line-height: 1; }
+    .stat .l { font-size: 8pt; color: var(--bb-grey-500); margin-top: 6px; line-height: 1.3; }
+    .aij { border: 1px solid var(--bb-blue-100); background: var(--bb-blue-50); border-radius: 12px; padding: 12px 15px; margin: 10px 0 12px; }
+    .aij .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; color: var(--bb-blue-700); display: block; margin-bottom: 8px; }
+    .aij .ft { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 8px; align-items: stretch; }
+    .aij .c { background: #fff; border: 1px solid var(--bb-grey-200); border-radius: 9px; padding: 8px 11px; font-size: 9pt; }
+    .aij .c.to { border-left: 3px solid var(--bb-blue-300); }
+    .aij .c b { display: block; font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bb-grey-500); margin-bottom: 3px; }
+    .aij .c.to b { color: var(--bb-blue-700); }
+    .aij .arw { display: flex; align-items: center; justify-content: center; color: var(--bb-pink); font-size: 15pt; }
+    .aij .tools { font-size: 8.4pt; color: var(--bb-grey-500); margin-top: 8px; } .aij .tools strong { color: var(--bb-grey-700); }
+    .kv { display: grid; grid-template-columns: 130px 1fr; gap: 4px 14px; margin: 6px 0 12px; font-size: 9.4pt; }
+    .kv dt { font-family: var(--font-mono); font-size: 7.6pt; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bb-pink-700); padding-top: 2px; }
+    .kv dd { margin: 0; }
+    .sheet { padding-top: 4px; }
+    .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
+    .sheet > h2:first-child,.sheet > .part-kicker:first-child,.sheet > .cover:first-child { margin-top: 4px; }
+    .sheet-ftr { display: none; }
+    
+    .toc { margin: 10px 0 4px; }
+    .toc-row { display: flex; align-items: baseline; gap: 12px; padding: 7px 2px; border-bottom: 1px solid var(--bb-grey-200); }
+    .toc-row .n { font-family: var(--font-mono); font-size: 8pt; color: var(--bb-pink); width: 22px; flex: none; }
+    .toc-row .t { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 10.5pt; }
+
+    .cover .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.22em; font-size: 7.5pt; color: rgba(255,255,255,0.72); margin-bottom: 20px; }
+    .cover .cat { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 10px; }
+    .cover-page { min-height: 900px; display: flex; flex-direction: column; }
+    .cover-page .cat { margin-bottom: auto; } .cover-page h1 { margin-top: 0; }
+    .cover-page .cover-meta { margin-top: auto; }
+    @media print { .cover-sheet .cover-page { min-height: 252mm; } .cover-sheet { break-after: page; } }
+
+    .cover-page { position: relative; }
+    .cover-elephant { position: absolute; top: 34px; right: 36px; height: 84px; width: auto; }
+
+    .cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 32%, var(--bb-pink) 118%) !important; }
+    .cover-grad .cat { color: #fff !important; }
+    .sub-note { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8.5pt; font-weight: 600; color: #fff; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.28); display: inline-block; }
+
+    /* ===== Subdued (Boardroom) palette ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .doc h3 { color: var(--bb-grey-700) !important; }
+    .doc h4 { color: var(--bb-grey-500) !important; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root, .handoff { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj { color: var(--bb-grey-700) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; border-left-color: var(--bb-pink) !important; }
+    .flag .lbl { color: var(--bb-grey-500) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+    .stat .v { color: var(--bb-grey-800) !important; }
+    .rolecard h3 { color: var(--bb-grey-800) !important; }
+    .pill { border-color: var(--bb-grey-300) !important; }
+    .script { border-left-color: var(--bb-pink) !important; }
+    .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
+
+    @page { size: A4 portrait; margin: 10mm; }
+    @media print {
+      .sheet + .sheet { margin-top: 8mm !important; border-top: 0 !important; }
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
+      #dc-root, .sc-host { height: auto !important; }
+      .sheet { break-inside: avoid; display: block; box-sizing: border-box; margin-top: 0 !important; border-top: 0 !important; padding-top: 0 !important; }
+      .sheet:first-of-type { break-before: auto; }
+      .sheet > h2:first-child,.sheet > .cover:first-child,.sheet > .part-kicker:first-child { margin-top: 0 !important; }
+      .sheet-ftr { display: none !important; justify-content: space-between; align-items: baseline; margin-top: auto; padding-top: 5mm; border-top: 0.5pt solid var(--bb-grey-200); font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bb-grey-400); }
+      .sheet-ftr .r { color: var(--bb-pink); }
+      h2,h3,h4 { break-after: avoid !important; } h2 + *, h3 + *, h4 + * { break-before: avoid; }
+      .rolecard,.note,.flag,.stat,.stats,.grid3,.cover,tr,.aij,.kv { break-inside: avoid; }
+      table.t { break-inside: avoid; } table.t thead { display: table-header-group; }
+      .doc table.form, .doc table.form tr { break-inside: avoid; }
+      p, li { orphans: 3; widows: 3; }
+    }
+
+    .jbanner { display: flex; align-items: center; gap: 12px; border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 11px 15px; margin: 8px 0 12px; flex-wrap: wrap; }
+    .jbanner .fn { font-family: var(--font-heading); font-weight: 600; font-size: 12pt; color: var(--bb-grey-700); }
+    .jbanner .jtag { font-family: var(--font-mono); font-size: 7pt; text-transform: uppercase; letter-spacing: 0.08em; background: var(--bb-pink-50); color: var(--bb-pink-700); border: 1px solid var(--bb-pink-200); border-radius: 999px; padding: 3px 10px; }
+    .jbanner .q { font-style: italic; color: var(--bb-grey-500); font-size: 9.5pt; margin-left: auto; }
+    .timeline { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 8px 0 14px; }
+    .tl { border-radius: 10px; padding: 10px 13px; }
+    .tl .d { font-family: var(--font-heading); font-weight: 600; font-size: 12pt; line-height: 1; }
+    .tl .tt { font-size: 8.4pt; margin-top: 4px; color: var(--bb-grey-500); }
+    .tl.p1 { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); } .tl.p1 .d { color: var(--bb-pink); }
+    .tl.p2 { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); } .tl.p2 .d { color: var(--bb-blue-700); }
+    .tl.p3 { background: var(--bb-grey-50); border: 1px solid var(--bb-grey-200); } .tl.p3 .d { color: var(--bb-grey-700); }
+    .phase { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 14px 16px; margin: 0 0 12px; }
+    .phase.p1 { border-left: 4px solid var(--bb-pink); }
+    .phase.p2 { border-left: 4px solid var(--bb-blue-300); }
+    .phase.p3 { border-left: 4px solid var(--bb-grey-400); }
+    .phase .ph { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+    .phase .badge { font-family: var(--font-mono); font-size: 7.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 10px; border-radius: 999px; color: #fff; }
+    .phase.p1 .badge { background: var(--bb-pink); } .phase.p2 .badge { background: var(--bb-blue-300); } .phase.p3 .badge { background: var(--bb-grey-700); }
+    .phase .htag { font-family: var(--font-mono); font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bb-grey-500); }
+    .phase .intro { font-size: 9.3pt; color: var(--bb-grey-800); margin: 0 0 8px; }
+    .phase ul { margin: 0 0 9px; padding-left: 16px; font-size: 9pt; }
+    .phase li { margin-bottom: 4px; }
+    .measure { border-radius: 9px; padding: 9px 12px; font-size: 9pt; }
+    .measure .ml { font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 3px; color: var(--bb-grey-500); }
+    .measure b { font-weight: 600; }
+    .phase.p1 .measure { background: var(--bb-pink-50); } .phase.p1 .measure b { color: var(--bb-pink-700); }
+    .phase.p2 .measure { background: var(--bb-blue-50); } .phase.p2 .measure b { color: var(--bb-blue-700); }
+    .phase.p3 .measure { background: var(--bb-grey-50); } .phase.p3 .measure b { color: var(--bb-grey-700); }
+
+    .levels { display: grid; grid-template-columns: repeat(5,1fr); gap: 8px; margin: 8px 0 12px; }
+    .lvl { border: 1px solid var(--bb-grey-200); border-radius: 10px; padding: 10px 9px; }
+    .lvl .ln { font-family: var(--font-heading); font-weight: 600; font-size: 14pt; color: var(--bb-pink); line-height: 1; }
+    .lvl .lt { font-family: var(--font-heading); font-weight: 600; font-size: 8.7pt; color: var(--bb-grey-700); margin: 5px 0 2px; line-height: 1.15; }
+    .lvl .ls { font-size: 7.5pt; color: var(--bb-grey-500); line-height: 1.28; }
+    .levels .growth { grid-column: 1 / -1; font-family: var(--font-mono); font-size: 7pt; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bb-pink-700); }
+    /* cover-final-override */
+    .cover.cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 30%, var(--bb-pink) 120%) !important; }
+    .cover-page { min-height: 900px !important; display: flex !important; flex-direction: column !important; }
+    .cover-page .cat { margin-bottom: auto !important; }
+    .cover-page h1 { margin-top: 0 !important; }
+    .cover-page .cover-meta { margin-top: auto !important; }
+    /* table-font-override */
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, table.rep .tg, .doc table.form .target { font-family: var(--font-body) !important; }
+    /* role-body-override */
+    .doc table.t .role { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+    /* all-table-cells-body */
+    .doc table.t td, .doc table.t td .num, .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, .doc table.t .role, table.rep td, table.rep .tg, .doc table.form td, .doc table.form .target { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+
+    .form-field { border: 1px solid var(--bb-grey-300); border-radius: 6px; height: 22px; margin-bottom: 6px; }
+    .form-label { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.07em; color: var(--bb-grey-500); font-family: var(--font-mono); display: block; margin-bottom: 3px; }
+    .doc table.form { width: 100%; border-collapse: collapse; margin: 4px 0 10px; font-size: 8.5pt; }
+    .doc table.form th { background: var(--bb-grey-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 5px 7px; border: 1px solid var(--bb-grey-300); font-size: 7.5pt; }
+    .doc table.form td { padding: 5px 7px; border: 1px solid var(--bb-grey-300); height: 20px; vertical-align: top; }
+    .doc table.form .target { color: var(--bb-grey-500); font-size: 8pt; white-space: nowrap; }
+    .doc table.form .grp td { background: var(--bb-grey-100, #eceef1); font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 7.6pt; text-transform: uppercase; letter-spacing: 0.05em; }
+  </style>
+</helmet>
+
+<main class="doc">
+
+<section class="sheet cover-sheet">
+  <div class="cover cover-page cover-grad">
+    <img class="cover-elephant" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="conf">Strictly private &amp; confidential</div>
+    <div class="cat">Sales Playbook</div>
+    <h1>How Brainbox turns meetings into signed revenue</h1>
+    <p class="lede">How Brainbox converts qualified opportunities into signed engagements in the Australian market &mdash; the oversight, the demand, the method, the cadence, the numbers and the systems, documented in granular detail.</p>
+    <div class="sub-note">Subsidiary to the Revenue Playbook</div>
+    <div class="cover-meta">
+      <div><span>Document owner</span>Corporate Services Director</div>
+      <div><span>Issue date</span>July 2026</div>
+      <div><span>Part of</span>Revenue Playbook</div>
+      <div style="margin-left:auto;align-self:flex-end"><span class="wordmark">BRAINBOX</span></div>
+    </div>
+  </div>
+</section>
+
+  <section class="sheet">
+  <h2>Purpose</h2>
+  <p>This Sales Playbook is the operational manual for the <strong>sales-execution layer</strong> of the Revenue Playbook. It documents how the Commercial Manager converts a qualified opportunity into a signed engagement in the Australian market. The US motion is scaffolded in the Revenue Playbook and documented separately as the US Expansion Project matures.</p>
+  <p>It sits beneath the Revenue Playbook and alongside its siblings &mdash; the Marketing Playbook, the Social Media Playbook and the Demand Generation Playbook. Where those documents own brand, demand and the booked appointment, this one owns <strong>everything from the qualified appointment onward</strong>: discovery, scoping, proposal, negotiation and close.</p>
+  <div class="note"><span class="lbl">How this document is organised</span>One fully documented section per topic, in the order a seller works: oversight, then where demand comes from, then how we engage, the cycle and cadence, the numbers we expect, the offer, the systems that enable it, and the AI transformation journey.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Sales Playbook &middot; Brainbox</span></div>
+</section>
+
+  <section class="sheet">
+  <h2>Contents</h2>
+  <div class="toc">
+    <div class="toc-row"><span class="n">01</span><span class="t">Purpose</span></div>
+    <div class="toc-row"><span class="n">02</span><span class="t">The seller &amp; how this fits</span></div>
+    <div class="toc-row"><span class="n">03</span><span class="t">1 · Guidance &amp; oversight</span></div>
+    <div class="toc-row"><span class="n">04</span><span class="t">2 · Where demand comes from</span></div>
+    <div class="toc-row"><span class="n">05</span><span class="t">3 · Engagement methodology</span></div>
+    <div class="toc-row"><span class="n">06</span><span class="t">4 · Sales cycle</span></div>
+    <div class="toc-row"><span class="n">07</span><span class="t">5 · Expected results</span></div>
+    <div class="toc-row"><span class="n">08</span><span class="t">6 · The offer</span></div>
+    <div class="toc-row"><span class="n">09</span><span class="t">7 · Systems</span></div>
+    <div class="toc-row"><span class="n">10</span><span class="t">8 · AI transformation</span></div>
+    <div class="toc-row"><span class="n">11</span><span class="t">What good looks like</span></div>
+  </div>
+</section>
+
+<section class="sheet">
+  <h2>The seller &amp; how this fits</h2>
+  <p>Australian sales are carried by the <strong>Commercial Manager</strong>, working face to face across Australia. The demand-generation layer &mdash; the Lead Associate and Australian Associates running the Demand Generation Playbook &mdash; feeds the seller qualified, in-person appointments. This playbook takes it from there.</p>
+  <div class="kv">
+    <dt>Owns</dt><dd>The pipeline from qualified appointment to signed engagement.</dd>
+    <dt>Receives</dt><dd>A booked, attended, in-person appointment with a qualified decision maker and a HubSpot handover note (the seam, per the Demand Generation Playbook).</dd>
+    <dt>Hands on</dt><dd>A signed client and scope to Relationship management for retention and expansion.</dd>
+    <dt>Reports to</dt><dd>The Corporate Services Director, through a weekly orchestration meeting.</dd>
+  </div>
+  <div class="flag"><span class="lbl">The through-line</span>Every stage, cadence and number in this playbook exists to move a qualified appointment to a signed, 12-month offshore engagement &mdash; measured, forecastable and repeatable.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Sales Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Section 1 &middot; Guidance &amp; oversight</div>
+  <h2>Oversight from the Corporate Services Director</h2>
+  <p class="section-intro">The Corporate Services Director (CSD) provides the guidance, standard and accountability for the sales function. Oversight is active and rhythmic, not occasional.</p>
+  <h3>What the CSD owns</h3>
+  <div class="grid2">
+    <div class="rolecard"><h3>Orchestration</h3><p>Runs a <strong>weekly orchestration meeting</strong> with the seller and demand-generation layer &mdash; pipeline, forecast, blockers and priorities for the week.</p></div>
+    <div class="rolecard"><h3>Playbook compliance</h3><p>Holds the standard of this playbook &mdash; stages worked correctly, HubSpot current, handovers honoured, cadence maintained.</p></div>
+    <div class="rolecard"><h3>Coaching</h3><p>Develops the seller&rsquo;s discovery, qualification and closing through review of real calls, meetings and proposals.</p></div>
+    <div class="rolecard"><h3>Approvals</h3><p>Signs off anything <strong>outside delegated authority</strong> &mdash; non-standard pricing, terms, discounts or scope.</p></div>
+  </div>
+  <h3>Aggregated reporting</h3>
+  <p>The CSD consolidates sales activity, pipeline and forecast into <strong>aggregated reporting</strong> for the Executive Leadership Team, tying the sales numbers back to the revenue outcomes in the Revenue Playbook.</p>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 1 &middot; Guidance & oversight</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Section 1 &middot; Guidance &amp; oversight</div>
+  <h2>The weekly orchestration meeting</h2>
+  <p class="section-intro">The heartbeat of oversight. Thirty to sixty minutes, same time each week, with the seller and the Lead Associate.</p>
+  <table class="t"><thead><tr><th style="width:26%">Agenda item</th><th>What is reviewed</th></tr></thead><tbody>
+    <tr><td class="role">Pipeline</td><td>Every open deal by stage; movement since last week; stuck deals and why.</td></tr>
+    <tr><td class="role">Forecast</td><td>Commit, best-case and pipeline coverage against the monthly signing target.</td></tr>
+    <tr><td class="role">Demand &amp; seam</td><td>Qualified appointments delivered vs the weekly baseline; quality of handovers.</td></tr>
+    <tr><td class="role">Networking</td><td>Meetings attended vs the minimum of five per week; opportunities surfaced.</td></tr>
+    <tr><td class="role">Coaching</td><td>One deal or skill reviewed in depth; one agreed action for the week.</td></tr>
+    <tr><td class="role">Approvals</td><td>Any pricing, term or scope decisions outside delegated authority.</td></tr>
+  </tbody></table>
+  <div class="note"><span class="lbl">Delegated authority</span>The seller closes standard engagements &mdash; per-role pricing at the published rate, 12-month term &mdash; without sign-off. Anything outside that (discounting, non-standard terms, unusual scope) is escalated to the CSD in this meeting or sooner.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 1 &middot; Guidance & oversight</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Section 2 &middot; Where demand comes from</div>
+  <h2>Two sources of demand</h2>
+  <p class="section-intro">The seller works two streams of demand: Demand Generation &mdash; the campaign and outreach engine that delivers qualified appointments &mdash; and self-generated demand the seller and firm create. Both land in HubSpot and are worked to the same standard.</p>
+  <div class="grid2">
+    <div class="rolecard"><h3>Demand Generation</h3><p>The engine that sources, researches and books qualified appointments &mdash; campaigns and outreach plus inbound enquiries and referrals &mdash; all qualified per the Demand Generation Playbook and handed to the seller.</p></div>
+    <div class="rolecard"><h3>Self-generated demand</h3><p>Relationship-led channels the seller and firm drive &mdash; networking, LinkedIn introductions, referrals and expansion within existing customers, per the Revenue Playbook.</p></div>
+  </div>
+  <div class="flag"><span class="lbl">One pipeline, one standard</span>However a lead arrives, it enters the same HubSpot pipeline, is qualified with the same criteria, and is worked with the same cadence. The source is recorded so contribution can be measured per channel.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 2 &middot; Where demand comes from</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Section 2 &middot; Where demand comes from</div>
+  <h2>Demand generation</h2>
+  <p class="section-intro">All demand &mdash; whether campaign-sourced, outreach-sourced, referred or inbound &mdash; is generated and qualified to the standard set in the <strong>Demand Generation Playbook</strong>; this section covers how it reaches the seller.</p>
+  <h3>Sources</h3>
+  <ul>
+    <li>Website enquiries and contact forms.</li>
+    <li>Referrals that arrive unprompted from clients, partners and the network.</li>
+    <li>Responses to founder- and sales-led LinkedIn and content (per the Marketing and Social Media Playbooks).</li>
+    <li>Event and webinar registrations that request contact.</li>
+  </ul>
+  <h3>Handling &amp; SLA</h3>
+  <table class="t"><thead><tr><th style="width:30%">Step</th><th>Standard</th></tr></thead><tbody>
+    <tr><td class="role">Triage</td><td>Every inbound enquiry logged in HubSpot with source, and assessed against the ideal customer profile.</td></tr>
+    <tr><td class="role">First response</td><td>Same business day for a qualified enquiry; fastest response wins consultative work.</td></tr>
+    <tr><td class="role">Qualify</td><td>Fit, need and authority confirmed before a meeting is booked into the seller&rsquo;s calendar.</td></tr>
+    <tr><td class="role">Handover</td><td>Becomes a qualified appointment with the same HubSpot handover note as outbound &mdash; the seam is identical.</td></tr>
+  </tbody></table>
+  <div class="note"><span class="lbl">Cross-reference</span>Full triage, qualification criteria, handover note and the definition of a qualified appointment live in the Demand Generation Playbook.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 2 &middot; Where demand comes from</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Section 2 &middot; Where demand comes from</div>
+  <h2>Self-generated demand channels</h2>
+  <p class="section-intro">Australian sales run on relationships. These are the channels the seller drives directly, carried over from the Revenue Playbook and given a working standard here.</p>
+  <table class="t"><thead><tr><th style="width:42%">Channel</th><th style="width:24%">Current role</th><th>Seller&rsquo;s standard</th></tr></thead><tbody>
+    <tr><td class="role">Networking</td><td class="num">Major</td><td>Minimum five meetings per week (see next page).</td></tr>
+    <tr><td class="role">LinkedIn introductions &amp; meeting requests</td><td class="num">Major</td><td>Warm intros and meeting requests worked daily.</td></tr>
+    <tr><td class="role">Referrals</td><td class="num">Minor, growing</td><td>Deliberate referral asks at value moments.</td></tr>
+    <tr><td class="role">Additional roles within existing customers</td><td class="num">Works, unstructured</td><td>Handed to Relationship management for structured expansion.</td></tr>
+    <tr><td class="role">Social media outreach</td><td class="num">Minor</td><td>Supports, per the Social Media Playbook.</td></tr>
+    <tr><td class="role">Website</td><td class="num">Minor</td><td>Feeds inbound.</td></tr>
+    <tr><td class="role">Webinars</td><td class="num">Untested</td><td>Small measured trial before further investment.</td></tr>
+    <tr><td class="role">Partner program</td><td class="num">Untested</td><td>Small measured trial before further investment.</td></tr>
+  </tbody></table>
+  <div class="note"><span class="lbl">Networking organisations</span>WA Leaders &middot; Superior Business Networks (multiple groups) &middot; Western Suburbs Business Association &middot; Perth Networking Institute &middot; Chambers of Commerce and Industry (multiple groups) &middot; Rotary International (multiple groups).</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 2 &middot; Where demand comes from</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Section 2 &middot; Where demand comes from</div>
+  <h2>The networking standard</h2>
+  <div class="flag"><span class="lbl">Non-negotiable</span>The Commercial Manager attends <strong>a minimum of five networking meetings every week</strong> across the organisations above. Networking is the firm&rsquo;s largest channel and is treated as core delivery, not optional.</div>
+  <h3>How networking is worked</h3>
+  <ul>
+    <li><strong>Plan the week</strong> &mdash; select the five-plus events at the weekly orchestration meeting, matched to where ideal-profile owners gather.</li>
+    <li><strong>Show up to give</strong> &mdash; lead with usefulness and the Brainbox point of view, not a pitch (Always Be Kind).</li>
+    <li><strong>Capture</strong> &mdash; every worthwhile contact logged in HubSpot the same day, tagged source &ldquo;Networking&rdquo; and the organisation.</li>
+    <li><strong>Convert</strong> &mdash; follow up within 24 hours; move genuine fits to a discovery meeting.</li>
+    <li><strong>Report</strong> &mdash; meetings attended and opportunities surfaced reviewed weekly with the CSD.</li>
+  </ul>
+  <div class="note"><span class="lbl">Why five</span>Consistent presence compounds &mdash; five meetings a week keeps Brainbox visible across the networks that produce most of its work, and gives the CSD a clear, countable activity baseline.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 2 &middot; Where demand comes from</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Section 3 &middot; Engagement methodology</div>
+  <h2>Consultative selling with SPIN</h2>
+  <p class="section-intro">Brainbox sells consultatively. The seller uses <strong>SPIN</strong> to run discovery &mdash; drawing out the client&rsquo;s situation and problems, making the implications real, and letting the client articulate the value of solving them. We diagnose before we prescribe.</p>
+  <div class="grid2">
+    <div class="rolecard"><h3>S &middot; Situation</h3><p>Understand the business: team size and roles, the back-office and admin load, systems in use, and how they hire and resource today.</p></div>
+    <div class="rolecard"><h3>P &middot; Problem</h3><p>Surface the difficulties: recruitment difficulty, cost pressure, capacity limits, turnover, overtime, delayed work, process gaps.</p></div>
+    <div class="rolecard"><h3>I &middot; Implication</h3><p>Make the cost real: senior people on low-value admin, growth held back, service slipping, margin eroded, burnout.</p></div>
+    <div class="rolecard"><h3>N &middot; Need-payoff</h3><p>Let the client state the value: freed capacity, faster turnaround, cost versus a local hire, the relief of reliable support.</p></div>
+  </div>
+  <div class="note"><span class="lbl">The rule</span>Talk less, ask better. The best discovery has the client describing their own problem and its cost &mdash; the seller confirms fit and authority, and only then frames the offshore solution.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 3 &middot; Engagement methodology</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Section 3 &middot; Engagement methodology</div>
+  <h2>The discovery question bank</h2>
+  <p class="section-intro">Examples the seller adapts &mdash; not a script. Use only what the conversation needs.</p>
+  <table class="t"><thead><tr><th style="width:22%">Stage</th><th>Example questions</th></tr></thead><tbody>
+    <tr><td class="stg">Situation</td><td>How is your team structured today? Which roles carry the admin and back-office work? What systems do you run (Xero, HubSpot, CRM, job management)? How do you currently resource peaks?</td></tr>
+    <tr><td class="stg">Problem</td><td>Where does capacity run out first? How hard is it to hire and keep good admin or support staff locally? What work keeps slipping? Where are you paying overtime or leaving work undone?</td></tr>
+    <tr><td class="stg">Implication</td><td>What does it cost when that work is late? How much senior time goes on tasks a support person could do? What growth are you turning away? What does the turnover cost you to replace?</td></tr>
+    <tr><td class="stg">Need-payoff</td><td>If a trained person handled that reliably, what would it free your team to do? What would faster turnaround be worth? How would it help to compare that against a local hire?</td></tr>
+  </tbody></table>
+  <div class="flag"><span class="lbl">Confirm before you propose</span>Before scoping, the seller confirms the four qualifiers: fit to the ideal profile, a real need, budget authority, and timing. A proposal without these is effort spent on a deal that will stall.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 3 &middot; Engagement methodology</span></div>
+</section>
+
+
+
+  <section class="sheet">
+  <div class="part-kicker">Section 4 &middot; Sales cycle</div>
+  <h2>The pipeline stages</h2>
+  <p class="section-intro">The HubSpot pipeline runs from qualified appointment to signed engagement. Each stage has a clear entry and exit so the forecast means something.</p>
+  <table class="t"><thead><tr><th style="width:8%">#</th><th style="width:26%">Stage</th><th>Exit criteria (to advance)</th></tr></thead><tbody>
+    <tr><td class="num">1</td><td class="role">Qualified appointment</td><td>Attended meeting with a qualified decision maker; handover note complete.</td></tr>
+    <tr><td class="num">2</td><td class="role">Discovery</td><td>SPIN discovery done; fit, need, authority and timing confirmed.</td></tr>
+    <tr><td class="num">3</td><td class="role">Scoping &amp; proposal</td><td>Role(s) scoped; cost comparison built; proposal issued via PandaDoc.</td></tr>
+    <tr><td class="num">4</td><td class="role">Negotiation</td><td>Terms agreed in principle &mdash; per-role price, 12-month term, start date.</td></tr>
+    <tr><td class="num">5</td><td class="role">Verbal commit</td><td>Client has verbally agreed; contract out for signature.</td></tr>
+    <tr><td class="num">6</td><td class="role">Closed won / lost</td><td>Signed engagement, handed to Relationship management &mdash; or lost, with a recorded reason.</td></tr>
+  </tbody></table>
+  <div class="note"><span class="lbl">Source of truth</span>Stages, deal properties and required fields are configured in HubSpot per the Revenue Playbook. A deal is not complete unless the next step and close date are set.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 4 &middot; Sales cycle</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Section 4 &middot; Sales cycle</div>
+  <h2>Typical cycle &amp; weekly cadence</h2>
+  <p class="section-intro">A typical Australian SME offshoring deal runs <strong>4&ndash;6 weeks</strong> from qualified appointment to signature &mdash; longer where more stakeholders are involved. The weekly cadence keeps deals moving and the pipeline honest.</p>
+  <table class="t"><thead><tr><th style="width:20%">When</th><th>The seller&rsquo;s rhythm</th></tr></thead><tbody>
+    <tr><td class="stg">Monday</td><td>Weekly orchestration meeting with the CSD; pipeline &amp; forecast review; confirm the week&rsquo;s five-plus networking events.</td></tr>
+    <tr><td class="stg">Daily</td><td>Discovery &amp; sales meetings; same-day follow-ups; proposals; HubSpot updated after every interaction.</td></tr>
+    <tr><td class="stg">Across the week</td><td>Minimum five networking meetings; LinkedIn introductions and referral asks worked.</td></tr>
+    <tr><td class="stg">Friday</td><td>Forecast updated; HubSpot hygiene; next week planned; no open deal without a next step.</td></tr>
+    <tr><td class="stg">Monthly</td><td>Forecast and pipeline consolidated with the CSD for aggregated ELT reporting.</td></tr>
+  </tbody></table>
+  <h3>Post-meeting follow-up sequence</h3>
+  <table class="t"><thead><tr><th style="width:20%">Timing</th><th>Action</th></tr></thead><tbody>
+    <tr><td class="num">Within 24h</td><td>Meeting summary, agreed next step and relevant collateral from the Sales Enablement Catalog.</td></tr>
+    <tr><td class="num">By day 5</td><td>Proposal issued via PandaDoc after a discovery that qualifies.</td></tr>
+    <tr><td class="num">Day 2 / 5 / 9 / 14</td><td>Structured follow-up touches after the proposal &mdash; each adding value, never just chasing.</td></tr>
+    <tr><td class="num">After 4 touches</td><td>Move to nurture with a dated reason to return; never leave a deal without a next step.</td></tr>
+  </tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 4 &middot; Sales cycle</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Section 4 &middot; Sales cycle</div>
+  <h2>How a typical deal unfolds</h2>
+  <p class="section-intro">A worked example of a single deal moving from first contact to signed engagement over a typical 4&ndash;6 week cycle. Each step has an owner, an action and the trigger that advances it.</p>
+  <table class="t"><thead><tr><th style="width:20%">Step</th><th>What happens</th><th style="width:16%">Typical timing</th></tr></thead><tbody>
+    <tr><td class="role">First contact</td><td>The prospect is reached through a self-generated or inbound channel &mdash; a networking conversation, a LinkedIn introduction, a referral or an enquiry. Interest and rough fit are established.</td><td class="num">Week 0</td></tr>
+    <tr><td class="role">Qualified appointment</td><td>An in-person meeting is booked with a qualified decision maker and recorded in HubSpot with a handover note. The deal enters the pipeline (25%).</td><td class="num">Week 1</td></tr>
+    <tr><td class="role">Discovery</td><td>The seller runs SPIN discovery, confirming fit, need, authority and timing, and captures the business drivers in the prospect&rsquo;s own words (40%).</td><td class="num">Week 1</td></tr>
+    <tr><td class="role">Scoping</td><td>The seller works the relevant role capability map with the buyer, agrees the roles and the starting trust level per function, and confirms the loaded local-cost comparison inputs (50&ndash;60%).</td><td class="num">Week 2</td></tr>
+    <tr><td class="role">Proposal</td><td>A proposal is issued via PandaDoc within five days &mdash; scoped roles, cost comparison and terms. Follow-up sequence begins (60%).</td><td class="num">Weeks 2&ndash;3</td></tr>
+    <tr><td class="role">Negotiation</td><td>Terms are worked through &mdash; per-role price, 12-month minimum term and start date. Anything outside delegated authority goes to the CSD (80%).</td><td class="num">Weeks 3&ndash;4</td></tr>
+    <tr><td class="role">Verbal</td><td>The client verbally agrees; the contract is issued for signature (95%).</td><td class="num">Weeks 4&ndash;5</td></tr>
+    <tr><td class="role">Commitment</td><td>The client signs. Onboarding and recruitment of the offshore role begin; the start date is confirmed.</td><td class="num">Week 5</td></tr>
+    <tr><td class="role">Won</td><td>The engagement is closed-won in HubSpot and handed to Relationship management with full context for retention and expansion (100%).</td><td class="num">Weeks 5&ndash;6</td></tr>
+  </tbody></table>
+  <div class="note"><span class="lbl">Kept honest</span>The deal advances only when the stage&rsquo;s exit criteria are met &mdash; the probability reflects reality, so the weighted forecast holds. A deal with no next step is not progressing, whatever its stage.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 4 &middot; Sales cycle</span></div>
+</section>
+
+  <section class="sheet">
+  <div class="part-kicker">Section 5 &middot; Expected results</div>
+  <h2>Expected results per channel</h2>
+  <p class="section-intro">Targets to manage and refine, derived from the Revenue Playbook baseline and Brainbox deal economics. Every channel is measurable, with source recorded in HubSpot.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">$42k</div><div class="l">Annual value per offshore role</div></div>
+    <div class="stat"><div class="v">1&ndash;2</div><div class="l">Roles per client (ACV $42k&ndash;$84k)</div></div>
+    <div class="stat"><div class="v">25%</div><div class="l">Win rate, opportunity (SQL) &rarr; signed</div></div>
+    <div class="stat"><div class="v">2&ndash;3</div><div class="l">Signed engagements per month (target)</div></div>
+  </div>
+  <table class="t"><thead><tr><th style="width:40%">Channel</th><th>Measurable monthly target</th></tr></thead><tbody>
+    <tr><td class="role">Networking</td><td class="num">&ge;20 meetings &rarr; 4&ndash;6 opportunities</td></tr>
+    <tr><td class="role">LinkedIn introductions</td><td class="num">2&ndash;3 qualified appointments</td></tr>
+    <tr><td class="role">Referrals</td><td class="num">1&ndash;2 qualified appointments</td></tr>
+    <tr><td class="role">Inbound</td><td class="num">1&ndash;2 qualified appointments</td></tr>
+    <tr><td class="role">Outbound (Demand Gen layer)</td><td class="num">core engine &middot; &ge;6 in-person appts / week</td></tr>
+    <tr><td class="role">Account expansion</td><td class="num">via Relationship management</td></tr>
+  </tbody></table>
+  <div class="flag"><span class="lbl">The funnel that ties it together</span>Demand Generation delivers <strong>~26 qualified appointments (MQL) a month</strong>. With <strong>~50% attrition from MQL to sales opportunity (SQL)</strong>, ~13 SQL a month reach the pipeline; at a <strong>25% win rate</strong> that yields the <strong>2&ndash;3 signed engagements</strong> target &mdash; about <strong>~$190k of new annual value per month</strong>. Reviewed with the CSD.</div>
+  <div class="note"><span class="lbl">MQL &rarr; SQL</span>An <strong>MQL</strong> is a booked, attended appointment from Demand Generation. An <strong>SQL</strong> is one that discovery qualifies into a live pipeline opportunity. About half convert; the pipeline is sized and forecast from the SQL onward.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 5 &middot; Expected results</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Section 5 &middot; Expected results</div>
+  <h2>Sizing the pipeline by stage</h2>
+  <p class="section-intro">HubSpot assigns each stage a deal probability. Open deal value &times; stage probability gives <strong>weighted pipeline</strong> &mdash; what a stage is really worth. To deliver the target, the seller holds enough value at each stage that its weighted value meets the monthly revenue goal.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">2&ndash;3</div><div class="l">Signed engagements per month (target)</div></div>
+    <div class="stat"><div class="v">$63k</div><div class="l">Average ACV per deal (1&ndash;2 roles @ $42k)</div></div>
+    <div class="stat"><div class="v">25%</div><div class="l">Opportunity (SQL) &rarr; won</div></div>
+    <div class="stat"><div class="v">~$190k</div><div class="l">New annual value to win per month</div></div>
+  </div>
+  <p style="font-size:9.4pt">Demand Generation feeds <strong>~26 appointments (MQL) a month</strong>; at ~50% attrition, <strong>~13 become sales opportunities (SQL)</strong> and enter the pipeline below. Sized to deliver <strong>3 signings a month</strong>: hold enough open value at each stage that weighted value (open deals &times; probability &times; ACV) meets the monthly target &mdash; if it does at every stage, the revenue lands.</p>
+  <table class="t"><thead><tr><th style="width:34%">Stage</th><th>Deal probability</th><th>Open deals to hold</th><th>Weighted value</th></tr></thead><tbody>
+    <tr><td class="role">Qualified opportunity (SQL)</td><td class="num">25%</td><td class="num">~12</td><td class="num">~$190k</td></tr>
+    <tr><td class="role">Discovery</td><td class="num">40%</td><td class="num">~8</td><td class="num">~$190k</td></tr>
+    <tr><td class="role">Scoping &amp; proposal</td><td class="num">60%</td><td class="num">~5</td><td class="num">~$190k</td></tr>
+    <tr><td class="role">Negotiation</td><td class="num">80%</td><td class="num">~4</td><td class="num">~$200k</td></tr>
+    <tr><td class="role">Verbal commit</td><td class="num">95%</td><td class="num">~3</td><td class="num">~$180k</td></tr>
+    <tr><td class="role">Closed won (target)</td><td class="num">100%</td><td class="num">2&ndash;3 / mo</td><td class="num">~$190k ACV</td></tr>
+  </tbody></table>
+  <div class="flag"><span class="lbl">Coverage rule</span>Carry roughly <strong>3&times; the monthly signing target</strong> in total open opportunities. Stage probabilities are set in HubSpot and reviewed with the Corporate Services Director; the forecast is the sum of weighted pipeline. If any stage falls below its weighted target, prospecting steps up to refill it.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 5 &middot; Expected results</span></div>
+</section>
+
+  <section class="sheet">
+  <div class="part-kicker">Section 6 &middot; The offer</div>
+  <h2>The offer &amp; how it is priced</h2>
+  <p class="section-intro">Brainbox places dedicated, managed offshore personnel from its Philippines delivery centre. The offer is simple to price and easy to compare.</p>
+  <div class="kv">
+    <dt>Unit</dt><dd>Priced <strong>per dedicated offshore role</strong>, at the published per-role rate.</dd>
+    <dt>Value anchor</dt><dd>Compared against the client&rsquo;s <strong>loaded local cost</strong> for the equivalent role &mdash; salary, on-costs, super, recruitment, management and overhead.</dd>
+    <dt>Typical value</dt><dd>Around <strong>$42,000 per annum per role</strong>; most clients start with one to two roles.</dd>
+    <dt>Term</dt><dd><strong>12-month minimum term</strong>, reflecting the managed recruitment, training and supervision behind each placement.</dd>
+  </div>
+  <h3>How the seller frames it</h3>
+  <ul>
+    <li>Work the relevant <strong>role capability map</strong> with the buyer to scope the need accurately and agree a starting trust level (see next page).</li>
+        <li>Lead with the client&rsquo;s own need-payoff language from discovery, not a feature list.</li>
+    <li>Build a side-by-side <strong>cost comparison</strong> &mdash; offshore role versus loaded local cost &mdash; in the proposal.</li>
+    <li>Reinforce that this is a <strong>managed</strong> model: recruitment, training, supervision, retention and cover, not a freelance marketplace.</li>
+    <li>Use the firm itself as proof &mdash; Brainbox runs its own marketing and demand engine offshore.</li>
+  </ul>
+  <div class="note"><span class="lbl">Delegated authority</span>Standard per-role pricing and the 12-month term sit within the seller&rsquo;s authority. Discounts, non-standard terms or unusual scope go to the CSD.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 6 &middot; The offer</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Section 6 &middot; The offer</div>
+  <h2>Role capability maps</h2>
+  <div style="float:right;width:114px;margin:2px 0 8px 18px" aria-hidden="false"><div style="display:flex;gap:8px"><svg width="52" height="52" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Capability grid"><rect x="0.5" y="0.5" width="51" height="51" rx="6" fill="#ffffff" stroke="#e6e6e6"/><rect x="5" y="5" width="42" height="7" rx="2" fill="#585858"/><rect x="5" y="15" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#efe3ea" stroke-width="0.6"/><rect x="16" y="15" width="9" height="9" rx="1.5" fill="#ffd0e8" stroke="#efe3ea" stroke-width="0.6"/><rect x="27" y="15" width="9" height="9" rx="1.5" fill="#ff8cc0" stroke="#efe3ea" stroke-width="0.6"/><rect x="38" y="15" width="9" height="9" rx="1.5" fill="#ff0080" stroke="#efe3ea" stroke-width="0.6"/><rect x="5" y="26" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#efe3ea" stroke-width="0.6"/><rect x="16" y="26" width="9" height="9" rx="1.5" fill="#ffd0e8" stroke="#efe3ea" stroke-width="0.6"/><rect x="27" y="26" width="9" height="9" rx="1.5" fill="#ff8cc0" stroke="#efe3ea" stroke-width="0.6"/><rect x="38" y="26" width="9" height="9" rx="1.5" fill="#ff0080" stroke="#efe3ea" stroke-width="0.6"/><rect x="5" y="37" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#efe3ea" stroke-width="0.6"/><rect x="16" y="37" width="9" height="9" rx="1.5" fill="#ffd0e8" stroke="#efe3ea" stroke-width="0.6"/><rect x="27" y="37" width="9" height="9" rx="1.5" fill="#ff8cc0" stroke="#efe3ea" stroke-width="0.6"/><rect x="38" y="37" width="9" height="9" rx="1.5" fill="#ff0080" stroke="#efe3ea" stroke-width="0.6"/></svg><svg width="52" height="52" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trust levels"><rect x="0.5" y="0.5" width="51" height="51" rx="6" fill="#ffffff" stroke="#e6e6e6"/><rect x="6" y="36" width="6" height="10" rx="1.5" fill="#ffd0e8"/><rect x="15" y="29" width="6" height="17" rx="1.5" fill="#ffa9d0"/><rect x="24" y="22" width="6" height="24" rx="1.5" fill="#ff7db8"/><rect x="33" y="15" width="6" height="31" rx="1.5" fill="#ff3f97"/><rect x="42" y="8" width="6" height="38" rx="1.5" fill="#ff0080"/><rect x="5" y="46" width="42" height="1.4" rx="0.7" fill="#cfcfcf"/></svg></div><div style="font-family:var(--font-mono);font-size:6pt;letter-spacing:0.08em;color:var(--bb-grey-500);text-transform:uppercase;text-align:center;margin-top:4px">Capability map &middot; five trust levels</div></div>
+  <p class="section-intro">Every role scoping activity uses the relevant role capability map. It is how the seller guides a buyer to an <strong>accurate representation of their need</strong> &mdash; neither under-scoped nor over-promised.</p>
+  <p>A capability map takes a role &mdash; Bookkeeper, Executive Assistant, HR Support Officer, and others as they are built &mdash; and lays out everything it can do across a <strong>five-level trust model</strong>. Each function is read left to right, from routine, reviewed work through to fully delegated, fiduciary responsibility. The buyer chooses the level to start at, and raises it as confidence builds.</p>
+  <h3>The five levels of trust</h3>
+  <div class="levels">
+    <div class="growth">Trust grows &rarr;</div>
+    <div class="lvl" style="background:#fff"><div class="ln">1</div><div class="lt">Reliable hands</div><div class="ls">Routine, reviewed work</div></div>
+    <div class="lvl" style="background:var(--bb-pink-50)"><div class="ln">2</div><div class="lt">Standing access</div><div class="ls">Recurring tasks, lightly checked</div></div>
+    <div class="lvl" style="background:var(--bb-pink-100)"><div class="ln">3</div><div class="lt">Gatekeeper</div><div class="ls">Owns the ledger or process</div></div>
+    <div class="lvl" style="background:var(--bb-pink-200)"><div class="ln">4</div><div class="lt">Delegated authority</div><div class="ls">Acts within agreed limits</div></div>
+    <div class="lvl" style="background:var(--bb-gradient-brand)"><div class="ln" style="color:#fff">5</div><div class="lt" style="color:#fff">Full trust</div><div class="ls" style="color:#fff">Fiduciary, in your name</div></div>
+  </div>
+  <h3>Why it guides accurate scoping</h3>
+  <ul>
+    <li>Buyers routinely under-describe the need (&ldquo;just data entry&rdquo;) or over-assume (&ldquo;they&rsquo;d run our finances&rdquo;). The map shows the real breadth and depth of the role.</li>
+    <li>Walking the buyer across each function surfaces work they had not thought to delegate &mdash; accurate scope, not a guess.</li>
+    <li>Choosing a starting level right-sizes the engagement and the per-role price, and sets a clear growth path as trust builds &mdash; the natural handover to Relationship management for expansion.</li>
+    <li>It anchors the conversation in capability and trust, not cost &mdash; reinforcing the managed, consultative model.</li>
+  </ul>
+  <div class="flag"><span class="lbl">Required in every scope</span>The seller works the relevant capability map with the buyer during discovery and scoping, agrees the starting trust level for each function, and records it in the proposal. Maps are maintained in the Sales Enablement Catalog and grow as new roles are added.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 6 &middot; The offer</span></div>
+</section>
+
+  <section class="sheet">
+  <div class="part-kicker">Section 7 &middot; Systems</div>
+  <h2>Systems of enablement &amp; measurement</h2>
+  <p class="section-intro">A small, connected stack. HubSpot is the single source of truth; everything else feeds it.</p>
+  <div class="rolecard"><h3>HubSpot</h3><div class="from">CRM &middot; source of truth</div><p>Holds every contact, deal, stage, activity and forecast. No sale exists unless it is in HubSpot with a next step and close date. Attribution and reporting run from here.</p></div>
+  <div class="rolecard"><h3>Claude</h3><div class="from">AI copilot</div><p>Prepares account briefs, drafts proposals and cost comparisons, and supports follow-up drafting &mdash; under the seller&rsquo;s direction.</p></div>
+  <div class="rolecard"><h3>PandaDoc</h3><div class="from">Proposals &amp; e-signature</div><p>Generates proposals from templates, captures the cost comparison, and takes the engagement to signature.</p></div>
+  <div class="rolecard"><h3>Outlook</h3><div class="from">Communication &amp; scheduling</div><p>Email, calendar and meeting scheduling, synced to HubSpot for a complete activity record.</p></div>
+  <div class="rolecard"><h3>Sales Enablement Catalog</h3><div class="from">Collateral library</div><p>The current, approved set of decks, case studies, capability annexes and cost-comparison assets &mdash; maintained by the marketing pod, used at the point of need.</p></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 7 &middot; Systems</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Section 7 &middot; Systems</div>
+  <h2>Delivery mechanisms &mdash; information &amp; demand</h2>
+  <p class="section-intro">Two channels carry information to the market and feed demand into the pipeline. Both are owned in the Marketing half of the revenue function; the seller draws on and contributes to each.</p>
+  <div class="rolecard"><h3>Website</h3><div class="from">Delivery of information &middot; inbound demand</div><p>The public face of the Brainbox point of view &mdash; capability, proof and the offer. It informs buyers ahead of a conversation and captures inbound enquiries into HubSpot. Owned and maintained by the Marketing Technologist, per the Revenue Playbook.</p></div>
+  <div class="rolecard"><h3>Social channels</h3><div class="from">Delivery of information &middot; demand generation</div><p>Founder- and sales-led LinkedIn is the main organic channel &mdash; carrying thought leadership to Australian SMEs and warming named accounts. Governed by the Social Media Playbook; the seller amplifies it and turns engagement into conversations and referrals.</p></div>
+  <div class="note"><span class="lbl">Where the detail lives</span>Both are demand and information channels; this playbook records how the seller uses them. Their operation is documented in the Marketing Playbook and the Social Media Playbook.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 7 &middot; Systems</span></div>
+</section>
+
+  <section class="sheet">
+  <div class="part-kicker">Section 8 &middot; AI transformation</div>
+  <h2>The AI transformation journey</h2>
+  <p class="section-intro">Sales adopts AI as a staged 30/60/90-day journey, built around a single Claude proposal-generation skill. The relationship, the pricing judgement and the final send always stay human.</p>
+  <div class="jbanner"><span class="fn">Sales</span><span class="jtag">Claude</span><span class="q">&ldquo;Are proposals turned around faster, with the skill used every time?&rdquo;</span></div>
+  <div class="timeline">
+    <div class="tl p1"><div class="d">30 days</div><div class="tt">Activate, baseline &amp; build</div></div>
+    <div class="tl p2"><div class="d">60 days</div><div class="tt">Build &amp; validate</div></div>
+    <div class="tl p3"><div class="d">90 days</div><div class="tt">Measure &amp; embed</div></div>
+  </div>
+  <div class="phase p1">
+      <div class="ph"><span class="badge">30 days</span><span class="htag">Claude Project &middot; Skill</span></div>
+      <p class="intro">Proposal-generation skill live. Input: client name, service type, context. Output: structured proposal content ready for the chosen destination. A day-30 decision (with Marketing) sets whether that&rsquo;s a tokenised PandaDoc template or a repeatable Claude Design proposal.</p>
+      <ul>
+        <li>Proposal template and boilerplate sections documented and loaded into the Project.</li>
+        <li>Service descriptions, capability statements and case studies loaded.</li>
+        <li>Day-30 decision (with Marketing): keep PandaDoc or move proposals to Claude Design. If PandaDoc stays, tokenise the templates so Claude can populate them; if not, this step drops.</li>
+        <li>Skill tested on at least three real deals before go-live.</li>
+        <li>Baseline documented: current average time from brief received to proposal sent.</li>
+      </ul>
+      <div class="measure"><span class="ml">Measure</span><b>Time to first draft on test deals. Target: under 30 minutes from brief to draft.</b></div>
+    </div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 8 &middot; AI transformation</span></div>
+</section>
+
+  <section class="sheet">
+  <div class="part-kicker">Section 8 &middot; AI transformation</div>
+  <h2>The AI journey &mdash; 60 &amp; 90 days</h2>
+  <p class="section-intro">The skill moves from live and baselined to fully embedded in the proposal chain, measured against the day-30 baseline.</p>
+  <div class="phase p2">
+      <div class="ph"><span class="badge">60 days</span><span class="htag">HubSpot &middot; Level alignment</span></div>
+      <p class="intro">All proposals in the past 30 days used the skill. HubSpot deal data pre-fills context and turnaround is logged per deal. The skill also calibrates the position description to the level discussed, so what the client pays for matches what the role looks like.</p>
+      <ul>
+        <li>Review skill-produced proposals: what&rsquo;s consistently edited? Refine the prompt.</li>
+        <li>HubSpot deal data connected to reduce manual briefing input.</li>
+        <li>Objection-handling and follow-up templates added to the Project.</li>
+        <li>Level-alignment check: the skill tunes the position-description language and years-of-experience to the commercial-model tier agreed with the client, so price, seniority and expectations match before it goes out.</li>
+      </ul>
+      <div class="measure"><span class="ml">Measure</span><b>Faster average proposal turnaround vs current. % of proposals using the skill (target: 100%). Position descriptions aligned to the agreed commercial level.</b></div>
+    </div>
+  <div class="phase p3">
+      <div class="ph"><span class="badge">90 days</span><span class="htag">Proposal chain &middot; Output</span></div>
+      <p class="intro">The full chain runs: HubSpot deal data and discovery notes in, Claude builds and level-aligns the proposal, then outputs to the chosen destination &mdash; the tokenised PandaDoc template, or a repeatable Claude Design proposal if PandaDoc was retired. A person does QA and sends, every time.</p>
+      <ul>
+        <li>Output skill live: Claude populates the tokenised PandaDoc template, or builds the proposal in Claude Design if PandaDoc was retired.</li>
+        <li>Post-discovery-call skill feeds the chain: notes in, proposal brief out, into Claude&rsquo;s draft.</li>
+        <li>Human step kept: QA and send stay with a person &mdash; no auto-send.</li>
+        <li>Report volume, turnaround and win rate for AI-assisted vs the prior period; Sales presents at the showcase.</li>
+      </ul>
+      <div class="measure"><span class="ml">Measure</span><b>Faster turnaround. Proposal volume. Win rate. Hours saved per deal. % built through the HubSpot &rarr; Claude &rarr; proposal-output chain.</b></div>
+    </div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Section 8 &middot; AI transformation</span></div>
+</section>
+
+  <section class="sheet">
+  <div class="cover" style="padding:14px 24px;margin-bottom:14px">
+    <div class="conf">Appendix &middot; Monthly sales report</div>
+    <h1 style="font-size:18pt;margin:6px 0 3px">Monthly sales report</h1>
+    <p class="lede" style="font-size:9pt;margin:0">Compiled by the Commercial Manager, reviewed with the Corporate Services Director, and rolled up into the Revenue monthly report.</p>
+  </div>
+  <table class="form"><tbody>
+    <tr><th style="width:16%">Commercial Manager</th><td style="width:34%"></td><th style="width:16%">Month</th><td style="width:34%"></td></tr>
+    <tr><th>Reviewed with</th><td></td><th>Date</th><td></td></tr>
+  </tbody></table>
+  <h4>Pipeline &amp; conversion &mdash; monthly</h4>
+  <table class="form"><thead>
+    <tr><th style="width:40%">Stage / measure</th><th>This month</th><th>Last month</th><th>Conversion</th><th class="target">Target</th></tr>
+  </thead><tbody>
+    <tr><td>Qualified opportunities (SQL) worked</td><td></td><td></td><td></td><td class="target">~13</td></tr>
+    <tr><td>Discovery completed</td><td></td><td></td><td></td><td class="target">&mdash;</td></tr>
+    <tr><td>Proposals issued</td><td></td><td></td><td></td><td class="target">&mdash;</td></tr>
+    <tr><td>In negotiation / verbal</td><td></td><td></td><td></td><td class="target">&mdash;</td></tr>
+    <tr><td><strong>Signed engagements (won)</strong></td><td></td><td></td><td></td><td class="target">2&ndash;3</td></tr>
+    <tr><td>Win rate, SQL &rarr; won</td><td></td><td></td><td></td><td class="target">25%</td></tr>
+  </tbody></table>
+  <h4>Revenue &amp; coverage</h4>
+  <table class="form"><tbody>
+    <tr><th style="width:33%">New annual value signed ($)</th><td></td><th style="width:33%">Avg. deal size (ACV)</th><td></td></tr>
+    <tr><th>Open pipeline value ($)</th><td></td><th>Pipeline coverage (&times; target)</th><td></td></tr>
+    <tr><th>Avg. sales-cycle length</th><td></td><th>Roles per signed client</th><td></td></tr>
+  </tbody></table>
+  <div class="grid2">
+    <div><h4>Activity &amp; standard</h4>
+      <table class="form"><tbody>
+        <tr><th style="width:52%">Networking meetings attended</th><td></td></tr>
+        <tr><th>LinkedIn introductions worked</th><td></td></tr>
+        <tr><th>Proposal turnaround (avg.)</th><td></td></tr>
+        <tr><th>HubSpot hygiene / no deal without next step</th><td></td></tr>
+      </tbody></table>
+    </div>
+    <div><h4>Watch list</h4>
+      <table class="form"><tbody>
+        <tr><th style="width:52%">Stalled deals</th><td></td></tr>
+        <tr><th>Top objection</th><td></td></tr>
+        <tr><th>Lost reasons</th><td></td></tr>
+        <tr><th>Approvals needed (CSD)</th><td></td></tr>
+      </tbody></table>
+    </div>
+  </div>
+  <h4>Narrative &amp; decisions</h4>
+  <div class="grid2">
+    <div><span class="form-label">What worked / what to change</span><div class="form-field" style="height:36px"></div></div>
+    <div><span class="form-label">Focus next month</span><div class="form-field" style="height:36px"></div></div>
+  </div>
+  <table class="form"><tbody>
+    <tr><th style="width:16%">Commercial Manager</th><td style="width:34%"></td><th style="width:16%">CSD sign-off</th><td style="width:34%"></td></tr>
+  </tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Sales Playbook &middot; Brainbox</span></div>
+</section>
+
+  <section class="sheet">
+  <div class="part-kicker">Closing</div>
+  <h2>What good looks like</h2>
+  <p class="section-intro">The sales function succeeds when the numbers are met and the standard is held.</p>
+  <div class="grid2">
+    <div class="rolecard"><h3>The numbers</h3><p>2&ndash;3 signed engagements per seller per month at a 25% win rate; pipeline coverage of 3&times; the target; forecast accuracy improving quarter on quarter.</p></div>
+    <div class="rolecard"><h3>The standard</h3><p>Five-plus networking meetings a week; HubSpot current; handovers honoured; proposals within five days; no deal without a next step.</p></div>
+  </div>
+  <div class="flag"><span class="lbl">The final measure</span>Per the Revenue Playbook, success is leads that become <strong>signed, commercial engagements</strong>. Every stage, cadence and channel in this playbook is a leading indicator of that one outcome.</div>
+  <h3>US market &mdash; scaffolded</h3>
+  <p>This playbook documents the Australian motion. The United States section &mdash; selling to general agencies through US Agents (under Master Agents by territory) &mdash; is developed with the Corporate Services Director as the US Expansion Project matures, and will follow this same structure adapted to that market.</p>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Sales Playbook &middot; Brainbox</span></div>
+</section>
+
+</main>
+</x-dc>
+</body>
+</html>

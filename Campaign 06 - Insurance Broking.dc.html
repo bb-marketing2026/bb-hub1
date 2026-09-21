@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #fff; }
+    .doc { box-sizing: border-box; max-width: 210mm; margin: 0 auto; background: inherit;
+           padding: 40px clamp(20px, 5vw, 16mm) 80px;
+           font-family: var(--font-body); font-weight: 300; color: var(--bb-grey-800);
+           font-size: 10pt; line-height: 1.5; }
+    .doc h1, .doc h2, .doc h3, .doc h4 { font-family: var(--font-heading); color: var(--bb-grey-700); margin: 0; }
+    .doc h1 { font-weight: 600; }
+    .doc h2 { font-weight: 600; font-size: 16pt; color: var(--bb-pink); letter-spacing: -0.01em;
+              margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--bb-pink); text-wrap: balance; }
+    .doc h3 { font-weight: 600; font-size: 11.5pt; color: var(--bb-grey-700); margin: 16px 0 5px; text-wrap: balance; }
+    .doc h4 { font-weight: 600; font-size: 9.5pt; color: var(--bb-pink-700); margin: 12px 0 3px;
+              text-transform: uppercase; letter-spacing: 0.06em; }
+    .doc p { margin: 0 0 8px; text-wrap: pretty; }
+    .doc ul, .doc ol { margin: 0 0 8px; padding-left: 17px; }
+    .doc li { margin: 0 0 3px; text-wrap: pretty; }
+    .doc li::marker { color: var(--bb-pink-400); }
+    .doc strong { font-weight: 600; color: var(--bb-grey-800); }
+    .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em;
+               font-size: 8pt; color: var(--bb-pink); font-weight: 600; }
+    .cover { background: var(--bb-gradient-brand); border-radius: 18px; padding: 40px 36px; color: #fff; margin-bottom: 8px; }
+    .cover .eyebrow { color: rgba(255,255,255,0.92); }
+    .cover h1 { color: #fff; font-size: 30pt; line-height: 1.05; margin: 14px 0 10px; letter-spacing: -0.015em; }
+    .cover .lede { color: rgba(255,255,255,0.95); font-size: 11.5pt; max-width: 92%; margin: 0; font-weight: 300; }
+    .cover-meta { display: flex; gap: 26px; margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.35); flex-wrap: wrap; }
+    .cover-meta div { font-size: 8.5pt; }
+    .cover-meta span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; opacity: 0.8; margin-bottom: 2px; }
+    .wordmark { font-family: var(--font-logo); font-size: 16pt; letter-spacing: 0.14em; color: #fff; }
+    .doc table.t { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 9pt; }
+    .doc table.t th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading);
+                      font-weight: 600; text-align: left; padding: 6px 9px; border-bottom: 1.5px solid var(--bb-pink-200); font-size: 8.5pt; }
+    .doc table.t td { padding: 6px 9px; border-bottom: 1px solid var(--bb-grey-200); vertical-align: top; }
+    .doc table.t tr:nth-child(even) td { background: var(--bb-grey-50); }
+    .doc table.t.compact td { padding: 4px 9px; }
+    .doc table.t .num { font-family: var(--font-mono); color: var(--bb-pink-700); white-space: nowrap; font-weight: 600; }
+    .cols2 { columns: 2; column-gap: 28px; } .cols2 ul { margin-top: 0; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .script { background: var(--bb-pink-50); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 9px 13px; margin: 6px 0 12px; font-size: 9pt; color: var(--bb-grey-800); }
+    .script .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .script em { font-style: italic; color: var(--bb-grey-700); }
+    .note { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); border-radius: 8px; padding: 9px 13px; margin: 6px 0 12px; font-size: 9pt; }
+    .flag { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 10px 13px; margin: 6px 0 12px; font-size: 9pt; }
+    .flag .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 6px 0 14px; }
+    .stat { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 12px 13px; }
+    .stat .v { font-family: var(--font-heading); font-weight: 600; font-size: 16pt; color: var(--bb-pink); line-height: 1; }
+    .stat .l { font-size: 8pt; color: var(--bb-grey-500); margin-top: 5px; line-height: 1.3; }
+    .days { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0 12px; }
+    .day { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 11px 12px; }
+    .day .d { font-family: var(--font-heading); font-weight: 600; font-size: 10pt; color: var(--bb-pink); }
+    .day .s { font-size: 8pt; color: var(--bb-grey-500); margin-top: 4px; line-height: 1.35; }
+    .dodont { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 6px 0 12px; }
+    .dodont .box { border-radius: 10px; padding: 10px 13px; font-size: 9pt; }
+    .dodont .do { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-300); }
+    .dodont .dont { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); }
+    .dodont h4 { margin-top: 0; } .dodont .do h4 { color: var(--bb-blue-700); } .dodont .dont h4 { color: var(--bb-pink-700); }
+    .dodont ul { padding-left: 16px; margin-bottom: 0; }
+    .lead-statuses { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 12px; }
+    .pill { background: #fff; border: 1px solid var(--bb-pink-200); color: var(--bb-grey-700); border-radius: 999px; padding: 3px 11px; font-size: 8pt; font-family: var(--font-heading); }
+    .section-intro { color: var(--bb-grey-500); font-size: 10pt; margin-bottom: 10px; }
+    .form-field { border: 1px solid var(--bb-grey-300); border-radius: 6px; height: 22px; margin-bottom: 6px; }
+    .form-label { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.07em; color: var(--bb-grey-500); font-family: var(--font-mono); display: block; margin-bottom: 3px; }
+    .doc table.form { width: 100%; border-collapse: collapse; margin: 4px 0 10px; font-size: 8.5pt; }
+    .doc table.form th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 5px 7px; border: 1px solid var(--bb-grey-300); font-size: 7.5pt; }
+    .doc table.form td { padding: 5px 7px; border: 1px solid var(--bb-grey-300); height: 20px; vertical-align: top; }
+    .doc table.form .target { font-family: var(--font-mono); color: var(--bb-pink-700); font-size: 8pt; white-space: nowrap; }
+    .ie-body { font-size: 9.6pt; }
+    .sheet { padding-top: 4px; }
+    .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
+    .sheet > h2:first-child { margin-top: 4px; }
+    .sheet-ftr { display: none; }
+
+
+    .cover .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.22em; font-size: 7.5pt; color: rgba(255,255,255,0.72); margin-bottom: 20px; }
+    .cover .cat { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 10px; }
+    .cover-page { min-height: 900px; display: flex; flex-direction: column; }
+    .cover-page h1 { margin-top: 4px; }
+    .cover-page .cover-meta { margin-top: auto; }
+    @media print { .cover-sheet .cover-page { min-height: 252mm; } .cover-sheet { break-after: page; } }
+
+    .cover-page { position: relative; }
+    .cover-elephant { position: absolute; top: 34px; right: 36px; height: 84px; width: auto; }
+
+    /* ===== Subdued (Boardroom) palette ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .doc h3 { color: var(--bb-grey-700) !important; }
+    .doc h4 { color: var(--bb-grey-500) !important; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root, .handoff { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj { color: var(--bb-grey-700) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; border-left-color: var(--bb-pink) !important; }
+    .flag .lbl { color: var(--bb-grey-500) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+    .stat .v { color: var(--bb-grey-800) !important; }
+    .rolecard h3 { color: var(--bb-grey-800) !important; }
+    .pill { border-color: var(--bb-grey-300) !important; }
+    .script { border-left-color: var(--bb-pink) !important; }
+    .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
+
+    @page { size: A4 portrait; margin: 10mm; }
+    @media print {
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
+      #dc-root, .sc-host { height: auto !important; }
+      .sheet { break-before: page; min-height: 274mm; display: flex; flex-direction: column;
+               box-sizing: border-box; margin-top: 0 !important; border-top: 0 !important; padding-top: 0 !important; }
+      .sheet:first-of-type { break-before: auto; }
+      .sheet > h2:first-child, .sheet > .cover:first-child { margin-top: 0 !important; }
+      .sheet-ftr { display: flex !important; justify-content: space-between; align-items: baseline;
+             margin-top: auto; padding-top: 5mm; border-top: 0.5pt solid var(--bb-grey-200);
+             font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bb-grey-400); }
+      .sheet-ftr .r { color: var(--bb-pink); }
+      h2, h3, h4 { break-after: avoid !important; }
+      h2 + *, h3 + *, h4 + * { break-before: avoid; }
+      figure, pre, blockquote, img, svg, tr, .stat, .day, .script, .note, .flag, .box,
+      .stats, .days, .dodont, .lead-statuses, .grid3, .cover { break-inside: avoid; }
+      table.t, table.form { break-inside: avoid; }
+      table.t thead, table.form thead { display: table-header-group; }
+      table.t tr, table.form tr { break-inside: avoid; }
+      p, li { orphans: 3; widows: 3; }
+    }
+    /* table-font-override */
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, table.rep .tg, .doc table.form .target { font-family: var(--font-body) !important; }
+    /* role-body-override */
+    .doc table.t .role { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+    /* all-table-cells-body */
+    .doc table.t td, .doc table.t td .num, .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, .doc table.t .role, table.rep td, table.rep .tg, .doc table.form td, .doc table.form .target { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+  </style>
+</helmet>
+
+<main class="doc">
+<section class="sheet cover-sheet">
+  <div class="cover cover-page">
+    <img class="cover-elephant" src="assets/brainbox-elephant.png" alt="">
+    <div class="conf">Strictly private &amp; confidential</div>
+    <div class="cat">Demand Generation Campaign · 06 of 10</div>
+    <h1>Insurance brokerages &amp; financial-services support firms</h1>
+    <p class="lede">A one-month campaign targeting WA insurance brokerages and financial-services support firms — where senior brokers lose advisory time to renewals, certificates, claims and CRM admin.</p>
+    <div class="cover-meta">
+      <div><span>Campaign owner</span>Associate: ____________________</div>
+      <div><span>Issued</span>July 2026 &middot; Ref. BB-DGC-06</div>
+      <div><span>Entry product</span>Broking administration assistant (renewals, certificates, claims admin, CRM)</div>
+      <div style="margin-left:auto;align-self:flex-end"><span class="wordmark">BRAINBOX</span></div>
+    </div>
+  </div>
+</section>
+
+  <section class="sheet">
+  <h3>Campaign at a glance</h3>
+        <p class="section-intro">The Associate carries this campaign for one month and reports achievements at month-end against the targets below. Work the 15 supplied contacts first, then add your own researched targets in the same profile.</p>
+        <div class="stats">
+          <div class="stat"><div class="v">15</div><div class="l">Priority contacts supplied (verify before outreach)</div></div>
+          <div class="stat"><div class="v">25–35</div><div class="l">Additional accounts the Associate researches &amp; adds</div></div>
+          <div class="stat"><div class="v">6–10</div><div class="l">Qualified appointments for the Commercial Manager this month</div></div>
+          <div class="stat"><div class="v">1</div><div class="l">Industry Insight Article attached to every first touch</div></div>
+        </div>
+        <div class="note"><strong>How the campaign runs.</strong> Work the 15 supplied contacts first, add your own researched targets to reach ~40–50 accounts, and run the four-week cadence in this pack. Every appointment is booked for the Brainbox <strong>Commercial Manager</strong>, recorded in HubSpot, and tagged <em>Campaign 06 · Insurance Broking</em>.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 06 · Insurance Broking</span></div>
+</section>
+
+<section class="sheet">
+        <h2>Why this industry</h2>
+        <div class="grid2">
+          <div><h4>The pressure</h4><p style="font-size:9pt">Renewal workload, claims administration, certificates of currency, insurer follow-up, compliance records, client documentation and CRM hygiene take valuable advisory time away from senior brokers and account managers.</p></div>
+          <div><h4>The opportunity</h4><p style="font-size:9pt">The right offshore model keeps licensed advice and client judgement with the local team while moving structured administration into a dedicated support function — renewal preparation, policy collation, claims admin, insurer follow-up, certificate requests, debtor support and onboarding packs.</p></div>
+        </div>
+        <div class="flag"><span class="lbl">Market shape</span>Not dominated at the SME brokerage level. Target <strong>owner-led and mid-market brokerages</strong>. Strong controls are needed around privacy, licensing boundaries and client communications.</div>
+        <h3>Offshore-suitable roles to lead with</h3>
+        <div class="lead-statuses"><span class="pill">Renewal preparation</span><span class="pill">Certificate processing</span><span class="pill">Policy collation</span><span class="pill">Claims admin</span><span class="pill">CRM hygiene</span><span class="pill">Insurer follow-up</span><span class="pill">Debtor support</span><span class="pill">Onboarding packs</span></div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 06 · Insurance Broking</span></div></section>
+
+<section class="sheet">
+        <h2>Instant Expert</h2>
+        <p class="section-intro">A five-minute brief so you can talk to a insurance broking prospect like someone who understands their world — not a caller reading a script.</p>
+        <div class="ie-body">
+        <h4>The labour market they live in</h4><p>Broking runs on experienced people, and they are in short supply. Firms compete for account managers, broker support and claims staff, and training a new local hire to competence takes months. Meanwhile the renewal calendar never stops, so any gap in the support team is felt immediately by clients.</p>
+        <h4>Why the admin load hurts</h4><p>Every policy carries a trail: renewal preparation, quote comparison collation, certificates of currency, endorsements, insurer follow-up, claims lodgement and updates, invoicing and CRM updates. When brokers do this themselves, they have less time for advice, cross-sell and relationships — the work that actually grows the book.</p>
+        <h4>The pressures shaping their year</h4><p>Renewal seasons create sharp peaks, compliance obligations (privacy, licensing, disclosure) are strict, and debtors and unclosed CRM tasks quietly erode the business. Clients expect fast turnaround on certificates and claims, and a slow response can lose an account to a competitor.</p>
+        <h4>Where offshore support fits</h4><p>Licensed advice, placement decisions and client judgement stay local. A dedicated offshore administrator handles the structured work — renewal prep, certificates, policy collation, claims admin, insurer follow-up and CRM hygiene — lifting broker capacity while control over advice and compliance stays in the firm.</p>
+        <h4>Talk like an insider</h4><p>Know the language: renewals, COCs, endorsements, SOA/SOAF, binders, closings, claims triage, ICA, broking platforms. Know the tools: Insight/CBS, Winbeat, SVU, iBais, Sunrise, BizCover-adjacent systems. Lead with capacity and turnaround; be precise about licensing boundaries.</p>
+        </div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 06 · Insurance Broking</span></div></section>
+
+<section class="sheet">
+        <h2>Target profile &amp; selection</h2>
+        <p class="section-intro">Add researched accounts that meet <strong>at least four</strong> of these signals. Verify size and ownership before adding — the model fits owner-led SMEs.</p>
+        <div class="cols2"><ul><li>Owner-led or mid-market insurance brokerage</li><li>10–80 staff, WA-based</li><li>Principal / director-led</li><li>Recurring renewal, certificate &amp; claims admin</li><li>Recently advertised for broker support or account admin</li><li>Uses broking platforms (Insight, Winbeat, SVU, iBais, Sunrise)</li><li>Growth signals: new authorised reps, book acquisitions, new classes</li><li>Renewal-season peaks &amp; CRM / debtor pressure</li><li>Visible broker &amp; support team on LinkedIn</li></ul></div>
+        <div class="dodont">
+          <div class="box do"><h4>Pursue</h4><ul><li>Owner / director-led SME brokerages</li><li>Firms recruiting broker or account support</li><li>Recurring renewal, certificate &amp; claims load</li><li>Brokerages with renewal-season peaks</li></ul></div>
+          <div class="box dont"><h4>Exclude</h4><ul><li>National insurers &amp; large brokers with shared services</li><li>Firms too small to support a role</li><li>Work requiring licensed advice (kept local)</li><li>Firms with strict no-offshore data rules (unless reviewing)</li></ul></div>
+        </div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 06 · Insurance Broking</span></div></section>
+
+<section class="sheet">
+        <h2>The proposition &amp; angles</h2>
+        <p class="section-intro">Lead with a specific pressure point, not a generic offshore pitch. Match the angle to the person and the trigger.</p>
+        <table class="t"><thead><tr><th style="width:34%">Pressure point</th><th>Angle to lead with</th></tr></thead><tbody>
+        <tr><td>Brokers doing admin</td><td>A broking administrator so brokers advise and sell, not process.</td></tr><tr><td>Renewal-season crunch</td><td>Renewal preparation and quote collation to smooth the peaks.</td></tr><tr><td>Certificate turnaround</td><td>Fast certificate-of-currency processing to keep clients happy.</td></tr><tr><td>Claims admin backlog</td><td>Claims lodgement, updates and follow-up support.</td></tr><tr><td>Messy CRM</td><td>CRM hygiene — data, tasks and pipeline kept current.</td></tr><tr><td>Growing debtors</td><td>Debtor follow-up and statements to protect cash flow.</td></tr>
+        </tbody></table>
+        <div class="note"><strong>Keep it concrete.</strong> Prospects respond to one or two named workflows they recognise from their own week — a specific pressure point lands far better than "back-office support".</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 06 · Insurance Broking</span></div></section>
+
+<section class="sheet">
+        <h2>Priority prospect list — 15 supplied</h2>
+        <p class="section-intro">First-pass, public-source targets. <strong>Verify in HubSpot, Sales Navigator &amp; Apollo before outreach</strong> — confirm contact, size and fit. Names marked "verify" need a confirmed decision maker first.</p>
+        <table class="t compact"><thead><tr><th style="width:26%">Company</th><th style="width:26%">Best contact</th><th>Why approach</th></tr></thead><tbody>
+        <tr><td>Phoenix Insurance Brokers</td><td>Ellen Pobjoy, Managing Director</td><td>Brokerage target for renewal preparation, claims support and certificate administration.</td></tr><tr><td>Coverforce Westminster</td><td>David Rogers, Director</td><td>Insurance brokerage target for account support, renewal documentation and CRM discipline.</td></tr><tr><td>Cowden Insurance Brokers WA</td><td>Chris Carr, Director</td><td>Brokerage target for renewal and claims administration support.</td></tr><tr><td>Trident Insurance Group</td><td>Rick Wolozny, Managing Director</td><td>Perth brokerage target for client-service and insurer-follow-up administration.</td></tr><tr><td>Woods Insurance Brokers</td><td>Simon Woods, Managing Director / Founder / Owner</td><td>Brokerage target for senior-led admin leverage and client documentation support.</td></tr><tr><td>LML Insurance Group</td><td>Bryan Leibbrandt, Managing Director and Co-Founder</td><td>Brokerage target for corporate client administration and claims support.</td></tr><tr><td>EBM Insurance &amp;amp; Risk</td><td>Alan Bishop, CEO and Executive Chair</td><td>Privately owned broker with renewal, claims and document workflows.</td></tr><tr><td>PSC Insurance Brokers Perth</td><td>Simmone Duffield, Senior Broker / Perth senior contact</td><td>Brokerage target for transport, mining services and winery sector support workflows.</td></tr><tr><td>Centrewest Insurance Brokers</td><td>Scott Cole, CEO and Managing Director</td><td>WA brokerage target for structured account administration support.</td></tr><tr><td>Country Wide Insurance Brokers</td><td>Ronnie Chong, Managing Director</td><td>Regional and SME brokerage target for renewal and certificate administration.</td></tr><tr><td>General Insurance Brokers</td><td>Lee Thomson and Sean Condo, Directors</td><td>Senior-led brokerage target for document collation and support workflows.</td></tr><tr><td>Knightcorp Insurance Brokers</td><td>Trent Brown, Chief Executive; Wayde Knight, Managing Director / Founder</td><td>WA brokerage target for administrative scale and client service support.</td></tr><tr><td>Resolute Insurance Services</td><td>Mike Moriarty, General Manager and Executive Director</td><td>Brokerage target with health and disability care specialisation and admin support potential.</td></tr><tr><td>WA Insurance Brokers</td><td>Peter Newbound, Principal</td><td>Small brokerage target for CRM, renewal and client documentation support.</td></tr><tr><td>McKinley Plowman General Insurance</td><td>General Insurance Practice Lead to verify</td><td>Financial-services group with insurance broking support potential. <em>Verify contact.</em></td></tr>
+        </tbody></table>
+        <div class="flag"><span class="lbl">Expand the list</span>Add <strong>25–35 of your own researched accounts</strong> that fit the profile — surfaced via Sales Navigator, job ads, industry directories and referrals. Aim for ~40–50 accounts for the month.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 06 · Insurance Broking</span></div></section>
+
+<section class="sheet">
+        <h2>Buyers &amp; qualification</h2>
+        <p class="section-intro">Multi-thread each account — reach a senior decision maker for authority and an operational person for the felt pain.</p>
+        <div class="grid2">
+          <div><h4>Primary decision makers</h4><ul><li>Owner · Managing Director</li><li>CEO · Executive Chair</li><li>Director · Principal</li></ul></div>
+          <div><h4>Influencers &amp; secondary buyers</h4><ul><li>Operations / Broking Support Manager</li><li>Account Management Lead</li><li>Finance / Compliance Manager</li></ul></div>
+        </div>
+        <h3>Qualification questions</h3>
+        <p class="section-intro">Use only what you need — the goal is a meeting, not a full diagnosis.</p>
+        <ul><li>Can I ask, do your brokers or account managers spend much time preparing renewal files or chasing insurer documents?</li><li>Are certificate requests, claims admin or CRM updates creating backlog?</li><li>Do you have a consistent process for offshore-suitable administration?</li><li>Have you previously used offshore staff in brokerage support?</li></ul>
+        <div class="note"><strong>Qualified appointment.</strong> Company fits the profile; contact is a decision maker or credible sponsor; at least one confirmed business driver; meeting accepted in the Commercial Manager's calendar with a clear handover note in HubSpot.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 06 · Insurance Broking</span></div></section>
+
+<section class="sheet">
+        <h2>Objection handling — insurance broking</h2>
+        <div class="note"><strong>How to handle any objection.</strong> Acknowledge it sincerely, reframe to the business issue, then ask one question that keeps the conversation open. Never argue and never oversell — the goal is a short meeting for the Commercial Manager, not winning the point on the call.</div>
+        <table class="t"><thead><tr><th style="width:32%">Objection</th><th>Response angle</th></tr></thead><tbody>
+        <tr><td>“This is licensed advice.”</td><td>Advice and placement stay with your licensed brokers — always. We support the administration around them: renewals, certificates, claims processing, CRM. Which is heaviest?</td></tr><tr><td>“Client data &amp; privacy.”</td><td>Central in insurance. Brainbox staff work under managed access, confidentiality and clear policies inside your platform — happy to detail the controls.</td></tr><tr><td>“Compliance is strict.”</td><td>Which is why a trained, consistent resource who learns your process helps. You retain the compliance decisions; the processing gets reliable.</td></tr><tr><td>“We tried offshore before.”</td><td>Usually a scoping and supervision issue. Our managed model trains and supervises the role and covers leave — different from a marketplace VA.</td></tr><tr><td>“Renewals are seasonal.”</td><td>That's the strength — a dedicated resource absorbs renewal peaks without hiring and shedding local staff each season.</td></tr><tr><td>“Send me details.”</td><td>Happy to — is it renewals, certificates or claims admin that hurts most? I'll send the right example.</td></tr>
+        </tbody></table>
+        <div class="note"><strong>Know when to stop.</strong> A clear "no" frees time for better-fit accounts. Close the loop kindly, set a nurture date if there's a future trigger, and respect every opt-out immediately.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 06 · Insurance Broking</span></div></section>
+
+<section class="sheet">
+        <h2>First-touch email</h2>
+        <p class="section-intro">Sent from Brainbox / the Commercial Manager with the Industry Insight Article attached. The Associate follows up by phone within a few days.</p>
+        <div class="script">
+          <span class="lbl">Subject · Offshore administration support for insurance brokerages</span>
+          <em>Hi [First Name]</em><br><br>
+          Insurance brokerages are under steady pressure from renewal workload, claims administration, certificates of currency, insurer follow-up, compliance records, client documentation and CRM hygiene. Senior brokers and account managers can lose valuable advisory time to tasks that are important but process-heavy.<br><br>Brainbox helps Australian businesses place dedicated offshore personnel through our delivery centre in the Philippines. For insurance brokerages and financial services support firms, the right offshore model keeps licensed advice and client judgement with the local team while moving structured administration into a dedicated support function.<br><br>We have attached an Industry Insight Article that looks at the labour and workflow pressure affecting brokerages. It explores how offshore staff can support renewal preparation, policy document collation, claims administration, insurer follow-up, certificate requests, debtor support and client onboarding packs.<br><br>The discussion may be relevant for [Company] if your senior people are spending too much time chasing documents, updating systems, preparing renewal files or managing administrative follow-up.<br><br>Someone from Brainbox will be reaching out over the next few days to arrange a short meeting with our Commercial Manager. The meeting would explore whether a dedicated offshore role could improve broker capacity while maintaining local control over advice, relationships and compliance.<br><br>
+          Kind regards<br>[Sender Name] · Brainbox
+        </div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 06 · Insurance Broking</span></div></section>
+
+<section class="sheet">
+        <h2>Lead generation call script</h2>
+        <p class="section-intro">A structured prompt to secure a 20-minute meeting for the Commercial Manager — not to sell the service on the call.</p>
+        <div class="script"><span class="lbl">Opening</span><em>Hi [First Name], this is [Caller Name] from Brainbox in Perth. We help Australian businesses place dedicated offshore support personnel through our delivery centre in the Philippines. I am following up on an Industry Insight Article we sent through about labour and workflow pressure in insurance brokerages and financial services support firms.</em></div>
+        <div class="script"><span class="lbl">Industry relevance</span><em>Brokerages often have senior brokers and account managers carrying process-heavy work. Renewal preparation, certificates of currency, policy document collation, insurer follow-up, claims administration, debtor support and CRM updates can take time away from advice and client relationships. The offshore opportunity is not licensed advice. It is structured administration under the control of the local team.</em></div>
+        <div class="script"><span class="lbl">Qualification</span><em>Can I ask, do your brokers or account managers spend much time preparing renewal files or chasing insurer documents? Are certificate requests, claims admin or CRM updates creating backlog? Do you have a consistent process for offshore-suitable administration? Have you previously used offshore staff in brokerage support?</em></div>
+        <div class="script"><span class="lbl">Meeting ask</span><em>A 20-minute meeting with our Commercial Manager would help identify whether there is a clean support role that could improve broker capacity while keeping advice and client control local. Would [day/time] or [day/time] work?</em></div>
+        <div class="script"><span class="lbl">LinkedIn connection note (optional first touch)</span><em>Hi [First Name], I work with WA insurance broking businesses on offshore renewal preparation, certificate processing, policy collation support. Noticed [Company]'s work — would be good to connect.</em></div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 06 · Insurance Broking</span></div></section>
+
+<section class="sheet">
+        <h2>Follow-up sequence</h2>
+        <p class="section-intro">First touch opens the door; the follow-ups win the meeting. Each adds a new angle — never resends the same message. Stop the sequence on any reply, opt-out or "do not contact".</p>
+        <table class="t"><thead><tr><th style="width:20%">Touch</th><th>Purpose</th></tr></thead><tbody>
+          <tr><td class="num">1 · Day 1</td><td>First-touch email + Industry Insight Article (previous page).</td></tr>
+          <tr><td class="num">2 · Day 2–3</td><td>Phone call using the script; LinkedIn connection request if not already connected.</td></tr>
+          <tr><td class="num">3 · Day 5</td><td>Value follow-up email — one specific angle from the proposition page.</td></tr>
+          <tr><td class="num">4 · Day 9</td><td>Second call + short LinkedIn message with a relevant proof point.</td></tr>
+          <tr><td class="num">5 · Day 14</td><td>Close-the-loop / breakup email — polite, no pressure, easy to reopen.</td></tr>
+          <tr><td class="num">Day 45+</td><td>Move to nurture; revisit on a new trigger (hiring, growth, new work).</td></tr>
+        </tbody></table>
+        <div class="script"><span class="lbl">Touch 3 · value follow-up email</span><em>Hi [First Name], following my note on offshore broking support — the issue most WA brokerages raise first is senior brokers losing advisory time to renewals, certificates and claims admin. A dedicated administrator inside your platform lifts capacity while advice stays local. Worth 20 minutes with our Commercial Manager to see if it fits [Company]?</em></div>
+        <div class="script"><span class="lbl">Touch 5 · close-the-loop / breakup email</span><em>Hi [First Name], I won't keep filling your inbox. If offshore broking administration isn't a priority right now, that's fine — I'll close the loop. If it's timing, tell me when to circle back. The Industry Insight Article is yours to keep either way.</em></div>
+        <div class="note"><strong>Multi-thread, don't spam.</strong> Space the sequence across the month and vary who you contact within an account — never several identical messages to one firm in a day.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 06 · Insurance Broking</span></div></section>
+
+<section class="sheet">
+        <h2>The four-week plan</h2>
+        <p class="section-intro">One month, carried by the Associate. Front-load research and first touches; protect the back half for conversion and booking.</p>
+        <div class="days">
+          <div class="day"><div class="d">Week 1</div><div class="s">Verify the 15, research +25–35, map buyers &amp; triggers, load HubSpot, send first email wave with the Insight Article.</div></div>
+          <div class="day"><div class="d">Week 2</div><div class="s">Call wave on emailed contacts, LinkedIn connects &amp; engagement, follow-up wave 1, begin booking meetings.</div></div>
+          <div class="day"><div class="d">Week 3</div><div class="s">Second first-touch wave to remaining &amp; researched accounts, multi-thread Tier 1, convert warm replies, referral asks.</div></div>
+          <div class="day"><div class="d">Week 4</div><div class="s">Conversion push, confirm &amp; hand over booked meetings, reactivate non-responders, clean data, write month-end report.</div></div>
+        </div>
+        <table class="t"><thead><tr><th style="width:20%">Focus</th><th>What "good" looks like each week</th></tr></thead><tbody>
+          <tr><td class="num">Research</td><td>Every account verified, tiered and tagged Campaign 06; buyers mapped with a named trigger.</td></tr>
+          <tr><td class="num">Outreach</td><td>Personalised first touches with the Insight Article attached; one strong reason per message.</td></tr>
+          <tr><td class="num">Calls</td><td>Priority order: warm replies, accepted connections, openers, Tier 1 decision makers.</td></tr>
+          <tr><td class="num">Booking</td><td>Two specific times offered; invite sent immediately; handover note in HubSpot for the Commercial Manager.</td></tr>
+        </tbody></table>
+        <div class="note"><strong>Cross-reference the core cadence.</strong> This campaign runs inside the weekly rhythm from the Demand Generation Playbook — campaign touches count toward the Associate's standard first-touch, follow-up, call and conversation targets, and campaign-sourced meetings count toward booked and held appointments.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 06 · Insurance Broking</span></div></section>
+
+<section class="sheet">
+        <h2>Commercial Manager handover note</h2>
+        <p class="section-intro">Complete this in HubSpot for <strong>every</strong> booked appointment. It is what turns a booking into a converted meeting — the Commercial Manager walks in already knowing the pain, the room and the angle.</p>
+        <table class="form"><tbody>
+          <tr><th style="width:26%">Company &amp; size</th><td></td></tr>
+          <tr><th>Contact, role &amp; who else is in the room</th><td></td></tr>
+          <tr><th>Trigger (why now)</th><td></td></tr>
+          <tr><th>Pain hypothesis</th><td></td></tr>
+          <tr><th>Offshore-suitable roles identified</th><td></td></tr>
+          <tr><th>Recommended angle / entry product</th><td></td></tr>
+          <tr><th>Software &amp; systems in use</th><td></td></tr>
+          <tr><th>Objections raised &amp; responses</th><td></td></tr>
+          <tr><th>"Do not say" / sensitivities</th><td></td></tr>
+          <tr><th>Meeting date, time &amp; format</th><td></td></tr>
+        </tbody></table>
+        <div class="grid2">
+          <div class="box" style="background:var(--bb-blue-50);border:1px solid var(--bb-blue-300);border-radius:10px;padding:11px 13px">
+            <h4 style="color:var(--bb-blue-700);margin-top:0">Do include</h4>
+            <ul style="font-size:8.5pt;padding-left:16px;margin-bottom:0"><li>The exact words the prospect used about their pain</li><li>The specific trigger you found</li><li>One clear recommended entry product</li></ul>
+          </div>
+          <div class="box" style="background:var(--bb-pink-50);border:1px solid var(--bb-pink-200);border-radius:10px;padding:11px 13px">
+            <h4 style="color:var(--bb-pink-700);margin-top:0">Avoid</h4>
+            <ul style="font-size:8.5pt;padding-left:16px;margin-bottom:0"><li>Over-promising scope or pricing</li><li>Vague notes like "keen, wants to chat"</li><li>Booking without confirming the decision maker attends</li></ul>
+          </div>
+        </div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 06 · Insurance Broking</span></div></section>
+
+<section class="sheet">
+        <h2>Monthly targets</h2>
+        <p class="section-intro">The benchmark is appointments <em>held</em> with a good-fit insurance broking prospect, not activity alone.</p>
+        <div class="stats">
+          <div class="stat"><div class="v">40–50</div><div class="l">Target accounts worked (15 supplied + research)</div></div>
+          <div class="stat"><div class="v">100–140</div><div class="l">Contacts researched &amp; enriched</div></div>
+          <div class="stat"><div class="v">40–50</div><div class="l">First-touch emails with Insight Article</div></div>
+          <div class="stat"><div class="v">120–160</div><div class="l">Follow-up actions across the month</div></div>
+          <div class="stat"><div class="v">80–120</div><div class="l">Calls to priority &amp; warm contacts</div></div>
+          <div class="stat"><div class="v">20–30</div><div class="l">Live conversations / two-way exchanges</div></div>
+          <div class="stat"><div class="v">10–15</div><div class="l">Warm opportunities created in HubSpot</div></div>
+          <div class="stat"><div class="v">6–10</div><div class="l">Qualified appointments booked for the Commercial Manager</div></div>
+        </div>
+        <div class="flag"><span class="lbl">Final success measure</span>Appointments that convert into <strong>sales opportunities</strong> and ultimately a <strong>commercial transaction</strong>. Every metric above is a leading indicator of that single revenue outcome.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 06 · Insurance Broking</span></div></section>
+
+<section class="sheet">
+        <div class="cover" style="padding:14px 24px">
+          <div class="eyebrow">Month-end report · Campaign 06</div>
+          <h1 style="font-size:17pt;margin:6px 0 2px">Insurance Broking — outcomes</h1>
+          <p class="lede" style="font-size:9pt;margin:0">Completed by the Associate and reviewed with the sales lead / Marketing Manager at month-end.</p>
+        </div>
+        <table class="form"><tbody>
+          <tr><th style="width:16%">Associate</th><td style="width:34%"></td><th style="width:16%">Month</th><td style="width:34%"></td></tr>
+          <tr><th>Commercial Manager covered</th><td></td><th>Reviewed with / date</th><td></td></tr>
+        </tbody></table>
+        <h4>Activity &amp; outcomes vs target</h4>
+        <table class="form"><thead><tr><th style="width:44%">Measure</th><th class="target" style="width:18%">Target</th><th>Actual</th><th>Notes</th></tr></thead><tbody>
+          <tr><td>Accounts worked</td><td class="target">40–50</td><td></td><td></td></tr>
+          <tr><td>First-touch emails sent</td><td class="target">40–50</td><td></td><td></td></tr>
+          <tr><td>Calls made</td><td class="target">80–120</td><td></td><td></td></tr>
+          <tr><td>Live conversations</td><td class="target">20–30</td><td></td><td></td></tr>
+          <tr><td>Warm opportunities created</td><td class="target">10–15</td><td></td><td></td></tr>
+          <tr><td>Qualified appointments booked</td><td class="target">6–10</td><td></td><td></td></tr>
+          <tr><td>Appointments held</td><td class="target">—</td><td></td><td></td></tr>
+          <tr><td><strong>Opportunities → commercial transaction</strong></td><td class="target">—</td><td></td><td></td></tr>
+        </tbody></table>
+        <div class="grid2">
+          <div><span class="form-label">What worked / best angle &amp; trigger</span><div class="form-field" style="height:40px"></div></div>
+          <div><span class="form-label">Top objection &amp; what to change</span><div class="form-field" style="height:40px"></div></div>
+        </div>
+        <h4>Sign-off</h4>
+        <table class="form"><tbody><tr><th style="width:16%">Associate</th><td style="width:34%"></td><th style="width:16%">Sales lead</th><td style="width:34%"></td></tr></tbody></table>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 06 · Insurance Broking</span></div></section>
+</main>
+</x-dc>
+</body>
+</html>

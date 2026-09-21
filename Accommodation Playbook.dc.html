@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #fff; }
+    .doc { box-sizing: border-box; max-width: 210mm; margin: 0 auto; background: inherit; padding: 40px clamp(20px,5vw,16mm) 80px; font-family: var(--font-body); font-weight: 300; color: var(--bb-grey-800); font-size: 10pt; line-height: 1.5; }
+    .doc h1,.doc h2,.doc h3,.doc h4 { font-family: var(--font-heading); color: var(--bb-grey-700); margin: 0; }
+    .doc h1 { font-weight: 600; }
+    .doc h2 { font-weight: 600; font-size: 16pt; color: var(--bb-pink); letter-spacing: -0.01em; margin: 24px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--bb-pink); text-wrap: balance; }
+    .doc h3 { font-weight: 600; font-size: 11.5pt; color: var(--bb-grey-700); margin: 15px 0 5px; text-wrap: balance; }
+    .doc h4 { font-weight: 600; font-size: 9.5pt; color: var(--bb-pink-700); margin: 12px 0 3px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .doc p { margin: 0 0 9px; text-wrap: pretty; }
+    .doc ul,.doc ol { margin: 0 0 9px; padding-left: 17px; }
+    .doc li { margin: 0 0 4px; text-wrap: pretty; } .doc li::marker { color: var(--bb-pink-400); }
+    .doc strong { font-weight: 600; color: var(--bb-grey-800); }
+    .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; }
+    .cover { background: var(--bb-gradient-brand); border-radius: 18px; padding: 44px 38px; color: #fff; margin-bottom: 8px; }
+    .cover .eyebrow { color: rgba(255,255,255,0.92); }
+    .cover h1 { color: #fff; font-size: 32pt; line-height: 1.04; margin: 14px 0 12px; letter-spacing: -0.015em; }
+    .cover .lede { color: rgba(255,255,255,0.95); font-size: 12pt; max-width: 94%; margin: 0; font-weight: 300; line-height: 1.5; }
+    .cover-meta { display: flex; gap: 26px; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.35); flex-wrap: wrap; }
+    .cover-meta div { font-size: 8.5pt; } .cover-meta span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; opacity: 0.8; margin-bottom: 2px; }
+    .wordmark { font-family: var(--font-logo); font-size: 16pt; letter-spacing: 0.14em; color: #fff; }
+    .doc table.t { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 9.4pt; }
+    .doc table.t th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 7px 10px; border-bottom: 1.5px solid var(--bb-pink-200); font-size: 8.7pt; }
+    .doc table.t td { padding: 7px 10px; border-bottom: 1px solid var(--bb-grey-200); vertical-align: top; }
+    .doc table.t tr:nth-child(even) td { background: var(--bb-grey-50); }
+    .doc table.t .role { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); white-space: nowrap; }
+    .doc table.t .maj { font-family: var(--font-mono); color: var(--bb-pink-700); font-weight: 600; font-size: 8.5pt; }
+    .doc table.t .min { font-family: var(--font-mono); color: var(--bb-grey-500); font-size: 8.5pt; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .note { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); border-radius: 8px; padding: 10px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 11px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag .lbl,.note .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .section-intro { color: var(--bb-grey-500); font-size: 10.5pt; margin-bottom: 12px; }
+    .part-kicker { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 2px; }
+    .rolecard { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 15px; margin-bottom: 11px; }
+    .rolecard h3 { margin: 0 0 3px; color: var(--bb-pink); font-size: 11pt; }
+    .rolecard .from { font-family: var(--font-mono); font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bb-grey-500); margin-bottom: 6px; }
+    .rolecard p { margin: 0; font-size: 9.4pt; }
+    .numlist { counter-reset: n; padding: 0; margin: 6px 0 10px; list-style: none; }
+    .numlist > li { position: relative; padding-left: 34px; margin-bottom: 10px; }
+    .numlist > li::before { counter-increment: n; content: counter(n); position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--bb-pink); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 10pt; display: flex; align-items: center; justify-content: center; }
+    .numlist > li strong { color: var(--bb-pink-700); }
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin: 6px 0 14px; }
+    .stat { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 14px; }
+    .stat .v { font-family: var(--font-heading); font-weight: 600; font-size: 17pt; color: var(--bb-pink); line-height: 1; }
+    .stat .l { font-size: 8pt; color: var(--bb-grey-500); margin-top: 6px; line-height: 1.3; }
+    .layer { display: flex; align-items: stretch; gap: 12px; margin-bottom: 9px; }
+    .layer .ln { flex: none; width: 30px; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 600; font-size: 14pt; color: #fff; background: var(--bb-pink); border-radius: 10px; }
+    .layer .lb { flex: 1; border: 1px solid var(--bb-grey-200); border-left: 3px solid var(--bb-pink-300); border-radius: 10px; padding: 9px 14px; }
+    .layer .lb h4 { margin: 0 0 2px; color: var(--bb-grey-700); } .layer .lb p { margin: 0; font-size: 9.2pt; }
+    .tree { margin: 14px 0; }
+    .tree .root { background: var(--bb-gradient-brand); color: #fff; border-radius: 12px; padding: 12px 16px; text-align: center; font-family: var(--font-heading); font-weight: 600; font-size: 12pt; }
+    .tree .branchrow { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 14px; align-items: start; }
+    .tree .branch { border: 1px solid var(--bb-pink-200); border-radius: 12px; padding: 12px; }
+    .tree .branch > .bh { background: var(--bb-pink-50); border-radius: 8px; padding: 8px 12px; text-align: center; font-family: var(--font-heading); font-weight: 600; color: var(--bb-pink-700); font-size: 10.5pt; margin-bottom: 10px; }
+    .tree .leaves { display: flex; flex-direction: column; gap: 8px; }
+    .tree .leaf { border: 1px solid var(--bb-grey-200); border-radius: 8px; padding: 8px 12px; font-size: 9.3pt; }
+    .tree .leaf b { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); display: block; }
+    .tree .leaf span { color: var(--bb-grey-500); font-size: 8.3pt; }
+    .tree .leaf.live { border-color: var(--bb-pink-300); border-left: 3px solid var(--bb-pink); }
+    .relay { margin: 14px 0 10px; }
+    .relay-node { display: flex; align-items: center; gap: 13px; border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 11px 15px; background: #fff; }
+    .relay-node .rn { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--bb-pink); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 12pt; display: flex; align-items: center; justify-content: center; }
+    .relay-node .rt { flex: 1; } .relay-node .rt b { font-family: var(--font-heading); font-weight: 600; font-size: 11pt; color: var(--bb-grey-700); }
+    .relay-node .rt span { display: block; font-size: 8.6pt; color: var(--bb-grey-500); margin-top: 1px; }
+    .relay-node .own { flex: none; font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 999px; }
+    .relay-node.mk { border-left: 4px solid var(--bb-blue-300); } .relay-node.mk .own { background: var(--bb-blue-50); color: var(--bb-blue-700); }
+    .relay-node.rev { border-left: 4px solid var(--bb-pink); } .relay-node.rev .own { background: var(--bb-pink-50); color: var(--bb-pink-700); }
+    .handover { display: flex; align-items: center; gap: 9px; margin: 5px 0 5px 44px; }
+    .handover .ar { color: var(--bb-pink); font-size: 13pt; line-height: 1; }
+    .handover .hb { font-family: var(--font-mono); font-size: 7.4pt; letter-spacing: 0.04em; color: var(--bb-grey-500); background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-radius: 999px; padding: 3px 11px; }
+    .handover.seam { margin-left: 0; justify-content: center; }
+    .handover.seam .hb { background: var(--bb-gradient-brand); color: #fff; border: 0; font-weight: 600; font-size: 8.2pt; padding: 6px 16px; letter-spacing: 0.06em; }
+    .feedback { display: flex; align-items: center; gap: 9px; margin: 7px 0 2px; justify-content: center; }
+    .feedback .hb { font-family: var(--font-mono); font-size: 7.4pt; letter-spacing: 0.04em; color: var(--bb-blue-700); background: #fff; border: 1px dashed var(--bb-blue-300); border-radius: 999px; padding: 4px 13px; }
+    .feedback .ar { color: var(--bb-blue-300); font-size: 12pt; }
+    .iface { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0 12px; }
+    .iface .box { border: 1px solid var(--bb-grey-200); border-radius: 10px; padding: 10px 13px; }
+    .iface .box.give { border-left: 3px solid var(--bb-blue-300); } .iface .box.give h4 { color: var(--bb-blue-700); }
+    .iface .box.get { border-left: 3px solid var(--bb-pink); }
+    .iface .box p { font-size: 9pt; margin: 0; }
+    .ldiv { background: var(--bb-gradient-brand); color: #fff; border-radius: 16px; padding: 30px 32px; margin-bottom: 16px; }
+    .ldiv .lk { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8.5pt; opacity: 0.92; }
+    .ldiv h1 { color: #fff; font-size: 27pt; margin: 8px 0 10px; letter-spacing: -0.015em; line-height: 1.05; }
+    .ldiv .role { font-size: 11.5pt; color: rgba(255,255,255,0.96); max-width: 94%; line-height: 1.5; margin: 0; }
+    .ldiv .io { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.32); }
+    .ldiv .io span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 6.8pt; opacity: 0.82; margin-bottom: 3px; }
+    .ldiv .io div { font-size: 8.9pt; line-height: 1.4; }
+    .ldiv .own-pill { display: inline-block; margin-top: 14px; font-family: var(--font-mono); font-size: 7.2pt; text-transform: uppercase; letter-spacing: 0.09em; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); padding: 4px 12px; border-radius: 999px; }
+    .handoff { background: var(--bb-gradient-brand); color: #fff; border-radius: 12px; padding: 13px 17px; margin: 14px 0 4px; }
+    .handoff .k { display: block; font-family: var(--font-mono); font-size: 7pt; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.9; margin-bottom: 4px; }
+    .handoff .v { font-size: 10pt; line-height: 1.45; } .handoff strong { color: #fff; }
+    /* AI transformation sub-journey */
+    .aij { border: 1px solid var(--bb-blue-100); background: var(--bb-blue-50); border-radius: 12px; padding: 12px 15px; margin: 10px 0 12px; }
+    .aij .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; color: var(--bb-blue-700); display: block; margin-bottom: 8px; }
+    .aij .ft { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 8px; align-items: stretch; }
+    .aij .c { background: #fff; border: 1px solid var(--bb-grey-200); border-radius: 9px; padding: 8px 11px; font-size: 9pt; }
+    .aij .c.to { border-left: 3px solid var(--bb-blue-300); }
+    .aij .c b { display: block; font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bb-grey-500); margin-bottom: 3px; }
+    .aij .c.to b { color: var(--bb-blue-700); }
+    .aij .arw { display: flex; align-items: center; justify-content: center; color: var(--bb-pink); font-size: 15pt; }
+    .aij .tools { font-size: 8.4pt; color: var(--bb-grey-500); margin-top: 8px; }
+    .aij .tools strong { color: var(--bb-grey-700); }
+    .sheet { padding-top: 4px; }
+    .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
+    .sheet > h2:first-child,.sheet > .part-kicker:first-child { margin-top: 4px; }
+    .sheet-ftr { display: none; }
+    
+    .toc { margin: 10px 0 4px; }
+    .toc-row { display: flex; align-items: baseline; gap: 12px; padding: 7px 2px; border-bottom: 1px solid var(--bb-grey-200); }
+    .toc-row .n { font-family: var(--font-mono); font-size: 8pt; color: var(--bb-pink); width: 22px; flex: none; }
+    .toc-row .t { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 10.5pt; }
+
+    .cover-page { min-height: 900px; display: flex; flex-direction: column; }
+    .cover-page .cat { margin-bottom: auto; } .cover-page h1 { margin-top: 0; }
+    .cover-page .cover-meta { margin-top: auto; }
+    @media print { .cover-sheet .cover-page { min-height: 252mm; } .cover-sheet { break-after: page; } }
+
+    .cover-page { position: relative; }
+    .cover-elephant { position: absolute; top: 34px; right: 36px; height: 84px; width: auto; }
+
+    .cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 32%, var(--bb-pink) 118%) !important; }
+    .cover-grad .cat { color: #fff !important; }
+    .sub-note { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 7.5pt; color: rgba(255,255,255,0.85); margin-top: 10px; }
+
+    /* ===== Subdued (Boardroom) palette ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .doc h3 { color: var(--bb-grey-700) !important; }
+    .doc h4 { color: var(--bb-grey-500) !important; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root, .handoff { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj { color: var(--bb-grey-700) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; border-left-color: var(--bb-pink) !important; }
+    .flag .lbl { color: var(--bb-grey-500) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+    .stat .v { color: var(--bb-grey-800) !important; }
+    .rolecard h3 { color: var(--bb-grey-800) !important; }
+    .pill { border-color: var(--bb-grey-300) !important; }
+    .script { border-left-color: var(--bb-pink) !important; }
+    .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
+
+    @page { size: A4 portrait; margin: 10mm; }
+    @media print {
+      .sheet + .sheet { margin-top: 8mm !important; border-top: 0 !important; }
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
+      #dc-root, .sc-host { height: auto !important; }
+      .sheet { break-inside: avoid; display: block; box-sizing: border-box; margin-top: 0 !important; border-top: 0 !important; padding-top: 0 !important; }
+      .sheet:first-of-type { break-before: auto; }
+      .sheet > h2:first-child,.sheet > .cover:first-child,.sheet > .part-kicker:first-child,.sheet > .ldiv:first-child { margin-top: 0 !important; }
+      .sheet-ftr { display: none !important; justify-content: space-between; align-items: baseline; margin-top: auto; padding-top: 5mm; border-top: 0.5pt solid var(--bb-grey-200); font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bb-grey-400); }
+      .sheet-ftr .r { color: var(--bb-pink); }
+      h2,h3,h4 { break-after: avoid !important; }
+      h2 + *, h3 + *, h4 + * { break-before: avoid; }
+      .rolecard,.note,.flag,.stat,.stats,.layer,.grid3,.tree,.cover,tr,.relay-node,.handover,.feedback,.iface,.ldiv,.handoff,.aij { break-inside: avoid; }
+      table.t { break-inside: avoid; } table.t thead { display: table-header-group; }
+      p, li { orphans: 3; widows: 3; }
+    }
+
+    /* ===== Boardroom palette (subdued) ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .cover .wordmark { color: var(--bb-pink); }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .handoff { background: var(--bb-grey-800) !important; }
+    .handover.seam .hb { background: var(--bb-pink) !important; box-shadow: none !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+
+    .cover .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.22em; font-size: 7.5pt; color: rgba(255,255,255,0.72); margin-bottom: 20px; }
+    .cover .cat { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 10px; }
+    .cover h1 { margin-top: 0; }
+    /* cover-final-override */
+    .cover.cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 30%, var(--bb-pink) 120%) !important; }
+    .cover-page { min-height: 900px !important; display: flex !important; flex-direction: column !important; }
+    .cover-page .cat { margin-bottom: auto !important; }
+    .cover-page h1 { margin-top: 0 !important; }
+    .cover-page .cover-meta { margin-top: auto !important; }
+    /* table-font-override */
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, table.rep .tg, .doc table.form .target { font-family: var(--font-body) !important; }
+    /* role-body-override */
+    .doc table.t .role { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+    /* all-table-cells-body */
+    .doc table.t td, .doc table.t td .num, .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, .doc table.t .role, table.rep td, table.rep .tg, .doc table.form td, .doc table.form .target { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+
+    .form-field { border: 1px solid var(--bb-grey-300); border-radius: 6px; height: 22px; margin-bottom: 6px; }
+    .form-label { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.07em; color: var(--bb-grey-500); font-family: var(--font-mono); display: block; margin-bottom: 3px; }
+    .doc table.form { width: 100%; border-collapse: collapse; margin: 4px 0 10px; font-size: 8.5pt; }
+    .doc table.form th { background: var(--bb-grey-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 5px 7px; border: 1px solid var(--bb-grey-300); font-size: 7.5pt; }
+    .doc table.form td { padding: 5px 7px; border: 1px solid var(--bb-grey-300); height: 20px; vertical-align: top; }
+    .doc table.form .target { color: var(--bb-grey-500); font-size: 8pt; white-space: nowrap; }
+    .doc table.form .grp td { background: #eceef1; font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 7.6pt; text-transform: uppercase; letter-spacing: 0.05em; }
+    .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 7.5pt; color: rgba(255,255,255,0.9); }
+
+    .kv{display:grid;grid-template-columns:160px 1fr;gap:5px 16px;margin:8px 0 12px;font-size:9.6pt}
+    .kv dt{font-family:var(--font-mono);font-size:7.4pt;text-transform:uppercase;letter-spacing:0.06em;color:var(--bb-grey-500);padding-top:2px}
+    .kv dd{margin:0;color:var(--bb-grey-800)}
+    .checklist{columns:2;column-gap:22px;margin:6px 0 10px}
+    .checklist .grp{break-inside:avoid;margin-bottom:10px;-webkit-column-break-inside:avoid}
+    .checklist h4{margin:0 0 5px}
+    .checklist ul{list-style:none;padding:0;margin:0}
+    .checklist li{position:relative;padding-left:19px;margin-bottom:4px;font-size:9.4pt;color:var(--bb-grey-700)}
+    .checklist li::before{content:"";position:absolute;left:0;top:2px;width:10px;height:10px;border:1.5px solid var(--bb-grey-400);border-radius:3px}
+    .ladder{display:flex;flex-direction:column;gap:7px;margin:8px 0 12px}
+    .rung{border:1px solid var(--bb-grey-200);border-left:3px solid var(--bb-grey-300);border-radius:9px;padding:9px 13px}
+    .rung.cur{border-left-color:var(--bb-pink);background:var(--bb-grey-50)}
+    .rung .lv{font-family:var(--font-heading);font-weight:600;color:var(--bb-grey-800);font-size:9.8pt}
+    .rung .lv .n{display:inline-flex;width:18px;height:18px;align-items:center;justify-content:center;background:var(--bb-grey-700);color:#fff;border-radius:50%;font-size:9pt;margin-right:7px;vertical-align:middle}
+    .rung.cur .lv .n{background:var(--bb-pink)}
+    .rung .cur-tag{float:right;font-family:var(--font-mono);font-size:6.6pt;text-transform:uppercase;letter-spacing:0.08em;color:var(--bb-pink);border:1px solid var(--bb-pink-200);border-radius:999px;padding:2px 7px}
+    .rung p{margin:3px 0 0;font-size:9.4pt;color:var(--bb-grey-500)}
+    .monthgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:8px 0 12px}
+    .mcell{border:1px solid var(--bb-grey-200);border-radius:9px;padding:8px 11px}
+    .mcell .mo{font-family:var(--font-mono);font-size:7.4pt;letter-spacing:0.1em;text-transform:uppercase;color:var(--bb-pink);font-weight:600}
+    .mcell .it{font-size:9.4pt;color:var(--bb-grey-700);margin-top:3px;line-height:1.4}
+    .maymay{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 12px}
+    .maymay .box{border:1px solid var(--bb-grey-200);border-radius:10px;padding:10px 13px}
+    .maymay .box.may{border-left:3px solid var(--bb-pink)}
+    .maymay .box.mayn{border-left:3px solid var(--bb-grey-400)}
+    .maymay h4{margin:0 0 5px}
+    .maymay ul{margin:0;padding-left:15px;font-size:9.4pt;color:var(--bb-grey-700)}.maymay li{margin-bottom:3px}
+    .stepflow{display:flex;gap:8px;margin:8px 0 12px}
+    .stepflow .st{flex:1;border:1px solid var(--bb-grey-200);border-top:3px solid var(--bb-pink);border-radius:9px;padding:9px 11px}
+    .stepflow .st .sn{font-family:var(--font-mono);font-size:7pt;color:var(--bb-pink);font-weight:600}
+    .stepflow .st b{display:block;font-family:var(--font-heading);font-size:9pt;color:var(--bb-grey-800);margin:2px 0 3px}
+    .stepflow .st p{margin:0;font-size:9pt;color:var(--bb-grey-500)}
+    .daytime{display:grid;grid-template-columns:88px 1fr;gap:0;margin:8px 0 12px}
+    .daytime .tm{font-family:var(--font-mono);font-size:9pt;color:var(--bb-pink);font-weight:600;padding:8px 0;border-top:1px solid var(--bb-grey-200)}
+    .daytime .ev{padding:8px 0 8px 12px;border-top:1px solid var(--bb-grey-200)}
+    .daytime .ev b{font-family:var(--font-heading);font-weight:600;font-size:9.2pt;color:var(--bb-grey-800);display:block;margin-bottom:2px}
+    .daytime .ev p{margin:0;font-size:9.4pt;color:var(--bb-grey-500)}
+
+    .doc table.t .role{font-family:var(--font-body);font-weight:300;color:var(--bb-grey-800);}
+  </style>
+</helmet>
+
+<main class="doc">
+
+<section class="sheet cover-sheet"><div class="cover cover-page cover-grad"><img class="cover-elephant" src="assets/brainbox-elephant-white.png" alt=""><div class="conf">Strictly private &amp; confidential</div><div class="cat">Accommodation Playbook</div><h1>How Brainbox runs its accommodation</h1><p class="lede">Ten units across LaGrande and Hensonville — visiting-client accommodation and short-stay lets, plus staff housing and storage. Every booking, clean, repair and key movement, run to one standard.</p><div class="sub-note">Subsidiary to the Fleet &amp; Facilities Playbook</div><div class="cover-meta"><div><span>Document owner</span>May Engreso · Facilities Manager</div><div><span>Issue date</span>Edition 1 · 2026</div><div style="margin-left:auto;align-self:flex-end"><span class="wordmark">BRAINBOX</span></div></div></div></section>
+<section class="sheet">
+  <h2>Contents</h2>
+  <p class="section-intro">A practical operating manual for the accommodation portfolio — commercial short-stay, visiting-client stays, and staff housing — sitting beneath the Fleet &amp; Facilities Playbook.</p>
+  <div class="toc">
+    <div class="toc-row"><span class="n">01</span><span class="t">Purpose &amp; how this playbook fits</span></div>
+    <div class="toc-row"><span class="n">02</span><span class="t">The portfolio — LaGrande &amp; Hensonville</span></div>
+    <div class="toc-row"><span class="n">03</span><span class="t">Operating model &amp; systems of record</span></div>
+    <div class="toc-row"><span class="n">04</span><span class="t">Roles &amp; who does what</span></div>
+    <div class="toc-row"><span class="n">05</span><span class="t">Bookings — the reservation lifecycle</span></div>
+    <div class="toc-row"><span class="n">06</span><span class="t">Rates, availability &amp; channel management</span></div>
+    <div class="toc-row"><span class="n">07</span><span class="t">Guest communication &amp; check-in / check-out</span></div>
+    <div class="toc-row"><span class="n">08</span><span class="t">Cleaning &amp; the turnover standard</span></div>
+    <div class="toc-row"><span class="n">09</span><span class="t">Linen, consumables &amp; amenities</span></div>
+    <div class="toc-row"><span class="n">10</span><span class="t">Repairs — reactive fault handling</span></div>
+    <div class="toc-row"><span class="n">11</span><span class="t">Preventive maintenance &amp; safety compliance</span></div>
+    <div class="toc-row"><span class="n">12</span><span class="t">Staff housing &amp; storage</span></div>
+    <div class="toc-row"><span class="n">13</span><span class="t">Key contacts &amp; escalation</span></div>
+    <div class="toc-row"><span class="n">14</span><span class="t">Standards, KPIs &amp; reporting</span></div>
+    <div class="toc-row"><span class="n">15</span><span class="t">Non-negotiable rules &amp; the outcome we want</span></div>
+  </div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 1 · Orientation</div>
+  <h2>Purpose &amp; how this playbook fits</h2>
+  <p>This playbook governs how Brainbox operates its residential accommodation — both the units let to the short-stay market and those used for visiting clients and staff. It is a <strong>subsidiary of the Fleet &amp; Facilities Playbook</strong>: the parent sets the department’s systems, rhythms and chain of accountability; this document holds the accommodation-specific detail those rhythms depend on.</p>
+  <p>Brainbox manages <strong>ten units in total</strong> — five at <strong>LaGrande (LGr)</strong> and five at <strong>Hensonville (Hv)</strong>. Some carry paying guests booked through Booking.com, Airbnb and Agoda; some host visiting clients; and some house our own people. However different a stay feels, the same standard of cleanliness, safety and responsiveness applies to every unit.</p>
+  <div class="note"><span class="lbl">Where the boundaries sit</span>The parent Fleet &amp; Facilities Playbook owns the daily operating rhythm, the cleaning window, work control in Asana, and the duty statements for each team member. This playbook owns the commercial short-stay operation, the guest experience, and the unit-by-unit standards. Where the two touch — cleaning triggers, maintenance intake — this document follows the parent exactly.</div>
+  <div class="flag"><span class="lbl">The promise to every guest</span>A clean, safe, well-presented unit; a fast, kind response to any issue; and a stay that earns a five-star review. Commercial performance follows guest experience — never the other way around.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Accommodation Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 2 · The portfolio</div>
+  <h2>The portfolio — LaGrande &amp; Hensonville</h2>
+  <p class="section-intro">Ten units across two locations, each with a defined use. Knowing which unit does what is the first control — it drives the calendar, the cleaning plan and the standard each unit is held to.</p>
+  <table class="t">
+    <thead><tr><th style="width:20%">Location</th><th style="width:22%">Unit</th><th>Use</th></tr></thead>
+    <tbody>
+      <tr><td class="role">LaGrande (LGr)</td><td>LGr-1 to LGr-5</td><td>Visiting-client accommodation, and let to the short-stay market when not held for clients.</td></tr>
+      <tr><td class="role">Hensonville (Hv)</td><td>Hv-1</td><td>Male staff housing.</td></tr>
+      <tr><td class="role">Hensonville (Hv)</td><td>Hv-2</td><td>Female staff housing.</td></tr>
+      <tr><td class="role">Hensonville (Hv)</td><td>Hv-3</td><td>Storage.</td></tr>
+      <tr><td class="role">Hensonville (Hv)</td><td>Hv-4 &amp; Hv-5</td><td>Visiting-client accommodation and short-stay lets.</td></tr>
+    </tbody>
+  </table>
+  <div class="grid3">
+    <div class="stat"><div class="v">7</div><div class="l">Units available for clients &amp; short-stay (5 LGr + 2 Hv)</div></div>
+    <div class="stat"><div class="v">2</div><div class="l">Staff housing units (Hv-1 male, Hv-2 female)</div></div>
+    <div class="stat"><div class="v">1</div><div class="l">Storage unit (Hv-3)</div></div>
+  </div>
+  <div class="note"><span class="lbl">Priority of use</span>When a visiting client needs a bed, client accommodation takes priority over a market booking. The calendar reflects this: client holds are placed first, and only genuinely free nights are released to the short-stay channels.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Accommodation Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 3 · How it runs</div>
+  <h2>Operating model &amp; systems of record</h2>
+  <p class="section-intro">Two systems govern every decision. Discipline in how we use them is what keeps the operation visible, auditable and free of double-bookings. If a system is wrong, it is corrected before any work proceeds.</p>
+  <div class="grid2">
+    <div class="rolecard"><h3>Uplisting</h3><p>The channel manager and single source of truth for availability, rates, reservations and guest messaging. It syncs one calendar across Booking.com, Airbnb and Agoda so a night sold on one channel closes on all. Every booking, block and rate change lives here.</p></div>
+    <div class="rolecard"><h3>Asana</h3><p>The work register for cleaning, repairs and maintenance — inherited from the parent playbook. If a task isn’t in Asana, it isn’t happening. Photos and descriptions attach to every item.</p></div>
+  </div>
+  <h4>The distribution channels</h4>
+  <table class="t">
+    <thead><tr><th style="width:26%">Channel</th><th>Role</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Booking.com</td><td>High-volume OTA; strong for corporate and international guests.</td></tr>
+      <tr><td class="role">Airbnb</td><td>Leisure and longer-stay guests; review-driven, host-profile matters.</td></tr>
+      <tr><td class="role">Agoda</td><td>Strong regional and Asia-Pacific demand; complements the other two.</td></tr>
+      <tr><td class="role">Uplisting</td><td>Aggregator and control layer over all three — not a demand channel, but the system that keeps them consistent.</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">The golden rule of channels</span>Never edit a calendar or rate directly in Booking.com, Airbnb or Agoda. <strong>All changes are made in Uplisting</strong>, which pushes them out. This is how double-bookings are prevented.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Accommodation Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 4 · People</div>
+  <h2>Roles &amp; who does what</h2>
+  <p class="section-intro">Accommodation is delivered by the same Facilities team that runs the buildings and fleet, each with a clear part to play. One point of contact, one chain of accountability.</p>
+  <table class="t">
+    <thead><tr><th style="width:22%">Person</th><th style="width:24%">Role</th><th>Owns for accommodation</th></tr></thead>
+    <tbody>
+      <tr><td class="role">May Engreso</td><td>Facilities Manager</td><td>Overall accountability, priorities, rate strategy, contractor engagement, client-hold decisions, reporting to the Director.</td></tr>
+      <tr><td class="role">Jho</td><td>Facilities Assistant</td><td>Uplisting operator — bookings, calendar, guest messaging, cleaning triggers, and single point of intake for all requests.</td></tr>
+      <tr><td class="role">Venus &amp; Ivy</td><td>Cleaning team</td><td>Turnovers and third-day cleans, linen, consumables, and defect observation during cleans.</td></tr>
+      <tr><td class="role">Arvin</td><td>Maintenance Lead</td><td>Repairs, preventive maintenance, safety checks, presentation and access across all units.</td></tr>
+      <tr><td class="role">Jong</td><td>Driver &amp; Front-of-House</td><td>Guest transport where offered, key movements, and physical check-in support.</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><span class="lbl">Single point of contact</span>All guest issues and all work requests funnel to <strong>Jho</strong>, who logs and routes them. Nothing is fixed quietly and nothing is actioned outside the system — this is what keeps the operation visible and calm.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Accommodation Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 5 · Bookings</div>
+  <h2>Bookings — the reservation lifecycle</h2>
+  <p class="section-intro">Every reservation follows the same path, whether it is a paying guest or a visiting client. The steps below are managed end to end in Uplisting.</p>
+  <div class="stepflow">
+    <div class="st"><div class="sn">Step 1</div><b>Enquiry / booking</b><p>Received via a channel or a client request; captured in Uplisting.</p></div>
+    <div class="st"><div class="sn">Step 2</div><b>Confirm &amp; hold</b><p>Dates blocked across all channels; client holds take priority.</p></div>
+    <div class="st"><div class="sn">Step 3</div><b>Pre-arrival</b><p>Welcome message, access details, house rules and arrival time.</p></div>
+    <div class="st"><div class="sn">Step 4</div><b>Check-in &amp; stay</b><p>Access confirmed; in-stay messaging monitored by Jho.</p></div>
+    <div class="st"><div class="sn">Step 5</div><b>Check-out &amp; review</b><p>Turnover triggered; a review is requested from the guest.</p></div>
+  </div>
+  <h4>Booking rules</h4>
+  <ul>
+    <li><strong>Client priority.</strong> Visiting-client needs are placed as holds before nights are released to the market.</li>
+    <li><strong>Minimum stay &amp; lead time.</strong> Set per unit and season in Uplisting; short same-day gaps are avoided where a turnover can’t be resourced.</li>
+    <li><strong>Payment &amp; ID.</strong> Taken through the channel; guest identity verified before check-in per platform rules.</li>
+    <li><strong>Cancellations.</strong> Follow the published channel policy; client cancellations release the night back to the market immediately.</li>
+  </ul>
+  <div class="flag"><span class="lbl">One calendar, always current</span>A booking is only real once it is in Uplisting. Verbal or email holds are entered immediately, or they do not exist.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Accommodation Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 6 · Commercial</div>
+  <h2>Rates, availability &amp; channel management</h2>
+  <p class="section-intro">The commercial goal is simple: high occupancy at the best sustainable rate, with zero double-bookings. Uplisting is the control point for all of it.</p>
+  <div class="grid2">
+    <div>
+      <h4>Pricing</h4>
+      <p>Rates are reviewed against demand, local events and season. Weekend, peak and multi-night rates are set deliberately; last-minute gaps may be discounted to lift occupancy without undercutting the base rate.</p>
+      <h4>Availability</h4>
+      <p>Client holds first, then open nights released to all channels. Maintenance days are blocked in Uplisting so a unit is never sold while it is out of service.</p>
+    </div>
+    <div>
+      <h4>Channel parity</h4>
+      <p>Rates and minimum stays are kept consistent across Booking.com, Airbnb and Agoda through Uplisting, so no channel is disadvantaged and no night is oversold.</p>
+      <h4>Listing quality</h4>
+      <p>Photos, descriptions, amenities and house rules are kept accurate and identical across channels. A listing that matches reality is the single biggest driver of good reviews.</p>
+    </div>
+  </div>
+  <div class="note"><span class="lbl">Best practice we hold to</span>Dynamic, demand-based pricing; a minimum-stay policy that protects turnover capacity; complete, honest listings; and instant calendar sync. These are what separate a profitable short-stay operation from a stressed one.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Accommodation Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 7 · Guests</div>
+  <h2>Guest communication &amp; check-in / check-out</h2>
+  <p class="section-intro">Fast, warm, accurate communication is what earns five-star reviews. Messaging is templated for consistency and monitored throughout the stay.</p>
+  <table class="t">
+    <thead><tr><th style="width:26%">Touchpoint</th><th>What we send</th></tr></thead>
+    <tbody>
+      <tr><td class="role">On booking</td><td>Warm confirmation, unit summary, and what to expect before arrival.</td></tr>
+      <tr><td class="role">Pre-arrival (day before)</td><td>Address, access/key details, arrival window, parking and house rules.</td></tr>
+      <tr><td class="role">On arrival</td><td>Check everything is as expected; offer a point of contact for any issue.</td></tr>
+      <tr><td class="role">Mid-stay (longer stays)</td><td>A brief check-in; confirm the third-day clean where applicable.</td></tr>
+      <tr><td class="role">Check-out</td><td>Departure time, checkout steps, and a thank-you with a review request.</td></tr>
+    </tbody>
+  </table>
+  <div class="grid2">
+    <div class="rolecard"><h3>Check-in</h3><p>Self or assisted, per unit. Access is confirmed working before the guest arrives; Jong or Arvin support in person where needed.</p></div>
+    <div class="rolecard"><h3>House rules</h3><p>No unregistered guests or parties; respect quiet hours; no smoking indoors. Rules are sent pre-arrival and displayed in-unit.</p></div>
+  </div>
+  <div class="flag"><span class="lbl">Response-time standard</span>Guest messages are answered quickly — within the hour in the day, and as fast as possible out of hours for anything affecting safety or access. Speed of response is a reviewed metric.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Accommodation Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 8 · Cleaning</div>
+  <h2>Cleaning &amp; the turnover standard</h2>
+  <p class="section-intro">Cleaning follows the parent playbook exactly: Uplisting flags the trigger, and cleaning runs in the protected daily window. This page sets the unit-level standard every turnover must meet.</p>
+  <div class="note"><span class="lbl">Triggers &amp; window (from the Fleet &amp; Facilities Playbook)</span>Clean on <strong>turnover</strong> (same-day check-out and check-in) and for long-stay guests <strong>every third day</strong>. All accommodation cleaning happens in the fixed <strong>11:00am–1:40pm</strong> window, in parallel across units. No discretionary cleaning.</div>
+  <div class="checklist">
+    <div class="grp"><h4>Bedrooms &amp; living</h4><ul><li>Strip &amp; remake with fresh linen</li><li>Dust, surfaces &amp; mirrors</li><li>Floors vacuumed &amp; mopped</li><li>Rubbish removed, bins relined</li></ul></div>
+    <div class="grp"><h4>Bathroom</h4><ul><li>Toilet, shower, basin sanitised</li><li>Fresh towels to par</li><li>Consumables restocked</li><li>Floor cleaned &amp; dried</li></ul></div>
+    <div class="grp"><h4>Kitchen</h4><ul><li>Benches &amp; sink cleaned</li><li>Appliances wiped, fridge cleared</li><li>Crockery clean &amp; stowed</li><li>Tea/coffee &amp; welcome items restocked</li></ul></div>
+    <div class="grp"><h4>Final check</h4><ul><li>Presentation &amp; staging</li><li>Lights, aircon, wifi working</li><li>Defects photographed &amp; logged</li><li>Unit marked ready in Uplisting</li></ul></div>
+  </div>
+  <div class="flag"><span class="lbl">Ready means ready</span>A unit is only released for the next guest when the turnover checklist is complete and any defect is either fixed or logged and assessed as non-blocking. If a clean can’t be resourced in the window, the night is not sold.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Accommodation Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 9 · Supplies</div>
+  <h2>Linen, consumables &amp; amenities</h2>
+  <p class="section-intro">Turnovers only run smoothly when stock is ready. Par levels — the minimum on hand — are held for every unit so a clean never stalls for want of a towel or a toilet roll.</p>
+  <table class="t">
+    <thead><tr><th style="width:30%">Category</th><th>Held to par &amp; restocked each turnover</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Linen</td><td>Two full sets per bed (one on, one ready) plus a laundry buffer; towels to guest count.</td></tr>
+      <tr><td class="role">Bathroom consumables</td><td>Toilet paper, soap, shampoo, hand wash — topped to par every clean.</td></tr>
+      <tr><td class="role">Kitchen &amp; welcome</td><td>Tea, coffee, sugar, dishwashing items, bin liners; a simple welcome touch.</td></tr>
+      <tr><td class="role">Cleaning stock</td><td>Chemicals and materials held centrally; low stock flagged to Jho before it runs out.</td></tr>
+    </tbody>
+  </table>
+  <div class="grid2">
+    <div class="rolecard"><h3>Linen cycle</h3><p>The one-on/one-ready model keeps every unit turnaround-able the same day. Soiled linen is bagged, laundered and returned to the buffer.</p></div>
+    <div class="rolecard"><h3>Reordering</h3><p>Consumables are checked against par during each clean; anything below par is reported so it is reordered before the next turnover.</p></div>
+  </div>
+  <div class="flag"><span class="lbl">Never short</span>Running out mid-turnover costs a booking-ready unit. Par levels exist so that never happens — the fix for a shortage is to raise par, not to skip an item.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Accommodation Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 10 · Repairs</div>
+  <h2>Repairs — reactive fault handling</h2>
+  <p class="section-intro">Things break; guests notice fast. The response is disciplined: report, log, triage against guest impact, fix or escalate — never quietly, always in the system.</p>
+  <div class="stepflow">
+    <div class="st"><div class="sn">Step 1</div><b>Reported to Jho</b><p>Guest, cleaner or inspection raises it — not fixed quietly.</p></div>
+    <div class="st"><div class="sn">Step 2</div><b>Logged in Asana</b><p>Description and photos attached; unit and severity noted.</p></div>
+    <div class="st"><div class="sn">Step 3</div><b>Triaged</b><p>May prioritises against guest readiness and safety.</p></div>
+    <div class="st"><div class="sn">Step 4</div><b>Fixed or escalated</b><p>Arvin resolves, or a contractor is engaged with approval.</p></div>
+  </div>
+  <table class="t">
+    <thead><tr><th style="width:30%">Severity</th><th>Response</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Urgent (safety / no access / no water / no power)</td><td>Actioned immediately; if a guest is in-situ, offer a fix window or move them to another unit.</td></tr>
+      <tr><td class="role">Guest-affecting (appliance, aircon, wifi)</td><td>Resolved same day;; block the unit in Uplisting before the next check-in if it can’t be ready.</td></tr>
+      <tr><td class="role">Non-blocking (cosmetic, minor wear)</td><td>Logged and scheduled into a maintenance day between bookings.</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">Guest in the unit</span>Repairs with a guest in-situ are arranged with their agreement, at a time that suits them, with clear communication. A moved guest is always offered an equivalent or better unit.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Accommodation Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 11 · Prevention &amp; safety</div>
+  <h2>Preventive maintenance &amp; safety compliance</h2>
+  <p class="section-intro">The cheapest repair is the one prevented. Scheduled checks keep units guest-ready and, above all, safe — a non-negotiable in every unit, occupied or not.</p>
+  <div class="grid2">
+    <div>
+      <h4>Preventive schedule</h4>
+      <p>Between bookings and on the weekly residential day, units are checked for wear, leaks, appliance condition, aircon filters, pest signs and presentation. Small issues are fixed before they become guest-affecting.</p>
+      <h4>Deep clean cycle</h4>
+      <p>Beyond turnovers, each unit gets a periodic deep clean — behind appliances, soft furnishings, windows and grout — scheduled into quiet periods.</p>
+    </div>
+    <div>
+      <h4>Safety compliance — every unit</h4>
+      <ul>
+        <li>Working smoke alarms, tested and dated.</li>
+        <li>Fire extinguisher / blanket where required, in date.</li>
+        <li>First-aid kit stocked; emergency numbers displayed.</li>
+        <li>Electrical, gas and water checked for hazards.</li>
+        <li>Secure locks and functioning access on every door.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="flag"><span class="lbl">Safety is never traded for a booking</span>A unit with a failed smoke alarm, a security fault or an electrical hazard is blocked in Uplisting until it is remedied — no exceptions, staff housing included.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Accommodation Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 12 · Staff &amp; storage</div>
+  <h2>Staff housing &amp; storage</h2>
+  <p class="section-intro">Three Hensonville units serve Brainbox internally. They are held to the same safety and cleanliness standard as guest units, with their own simple rules.</p>
+  <table class="t">
+    <thead><tr><th style="width:24%">Unit</th><th style="width:26%">Use</th><th>Standard &amp; rules</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Hv-1</td><td>Male staff housing</td><td>House rules on occupancy, guests, cleanliness and quiet hours; safety checks as per any unit; periodic inspection.</td></tr>
+      <tr><td class="role">Hv-2</td><td>Female staff housing</td><td>Same standard and rules as Hv-1; residents keep the unit clean and report faults to Jho.</td></tr>
+      <tr><td class="role">Hv-3</td><td>Storage</td><td>Inventory recorded; access controlled and logged; kept dry, safe and orderly; not used for occupancy.</td></tr>
+    </tbody>
+  </table>
+  <div class="grid2">
+    <div class="rolecard"><h3>Housing standards</h3><p>Residents maintain day-to-day cleanliness; Facilities handles repairs, safety checks and periodic inspection. Faults are reported through Jho like any other.</p></div>
+    <div class="rolecard"><h3>Storage control</h3><p>The storage unit holds spare linen, consumables, furniture and equipment. What goes in and out is recorded so stock and assets stay accounted for.</p></div>
+  </div>
+  <div class="note"><span class="lbl">One standard, everywhere</span>Staff housing is not a lower tier. The same safety compliance, the same maintenance discipline and the same reporting apply — because our people deserve the standard we sell.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Accommodation Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 13 · Contacts</div>
+  <h2>Key contacts &amp; escalation</h2>
+  <p class="section-intro">Who to reach, in what order. Most issues resolve with Jho; escalation exists for the exceptions.</p>
+  <table class="t">
+    <thead><tr><th style="width:32%">Contact</th><th style="width:30%">For</th><th>Reach via</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Jho — Facilities Assistant</td><td>All bookings, guest messages, work requests</td><td>Single point of contact (day)</td></tr>
+      <tr><td class="role">May Engreso — Facilities Manager</td><td>Priorities, approvals, contractor spend, client holds</td><td>Escalation from Jho</td></tr>
+      <tr><td class="role">Arvin — Maintenance Lead</td><td>Repairs, safety faults, preventive work</td><td>Assigned via Asana by Jho</td></tr>
+      <tr><td class="role">Jong — Driver &amp; Front-of-House</td><td>Guest transport, key movements, on-site check-in</td><td>Assigned via Jho</td></tr>
+      <tr><td class="role">Approved contractors</td><td>Trades beyond in-house capability</td><td>Engaged by May</td></tr>
+      <tr><td class="role">Emergency services</td><td>Fire, medical, security emergencies</td><td>Displayed in every unit</td></tr>
+    </tbody>
+  </table>
+  <div class="ladder">
+    <div class="rung cur"><span class="cur-tag">First</span><div class="lv"><span class="n">1</span>Jho logs &amp; routes</div><p>Almost everything starts and often ends here.</p></div>
+    <div class="rung"><div class="lv"><span class="n">2</span>Arvin / Jong action</div><p>Repairs and on-site tasks, assigned through Asana.</p></div>
+    <div class="rung"><div class="lv"><span class="n">3</span>May decides</div><p>Priorities, spend approvals, contractor engagement, guest moves.</p></div>
+    <div class="rung"><div class="lv"><span class="n">4</span>Director / emergency services</div><p>Major incidents, safety emergencies, financial escalation.</p></div>
+  </div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Accommodation Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 14 · Measurement</div>
+  <h2>Standards, KPIs &amp; reporting</h2>
+  <p class="section-intro">What good looks like, measured. These indicators tell us whether the operation is healthy and where to focus.</p>
+  <table class="t">
+    <thead><tr><th style="width:34%">Metric</th><th>What it tells us</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Occupancy rate</td><td>Share of available nights sold — the core utilisation measure.</td></tr>
+      <tr><td class="role">Average daily rate (ADR)</td><td>Average revenue per sold night — are we pricing well?</td></tr>
+      <tr><td class="role">RevPAR</td><td>Revenue per available night — occupancy and rate combined.</td></tr>
+      <tr><td class="role">Review score</td><td>Average guest rating across channels — the health of the experience.</td></tr>
+      <tr><td class="role">Response time</td><td>How fast guest messages are answered — a driver of reviews.</td></tr>
+      <tr><td class="role">Turnover on-time rate</td><td>Units made ready within the cleaning window.</td></tr>
+      <tr><td class="role">Maintenance backlog</td><td>Open faults and their age — prevention working or not.</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><span class="lbl">Reporting cadence</span>Accommodation activity feeds the parent Fleet &amp; Facilities reporting: cleaning volume and check-ins in the <strong>weekly Facilities report</strong>, and occupancy, revenue and review performance in the <strong>monthly property financial report</strong> from May to the Director.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Accommodation Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 15 · The rules</div>
+  <h2>Non-negotiable rules &amp; the outcome we want</h2>
+  <ol class="numlist">
+    <li><strong>Uplisting is the single source of truth.</strong> All calendars, rates and bookings are managed there — never directly in a channel.</li>
+    <li><strong>Asana governs all work.</strong> If a clean, repair or task isn’t logged, it isn’t happening.</li>
+    <li><strong>Everything through Jho.</strong> One point of intake; nothing fixed quietly or booked off-system.</li>
+    <li><strong>Client holds before market nights.</strong> Visiting-client needs are placed first, always.</li>
+    <li><strong>Ready means ready.</strong> A unit is released only when clean, checked and safe.</li>
+    <li><strong>Safety is never traded for a booking.</strong> A unit with a safety fault is blocked until fixed.</li>
+  </ol>
+  <div class="flag"><span class="lbl">The outcome we want</span>Full, well-run units; clean, safe stays; fast, kind responses; and reviews that keep demand high. Run this way, accommodation is a calm, profitable part of Facilities that reflects well on Brainbox — and always, in every interaction, <strong>be kind</strong>.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Accommodation Playbook · Brainbox</span></div>
+</section>
+</main>
+</x-dc>
+</body>
+</html>

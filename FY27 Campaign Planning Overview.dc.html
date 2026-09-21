@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #fff; }
+    .doc { box-sizing: border-box; max-width: 210mm; margin: 0 auto; background: inherit;
+           padding: 40px clamp(20px, 5vw, 16mm) 80px;
+           font-family: var(--font-body); font-weight: 300; color: var(--bb-grey-800); font-size: 10pt; line-height: 1.5; }
+    .doc h1, .doc h2, .doc h3, .doc h4 { font-family: var(--font-heading); color: var(--bb-grey-700); margin: 0; }
+    .doc h1 { font-weight: 600; }
+    .doc h2 { font-weight: 600; font-size: 16pt; color: var(--bb-pink); letter-spacing: -0.01em;
+              margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--bb-pink); text-wrap: balance; }
+    .doc h3 { font-weight: 600; font-size: 11.5pt; color: var(--bb-grey-700); margin: 16px 0 5px; text-wrap: balance; }
+    .doc h4 { font-weight: 600; font-size: 9.5pt; color: var(--bb-pink-700); margin: 12px 0 3px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .doc p { margin: 0 0 8px; text-wrap: pretty; }
+    .doc ul, .doc ol { margin: 0 0 8px; padding-left: 17px; }
+    .doc li { margin: 0 0 3px; text-wrap: pretty; }
+    .doc li::marker { color: var(--bb-pink-400); }
+    .doc strong { font-weight: 600; color: var(--bb-grey-800); }
+    .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; }
+    .cover { background: var(--bb-gradient-brand); border-radius: 18px; padding: 40px 36px; color: #fff; margin-bottom: 8px; }
+    .cover .eyebrow { color: rgba(255,255,255,0.92); }
+    .cover h1 { color: #fff; font-size: 30pt; line-height: 1.05; margin: 14px 0 10px; letter-spacing: -0.015em; }
+    .cover .lede { color: rgba(255,255,255,0.95); font-size: 11.5pt; max-width: 94%; margin: 0; font-weight: 300; }
+    .cover-meta { display: flex; gap: 26px; margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.35); flex-wrap: wrap; }
+    .cover-meta div { font-size: 8.5pt; }
+    .cover-meta span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; opacity: 0.8; margin-bottom: 2px; }
+    .wordmark { font-family: var(--font-logo); font-size: 16pt; letter-spacing: 0.14em; color: #fff; }
+    .doc table.t { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 9pt; }
+    .doc table.t th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 6px 9px; border-bottom: 1.5px solid var(--bb-pink-200); font-size: 8.5pt; }
+    .doc table.t td { padding: 6px 9px; border-bottom: 1px solid var(--bb-grey-200); vertical-align: top; }
+    .doc table.t tr:nth-child(even) td { background: var(--bb-grey-50); }
+    .doc table.t .num { font-family: var(--font-mono); color: var(--bb-pink-700); white-space: nowrap; font-weight: 600; }
+    .doc table.t .mono { font-family: var(--font-mono); font-weight: 600; color: var(--bb-grey-700); white-space: nowrap; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .note { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); border-radius: 8px; padding: 9px 13px; margin: 6px 0 12px; font-size: 9pt; }
+    .flag { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 10px 13px; margin: 6px 0 12px; font-size: 9pt; }
+    .flag .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 6px 0 14px; }
+    .stat { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 12px 13px; }
+    .stat .v { font-family: var(--font-heading); font-weight: 600; font-size: 16pt; color: var(--bb-pink); line-height: 1; }
+    .stat .l { font-size: 8pt; color: var(--bb-grey-500); margin-top: 5px; line-height: 1.3; }
+    .lead-statuses { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 12px; }
+    .pill { background: #fff; border: 1px solid var(--bb-pink-200); color: var(--bb-grey-700); border-radius: 999px; padding: 3px 11px; font-size: 8pt; font-family: var(--font-heading); }
+    .section-intro { color: var(--bb-grey-500); font-size: 10pt; margin-bottom: 10px; }
+    /* Team chips */
+    .who { display: inline-flex; gap: 4px; }
+    .chip { font-family: var(--font-mono); font-size: 7.5pt; font-weight: 600; border-radius: 999px; padding: 1px 7px; border: 1px solid var(--bb-pink-200); color: var(--bb-pink-700); background: #fff; }
+    .chip.lead { background: var(--bb-pink); color: #fff; border-color: var(--bb-pink); }
+    /* Cards */
+    .rolecard { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 15px; }
+    .rolecard.lead { border-color: var(--bb-pink-200); background: var(--bb-pink-50); }
+    .rolecard h4 { margin-top: 0; }
+    /* Year strip */
+    .yearbar { display: grid; grid-template-columns: repeat(11, 1fr); gap: 4px; margin: 8px 0 12px; }
+    .mo { border: 1px solid var(--bb-grey-200); border-radius: 8px; padding: 7px 5px; text-align: center; }
+    .mo .m { font-family: var(--font-mono); font-size: 7pt; color: var(--bb-grey-500); letter-spacing: 0.04em; }
+    .mo .c { font-family: var(--font-heading); font-weight: 600; font-size: 9pt; color: var(--bb-pink); margin-top: 3px; }
+    .mo.pause { background: var(--bb-blue-50); border-color: var(--bb-blue-100); }
+    .mo.pause .c { color: var(--bb-blue-700); }
+    .sheet { padding-top: 4px; }
+    .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
+    .sheet > h2:first-child { margin-top: 4px; }
+    .sheet-ftr { display: none; }
+    
+    .toc { margin: 10px 0 4px; }
+    .toc-row { display: flex; align-items: baseline; gap: 12px; padding: 7px 2px; border-bottom: 1px solid var(--bb-grey-200); }
+    .toc-row .n { font-family: var(--font-mono); font-size: 8pt; color: var(--bb-pink); width: 22px; flex: none; }
+    .toc-row .t { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 10.5pt; }
+
+    .cover .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.22em; font-size: 7.5pt; color: rgba(255,255,255,0.72); margin-bottom: 20px; }
+    .cover .cat { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 10px; }
+    .cover-page { min-height: 900px; display: flex; flex-direction: column; }
+    .cover-page h1 { margin-top: 4px; }
+    .cover-page .cover-meta { margin-top: auto; }
+    @media print { .cover-sheet .cover-page { min-height: 252mm; } .cover-sheet { break-after: page; } }
+
+    .cover-page { position: relative; }
+    .cover-elephant { position: absolute; top: 34px; right: 36px; height: 84px; width: auto; }
+
+    /* ===== Subdued (Boardroom) palette ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .doc h3 { color: var(--bb-grey-700) !important; }
+    .doc h4 { color: var(--bb-grey-500) !important; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root, .handoff { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj { color: var(--bb-grey-700) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; border-left-color: var(--bb-pink) !important; }
+    .flag .lbl { color: var(--bb-grey-500) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+    .stat .v { color: var(--bb-grey-800) !important; }
+    .rolecard h3 { color: var(--bb-grey-800) !important; }
+    .pill { border-color: var(--bb-grey-300) !important; }
+    .script { border-left-color: var(--bb-pink) !important; }
+    .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
+
+    @page { size: A4 portrait; margin: 10mm; }
+    @media print {
+      .sheet + .sheet { margin-top: 0 !important; border-top: 0 !important; }
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
+      #dc-root, .sc-host { height: auto !important; }
+      .sheet { break-before: page; min-height: 274mm; display: flex; flex-direction: column; box-sizing: border-box; margin-top: 0 !important; border-top: 0 !important; padding-top: 0 !important; }
+      .sheet:first-of-type { break-before: auto; }
+      .sheet > h2:first-child, .sheet > .cover:first-child { margin-top: 0 !important; }
+      .sheet-ftr { display: flex !important; justify-content: space-between; align-items: baseline; margin-top: auto; padding-top: 5mm; border-top: 0.5pt solid var(--bb-grey-200); font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bb-grey-400); }
+      .sheet-ftr .r { color: var(--bb-pink); }
+      h2, h3, h4 { break-after: avoid !important; }
+      h2 + *, h3 + *, h4 + * { break-before: avoid; }
+      tr, .stat, .note, .flag, .stats, .grid3, .cover, .rolecard, .yearbar, .mo, .lead-statuses { break-inside: avoid; }
+      table.t { break-inside: avoid; }
+      table.t thead { display: table-header-group; }
+      table.t tr { break-inside: avoid; }
+      p, li { orphans: 3; widows: 3; }
+    }
+    /* table-font-override */
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, table.rep .tg, .doc table.form .target { font-family: var(--font-body) !important; }
+    /* role-body-override */
+    .doc table.t .role { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+    /* all-table-cells-body */
+    .doc table.t td, .doc table.t td .num, .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, .doc table.t .role, table.rep td, table.rep .tg, .doc table.form td, .doc table.form .target { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+  </style>
+</helmet>
+
+<main class="doc">
+
+  <!-- COVER -->
+  <section class="sheet cover-sheet">
+  <div class="cover cover-page">
+    <img class="cover-elephant" src="assets/brainbox-elephant.png" alt="">
+    <div class="conf">Strictly private &amp; confidential</div>
+    <div class="cat">Campaign Planning Overview</div>
+    <h1>A year of demand, campaign by campaign</h1>
+    <p class="lede">The year-long plan for Brainbox's industry demand-generation campaigns — ten sector campaigns run August 2026 to June 2027, led by a single Lead Campaign Manager and delivered by all three Associates each month.</p>
+    <div class="cover-meta">
+      <div><span>Prepared for</span>The Corporate Services Director</div>
+      <div><span>Issued</span>July 2026 &middot; Ref. BB-FY27-01</div>
+      <div><span>Period</span>Aug 2026 &ndash; Jun 2027</div>
+      <div style="margin-left:auto;align-self:flex-end"><span class="wordmark">BRAINBOX</span></div>
+    </div>
+  </div>
+</section>
+
+  <section class="sheet">
+  <h3>The year at a glance</h3>
+    <p class="section-intro">One sector campaign per month. All three Associates work every campaign together; Abi leads each as Lead Campaign Manager. January is a consolidation and reactivation month rather than a new campaign, reflecting the summer slowdown.</p>
+    <div class="stats">
+      <div class="stat"><div class="v">10</div><div class="l">Sector campaigns across the year</div></div>
+      <div class="stat"><div class="v">3</div><div class="l">Associates on every campaign (RF · AF · DT)</div></div>
+      <div class="stat"><div class="v">1</div><div class="l">Lead Campaign Manager throughout (Abi)</div></div>
+      <div class="stat"><div class="v">150+</div><div class="l">Pre-identified prospects distributed (15 × 10)</div></div>
+    </div>
+    <div class="note"><strong>How to read this plan.</strong> Each monthly campaign has its own detailed pack (Campaign 01–10). This overview sets the schedule, the operating model, the roles, and the consolidated success metrics Abi reports against at the end of each campaign.</div>
+    <div class="flag"><span class="lbl">Baseline outcome</span>Every week, the campaign team delivers <strong>at least 6 new in-person appointments for the Commercial Manager</strong> — the non-negotiable floor (≈ 24+ per campaign month). Video / phone meetings are a fallback and do not count toward the baseline.</div>
+    <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">FY27 Campaign Planning · Brainbox</span></div>
+</section>
+
+  <section class="sheet">
+  <h2>Contents</h2>
+  <div class="toc">
+    <div class="toc-row"><span class="n">01</span><span class="t">The operating model</span></div>
+    <div class="toc-row"><span class="n">02</span><span class="t">The FY27 schedule</span></div>
+    <div class="toc-row"><span class="n">03</span><span class="t">Roles &amp; responsibilities</span></div>
+    <div class="toc-row"><span class="n">04</span><span class="t">Leading the team — Abi's cadence</span></div>
+    <div class="toc-row"><span class="n">05</span><span class="t">Success metrics &amp; consolidated reporting</span></div>
+  </div>
+</section>
+
+  <!-- OPERATING MODEL -->
+  <section class="sheet">
+    <h2>The operating model</h2>
+    <p class="section-intro">One Lead Campaign Manager gives the year consistency; three Associates give each campaign reach. The 15 pre-identified prospects per campaign are distributed by the Lead Campaign Manager, and every Associate adds their own researched targets on top. Each Associate is a <strong>Demand Generation Specialist</strong> working to the standard, weekly rhythm and targets defined in the Demand Generation Playbook.</p>
+    <div class="grid2">
+      <div class="rolecard lead">
+        <h4>Lead Campaign Manager — Abi <span class="chip lead">AF</span></h4>
+        <p style="font-size:9pt;margin:0">Leads all ten campaigns end to end. Coordinates the distribution of pre-identified prospects, oversees Associate activity and quality, and prepares the consolidated end-of-campaign report against the nominated success metrics. Also carries an Associate share of the outreach.</p>
+      </div>
+      <div class="rolecard">
+        <h4>Associates <span class="chip">RF</span> <span class="chip">AF</span> <span class="chip">DT</span></h4>
+        <p style="font-size:9pt;margin:0">Rory, Abi and Dodellysa are each a Demand Generation Specialist and work every campaign. Each takes an allocated share of the pre-identified prospects, researches and adds more, works the Playbook's weekly rhythm (Mon–Fri) across the four weeks of the month, books qualified appointments for the Commercial Manager, and logs all activity in HubSpot for the consolidated report.</p>
+      </div>
+    </div>
+    <h3>How a campaign runs each month</h3>
+    <table class="t">
+      <thead><tr><th style="width:20%">Stage</th><th>What happens</th><th style="width:14%">Owner</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">Set-up</td><td>Lead Campaign Manager loads the campaign, distributes the 15 pre-identified prospects (5 each) and confirms the sector focus with Marketing &amp; the Commercial Manager.</td><td><span class="chip lead">AF</span></td></tr>
+        <tr><td class="mono">Research</td><td>Each Associate verifies their allocation and adds their own researched accounts at the Playbook rate (20–30 new accounts/week).</td><td><span class="chip">RF·AF·DT</span></td></tr>
+        <tr><td class="mono">Outreach</td><td>All three run the Playbook's weekly rhythm each week — email + Insight Article, calls, LinkedIn, follow-up sequence.</td><td><span class="chip">RF·AF·DT</span></td></tr>
+        <tr><td class="mono">Oversight</td><td>Weekly review (30 min) with the sales lead on activity, quality and blockers; re-balancing prospects where needed.</td><td><span class="chip lead">AF</span></td></tr>
+        <tr><td class="mono">Booking</td><td>Qualified appointments booked for the Commercial Manager with a complete HubSpot handover note.</td><td><span class="chip">RF·AF·DT</span></td></tr>
+        <tr><td class="mono">Report</td><td>Consolidated end-of-campaign report prepared against the nominated success metrics.</td><td><span class="chip lead">AF</span></td></tr>
+      </tbody>
+    </table>
+    <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">FY27 Campaign Planning · Brainbox</span></div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="sheet">
+    <h2>The FY27 schedule</h2>
+    <p class="section-intro">Ten sector campaigns, one per month, August 2026 to June 2027. January 2027 is a consolidation and reactivation month — no new campaign — to work warm leads and clean data through the summer slowdown.</p>
+    <div class="yearbar">
+      <div class="mo"><div class="m">AUG 26</div><div class="c">01</div></div>
+      <div class="mo"><div class="m">SEP 26</div><div class="c">02</div></div>
+      <div class="mo"><div class="m">OCT 26</div><div class="c">03</div></div>
+      <div class="mo"><div class="m">NOV 26</div><div class="c">04</div></div>
+      <div class="mo"><div class="m">DEC 26</div><div class="c">05</div></div>
+      <div class="mo pause"><div class="m">JAN 27</div><div class="c">·</div></div>
+      <div class="mo"><div class="m">FEB 27</div><div class="c">06</div></div>
+      <div class="mo"><div class="m">MAR 27</div><div class="c">07</div></div>
+      <div class="mo"><div class="m">APR 27</div><div class="c">08</div></div>
+      <div class="mo"><div class="m">MAY 27</div><div class="c">09</div></div>
+      <div class="mo"><div class="m">JUN 27</div><div class="c">10</div></div>
+    </div>
+    <table class="t">
+      <thead><tr><th style="width:14%">Month</th><th style="width:8%">No.</th><th>Campaign</th><th style="width:20%">Team</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">Aug 2026</td><td class="num">01</td><td>Residential Building &amp; Trades</td><td><span class="chip lead">AF lead</span> <span class="chip">RF·AF·DT</span></td></tr>
+        <tr><td class="mono">Sep 2026</td><td class="num">02</td><td>Allied Health &amp; NDIS</td><td><span class="chip lead">AF lead</span> <span class="chip">RF·AF·DT</span></td></tr>
+        <tr><td class="mono">Oct 2026</td><td class="num">03</td><td>Mining Services &amp; METS</td><td><span class="chip lead">AF lead</span> <span class="chip">RF·AF·DT</span></td></tr>
+        <tr><td class="mono">Nov 2026</td><td class="num">04</td><td>Engineering &amp; Consultancies</td><td><span class="chip lead">AF lead</span> <span class="chip">RF·AF·DT</span></td></tr>
+        <tr><td class="mono">Dec 2026</td><td class="num">05</td><td>Transport &amp; Logistics <em>(holiday-shortened)</em></td><td><span class="chip lead">AF lead</span> <span class="chip">RF·AF·DT</span></td></tr>
+        <tr><td class="mono">Jan 2027</td><td class="num">—</td><td>Consolidation &amp; reactivation — clean data, rework warm leads, plan H2</td><td><span class="chip lead">AF lead</span> <span class="chip">RF·AF·DT</span></td></tr>
+        <tr><td class="mono">Feb 2027</td><td class="num">06</td><td>Insurance Broking</td><td><span class="chip lead">AF lead</span> <span class="chip">RF·AF·DT</span></td></tr>
+        <tr><td class="mono">Mar 2027</td><td class="num">07</td><td>Training &amp; RTOs</td><td><span class="chip lead">AF lead</span> <span class="chip">RF·AF·DT</span></td></tr>
+        <tr><td class="mono">Apr 2027</td><td class="num">08</td><td>Strata &amp; Property</td><td><span class="chip lead">AF lead</span> <span class="chip">RF·AF·DT</span></td></tr>
+        <tr><td class="mono">May 2027</td><td class="num">09</td><td>IT &amp; Cybersecurity (MSPs)</td><td><span class="chip lead">AF lead</span> <span class="chip">RF·AF·DT</span></td></tr>
+        <tr><td class="mono">Jun 2027</td><td class="num">10</td><td>Agribusiness &amp; Food</td><td><span class="chip lead">AF lead</span> <span class="chip">RF·AF·DT</span></td></tr>
+      </tbody>
+    </table>
+    <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">FY27 Campaign Planning · Brainbox</span></div>
+  </section>
+
+  <!-- ROLES & RESPONSIBILITIES -->
+  <section class="sheet">
+    <h2>Roles &amp; responsibilities</h2>
+    <p class="section-intro">Abi holds the Lead Campaign Manager role for the whole year and also delivers as an Associate. The three Associates carry the outreach for every campaign.</p>
+    <table class="t">
+      <thead><tr><th style="width:34%">Responsibility</th><th style="width:22%">Lead Campaign Mgr (AF)</th><th>Associates (RF · AF · DT)</th></tr></thead>
+      <tbody>
+        <tr><td>Distribute pre-identified prospects</td><td><strong>Owns</strong></td><td>Receive &amp; verify allocation</td></tr>
+        <tr><td>Research &amp; add target accounts</td><td>Contributes</td><td><strong>Own</strong> — each adds their own</td></tr>
+        <tr><td>Run the Playbook's weekly rhythm across the campaign</td><td>Contributes</td><td><strong>Own</strong></td></tr>
+        <tr><td>Book qualified appointments for the Commercial Manager</td><td>Contributes</td><td><strong>Own</strong></td></tr>
+        <tr><td>Oversee Associate activity &amp; quality</td><td><strong>Owns</strong></td><td>Report activity</td></tr>
+        <tr><td>Weekly check-in &amp; unblocking</td><td><strong>Owns</strong></td><td>Attend &amp; action</td></tr>
+        <tr><td>HubSpot hygiene &amp; handover notes</td><td>Assures</td><td><strong>Own</strong> for their accounts</td></tr>
+        <tr><td>Liaison with Marketing Manager &amp; Commercial Manager</td><td><strong>Owns</strong></td><td>Support</td></tr>
+        <tr><td>Consolidated end-of-campaign report</td><td><strong>Owns</strong></td><td>Provide their numbers</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><strong>Prospect distribution.</strong> Each month the Lead Campaign Manager splits the 15 pre-identified prospects evenly — <strong>5 to each Associate</strong> — matched to fit and workload. Each Associate then researches and adds their own accounts at the Playbook's steady-state rate, so across three Associates a campaign works roughly <strong>240–360 accounts</strong> in the month.</div>
+    <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">FY27 Campaign Planning · Brainbox</span></div>
+  </section>
+
+  <!-- SUPERVISION CADENCE -->
+  <section class="sheet">
+    <h2>Leading the team &mdash; Abi's cadence</h2>
+    <p class="section-intro">Abi's supervision rhythm turns oversight into coaching &mdash; keeping each campaign on track while helping Rory, Abi and Dodellysa grow toward their full potential. It runs alongside the Playbook's weekly rhythm, not on top of it.</p>
+    <table class="t">
+      <thead><tr><th style="width:20%">Rhythm</th><th>What Abi runs</th><th style="width:20%">Purpose</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">Daily &middot; 10 min</td><td>Async stand-up in HubSpot / chat &mdash; yesterday's touches &amp; appointments, today's priority, any blockers.</td><td>Momentum &amp; fast unblocking</td></tr>
+        <tr><td class="mono">Weekly &middot; 30 min</td><td>Team review of activity vs target and the <strong>in-person baseline</strong>, then a short 1:1 with each Associate.</td><td>Accountability &amp; support</td></tr>
+        <tr><td class="mono">Weekly &middot; 20 min</td><td>Quality review &mdash; listen to one call and read two message threads per Associate; coach on a single thing.</td><td>Skill lift</td></tr>
+        <tr><td class="mono">Fortnightly &middot; 30 min</td><td>Pipeline &amp; handover review with the Commercial Manager on meeting quality, fit and conversion.</td><td>Sales alignment</td></tr>
+        <tr><td class="mono">Monthly &middot; 45 min</td><td>Development review per Associate &mdash; progress on the skills matrix, one stretch goal, recognition.</td><td>Growth</td></tr>
+        <tr><td class="mono">Per campaign</td><td>Kickoff (brief, prospect split, angles) and retro (what worked, what to change next time).</td><td>Learn &amp; reset</td></tr>
+      </tbody>
+    </table>
+    <div class="grid2">
+      <div>
+        <h4>Coaching focus in every 1:1</h4>
+        <ul style="font-size:9pt">
+          <li>Celebrate a win, then name one thing to improve</li>
+          <li>Review real calls &amp; messages, not just numbers</li>
+          <li>Unblock data, tooling or targeting issues</li>
+          <li>Agree one specific action before next week</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Helping each Associate reach potential</h4>
+        <ul style="font-size:9pt">
+          <li>Skills matrix: research &middot; outreach &middot; calling &middot; qualifying &middot; booking</li>
+          <li>One stretch goal per month, tracked openly</li>
+          <li>Pair strengths &mdash; buddy up on tougher sectors</li>
+          <li>Recognise the behaviour, not only the result</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note"><strong>Always Be Kind &mdash; in management too.</strong> Feedback is specific, timely and kind; targets are firm but support comes first. The aim is a confident team that clears the weekly in-person baseline and keeps getting better.</div>
+    <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">FY27 Campaign Planning &middot; Brainbox</span></div>
+  </section>
+
+  <!-- SUCCESS METRICS -->
+  <section class="sheet">
+    <h2>Success metrics &amp; consolidated reporting</h2>
+    <p class="section-intro">Every campaign is measured on the same nominated metrics. The Lead Campaign Manager consolidates all three Associates' results into one end-of-campaign report. The final measure is leads that become commercial transactions.</p>
+    <div class="flag"><span class="lbl">Baseline outcome</span>The team delivers <strong>at least 6 new in-person appointments for the Commercial Manager every week</strong> (≈ 24+ per campaign month) — the floor below which the week is not acceptable. In-person is the premium, baselined meeting; video / phone is a fallback only.</div>
+    <h3>Activity targets — aligned to the Playbook steady-state</h3>
+    <p class="section-intro">Each Associate works to the Demand Generation Playbook's steady-state <strong>weekly</strong> targets throughout a campaign; the monthly and campaign totals below follow directly from those weekly figures.</p>
+    <table class="t">
+      <thead><tr><th>Metric</th><th style="width:15%">Per Associate / wk</th><th style="width:16%">Per Associate / mth</th><th style="width:17%">Campaign / mth (×3)</th></tr></thead>
+      <tbody>
+        <tr><td>New target accounts</td><td class="num">20–30</td><td class="num">80–120</td><td class="num">240–360</td></tr>
+        <tr><td>Contacts researched &amp; enriched</td><td class="num">80–120</td><td class="num">320–480</td><td class="num">960–1,440</td></tr>
+        <tr><td>First-touch actions (with Insight Article)</td><td class="num">60–80</td><td class="num">240–320</td><td class="num">720–960</td></tr>
+        <tr><td>Follow-up actions</td><td class="num">120–180</td><td class="num">480–720</td><td class="num">1,440–2,160</td></tr>
+        <tr><td>Calls</td><td class="num">50–80</td><td class="num">200–320</td><td class="num">600–960</td></tr>
+        <tr><td>Live conversations</td><td class="num">20–30</td><td class="num">80–120</td><td class="num">240–360</td></tr>
+        <tr><td>Warm opportunities created</td><td class="num">8–12</td><td class="num">32–48</td><td class="num">96–144</td></tr>
+        <tr><td>Qualified appointments booked (feeding the Commercial Manager)</td><td class="num">4–8</td><td class="num">16–32</td><td class="num">48–96</td></tr>
+        <tr><td><strong>In-person appointments for the Commercial Manager</strong></td><td class="num">≥2</td><td class="num">≥8</td><td class="num">≥6/wk · ≥24</td></tr>
+        <tr><td>Reactivation appointments</td><td class="num">2–4</td><td class="num">8–16</td><td class="num">24–48</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><strong>Also per the Playbook.</strong> Each Associate progresses <strong>20+ new sales-exec LinkedIn connections per profile per week</strong>, and campaign work is cross-referenced <em>into</em> these weekly targets — never run as a separate queue. Targets are reviewed after the first six weeks.</div>
+    <div class="grid2">
+      <div>
+        <h4>Nominated success metrics</h4>
+        <ul style="font-size:9pt">
+          <li>Qualified appointments booked &amp; <strong>held</strong></li>
+          <li>Appointments → sales opportunities</li>
+          <li>Opportunities → proposals</li>
+          <li><strong>Proposals → commercial transactions</strong> (final measure)</li>
+          <li>Sales acceptance of leads · no-show rate · data quality</li>
+        </ul>
+      </div>
+      <div>
+        <h4>End-of-campaign report (Abi)</h4>
+        <ul style="font-size:9pt">
+          <li>Consolidated activity &amp; outcomes vs target</li>
+          <li>Per-Associate contribution (RF · AF · DT)</li>
+          <li>Outcome funnel through to commercial transaction</li>
+          <li>Best angles, triggers &amp; top objections</li>
+          <li>Data quality &amp; recommendations for the next campaign</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flag"><span class="lbl">Final success measure</span>Across the year, the number of leads that turn into sales opportunities and subsequently become a <strong>commercial transaction</strong>. Every campaign metric is a leading indicator of that single revenue outcome.</div>
+    <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">FY27 Campaign Planning · Brainbox</span></div>
+  </section>
+
+</main>
+</x-dc>
+</body>
+</html>

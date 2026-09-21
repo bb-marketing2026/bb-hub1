@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #fff; }
+    .doc { box-sizing: border-box; max-width: 210mm; margin: 0 auto; background: inherit;
+           padding: 40px clamp(20px, 5vw, 16mm) 80px;
+           font-family: var(--font-body); font-weight: 300; color: var(--bb-grey-800);
+           font-size: 10pt; line-height: 1.5; }
+    .doc-frame { width: 100%; border-collapse: collapse; }
+    .doc-frame td { padding: 0; }
+    .running-hdr, .running-ftr, .hdr-space, .ftr-space { display: none; }
+
+    .doc h1, .doc h2, .doc h3, .doc h4 { font-family: var(--font-heading); color: var(--bb-grey-700); margin: 0; }
+    .doc h1 { font-weight: 600; }
+    .doc h2 { font-weight: 600; font-size: 16pt; color: var(--bb-pink); letter-spacing: -0.01em;
+              margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--bb-pink);
+              text-wrap: balance; }
+    .doc h3 { font-weight: 600; font-size: 11.5pt; color: var(--bb-grey-700); margin: 16px 0 5px; text-wrap: balance; }
+    .doc h4 { font-weight: 600; font-size: 9.5pt; color: var(--bb-pink-700); margin: 12px 0 3px;
+              text-transform: uppercase; letter-spacing: 0.06em; }
+    .doc p { margin: 0 0 8px; text-wrap: pretty; }
+    .doc ul, .doc ol { margin: 0 0 8px; padding-left: 17px; }
+    .doc li { margin: 0 0 3px; text-wrap: pretty; }
+    .doc li::marker { color: var(--bb-pink-400); }
+    .doc strong { font-weight: 600; color: var(--bb-grey-800); }
+    .doc a { color: var(--bb-pink); text-decoration: none; }
+
+    .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em;
+               font-size: 8pt; color: var(--bb-pink); font-weight: 600; }
+
+    .cover { background: var(--bb-gradient-brand); border-radius: 18px; padding: 40px 36px;
+             color: #fff; margin-bottom: 8px; }
+    .cover .eyebrow { color: rgba(255,255,255,0.92); }
+    .cover h1 { color: #fff; font-size: 30pt; line-height: 1.05; margin: 14px 0 10px; letter-spacing: -0.015em; }
+    .cover .lede { color: rgba(255,255,255,0.95); font-size: 11.5pt; max-width: 92%; margin: 0; font-weight: 300; }
+    .cover-meta { display: flex; gap: 26px; margin-top: 26px; padding-top: 18px;
+                  border-top: 1px solid rgba(255,255,255,0.35); flex-wrap: wrap; }
+    .cover-meta div { font-size: 8.5pt; }
+    .cover-meta span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt;
+                       opacity: 0.8; margin-bottom: 2px; }
+    .wordmark { font-family: var(--font-logo); font-size: 16pt; letter-spacing: 0.14em; color: #fff; }
+
+    .doc table.t { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 9pt; }
+    .doc table.t th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading);
+                      font-weight: 600; text-align: left; padding: 6px 9px; border-bottom: 1.5px solid var(--bb-pink-200);
+                      font-size: 8.5pt; }
+    .doc table.t td { padding: 6px 9px; border-bottom: 1px solid var(--bb-grey-200); vertical-align: top; }
+    .doc table.t tr:nth-child(even) td { background: var(--bb-grey-50); }
+    .doc table.t .num { font-family: var(--font-mono); color: var(--bb-pink-700); white-space: nowrap; font-weight: 600; }
+
+    .cols2 { columns: 2; column-gap: 28px; }
+    .cols2 ul { margin-top: 0; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+    .script { background: var(--bb-pink-50); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0;
+              padding: 9px 13px; margin: 6px 0 12px; font-size: 9pt; color: var(--bb-grey-800); }
+    .script .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt;
+                   color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .script em { font-style: italic; color: var(--bb-grey-700); }
+
+    .note { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); border-radius: 8px;
+            padding: 9px 13px; margin: 6px 0 12px; font-size: 9pt; }
+    .flag { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-left: 3px solid var(--bb-pink);
+            border-radius: 0 8px 8px 0; padding: 10px 13px; margin: 6px 0 12px; font-size: 9pt; }
+    .flag .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt;
+                 color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 6px 0 14px; }
+    .stat { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 12px 13px; }
+    .stat .v { font-family: var(--font-heading); font-weight: 600; font-size: 16pt; color: var(--bb-pink);
+               line-height: 1; }
+    .stat .l { font-size: 8pt; color: var(--bb-grey-500); margin-top: 5px; line-height: 1.3; }
+
+    .days { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 8px 0 12px; }
+    .day { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 11px 12px; }
+    .day .d { font-family: var(--font-heading); font-weight: 600; font-size: 10pt; color: var(--bb-pink); }
+    .day .s { font-size: 8pt; color: var(--bb-grey-500); margin-top: 4px; line-height: 1.35; }
+
+    .dodont { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 6px 0 12px; }
+    .dodont .box { border-radius: 10px; padding: 10px 13px; font-size: 9pt; }
+    .dodont .do { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-300); }
+    .dodont .dont { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); }
+    .dodont h4 { margin-top: 0; }
+    .dodont .do h4 { color: var(--bb-blue-700); }
+    .dodont .dont h4 { color: var(--bb-pink-700); }
+    .dodont ul { padding-left: 16px; margin-bottom: 0; }
+
+    .lead-statuses { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 12px; }
+    .pill { background: #fff; border: 1px solid var(--bb-pink-200); color: var(--bb-grey-700);
+            border-radius: 999px; padding: 3px 11px; font-size: 8pt; font-family: var(--font-heading); }
+
+    .section-intro { color: var(--bb-grey-500); font-size: 10pt; margin-bottom: 10px; }
+
+    .form-field { border: 1px solid var(--bb-grey-300); border-radius: 6px; height: 22px; margin-bottom: 6px; }
+    .form-label { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.07em; color: var(--bb-grey-500);
+                  font-family: var(--font-mono); display: block; margin-bottom: 3px; }
+    .doc table.form { width: 100%; border-collapse: collapse; margin: 4px 0 10px; font-size: 8.5pt; }
+    .doc table.form th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading);
+                         font-weight: 600; text-align: left; padding: 5px 7px; border: 1px solid var(--bb-grey-300);
+                         font-size: 7.5pt; }
+    .doc table.form td { padding: 5px 7px; border: 1px solid var(--bb-grey-300); height: 20px; vertical-align: top; }
+    .doc table.form .target { font-family: var(--font-mono); color: var(--bb-pink-700); font-size: 8pt; white-space: nowrap; }
+    .checkrow { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px 20px; margin: 4px 0 10px; }
+    .checkrow div { font-size: 8.5pt; display: flex; align-items: center; gap: 7px; }
+    .chk { width: 12px; height: 12px; border: 1.5px solid var(--bb-grey-400); border-radius: 3px; flex: none; }
+
+    /* Each section is its own page-sheet */
+    .sheet { padding-top: 4px; }
+    .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
+    .sheet > h2:first-child { margin-top: 4px; }
+
+
+    .cover .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.22em; font-size: 7.5pt; color: rgba(255,255,255,0.72); margin-bottom: 20px; }
+    .cover .cat { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 10px; }
+    .cover-page { min-height: 900px; display: flex; flex-direction: column; }
+    .cover-page .cat { margin-bottom: auto; } .cover-page h1 { margin-top: 0; }
+    .cover-page .cover-meta { margin-top: auto; }
+    @media print { .cover-sheet .cover-page { min-height: 252mm; } .cover-sheet { break-after: page; } }
+
+    .cover-page { position: relative; }
+    .cover-elephant { position: absolute; top: 34px; right: 36px; height: 84px; width: auto; }
+
+    .cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 32%, var(--bb-pink) 118%) !important; }
+    .cover-grad .cat { color: #fff !important; }
+    .sub-note { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8.5pt; font-weight: 600; color: #fff; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.28); display: inline-block; }
+
+    /* ===== Subdued (Boardroom) palette ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .doc h3 { color: var(--bb-grey-700) !important; }
+    .doc h4 { color: var(--bb-grey-500) !important; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root, .handoff { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj { color: var(--bb-grey-700) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; border-left-color: var(--bb-pink) !important; }
+    .flag .lbl { color: var(--bb-grey-500) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+    .stat .v { color: var(--bb-grey-800) !important; }
+    .rolecard h3 { color: var(--bb-grey-800) !important; }
+    .pill { border-color: var(--bb-grey-300) !important; }
+    .script { border-left-color: var(--bb-pink) !important; }
+    .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
+
+    @page { size: A4 portrait; margin: 10mm; }
+    @media print {
+      .sheet { break-before: page; min-height: 274mm; display: flex; flex-direction: column;
+               box-sizing: border-box; margin-top: 0 !important; border-top: 0 !important;
+               padding-top: 0 !important; }
+      .sheet:first-of-type { break-before: auto; }
+      /* sections are always top-aligned — never vertically centred */
+      .sheet > h2:first-child, .sheet > .cover:first-child { margin-top: 0 !important; }
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 !important;
+             box-shadow: none !important; border: none !important; }
+      #dc-root, .sc-host { height: auto !important; }
+      .hdr-space { display: none !important; }
+      .ftr-space { display: none !important; }
+      .running-hdr, .running-ftr { display: none !important; justify-content: space-between; align-items: baseline;
+             position: fixed !important; left: 0; right: 0; margin: 0 !important; font-size: 8pt;
+             letter-spacing: 0.08em; text-transform: uppercase; color: var(--bb-grey-400);
+             font-family: var(--font-mono); }
+      .running-hdr { top: 0; padding: 7mm 16mm 0 !important; }
+      .running-ftr { bottom: 0; left: 16mm; right: 16mm; padding: 4mm 0 9mm !important;
+             border-top: 0.5pt solid var(--bb-grey-200); }
+      .running-hdr .r, .running-ftr .r { color: var(--bb-pink); }
+      /* Pagination intelligence */
+      h2, h3, h4 { break-after: avoid !important; }
+      h2 { break-before: auto; }
+      h2 + *, h3 + *, h4 + * { break-before: avoid; }
+      figure, pre, blockquote, img, svg, tr, .stat, .day, .script, .note, .flag, .box,
+      .stats, .days, .dodont, .lead-statuses, .checkrow, .grid3, .cover { break-inside: avoid; }
+      /* Long tables may break, but keep their header row on every page and never split a row */
+      table.t, table.form { break-inside: avoid; }
+      table.t thead, table.form thead { display: table-header-group; }
+      table.t tr, table.form tr { break-inside: avoid; }
+      /* Keep a section heading attached to the block that follows it */
+      .keep { break-inside: avoid; }
+      p, li { orphans: 3; widows: 3; }
+      .page-break { break-before: page; }
+      .screen-only { display: none !important; }
+    }
+    /* cover-final-override */
+    .cover.cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 30%, var(--bb-pink) 120%) !important; }
+    .cover-page { min-height: 900px !important; display: flex !important; flex-direction: column !important; }
+    .cover-page .cat { margin-bottom: auto !important; }
+    .cover-page h1 { margin-top: 0 !important; }
+    .cover-page .cover-meta { margin-top: auto !important; }
+    /* table-font-override */
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, table.rep .tg, .doc table.form .target { font-family: var(--font-body) !important; }
+    /* role-body-override */
+    .doc table.t .role { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+    /* all-table-cells-body */
+    .doc table.t td, .doc table.t td .num, .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, .doc table.t .role, table.rep td, table.rep .tg, .doc table.form td, .doc table.form .target { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+  </style>
+</helmet>
+
+<main class="doc">
+  <table class="doc-frame" role="presentation">
+    <thead>
+      <tr><td class="hdr-space"></td></tr>
+    </thead>
+    <tbody>
+      <tr><td>
+
+        <div class="running-hdr"><span>Demand Generation Playbook</span><span class="r">Brainbox</span></div>
+        <div class="running-ftr"><span>Always Be Kind</span><span class="r">Powerful People Performance</span></div>
+
+        <section class="sheet cover-sheet">
+  <div class="cover cover-page cover-grad">
+    <img class="cover-elephant" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="conf">Strictly private &amp; confidential</div>
+    <div class="cat">Demand Generation Playbook</div>
+    <h1>How Brainbox fills the pipeline with qualified meetings</h1>
+    <p class="lede">How the Associate builds a consistent pipeline of qualified sales appointments for Brainbox &mdash; the people, the cadence, the standards and the systems.</p>
+    <div class="sub-note">Subsidiary to the Revenue Playbook</div>
+    <div class="cover-meta">
+      <div><span>Document owner</span>Corporate Services Director</div>
+      <div><span>Issue date</span>July 2026</div>
+      <div><span>Part of</span>Revenue Playbook</div>
+      <div style="margin-left:auto;align-self:flex-end"><span class="wordmark">BRAINBOX</span></div>
+    </div>
+  </div>
+</section>
+
+  <section class="sheet">
+  <!-- PURPOSE -->
+        <h2>Purpose</h2>
+        <p>The Associate builds a consistent pipeline of qualified sales appointments for Brainbox. The focus is Australian SMEs with 10&ndash;100 employees &mdash; networking is concentrated in Western Australia while campaigns run Australia-wide &mdash; plus selected US prospects with a clear fit for offshore services.</p>
+        <div class="flag">
+          <span class="lbl">Why this role matters</span>
+          The Associate is the <strong>bridge between marketing and sales</strong> &mdash; turning marketing&rsquo;s awareness and interest into qualified, sales-ready conversations. The role is considered a <strong>key driver of new revenue for Brainbox</strong>: the pipeline it creates is where future commercial transactions begin.
+        </div>
+        <p>The primary output is a <strong>booked, in-person sales appointment</strong> with a suitable decision maker or senior influencer, recorded in HubSpot with a clear business reason, contact history, company profile and recommended sales angle. The target is <strong>quality-adjusted, not activity-only</strong> &mdash; the correct benchmark is appointments <em>held</em> in person, not appointments booked. Review targets after the first six weeks.</p>
+
+        <h3>Steady-state weekly targets</h3>
+        <div class="stats">
+          <div class="stat"><div class="v">20&ndash;30</div><div class="l">New target accounts to priority nurture</div></div>
+          <div class="stat"><div class="v">80&ndash;120</div><div class="l">New contacts researched &amp; enriched</div></div>
+          <div class="stat"><div class="v">60&ndash;80</div><div class="l">Personalised first-touch actions</div></div>
+          <div class="stat"><div class="v">120&ndash;180</div><div class="l">Follow-up actions (LinkedIn / email / phone)</div></div>
+          <div class="stat"><div class="v">20&ndash;30</div><div class="l">Live conversations / two-way exchanges</div></div>
+          <div class="stat"><div class="v">20+</div><div class="l">New connections per sales-exec LinkedIn profile</div></div>
+          <div class="stat"><div class="v">8&ndash;12</div><div class="l">Warm opportunities created in HubSpot</div></div>
+          <div class="stat"><div class="v">6+</div><div class="l">In-person appointments for the Commercial Manager (weekly baseline)</div></div>
+        </div>
+        <p style="font-size:9pt;color:var(--bb-grey-500);margin-top:-4px">Plus 2&ndash;4 reactivation appointments per week from old leads, enquiries, referrals or dormant HubSpot contacts.</p>
+</section>
+        <section class="sheet center">
+        <!-- QUALIFIED APPOINTMENT -->
+        <h2>What counts as a qualified appointment</h2>
+        <p class="section-intro">A meeting counts only when <strong>all</strong> of the following are met:</p>
+        <div class="grid2">
+          <ul>
+            <li>The company fits the Brainbox ideal customer profile.</li>
+            <li>The contact is a decision maker, budget holder, operational owner or credible internal sponsor.</li>
+            <li>The prospect has at least one confirmed or strongly evidenced business driver.</li>
+          </ul>
+          <ul>
+            <li>The meeting is booked <strong>in person</strong> and accepted in the Commercial Manager&rsquo;s calendar (video/phone only as a fallback, and it does not count toward the 6-per-week baseline).</li>
+            <li>The HubSpot record contains clear context for the sales person.</li>
+            <li>The prospect was not booked through misleading claims, excessive pressure or vague bait.</li>
+          </ul>
+        </div>
+        <div class="note"><strong>Business drivers</strong> include: recruitment difficulty, cost pressure, growth, administration overload, a vacant role, delayed work, process failure, poor software utilisation, need for extended hours, need for back-office support, or frustration with local hiring.</div>
+        <div class="flag"><span class="lbl">Weekly baseline &mdash; non-negotiable</span>The demand-generation function delivers <strong>at least 6 new in-person appointments for the Commercial Manager every week</strong>. Video or phone meetings are a fallback only and do not count toward the baseline; any week under 6 in-person is escalated at the weekly review.</div>
+
+        <h3>Qualify before you book &mdash; without over-qualifying</h3>
+        <p class="section-intro">Use only the questions you need. Over-qualifying loses the meeting.</p>
+        <div class="grid2">
+          <ul>
+            <li>Which role or function is creating the most pressure right now?</li>
+            <li>Is this mainly cost, capacity, recruitment difficulty or process backlog?</li>
+            <li>Are you the right person, or someone who manages operations or finance?</li>
+          </ul>
+          <ul>
+            <li>Have you used offshore or outsourced support before?</li>
+            <li>Would you prefer to discuss admin, finance, customer service, marketing or operations support?</li>
+          </ul>
+        </div>
+        <h3>Every booked appointment carries</h3>
+        <div class="lead-statuses">
+          <span class="pill">Calendar invite</span><span class="pill">Video link</span><span class="pill">Correct attendees</span><span class="pill">Clear title</span><span class="pill">Short agenda</span><span class="pill">HubSpot association</span><span class="pill">Sales owner</span><span class="pill">Handover note</span><span class="pill">Contact phone</span><span class="pill">Suggested opening question</span>
+        </div>
+        <div class="script">
+          <span class="lbl">Recommended opening question for sales</span>
+          <em>&ldquo;What prompted you to take the call, and which part of your team is carrying the most pressure at the moment?&rdquo;</em>
+        </div>
+
+        </section>
+        <section class="sheet">
+        <!-- ICP -->
+        <h2>Ideal customer profile</h2>
+        <p>Primary market: <strong>Australian SMEs with 10&ndash;100 employees</strong>. Priority locations are Perth metro, Peel, South West, Great Southern, Goldfields, Pilbara and Mid West where there is centralised administration or recurring back-office work.</p>
+        <h3>Priority sectors</h3>
+        <div class="cols2">
+          <ul>
+            <li>Accounting &amp; bookkeeping firms</li>
+            <li>Mortgage &amp; finance brokers</li>
+            <li>Real estate agencies &amp; settlement businesses</li>
+            <li>Strata management businesses</li>
+            <li>Freight forwarding &amp; logistics</li>
+            <li>Manufacturers &amp; fabricators</li>
+            <li>Engineering &amp; construction services</li>
+            <li>Civil contractors &amp; trades with office needs</li>
+            <li>Registered training organisations</li>
+            <li>Allied health, disability &amp; youth services</li>
+            <li>Insurance brokers</li>
+            <li>Professional services firms</li>
+            <li>IT managed service providers</li>
+            <li>Marketing agencies</li>
+            <li>Recruitment firms</li>
+            <li>E-commerce &amp; wholesale distribution</li>
+          </ul>
+        </div>
+
+        <h3>Account selection criteria</h3>
+        <p class="section-intro">Target accounts should meet <strong>at least four</strong> of the following:</p>
+        <div class="cols2">
+          <ul>
+            <li>10&ndash;100 employees</li>
+            <li>WA-based or with a meaningful WA office</li>
+            <li>Visible admin, finance, marketing, customer service, compliance, estimating, scheduling or ops roles</li>
+            <li>Recently advertised for support staff</li>
+            <li>Multiple office staff visible on LinkedIn</li>
+            <li>Uses offshore-supportable software (Xero, MYOB, HubSpot, Zoho, CargoWise, Simpro, ServiceM8, PropertyMe, Property Tree, Reapit, Salesforce, Pipedrive, Moodle, aXcelerate, SharePoint, Teams)</li>
+            <li>Growth signals: new locations, services, contracts, leadership hires, investment, recruitment</li>
+            <li>Labour-pressure signals: repeated job ads, long vacancies, high-volume admin roles, "urgent hiring" posts</li>
+            <li>Likely recurring process work</li>
+            <li>Owner-led or founder-led</li>
+            <li>Management team small enough to value direct cost &amp; capacity improvement</li>
+            <li>Not too small to afford support, not too large for long enterprise procurement</li>
+          </ul>
+        </div>
+        <div class="dodont">
+          <div class="box do">
+            <h4>Pursue</h4>
+            <ul>
+              <li>Australian SMEs with visible back-office functions</li>
+              <li>Active recruiters for support roles</li>
+              <li>Owner / founder-led businesses</li>
+              <li>Recurring, process-heavy workloads</li>
+            </ul>
+          </div>
+          <div class="box dont">
+            <h4>Exclude</h4>
+            <ul>
+              <li>Too small / too large for the model</li>
+              <li>Heavily regulated with no offshore-suitable functions</li>
+              <li>Government agencies, charities without budget signals</li>
+              <li>No visible decision makers; poor fit; already in active sales discussions</li>
+            </ul>
+          </div>
+        </div>
+
+        </section>
+        <section class="sheet">
+        <!-- PERSONAS -->
+        <h2>Priority buyer personas</h2>
+        <p class="section-intro">Target multiple people per account &mdash; offshore services are usually bought after several people recognise the same pressure. Aim for at least one senior decision maker and one operational influencer.</p>
+        <div class="grid2">
+          <div>
+            <h4>Primary decision makers</h4>
+            <ul>
+              <li>Owner &middot; Founder &middot; Managing Director</li>
+              <li>CEO &middot; General Manager &middot; COO &middot; CFO</li>
+              <li>Director of Operations</li>
+              <li>Practice Principal &middot; Managing Partner</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Influencers &amp; secondary buyers</h4>
+            <ul>
+              <li>Operations / Finance / HR Manager</li>
+              <li>People &amp; Culture &middot; Office &middot; Practice Manager</li>
+              <li>Sales / Marketing / Client Services Manager</li>
+              <li>Property &middot; Service Delivery &middot; Compliance Manager</li>
+            </ul>
+          </div>
+        </div>
+        <h3>Role-specific buyers by sector</h3>
+        <table class="t">
+          <thead><tr><th style="width:26%">Sector</th><th>Target roles</th></tr></thead>
+          <tbody>
+            <tr><td>Accounting firm</td><td>Partner &middot; Practice Manager &middot; Client Services Manager &middot; Bookkeeping Manager</td></tr>
+            <tr><td>Mortgage broker</td><td>Principal Broker &middot; Operations Manager &middot; Loan Processing Manager</td></tr>
+            <tr><td>Real estate agency</td><td>Principal &middot; General Manager &middot; Sales Operations Manager &middot; Property Management Head</td></tr>
+            <tr><td>Freight &amp; logistics</td><td>Managing Director &middot; Operations Manager &middot; Branch Manager &middot; Finance Manager</td></tr>
+            <tr><td>RTO</td><td>CEO &middot; General Manager &middot; Student Services Manager &middot; Compliance Manager</td></tr>
+            <tr><td>Fabrication / trades</td><td>Owner &middot; General Manager &middot; Estimating Manager &middot; Operations Manager &middot; Finance Manager</td></tr>
+            <tr><td>Allied health / NDIS</td><td>Director &middot; Practice Manager &middot; Rostering Manager &middot; Finance Manager</td></tr>
+          </tbody>
+        </table>
+        <h3>What each persona responds to</h3>
+        <table class="t">
+          <thead><tr><th style="width:22%">Persona</th><th style="width:39%">What they care about</th><th>Lead with</th></tr></thead>
+          <tbody>
+            <tr><td>Owner / MD / Founder</td><td>Growth, margin, and freeing senior people from low-value work without over-hiring locally.</td><td>Capacity &amp; cost control without added local overhead.</td></tr>
+            <tr><td>Operations / GM</td><td>Backlogs, turnaround time, process consistency and team capacity.</td><td>Removing the repeatable work behind the team.</td></tr>
+            <tr><td>Finance / CFO</td><td>Loaded cost of local roles, overtime and predictable spend.</td><td>Cost comparison against a managed offshore role.</td></tr>
+            <tr><td>HR / People &amp; Culture</td><td>Hard-to-fill roles, turnover and recruitment load.</td><td>Stable support without another local hire.</td></tr>
+            <tr><td>Office / Practice Manager</td><td>Day-to-day admin overload, coverage and documentation.</td><td>Offloading admin so the office runs smoothly.</td></tr>
+          </tbody>
+        </table>
+        <div class="note"><strong>Multi-thread every Tier 1 account.</strong> Reach a senior decision maker for authority and an operational influencer for the felt pain &mdash; the deal moves when both recognise the same pressure. Tailor the angle to each person rather than sending one message to everyone.</div>
+
+        </section>
+        <section class="sheet">
+        <!-- WEEKLY RHYTHM -->
+        <h2>The weekly rhythm</h2>
+        <div class="days">
+          <div class="day"><div class="d">Mon</div><div class="s">Plan, pick verticals, build &amp; score target accounts, map contacts, prep messaging &amp; tasks.</div></div>
+          <div class="day"><div class="d">Tue</div><div class="s">Finish enrichment, run first-touch outreach, make first calls, engage on LinkedIn, book early meetings.</div></div>
+          <div class="day"><div class="d">Wed</div><div class="s">Follow-up wave + second first-touch, priority calls, expand triggers, complete handovers.</div></div>
+          <div class="day"><div class="d">Thu</div><div class="s">Convert warm leads, call engaged prospects, mine referrals, reactivate old leads, handle objections.</div></div>
+          <div class="day"><div class="d">Fri</div><div class="s">Confirm meetings, close-the-loop, clean HubSpot, compliance, review performance, prep next week.</div></div>
+        </div>
+
+        <h3>Daily time blocks</h3>
+        <table class="t">
+          <thead><tr><th style="width:24%">Time</th><th>Focus</th></tr></thead>
+          <tbody>
+            <tr><td class="num">8:30&ndash;9:00</td><td>Pipeline review and priority setting</td></tr>
+            <tr><td class="num">9:00&ndash;10:30</td><td>Account and contact research</td></tr>
+            <tr><td class="num">10:30&ndash;12:00</td><td>New outreach</td></tr>
+            <tr><td class="num">12:00&ndash;12:30</td><td>HubSpot updates and task completion</td></tr>
+            <tr><td class="num">1:00&ndash;2:30</td><td>Follow-up calls, LinkedIn responses, email replies</td></tr>
+            <tr><td class="num">2:30&ndash;3:30</td><td>Appointment setting and sales handovers</td></tr>
+            <tr><td class="num">3:30&ndash;4:30</td><td>Data enrichment, list hygiene, trigger monitoring</td></tr>
+            <tr><td class="num">4:30&ndash;5:00</td><td>Daily summary, blockers and next-day queue</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Daily non-negotiables</h3>
+        <div class="grid2">
+          <ul>
+            <li>Review every overdue HubSpot task.</li>
+            <li>Clear all replies before starting new prospecting.</li>
+            <li>Update lifecycle stage, lead status and next action for every active contact touched.</li>
+            <li>Check Sales Navigator alerts for saved leads and accounts.</li>
+            <li>Check Apollo data confidence before sending or calling.</li>
+          </ul>
+          <ul>
+            <li>Log all calls, emails, LinkedIn touches and meeting outcomes.</li>
+            <li>Check bounced emails, unsubscribes and opt-outs.</li>
+            <li>Send no outreach to contacts marked unsubscribed, opted out, do not contact, competitor, supplier, employee, unsuitable, student, personal or legal risk.</li>
+            <li>Progress new connections on the assigned sales-exec LinkedIn profiles toward the weekly minimum.</li>
+          </ul>
+        </div>
+
+        </section>
+        <section class="sheet">
+        <!-- SALES EXEC LINKEDIN REQUIREMENT -->
+        <h2>Sales-executive LinkedIn network growth</h2>
+        <p class="section-intro">Brainbox sales conversations land better when the request comes from the sales executive&rsquo;s own network. The Associate is responsible for growing that network on the executive&rsquo;s behalf.</p>
+        <div class="flag">
+          <span class="lbl">Mandatory weekly requirement</span>
+          Each week, the Associate must log in as one of the sales executives (using approved, delegated access) and generate <strong>at least 20 new, relevant connections</strong> from that executive&rsquo;s LinkedIn profile &mdash; targeting decision makers and influencers that match the Brainbox ICP and the week&rsquo;s vertical focus.
+        </div>
+        <div class="grid2">
+          <div>
+            <h4>How to run it</h4>
+            <ul>
+              <li>Use only delegated access the sales executive has explicitly approved &mdash; never undisclosed or shared credentials outside that arrangement.</li>
+              <li>Send personalised connection requests as the executive, matched to the weekly vertical and a relevant trigger.</li>
+              <li>Keep the executive&rsquo;s voice and tone &mdash; warm, human, no pitch in the connection note.</li>
+              <li>Stagger requests through the week to stay within LinkedIn limits and look human.</li>
+              <li>Record each connected contact in HubSpot with source &ldquo;Sales-exec LinkedIn&rdquo; and the owning executive.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Standards &amp; guardrails</h4>
+            <ul>
+              <li>Minimum <strong>20 new accepted-or-pending relevant connection requests per executive profile, per week</strong>; quality and fit come before raw volume.</li>
+              <li>No automation tools that breach LinkedIn rules or risk the executive&rsquo;s account.</li>
+              <li>Respect every opt-out, decline and &ldquo;do not contact&rdquo; signal immediately.</li>
+              <li>Hand newly connected contacts into the normal nurture and outreach cadence.</li>
+              <li>Report new connections per executive in the weekly report.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="script">
+          <span class="lbl">Example connection note (sent as the executive)</span>
+          <em>&ldquo;Hi [Name], I work with Australian SMEs on building high-performing teams and managed offshore support. I noticed your team is active in [sector] &mdash; it would be good to connect.&rdquo;</em>
+        </div>
+        <h3>Pacing to hit 20+ a week</h3>
+        <table class="t">
+          <thead><tr><th style="width:24%">Day</th><th>New connection requests, per executive profile</th></tr></thead>
+          <tbody>
+            <tr><td class="num">Monday</td><td>4&ndash;5 &mdash; aligned to the week&rsquo;s vertical, drawn from the target list</td></tr>
+            <tr><td class="num">Tuesday</td><td>4&ndash;5 &mdash; decision makers from Tier 1 accounts</td></tr>
+            <tr><td class="num">Wednesday</td><td>4&ndash;5 &mdash; operational influencers &amp; 2nd-degree connections</td></tr>
+            <tr><td class="num">Thursday</td><td>3&ndash;4 &mdash; warm-path and referral connections</td></tr>
+            <tr><td class="num">Friday</td><td>3&ndash;4 &mdash; top up to the weekly minimum and tidy pending requests</td></tr>
+          </tbody>
+        </table>
+
+        </section>
+        <section class="sheet">
+        <!-- MARKETING CAMPAIGNS -->
+        <h2>Marketing-led campaign tasks</h2>
+        <p class="section-intro">As the bridge between marketing and sales, the Associate also delivers <strong>campaign-specific tasks allocated by the Marketing Manager</strong> &mdash; event and webinar follow-ups, content and EDM lists, sector campaigns and inbound enquiry qualification.</p>
+        <div class="flag">
+          <span class="lbl">How campaign work fits the week</span>
+          Campaign tasks are <strong>not run separately</strong> from the core cadence &mdash; they must be <strong>cross-referenced into the existing weekly activities and targets</strong>. Campaign follow-ups count toward first-touch, follow-up, call and conversation targets; campaign-sourced meetings count toward booked and held appointments.
+        </div>
+        <div class="grid2">
+          <div>
+            <h4>Each Monday</h4>
+            <ul>
+              <li>Confirm with the Marketing Manager any live or upcoming campaigns and the specific tasks allocated.</li>
+              <li>Fold campaign accounts and contacts into the week&rsquo;s target list and tiering &mdash; not a parallel queue.</li>
+              <li>Agree priority and any deadlines that differ from the standard cadence.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Through the week</h4>
+            <ul>
+              <li>Action campaign tasks inside the normal time blocks (research, outreach, calls, conversion).</li>
+              <li>Log campaign touches against both the weekly targets and the campaign tag in HubSpot.</li>
+              <li>Report campaign progress and outcomes back to the Marketing Manager and in the weekly report.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Typical campaign tasks &mdash; and where they count</h3>
+        <table class="t">
+          <thead><tr><th style="width:36%">Campaign task</th><th>Cross-references into the weekly targets</th></tr></thead>
+          <tbody>
+            <tr><td>Event / webinar registration follow-up</td><td>First-touch &amp; call targets; campaign-sourced meetings count to booked / held</td></tr>
+            <tr><td>Content-download / gated-asset list</td><td>Follow-up &amp; conversation targets; tag source as the campaign</td></tr>
+            <tr><td>EDM / nurture list activation</td><td>Follow-up targets; respect every opt-out</td></tr>
+            <tr><td>Sector or offer campaign</td><td>New target accounts &amp; first-touch; align to the weekly vertical</td></tr>
+            <tr><td>Inbound enquiry qualification</td><td>Warm opportunities &amp; appointments booked</td></tr>
+          </tbody>
+        </table>
+        <h3>Attribution &amp; speed-to-lead</h3>
+        <div class="grid2">
+          <div>
+            <h4>Tag every campaign contact</h4>
+            <ul>
+              <li>Campaign name and source on the contact and the company.</li>
+              <li>Original channel &mdash; event, content, EDM, paid or referral.</li>
+              <li>Lifecycle stage and lead status, kept current.</li>
+              <li>Owner &mdash; the specialist and the eventual sales owner.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Inbound speed-to-lead</h4>
+            <ul>
+              <li>Action campaign-sourced inbound enquiries the same day where possible.</li>
+              <li>Hot inbound (demo, pricing, &ldquo;contact us&rdquo;) within the hour in business hours.</li>
+              <li>Never let a marketing-generated lead sit without a next task.</li>
+              <li>Feed outcomes back so marketing can see what converted.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note"><strong>One shared scoreboard.</strong> Campaign work counts toward the same weekly targets, so report it in one view.</div>
+
+        </section>
+        <section class="sheet">
+        <!-- DAY CADENCES -->
+        <h2>Day-by-day cadence</h2>
+
+        <h3>Monday &mdash; plan &amp; build</h3>
+        <p>Monday creates control of the week: define who will be targeted, why they are likely to care, and what appointment outcome is expected.</p>
+        <table class="t">
+          <thead><tr><th style="width:24%">Block</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td class="num">8:30&ndash;9:00</td><td><strong>Sales alignment.</strong> Review last week&rsquo;s booked &amp; held meetings, capture sales feedback on lead quality, agree the weekly sector focus, message theme, appointment capacity and the case studies / offers to use.</td></tr>
+            <tr><td class="num">9:00&ndash;10:30</td><td><strong>Target account build.</strong> Build / refresh 20&ndash;30 priority accounts via Sales Navigator, Apollo, HubSpot, job ads, directories and referral lists. Filter on WA, 10&ndash;100 staff, the weekly vertical, private ownership, stable/positive headcount, recent hiring and visible support functions.</td></tr>
+            <tr><td class="num">10:30&ndash;11:30</td><td><strong>Account scoring</strong> (see model below). Tier 1 (80+) gets multi-threaded outreach this week; Tier 2 (60&ndash;79) enters nurture with selected direct outreach; Tier 3 (40&ndash;59) is held for a trigger.</td></tr>
+            <tr><td class="num">11:30&ndash;12:30</td><td><strong>Buyer mapping.</strong> Identify 3&ndash;5 contacts per Tier 1 account &mdash; at least one senior decision maker and one operational influencer. Record role, LinkedIn, email, phone, source, confidence, buying influence and proposed angle.</td></tr>
+            <tr><td class="num">1:00&ndash;2:30</td><td><strong>Trigger research.</strong> Find the specific reason to contact each priority account (hiring, growth, capacity, cost, process, leadership, service or content trigger). Record the exact trigger &mdash; never generic assumptions.</td></tr>
+            <tr><td class="num">2:30&ndash;3:30</td><td><strong>Message prep.</strong> Create a personalised angle per Tier 1 account and three weekly message variations (Owner/MD, Operations/GM, Finance/HR). Connect to a business issue, not a generic outsourcing pitch.</td></tr>
+            <tr><td class="num">3:30&ndash;4:30</td><td><strong>HubSpot set-up.</strong> Create tasks &amp; sequences, account notes, lifecycle stage, lead status, next-activity date, vertical &amp; pain tags, owner; check for duplicates and prior &ldquo;do not contact&rdquo; status.</td></tr>
+            <tr><td class="num">4:30&ndash;5:00</td><td><strong>Close-out.</strong> Send the sales lead a summary: vertical focus, Tier 1 count, contacts mapped, best five accounts to watch, main triggers, planned Tuesday first-touch volume, and any data / tool issues.</td></tr>
+          </tbody>
+        </table>
+        <div class="note"><strong>Hints &amp; tips.</strong> Build the list before writing a single message &mdash; targeting beats volume. Bank three reusable angles per vertical so Tuesday starts fast. If an account has no clear trigger, it is not a Monday priority.</div>
+        </section>
+        <section class="sheet">
+        <h3>Tuesday &mdash; main outreach day</h3>
+        <p>Start high-quality conversations and create the first wave of follow-up tasks. Clear replies and urgent follow-ups <em>before</em> any new outreach.</p>
+        <table class="t">
+          <thead><tr><th style="width:24%">Block</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td class="num">8:30&ndash;9:00</td><td><strong>Queue review.</strong> Clear replies, LinkedIn notifications and Apollo bounces. Move warm replies to immediate action before any new outreach.</td></tr>
+            <tr><td class="num">9:00&ndash;10:00</td><td><strong>Final enrichment.</strong> Validate emails, direct dials, titles and current role via Apollo and LinkedIn; check the website and recent job ads; de-duplicate; mark email confidence. Never use guessed personal addresses.</td></tr>
+            <tr><td class="num">10:00&ndash;12:00</td><td><strong>First-touch block.</strong> Send 25&ndash;35 personalised first touches across channels. One strong reason; keep it short.</td></tr>
+            <tr><td class="num">1:00&ndash;2:00</td><td><strong>Call block.</strong> Call 15&ndash;25 priority contacts: warm replies, accepted connections, openers, Tier 1 decision makers, active hiring triggers. Aim for a short discovery meeting, not a full pitch.</td></tr>
+            <tr><td class="num">2:00&ndash;3:00</td><td><strong>LinkedIn engagement.</strong> Comment thoughtfully, react, follow pages, save leads/accounts, find referral paths. No mass-liking, no automated comments, no public pitching.</td></tr>
+            <tr><td class="num">3:00&ndash;4:00</td><td><strong>Appointment conversion.</strong> Reply to all; book into the sales calendar with a clear title, agenda, video link, HubSpot association and handover note.</td></tr>
+            <tr><td class="num">4:00&ndash;5:00</td><td><strong>Clean-up &amp; prep.</strong> Update statuses, mark bounces/unsubscribes, create Wednesday tasks, prepare the next 20&ndash;30 contacts.</td></tr>
+          </tbody>
+        </table>
+        <div class="script">
+          <span class="lbl">First-touch structure &middot; observation &rarr; issue &rarr; outcome &rarr; soft question &rarr; next step</span>
+          <em>&ldquo;I noticed you are recruiting for an accounts support role in Perth. Brainbox helps Australian SMEs add trained offshore finance and admin capacity when local hiring is slow or expensive. Would it be worth a short call to compare the role with an offshore support model?&rdquo;</em>
+        </div>
+        <div class="note"><strong>Hints &amp; tips.</strong> Clear replies before new outreach &mdash; a warm reply outranks any cold send. Keep first touches under five sentences and lead with the trigger, not the service. Call the people who just accepted or opened first.</div>
+        </section>
+        <section class="sheet">
+        <h3>Wednesday &mdash; follow-up &amp; momentum</h3>
+        <p>Combine a structured follow-up wave with a second first-touch wave &mdash; building on Tuesday, not starting over.</p>
+        <table class="t">
+          <thead><tr><th style="width:24%">Block</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td class="num">8:30&ndash;9:00</td><td><strong>Reply &amp; task review.</strong> Classify every reply (positive, referral, not now, no budget, already outsourced, local-only, wrong person, unsubscribe, complaint risk) and action it &mdash; positives get a same-day appointment request, referrals within the hour.</td></tr>
+            <tr><td class="num">9:00&ndash;10:30</td><td><strong>Follow-up wave 1.</strong> Add value or context &mdash; never repeat a message. Angles: cost comparison, recruitment difficulty, role suitability, example roles, speed to deploy, after-hours coverage.</td></tr>
+            <tr><td class="num">10:30&ndash;12:00</td><td><strong>New outreach.</strong> 20&ndash;30 new first touches, prioritising more contacts in accounts already touched. Multi-thread in a controlled way &mdash; never five identical messages to one company in a day.</td></tr>
+            <tr><td class="num">1:00&ndash;2:30</td><td><strong>Call block.</strong> Call 20&ndash;30 contacts using the persona scripts (Owner/MD, Operations, Finance, HR).</td></tr>
+            <tr><td class="num">2:30&ndash;3:30</td><td><strong>Trigger expansion.</strong> Find new triggers in the same vertical via job boards, news, posts, tenders and association updates; add strong-signal contacts.</td></tr>
+            <tr><td class="num">3:30&ndash;4:30</td><td><strong>Sales handovers.</strong> Prepare a complete handover note for every booked appointment.</td></tr>
+            <tr><td class="num">4:30&ndash;5:00</td><td><strong>Close-out.</strong> Progress note to the sales lead.</td></tr>
+          </tbody>
+        </table>
+        <table class="t">
+          <thead><tr><th style="width:22%">Multi-thread</th><th>Pattern</th></tr></thead>
+          <tbody>
+            <tr><td class="num">Day 1</td><td>Owner or MD</td></tr>
+            <tr><td class="num">Day 2</td><td>Operations or Finance</td></tr>
+            <tr><td class="num">Day 4</td><td>HR or Practice Manager</td></tr>
+            <tr><td class="num">Day 7</td><td>Second decision maker if no response</td></tr>
+          </tbody>
+        </table>
+        <div class="note"><strong>Hints &amp; tips.</strong> Never resend the same message &mdash; each follow-up must add a new angle. Space multi-threaded contacts across days, not all at once. A complete handover note is what makes a booked meeting count.</div>
+        </section>
+        <section class="sheet">
+        <h3>Thursday &mdash; conversion day</h3>
+        <p>Turn interest into appointments and create urgency before the week ends.</p>
+        <table class="t">
+          <thead><tr><th style="width:24%">Block</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td class="num">8:30&ndash;10:30</td><td><strong>Warm lead review &amp; calls.</strong> Build a warm-lead list (opens/clicks, acceptances, positive/referral replies, missed calls, prior cancellations, old activity) and call it. Call &rarr; voicemail where appropriate &rarr; immediate LinkedIn/email follow-up &rarr; next task.</td></tr>
+            <tr><td class="num">10:30&ndash;12:00</td><td><strong>Appointment setting.</strong> Book only. Offer two specific times, send invites immediately, confirm attendees and qualification, reschedule stalled positives, confirm next-week meetings.</td></tr>
+            <tr><td class="num">1:00&ndash;2:00</td><td><strong>Referral mining.</strong> Find warm paths into target accounts; prepare specific, easy-to-action referral requests for directors, sales team or partners.</td></tr>
+            <tr><td class="num">2:00&ndash;3:30</td><td><strong>Recycled lead campaign.</strong> Build a reactivation list of 10&ndash;20 contacts (closed-lost 6+ months, old enquiries, &ldquo;not now&rdquo;, role-changers, recent hirers, dormant right-industry) and send short, specific reactivation outreach.</td></tr>
+            <tr><td class="num">3:30&ndash;4:30</td><td><strong>Objection handling &amp; nurture.</strong> Work replies, set nurture dates, and record objections needing sales input.</td></tr>
+            <tr><td class="num">4:30&ndash;5:00</td><td><strong>Close-out.</strong> Report appointments booked, warm leads not yet booked, referral requests required and Friday priorities.</td></tr>
+          </tbody>
+        </table>
+        <div class="script">
+          <span class="lbl">Booking language</span>
+          <em>&ldquo;Would Tuesday at 10:00am or Wednesday at 2:00pm suit for a 20-minute call with [sales person]?&rdquo; &middot; &ldquo;Would it help to include the person who manages recruitment or operations?&rdquo;</em>
+        </div>
+        <div class="note"><strong>Hints &amp; tips.</strong> Offer two specific times, never &ldquo;when suits you&rdquo;. Send the invite while still on the call. Reactivation is the cheapest pipeline you have &mdash; work it every week.</div>
+        </section>
+        <section class="sheet">
+        <h3>Friday &mdash; protect quality &amp; prepare</h3>
+        <p>Friday protects quality &mdash; convert late-week opportunities, clean data, review performance and prepare next week.</p>
+        <table class="t">
+          <thead><tr><th style="width:24%">Block</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td class="num">8:30&ndash;9:00</td><td><strong>Meeting confirmation.</strong> Confirm next week&rsquo;s meetings, reminders, invites, handover notes and decision-maker attendance.</td></tr>
+            <tr><td class="num">9:00&ndash;10:30</td><td><strong>Final follow-up.</strong> Polite close-the-loop messages &mdash; no pressure.</td></tr>
+            <tr><td class="num">10:30&ndash;12:00</td><td><strong>Database hygiene.</strong> Merge duplicates; correct domains, titles, LinkedIn URLs, status, lifecycle, industry, employee range, location, source; mark bounces/opt-outs; remove bad numbers; record disqualification reasons.</td></tr>
+            <tr><td class="num">12:00&ndash;12:30</td><td><strong>Compliance check.</strong> Confirm no unsubscribed contacts were messaged, sender details &amp; unsubscribe present, sources recorded, no unauthorised automation or uncontrolled CSV exports.</td></tr>
+            <tr><td class="num">1:00&ndash;3:00</td><td><strong>Performance review &amp; sales feedback.</strong> Review the week&rsquo;s metrics, then meet the sales lead on meeting quality, fit and targeting.</td></tr>
+            <tr><td class="num">3:00&ndash;5:00</td><td><strong>Next-week prep &amp; report.</strong> Prepare the first 10&ndash;15 accounts and saved searches; send the weekly report to management.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note"><strong>Hints &amp; tips.</strong> Confirm next week&rsquo;s meetings before anything else &mdash; a held meeting beats a booked one. Leave no active lead without a next step. End the week with next week already built.</div>
+        </section>
+        <section class="sheet center">
+        <!-- CHANNEL CADENCES -->
+        <h2>Channel cadences</h2>
+        <div class="grid2">
+          <div>
+            <h4>Email</h4>
+            <table class="t">
+              <tbody>
+                <tr><td class="num">Day 1</td><td>Short personalised email</td></tr>
+                <tr><td class="num">Day 3</td><td>Follow-up with role / trigger angle</td></tr>
+                <tr><td class="num">Day 6</td><td>Short value-based follow-up</td></tr>
+                <tr><td class="num">Day 10</td><td>Phone call + LinkedIn touch</td></tr>
+                <tr><td class="num">Day 14</td><td>Close-the-loop email</td></tr>
+                <tr><td class="num">Day 45&ndash;60</td><td>Nurture, if lawful and no opt-out</td></tr>
+              </tbody>
+            </table>
+            <p style="font-size:8.5pt;color:var(--bb-grey-500)">One purpose per email; sender ID &amp; opt-out where required. Stop on unsubscribe, complaint, refusal, bounce or do-not-contact.</p>
+          </div>
+          <div>
+            <h4>LinkedIn</h4>
+            <table class="t">
+              <tbody>
+                <tr><td class="num">Day 1</td><td>View profile + connection request</td></tr>
+                <tr><td class="num">Day 2&ndash;3</td><td>If accepted, thank-you + reason</td></tr>
+                <tr><td class="num">Day 5&ndash;7</td><td>Relevant business question</td></tr>
+                <tr><td class="num">Day 10&ndash;14</td><td>Short Brainbox-relevant insight</td></tr>
+                <tr><td class="num">Day 21&ndash;30</td><td>Move to light nurture if no response</td></tr>
+              </tbody>
+            </table>
+            <p style="font-size:8.5pt;color:var(--bb-grey-500)">No full pitch in connection notes. Human, selective, platform-compliant.</p>
+          </div>
+        </div>
+        <div class="grid2">
+          <div>
+            <h4>Phone</h4>
+            <ul>
+              <li>Attempt 1: same day as first email for high-priority accounts.</li>
+              <li>Attempt 2: two business days later.</li>
+              <li>Attempt 3: after a LinkedIn acceptance, open, reply or referral.</li>
+              <li>Attempt 4: before closing the loop.</li>
+              <li>Log immediately; voicemails short and rare; max four attempts per fortnight unless engaged.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Referral &amp; reactivation</h4>
+            <ul>
+              <li>Identify referral paths every week via directors, clients, partners, accountants, CFOs, HR consultants, associations and 2nd-degree connections.</li>
+              <li>Make requests specific and easy to action &mdash; name the person, company and reason for relevance.</li>
+              <li>Reactivate every Thursday/Friday from closed-lost, old enquiries, &ldquo;not now&rdquo; dates reached, role-changers and dormant connections.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Example messages</h3>
+        <div class="grid2">
+          <div class="script"><span class="lbl">LinkedIn connection note</span><em>&ldquo;Hi [Name], I work with Australian SMEs on offshore admin, finance and operations support. I noticed your team is active in [sector] &mdash; it would be good to connect.&rdquo;</em></div>
+          <div class="script"><span class="lbl">Reactivation</span><em>&ldquo;We spoke previously about offshore support and the timing wasn&rsquo;t right. I noticed [trigger] &mdash; would a short call next week be useful to compare options for [function]?&rdquo;</em></div>
+        </div>
+        <div class="script"><span class="lbl">Strong referral request</span><em>&ldquo;Do you know [Name], Managing Director at [Company]? There may be a fit &mdash; they are hiring for two admin roles. A short introduction would help us discuss offshore support options.&rdquo;</em></div>
+
+        </section>
+        <section class="sheet center">
+        <!-- OBJECTIONS -->
+        <h2>Objection handling</h2>
+        <div class="note"><strong>How to handle any objection.</strong> Acknowledge it sincerely, reframe to the business issue, then ask one question that keeps the conversation open. Never argue and never oversell &mdash; the goal is a short meeting, not winning the point.</div>
+        <table class="t">
+          <thead><tr><th style="width:30%">Objection</th><th>Response angle</th></tr></thead>
+          <tbody>
+            <tr><td>&ldquo;We are too small.&rdquo;</td><td>That is often why this works &mdash; one offshore role removes repeatable work without building a larger local management structure.</td></tr>
+            <tr><td>&ldquo;We tried outsourcing before.&rdquo;</td><td>Useful context. Brainbox is a managed offshore staffing model, not a task marketplace &mdash; the difference is recruitment, supervision, process design and retention.</td></tr>
+            <tr><td>&ldquo;We only hire locally.&rdquo;</td><td>That makes sense for client-facing or site-based work. Brainbox usually supports the process work behind local staff, not the local relationship roles.</td></tr>
+            <tr><td>&ldquo;We do not have budget.&rdquo;</td><td>The starting point is comparing current local hiring cost, overtime, delays and management load against an offshore support role.</td></tr>
+            <tr><td>&ldquo;Send me information.&rdquo;</td><td>Happy to send a short summary &mdash; it may be more useful to first understand whether you&rsquo;re looking at admin, finance, customer service, marketing or operations support.</td></tr>
+            <tr><td>&ldquo;Not now.&rdquo;</td><td>Understood. Is this worth revisiting in three months, or should I close the loop?</td></tr>
+            <tr><td>&ldquo;We&rsquo;re happy as we are.&rdquo;</td><td>Great to hear &mdash; most of our clients were too. They added support to protect that, not to fix a problem. Worth a 15-minute compare?</td></tr>
+            <tr><td>&ldquo;What about data security?&rdquo;</td><td>Fair question. Brainbox staff work under managed access, supervision and clear policies &mdash; happy to walk your team through exactly how that works.</td></tr>
+            <tr><td>&ldquo;We&rsquo;ll sort it internally.&rdquo;</td><td>Understandable. It usually comes down to timing and management load &mdash; offshore support often bridges the gap until that internal hire lands.</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Call angles by persona</h3>
+        <div class="grid2">
+          <div class="script"><span class="lbl">Owner / MD</span><em>&ldquo;Many WA owners are not trying to replace local staff &mdash; they are trying to remove the process work that stops local staff selling, servicing clients or managing projects.&rdquo;</em></div>
+          <div class="script"><span class="lbl">Operations</span><em>&ldquo;Brainbox can support the repeatable work that builds up behind scheduling, quoting, customer updates, inboxes, reconciliations and CRM administration.&rdquo;</em></div>
+          <div class="script"><span class="lbl">Finance</span><em>&ldquo;Brainbox can help compare the loaded cost of local support roles against managed offshore staff for process-heavy work.&rdquo;</em></div>
+          <div class="script"><span class="lbl">HR</span><em>&ldquo;Brainbox can help where a role is hard to fill locally, has high turnover, or needs stable support without running another recruitment process.&rdquo;</em></div>
+        </div>
+
+        <div class="note"><strong>Know when to stop.</strong> A clear &ldquo;no&rdquo; is a gift &mdash; it frees time for better-fit accounts. Close the loop kindly, set a nurture date if appropriate, and move on. Respect every opt-out immediately.</div>
+
+        </section>
+        <section class="sheet center">
+        <!-- SCORING -->
+        <h2>Lead scoring model</h2>
+        <div class="grid2">
+          <div>
+            <h4>Account score</h4>
+            <table class="t">
+              <tbody>
+                <tr><td>Industry fit</td><td class="num">15</td></tr>
+                <tr><td>10&ndash;100 employees</td><td class="num">15</td></tr>
+                <tr><td>WA location</td><td class="num">10</td></tr>
+                <tr><td>Hiring trigger</td><td class="num">15</td></tr>
+                <tr><td>Growth trigger</td><td class="num">10</td></tr>
+                <tr><td>Relevant software</td><td class="num">10</td></tr>
+                <tr><td>Multiple possible offshore roles</td><td class="num">15</td></tr>
+                <tr><td>Warm connection path</td><td class="num">20</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h4>Contact score</h4>
+            <table class="t">
+              <tbody>
+                <tr><td>Stated pain or interest</td><td class="num">25</td></tr>
+                <tr><td>Decision maker</td><td class="num">20</td></tr>
+                <tr><td>Referred by another person</td><td class="num">20</td></tr>
+                <tr><td>Senior influencer</td><td class="num">15</td></tr>
+                <tr><td>Engaged with outreach</td><td class="num">15</td></tr>
+                <tr><td>Correct function</td><td class="num">10</td></tr>
+                <tr><td>WA-based &middot; verified email</td><td class="num">10</td></tr>
+                <tr><td>Active on LinkedIn &middot; direct phone</td><td class="num">5</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <h4>Priority bands</h4>
+        <div class="lead-statuses">
+          <span class="pill">80+ &middot; Tier 1 &mdash; urgent, multi-threaded this week</span>
+          <span class="pill">60&ndash;79 &middot; Tier 2 &mdash; active outreach &amp; nurture</span>
+          <span class="pill">40&ndash;59 &middot; Tier 3 &mdash; nurture &amp; monitor</span>
+          <span class="pill">Below threshold &middot; Hold or disqualify</span>
+        </div>
+
+        <h3>Priority triggers to monitor weekly</h3>
+        <div class="lead-statuses">
+          <span class="pill">Hiring for admin / finance / CS / marketing / ops</span><span class="pill">Multiple roles advertised at once</span><span class="pill">Repeated ads for the same role</span><span class="pill">New office opening</span><span class="pill">New GM or branch manager</span><span class="pill">New funding, contract or project</span><span class="pill">Business acquisition</span><span class="pill">New software implementation</span><span class="pill">Growth-related LinkedIn posts</span><span class="pill">Owner posts about being busy / hiring</span><span class="pill">Client service delays</span><span class="pill">High local salary role to redesign</span><span class="pill">Seasonal peaks</span>
+        </div>
+
+        </section>
+        <section class="sheet center">
+        <!-- SECTOR PLAYBOOKS -->
+        <h2>Sector playbooks</h2>
+        <table class="t">
+          <thead><tr><th style="width:18%">Sector</th><th style="width:42%">Likely pain</th><th>Angle</th></tr></thead>
+          <tbody>
+            <tr><td>Accounting &amp; bookkeeping</td><td>Bookkeeping capacity, BAS workload, client onboarding, payroll, document collection, Xero/MYOB processing, hiring cost.</td><td>Offshore processing that frees local accountants for advisory &amp; client management.</td></tr>
+            <tr><td>Mortgage &amp; finance broking</td><td>Loan processing, document follow-up, CRM updates, lender portals, compliance checklists, client comms.</td><td>Offshore loan administration that improves broker capacity &amp; turnaround.</td></tr>
+            <tr><td>Real estate &amp; strata</td><td>Trust accounting, property management admin, maintenance coordination, listings, settlements, CRM.</td><td>Offshore admin that removes repetitive work from local property &amp; sales teams.</td></tr>
+            <tr><td>Freight &amp; logistics</td><td>Data entry, customer updates, document handling, invoicing, shipment tracking, CargoWise, after-hours comms.</td><td>Offshore logistics admin that extends capacity &amp; reduces back-office pressure.</td></tr>
+            <tr><td>Construction, trades &amp; fabrication</td><td>Quoting support, supplier follow-up, scheduling, purchase orders, invoicing, CRM, project docs.</td><td>Offshore support for repeatable office work so local staff focus on delivery.</td></tr>
+            <tr><td>RTOs &amp; training</td><td>Student admin, enrolment, compliance evidence, LMS admin, certificates, payment follow-up.</td><td>Offshore student &amp; compliance admin that supports scale without overload.</td></tr>
+            <tr><td>Allied health &amp; NDIS</td><td>Rostering, billing, intake admin, client follow-up, document management, compliance records.</td><td>Offshore admin that improves responsiveness &amp; reduces local admin burden.</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Software signals worth flagging</h3>
+        <p class="section-intro">Visible use of any of these signals offshore-supportable process work &mdash; record it on the account.</p>
+        <div class="lead-statuses">
+          <span class="pill">Xero</span><span class="pill">MYOB</span><span class="pill">HubSpot</span><span class="pill">Zoho</span><span class="pill">CargoWise</span><span class="pill">Simpro</span><span class="pill">ServiceM8</span><span class="pill">PropertyMe</span><span class="pill">Property Tree</span><span class="pill">Reapit</span><span class="pill">Salesforce</span><span class="pill">Pipedrive</span><span class="pill">Moodle</span><span class="pill">aXcelerate</span><span class="pill">SharePoint</span><span class="pill">Teams</span>
+        </div>
+
+        </section>
+        <section class="sheet">
+        <!-- TOOLS -->
+        <h2>Your toolkit &amp; how it fits together</h2>
+        <p class="section-intro">Five tools carry the role. Each has a clear job &mdash; the value is in the handoff between them: discover, enrich, draft, record, send, then record again.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:6px 0 12px">
+          <div class="box" style="background:#fff;border:1px solid var(--bb-pink-200);border-left:3px solid var(--bb-pink);border-radius:10px;padding:11px 14px">
+            <h4 style="color:var(--bb-pink-700);margin-top:0">LinkedIn &amp; Sales Navigator</h4>
+            <p style="font-size:8.5pt;margin:0">Discover and research accounts and decision makers, watch for triggers and warm paths, engage socially, and grow the sales executives&rsquo; networks (20+ new connections each week).</p>
+          </div>
+          <div class="box" style="background:#fff;border:1px solid var(--bb-blue-300);border-left:3px solid var(--bb-blue);border-radius:10px;padding:11px 14px">
+            <h4 style="color:var(--bb-blue-700);margin-top:0">Apollo</h4>
+            <p style="font-size:8.5pt;margin:0">Find, filter, enrich and validate contacts &mdash; verified emails, direct dials and current titles &mdash; then push only action-ready contacts to HubSpot. Review bounces daily; never dump large lists.</p>
+          </div>
+          <div class="box" style="background:#fff;border:1px solid var(--bb-pink-200);border-left:3px solid var(--bb-pink);border-radius:10px;padding:11px 14px">
+            <h4 style="color:var(--bb-pink-700);margin-top:0">Claude</h4>
+            <p style="font-size:8.5pt;margin:0">Synthesise account research, draft personalised first-touch and follow-up variations, summarise prospects and build clean handover notes &mdash; faster output that keeps the warm, kind Brainbox tone. Always review before sending.</p>
+          </div>
+          <div class="box" style="background:#fff;border:1px solid var(--bb-blue-300);border-left:3px solid var(--bb-blue);border-radius:10px;padding:11px 14px">
+            <h4 style="color:var(--bb-blue-700);margin-top:0">HubSpot</h4>
+            <p style="font-size:8.5pt;margin:0">The source of truth. Every account, contact, task, sequence, lifecycle stage and outcome lives here, with the reporting and dashboards that track pipeline through to revenue.</p>
+          </div>
+          <div class="box" style="grid-column:1 / -1;background:#fff;border:1px solid var(--bb-grey-300);border-left:3px solid var(--bb-grey-700);border-radius:10px;padding:11px 14px">
+            <h4 style="margin-top:0">Outlook</h4>
+            <p style="font-size:8.5pt;margin:0">Compliant email outreach and the calendar &mdash; send sender-identified email, book discovery meetings directly into the sales team&rsquo;s calendars, and issue invites with the agenda and video link.</p>
+          </div>
+        </div>
+        <h3>The interplay &mdash; one flow</h3>
+        <div class="lead-statuses">
+          <span class="pill">1 &middot; LinkedIn / Sales Navigator &mdash; discover &amp; trigger</span>
+          <span class="pill">2 &middot; Apollo &mdash; enrich &amp; validate</span>
+          <span class="pill">3 &middot; Claude &mdash; research &amp; draft</span>
+          <span class="pill">4 &middot; HubSpot &mdash; record, task &amp; sequence</span>
+          <span class="pill">5 &middot; Outlook &mdash; send &amp; book</span>
+          <span class="pill">6 &middot; HubSpot &mdash; log, report &amp; hand over</span>
+        </div>
+        <p style="font-size:9pt;color:var(--bb-grey-500)">HubSpot sits at the centre: Apollo and LinkedIn feed clean records in, Claude shapes the message, Outlook executes the touch and the booking, and every result returns to HubSpot &mdash; so nothing is lost between marketing, the specialist and sales.</p>
+
+        <h3>Golden rules</h3>
+        <div class="grid2">
+          <ul>
+            <li><strong>One system of record.</strong> If it isn&rsquo;t in HubSpot, it didn&rsquo;t happen.</li>
+            <li><strong>Enrich before you send.</strong> Apollo confidence checked; no guessed personal emails.</li>
+            <li><strong>Claude drafts, you decide.</strong> Always review and personalise before sending.</li>
+          </ul>
+          <ul>
+            <li><strong>LinkedIn stays human.</strong> No automation that risks an account or the brand.</li>
+            <li><strong>Outlook sends, HubSpot logs.</strong> Every email and meeting tracked or logged.</li>
+            <li><strong>Close the loop daily.</strong> Bounces, opt-outs and replies cleared before new work.</li>
+          </ul>
+        </div>
+
+        </section>
+        <section class="sheet">
+        <!-- HUBSPOT -->
+        <h2>HubSpot &mdash; the source of truth</h2>
+        <p class="section-intro">Update in real time. A record is not complete unless the next step is clear. No active lead without a next task; no meeting without a handover note; no disqualified lead closed without a reason.</p>
+        <div class="grid2">
+          <div>
+            <h4>Required on every account</h4>
+            <p style="font-size:8.5pt;color:var(--bb-grey-500)">Name &middot; website &middot; industry &middot; location &middot; employee range &middot; target vertical &middot; ICP tier &middot; account score &middot; source &middot; key trigger &middot; primary pain hypothesis &middot; relevant software &middot; sales owner &middot; LGS owner &middot; last &amp; next activity &middot; status.</p>
+          </div>
+          <div>
+            <h4>Required on every contact</h4>
+            <p style="font-size:8.5pt;color:var(--bb-grey-500)">Name &middot; role &middot; company &middot; email &middot; phone &middot; LinkedIn &middot; persona &middot; buying role &middot; seniority &middot; source &middot; lawful-contact basis &middot; lead status &middot; lifecycle stage &middot; last activity &middot; next task &middot; sequence &middot; opt-out status &middot; notes.</p>
+          </div>
+        </div>
+        <h4>Lead statuses</h4>
+        <div class="lead-statuses">
+          <span class="pill">New</span><span class="pill">Researching</span><span class="pill">Ready for outreach</span><span class="pill">Attempted contact</span><span class="pill">Connected</span><span class="pill">Engaged</span><span class="pill">Meeting requested</span><span class="pill">Meeting scheduled</span><span class="pill">Meeting held</span><span class="pill">Nurture</span><span class="pill">Not now</span><span class="pill">Wrong person</span><span class="pill">Referred</span><span class="pill">Disqualified</span><span class="pill">Do not contact</span>
+        </div>
+        <h4>Disqualification reasons</h4>
+        <div class="lead-statuses">
+          <span class="pill">Too small</span><span class="pill">Too large</span><span class="pill">Outside geography</span><span class="pill">Wrong industry</span><span class="pill">No offshore-suitable roles</span><span class="pill">No decision maker</span><span class="pill">Supplier lock-in</span><span class="pill">Competitor</span><span class="pill">No budget</span><span class="pill">No current need</span><span class="pill">Invalid data</span><span class="pill">Unsubscribed</span><span class="pill">Complaint risk</span><span class="pill">Duplicate</span>
+        </div>
+
+        <h3>Daily HubSpot discipline</h3>
+        <div class="grid2">
+          <ul>
+            <li>Update in real time &mdash; a record isn&rsquo;t complete until the next step is set.</li>
+            <li>No lead in an active status without a next task.</li>
+            <li>No meeting booked without a handover note.</li>
+            <li>No disqualified lead closed without a reason.</li>
+          </ul>
+          <ul>
+            <li>Log every call, email and LinkedIn touch.</li>
+            <li>Check for duplicates before creating a record.</li>
+            <li>Keep lifecycle stage and lead status current.</li>
+            <li>Email only from approved, tracked systems &mdash; or log it manually.</li>
+          </ul>
+        </div>
+        <h3>Dashboards to maintain</h3>
+        <div class="lead-statuses">
+          <span class="pill">Appointments booked this week</span><span class="pill">Appointments held</span><span class="pill">By vertical</span><span class="pill">By source</span><span class="pill">By persona</span><span class="pill">Open warm leads</span><span class="pill">Overdue tasks</span><span class="pill">New contacts created</span><span class="pill">First-touch activity</span><span class="pill">Follow-up activity</span><span class="pill">Call activity</span><span class="pill">Reply rate</span><span class="pill">Positive reply rate</span><span class="pill">Meeting conversion</span><span class="pill">No-show rate</span><span class="pill">Pipeline value</span>
+        </div>
+
+        </section>
+        <section class="sheet center">
+        <!-- MATURITY -->
+        <h2>Ramp &mdash; weekly targets by stage</h2>
+        <table class="t">
+          <thead><tr><th>Stage</th><th>Accounts</th><th>Contacts</th><th>First touch</th><th>Follow-ups</th><th>Calls</th><th>Convos</th><th>Appts</th><th>Quality bar</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Wk 1&ndash;2</strong> Foundation</td><td class="num">50</td><td class="num">80</td><td class="num">30</td><td class="num">40</td><td class="num">10</td><td class="num">5</td><td class="num">1&ndash;2</td><td>100% data accuracy</td></tr>
+            <tr><td><strong>Wk 3&ndash;4</strong> Ramp</td><td class="num">75</td><td class="num">120</td><td class="num">50</td><td class="num">80</td><td class="num">30</td><td class="num">10</td><td class="num">2&ndash;4</td><td>90%+ task completion</td></tr>
+            <tr><td><strong>Wk 5&ndash;6</strong> Performance</td><td class="num">100</td><td class="num">150</td><td class="num">70</td><td class="num">130</td><td class="num">50</td><td class="num">15&ndash;20</td><td class="num">4&ndash;6</td><td>Show rate &gt; 70%</td></tr>
+            <tr><td><strong>Wk 7+</strong> Steady state</td><td class="num">20&ndash;30</td><td class="num">80&ndash;120</td><td class="num">60&ndash;80</td><td class="num">120&ndash;180</td><td class="num">50&ndash;80</td><td class="num">20&ndash;30</td><td class="num">6+</td><td>&ge;6 in-person · show rate &gt; 75%</td></tr>
+          </tbody>
+        </table>
+
+        <h3>What each stage is for</h3>
+        <div class="grid2">
+          <div>
+            <h4>Foundation &middot; Wk 1&ndash;2</h4>
+            <p style="font-size:9pt">Learn the market, tools, systems, messaging and qualification standard. Protect data accuracy above raw volume.</p>
+            <h4>Ramp &middot; Wk 3&ndash;4</h4>
+            <p style="font-size:9pt">Increase activity while protecting quality. Hold task completion at 90% or higher.</p>
+          </div>
+          <div>
+            <h4>Performance &middot; Wk 5&ndash;6</h4>
+            <p style="font-size:9pt">Establish predictable appointment production with a meeting show rate above 70%.</p>
+            <h4>Steady state &middot; Wk 7+</h4>
+            <p style="font-size:9pt">Optimise conversion and reduce wasted activity; sustain a show rate above 75%.</p>
+          </div>
+        </div>
+
+        </section>
+        <section class="sheet center">
+        <!-- QUALITY -->
+        <h2>Quality &amp; compliance standards</h2>
+        <div class="dodont">
+          <div class="box do">
+            <h4>Every message is</h4>
+            <ul>
+              <li>Relevant, short, specific, respectful</li>
+              <li>Easy to answer and accurate</li>
+              <li>Linked to a clear business reason</li>
+              <li>Consistent with &ldquo;Always Be Kind&rdquo;</li>
+              <li>Something that would not embarrass Brainbox if forwarded</li>
+            </ul>
+          </div>
+          <div class="box dont">
+            <h4>Every message avoids</h4>
+            <ul>
+              <li>Generic outsourcing spam &amp; long service lists</li>
+              <li>Unverified claims, fake urgency, false familiarity</li>
+              <li>Guilt-based language</li>
+              <li>Overuse of automation &amp; aggressive follow-up</li>
+              <li>Any repeated contact after opt-out</li>
+            </ul>
+          </div>
+        </div>
+        <h4>Data &amp; compliance controls</h4>
+        <div class="grid2">
+          <ul>
+            <li>Record source for every contact; record opt-outs immediately.</li>
+            <li>Never contact unsubscribed contacts.</li>
+            <li>Do not collect unnecessary or sensitive personal information.</li>
+            <li>Do not use personal social media or scraped data from unapproved sources.</li>
+          </ul>
+          <ul>
+            <li>No uncontrolled CSV exports outside approved systems.</li>
+            <li>Use approved sending tools, sender ID and unsubscribe mechanisms.</li>
+            <li>Review bounces daily; suppress invalid emails; escalate complaints.</li>
+            <li>Follow platform rules for LinkedIn, Apollo and HubSpot.</li>
+          </ul>
+        </div>
+
+        </section>
+        <section class="sheet center">
+        <!-- MEASURES -->
+        <h2>Measures of success</h2>
+        <div class="flag">
+          <span class="lbl">Final success measure</span>
+          The number of leads that turn into <strong>sales opportunities</strong> and subsequently become a <strong>commercial transaction</strong>. Every other metric below is a leading indicator of this single revenue outcome &mdash; the reason the role exists as a key driver of new revenue for Brainbox.
+        </div>
+        <div class="grid3">
+          <div>
+            <h4>Primary</h4>
+            <ul style="font-size:8.5pt">
+              <li><strong>In-person appointments for the Commercial Manager &mdash; baseline &ge;6/week</strong></li>
+              <li>Qualified appointments booked</li>
+              <li>Qualified appointments held</li>
+              <li>Appointments &rarr; opportunities</li>
+              <li>Opportunities &rarr; proposals</li>
+              <li>Proposals &rarr; clients</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Secondary</h4>
+            <ul style="font-size:8.5pt">
+              <li>Positive reply &amp; call connection rate</li>
+              <li>LinkedIn acceptance &amp; referral rate</li>
+              <li>No-show &amp; disqualification rate</li>
+              <li>Time from first touch to appointment</li>
+              <li>Activity completion &amp; data accuracy</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Quality</h4>
+            <ul style="font-size:8.5pt">
+              <li>Sales acceptance of leads</li>
+              <li>Meeting relevance &amp; correct persona</li>
+              <li>Clear pain point &amp; complete handovers</li>
+              <li>Low complaint / unsubscribe / bounce rate</li>
+              <li>Few duplicate records</li>
+            </ul>
+          </div>
+        </div>
+        <p style="font-size:9pt;color:var(--bb-grey-500)">Review cadence: a short daily end-of-day note, a 30-minute weekly review with the sales lead, and a 60-minute monthly performance &amp; market review with management.</p>
+
+        <h3>Reporting cadence</h3>
+        <div class="grid3">
+          <div class="box" style="background:var(--bb-pink-50);border:1px solid var(--bb-pink-200);border-radius:10px;padding:11px 13px">
+            <h4 style="color:var(--bb-pink-700);margin-top:0">Daily note</h4>
+            <p style="font-size:8.5pt;margin:0">First touches, follow-ups, calls, conversations, appointments, warm replies, issues needing help and tomorrow&rsquo;s priority.</p>
+          </div>
+          <div class="box" style="background:var(--bb-blue-50);border:1px solid var(--bb-blue-300);border-radius:10px;padding:11px 13px">
+            <h4 style="color:var(--bb-blue-700);margin-top:0">Weekly review &middot; 30 min</h4>
+            <p style="font-size:8.5pt;margin:0">Appointments booked &amp; held, meeting quality, conversion by sector, message performance, objections, data quality, next-week priorities and sales support needed.</p>
+          </div>
+          <div class="box" style="background:var(--bb-grey-50);border:1px solid var(--bb-grey-200);border-radius:10px;padding:11px 13px">
+            <h4 style="margin-top:0">Monthly review &middot; 60 min</h4>
+            <p style="font-size:8.5pt;margin:0">Appointment trends, revenue conversion, sector &amp; source performance, sales feedback, data &amp; compliance, tool performance, campaign &amp; messaging changes and market refinements.</p>
+          </div>
+        </div>
+
+        </section>
+        <section class="sheet">
+        <!-- TRACKING TEMPLATE -->
+        <div class="cover" style="padding:14px 24px">
+          <div class="eyebrow">Weekly tracker</div>
+          <h1 style="font-size:17pt;margin:6px 0 2px">Demand Generation activity &amp; outcomes</h1>
+          <p class="lede" style="font-size:9pt;margin:0">Print, fill in daily, and bring to the weekly sales review. Targets are steady-state.</p>
+        </div>
+
+        <table class="form">
+          <tbody>
+            <tr>
+              <th style="width:16%">Specialist</th><td style="width:34%"></td>
+              <th style="width:16%">Week commencing</th><td style="width:34%"></td>
+            </tr>
+            <tr>
+              <th>Primary vertical</th><td></td>
+              <th>Secondary vertical</th><td></td>
+            </tr>
+            <tr>
+              <th>Sales exec(s) covered</th><td></td>
+              <th>Marketing campaign(s)</th><td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Activity &mdash; log daily, total for the week</h4>
+        <table class="form">
+          <thead>
+            <tr><th style="width:32%">Metric</th><th class="target" style="width:13%">Target</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th style="width:11%">Total</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>New target accounts added</td><td class="target">20&ndash;30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>First-touch outreach</td><td class="target">60&ndash;80</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Follow-up actions</td><td class="target">120&ndash;180</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Calls made</td><td class="target">50&ndash;80</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Live conversations</td><td class="target">20&ndash;30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>New connections (sales-exec LinkedIn)</td><td class="target">20+</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+
+        <h4>Outcomes &mdash; the pipeline that becomes revenue</h4>
+        <table class="form">
+          <thead>
+            <tr><th style="width:46%">Outcome</th><th class="target" style="width:16%">Target</th><th style="width:14%">This week</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Warm opportunities created</td><td class="target">8&ndash;12</td><td></td><td></td></tr>
+            <tr><td>In-person appointments for the Commercial Manager</td><td class="target">&ge;6</td><td></td><td></td></tr>
+            <tr><td>Reactivation appointments</td><td class="target">2&ndash;4</td><td></td><td></td></tr>
+            <tr><td>Opportunities accepted by sales</td><td class="target">&mdash;</td><td></td><td></td></tr>
+            <tr><td><strong>Opportunities &rarr; commercial transaction</strong></td><td class="target">&mdash;</td><td></td><td></td></tr>
+          </tbody>
+        </table>
+
+        <div class="grid2">
+          <div>
+            <h4>Best accounts this week</h4>
+            <div class="form-field"></div><div class="form-field"></div><div class="form-field"></div>
+          </div>
+          <div>
+            <h4>Top objection / sales support &amp; next-week focus</h4>
+            <div class="form-field" style="height:30px"></div>
+            <div class="form-field"></div>
+          </div>
+        </div>
+
+        <h4>End-of-week checklist</h4>
+        <div class="checkrow">
+          <div><span class="chk"></span> HubSpot updated &mdash; no lead without a next step</div>
+          <div><span class="chk"></span> All handover notes complete</div>
+          <div><span class="chk"></span> 20+ sales-exec LinkedIn connections logged</div>
+          <div><span class="chk"></span> Weekly report sent to management</div>
+        </div>
+        </section>
+        <section class="sheet">
+        <!-- MONTHLY OUTCOMES REPORT -->
+        <div class="cover" style="padding:14px 24px">
+          <div class="eyebrow">Monthly outcomes report</div>
+          <h1 style="font-size:17pt;margin:6px 0 2px">Demand Generation &mdash; revenue outcomes</h1>
+          <p class="lede" style="font-size:9pt;margin:0">Outcomes and conversion, not activity &mdash; the final measure is leads that became commercial transactions.</p>
+        </div>
+
+        <table class="form">
+          <tbody>
+            <tr><th style="width:16%">Specialist</th><td style="width:34%"></td><th style="width:16%">Month</th><td style="width:34%"></td></tr>
+            <tr><th>Reviewed with</th><td></td><th>Date</th><td></td></tr>
+          </tbody>
+        </table>
+
+        <h4>Outcome funnel &mdash; monthly totals &amp; conversion</h4>
+        <table class="form">
+          <thead>
+            <tr><th style="width:40%">Stage</th><th>This month</th><th>Last month</th><th>Conversion</th><th class="target">Target</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>In-person appointments for the Commercial Manager</td><td></td><td></td><td></td><td class="target">&ge;24</td></tr>
+            <tr><td>Appointments held</td><td></td><td></td><td></td><td class="target">&gt; 75%</td></tr>
+            <tr><td>Sales opportunities created</td><td></td><td></td><td></td><td class="target">&mdash;</td></tr>
+            <tr><td>Opportunities &rarr; proposals</td><td></td><td></td><td></td><td class="target">&mdash;</td></tr>
+            <tr><td><strong>Proposals &rarr; commercial transactions</strong></td><td></td><td></td><td></td><td class="target">&mdash;</td></tr>
+            <tr><td>Reactivation appointments</td><td></td><td></td><td></td><td class="target">8&ndash;16</td></tr>
+          </tbody>
+        </table>
+
+        <h4>Revenue &amp; efficiency</h4>
+        <table class="form">
+          <tbody>
+            <tr><th style="width:33%">New pipeline value created</th><td></td><th style="width:33%">Closed / won value</th><td></td></tr>
+            <tr><th>Avg. touches to a booked meeting</th><td></td><th>Avg. time, first touch &rarr; transaction</th><td></td></tr>
+          </tbody>
+        </table>
+
+        <div class="grid2">
+          <div>
+            <h4>Top performers</h4>
+            <table class="form"><tbody>
+              <tr><th style="width:42%">Best industry</th><td></td></tr>
+              <tr><th>Best source</th><td></td></tr>
+              <tr><th>Best message angle</th><td></td></tr>
+              <tr><th>Best trigger</th><td></td></tr>
+            </tbody></table>
+          </div>
+          <div>
+            <h4>Watch list</h4>
+            <table class="form"><tbody>
+              <tr><th style="width:42%">No-show rate</th><td></td></tr>
+              <tr><th>Disqualification rate</th><td></td></tr>
+              <tr><th>Top objection</th><td></td></tr>
+              <tr><th>Data / compliance issues</th><td></td></tr>
+            </tbody></table>
+          </div>
+        </div>
+
+        <h4>Narrative &amp; decisions</h4>
+        <div class="grid2">
+          <div><span class="form-label">What worked / what to change</span><div class="form-field" style="height:38px"></div></div>
+          <div><span class="form-label">Refinements &amp; next-month focus</span><div class="form-field" style="height:38px"></div></div>
+        </div>
+
+        <table class="form"><tbody>
+          <tr><th style="width:16%">Specialist sign-off</th><td style="width:34%"></td><th style="width:16%">Manager sign-off</th><td style="width:34%"></td></tr>
+        </tbody></table>
+        </section>
+
+      </td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td class="ftr-space"></td></tr>
+    </tfoot>
+  </table>
+</main>
+</x-dc>
+</body>
+</html>

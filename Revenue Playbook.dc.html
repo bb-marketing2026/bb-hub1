@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #fff; }
+    .doc { box-sizing: border-box; max-width: 210mm; margin: 0 auto; background: inherit; padding: 40px clamp(20px,5vw,16mm) 80px; font-family: var(--font-body); font-weight: 300; color: var(--bb-grey-800); font-size: 10pt; line-height: 1.5; }
+    .doc h1,.doc h2,.doc h3,.doc h4 { font-family: var(--font-heading); color: var(--bb-grey-700); margin: 0; }
+    .doc h1 { font-weight: 600; }
+    .doc h2 { font-weight: 600; font-size: 16pt; color: var(--bb-pink); letter-spacing: -0.01em; margin: 24px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--bb-pink); text-wrap: balance; }
+    .doc h3 { font-weight: 600; font-size: 11.5pt; color: var(--bb-grey-700); margin: 15px 0 5px; text-wrap: balance; }
+    .doc h4 { font-weight: 600; font-size: 9.5pt; color: var(--bb-pink-700); margin: 12px 0 3px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .doc p { margin: 0 0 9px; text-wrap: pretty; }
+    .doc ul,.doc ol { margin: 0 0 9px; padding-left: 17px; }
+    .doc li { margin: 0 0 4px; text-wrap: pretty; } .doc li::marker { color: var(--bb-pink-400); }
+    .doc strong { font-weight: 600; color: var(--bb-grey-800); }
+    .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; }
+    .cover { background: var(--bb-gradient-brand); border-radius: 18px; padding: 44px 38px; color: #fff; margin-bottom: 8px; }
+    .cover .eyebrow { color: rgba(255,255,255,0.92); }
+    .cover h1 { color: #fff; font-size: 32pt; line-height: 1.04; margin: 14px 0 12px; letter-spacing: -0.015em; }
+    .cover .lede { color: rgba(255,255,255,0.95); font-size: 12pt; max-width: 94%; margin: 0; font-weight: 300; line-height: 1.5; }
+    .cover-meta { display: flex; gap: 26px; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.35); flex-wrap: wrap; }
+    .cover-meta div { font-size: 8.5pt; } .cover-meta span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; opacity: 0.8; margin-bottom: 2px; }
+    .wordmark { font-family: var(--font-logo); font-size: 16pt; letter-spacing: 0.14em; color: #fff; }
+    .doc table.t { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 9.4pt; }
+    .doc table.t th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 7px 10px; border-bottom: 1.5px solid var(--bb-pink-200); font-size: 8.7pt; }
+    .doc table.t td { padding: 7px 10px; border-bottom: 1px solid var(--bb-grey-200); vertical-align: top; }
+    .doc table.t tr:nth-child(even) td { background: var(--bb-grey-50); }
+    .doc table.t .role { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); white-space: nowrap; }
+    .doc table.t .maj { font-family: var(--font-mono); color: var(--bb-pink-700); font-weight: 600; font-size: 8.5pt; }
+    .doc table.t .min { font-family: var(--font-mono); color: var(--bb-grey-500); font-size: 8.5pt; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .note { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); border-radius: 8px; padding: 10px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 11px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag .lbl,.note .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .section-intro { color: var(--bb-grey-500); font-size: 10.5pt; margin-bottom: 12px; }
+    .part-kicker { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 2px; }
+    .rolecard { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 15px; margin-bottom: 11px; }
+    .rolecard h3 { margin: 0 0 3px; color: var(--bb-pink); font-size: 11pt; }
+    .rolecard .from { font-family: var(--font-mono); font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bb-grey-500); margin-bottom: 6px; }
+    .rolecard p { margin: 0; font-size: 9.4pt; }
+    .numlist { counter-reset: n; padding: 0; margin: 6px 0 10px; list-style: none; }
+    .numlist > li { position: relative; padding-left: 34px; margin-bottom: 10px; }
+    .numlist > li::before { counter-increment: n; content: counter(n); position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--bb-pink); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 10pt; display: flex; align-items: center; justify-content: center; }
+    .numlist > li strong { color: var(--bb-pink-700); }
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin: 6px 0 14px; }
+    .stat { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 14px; }
+    .stat .v { font-family: var(--font-heading); font-weight: 600; font-size: 17pt; color: var(--bb-pink); line-height: 1; }
+    .stat .l { font-size: 8pt; color: var(--bb-grey-500); margin-top: 6px; line-height: 1.3; }
+    .layer { display: flex; align-items: stretch; gap: 12px; margin-bottom: 9px; }
+    .layer .ln { flex: none; width: 30px; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 600; font-size: 14pt; color: #fff; background: var(--bb-pink); border-radius: 10px; }
+    .layer .lb { flex: 1; border: 1px solid var(--bb-grey-200); border-left: 3px solid var(--bb-pink-300); border-radius: 10px; padding: 9px 14px; }
+    .layer .lb h4 { margin: 0 0 2px; color: var(--bb-grey-700); } .layer .lb p { margin: 0; font-size: 9.2pt; }
+    .tree { margin: 14px 0; }
+    .tree .root { background: var(--bb-gradient-brand); color: #fff; border-radius: 12px; padding: 12px 16px; text-align: center; font-family: var(--font-heading); font-weight: 600; font-size: 12pt; }
+    .tree .branchrow { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 14px; align-items: start; }
+    .tree .branch { border: 1px solid var(--bb-pink-200); border-radius: 12px; padding: 12px; }
+    .tree .branch > .bh { background: var(--bb-pink-50); border-radius: 8px; padding: 8px 12px; text-align: center; font-family: var(--font-heading); font-weight: 600; color: var(--bb-pink-700); font-size: 10.5pt; margin-bottom: 10px; }
+    .tree .leaves { display: flex; flex-direction: column; gap: 8px; }
+    .tree .leaf { border: 1px solid var(--bb-grey-200); border-radius: 8px; padding: 8px 12px; font-size: 9.3pt; }
+    .tree .leaf b { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); display: block; }
+    .tree .leaf span { color: var(--bb-grey-500); font-size: 8.3pt; }
+    .tree .leaf.live { border-color: var(--bb-pink-300); border-left: 3px solid var(--bb-pink); }
+    .relay { margin: 14px 0 10px; }
+    .relay-node { display: flex; align-items: center; gap: 13px; border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 11px 15px; background: #fff; }
+    .relay-node .rn { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--bb-pink); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 12pt; display: flex; align-items: center; justify-content: center; }
+    .relay-node .rt { flex: 1; } .relay-node .rt b { font-family: var(--font-heading); font-weight: 600; font-size: 11pt; color: var(--bb-grey-700); }
+    .relay-node .rt span { display: block; font-size: 8.6pt; color: var(--bb-grey-500); margin-top: 1px; }
+    .relay-node .own { flex: none; font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 999px; }
+    .relay-node.mk { border-left: 4px solid var(--bb-blue-300); } .relay-node.mk .own { background: var(--bb-blue-50); color: var(--bb-blue-700); }
+    .relay-node.rev { border-left: 4px solid var(--bb-pink); } .relay-node.rev .own { background: var(--bb-pink-50); color: var(--bb-pink-700); }
+    .handover { display: flex; align-items: center; gap: 9px; margin: 5px 0 5px 44px; }
+    .handover .ar { color: var(--bb-pink); font-size: 13pt; line-height: 1; }
+    .handover .hb { font-family: var(--font-mono); font-size: 7.4pt; letter-spacing: 0.04em; color: var(--bb-grey-500); background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-radius: 999px; padding: 3px 11px; }
+    .handover.seam { margin-left: 0; justify-content: center; }
+    .handover.seam .hb { background: var(--bb-gradient-brand); color: #fff; border: 0; font-weight: 600; font-size: 8.2pt; padding: 6px 16px; letter-spacing: 0.06em; }
+    .feedback { display: flex; align-items: center; gap: 9px; margin: 7px 0 2px; justify-content: center; }
+    .feedback .hb { font-family: var(--font-mono); font-size: 7.4pt; letter-spacing: 0.04em; color: var(--bb-blue-700); background: #fff; border: 1px dashed var(--bb-blue-300); border-radius: 999px; padding: 4px 13px; }
+    .feedback .ar { color: var(--bb-blue-300); font-size: 12pt; }
+    .iface { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0 12px; }
+    .iface .box { border: 1px solid var(--bb-grey-200); border-radius: 10px; padding: 10px 13px; }
+    .iface .box.give { border-left: 3px solid var(--bb-blue-300); } .iface .box.give h4 { color: var(--bb-blue-700); }
+    .iface .box.get { border-left: 3px solid var(--bb-pink); }
+    .iface .box p { font-size: 9pt; margin: 0; }
+    .ldiv { background: var(--bb-gradient-brand); color: #fff; border-radius: 16px; padding: 30px 32px; margin-bottom: 16px; }
+    .ldiv .lk { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8.5pt; opacity: 0.92; }
+    .ldiv h1 { color: #fff; font-size: 27pt; margin: 8px 0 10px; letter-spacing: -0.015em; line-height: 1.05; }
+    .ldiv .role { font-size: 11.5pt; color: rgba(255,255,255,0.96); max-width: 94%; line-height: 1.5; margin: 0; }
+    .ldiv .io { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.32); }
+    .ldiv .io span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 6.8pt; opacity: 0.82; margin-bottom: 3px; }
+    .ldiv .io div { font-size: 8.9pt; line-height: 1.4; }
+    .ldiv .own-pill { display: inline-block; margin-top: 14px; font-family: var(--font-mono); font-size: 7.2pt; text-transform: uppercase; letter-spacing: 0.09em; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); padding: 4px 12px; border-radius: 999px; }
+    .handoff { background: var(--bb-gradient-brand); color: #fff; border-radius: 12px; padding: 13px 17px; margin: 14px 0 4px; }
+    .handoff .k { display: block; font-family: var(--font-mono); font-size: 7pt; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.9; margin-bottom: 4px; }
+    .handoff .v { font-size: 10pt; line-height: 1.45; } .handoff strong { color: #fff; }
+    /* AI transformation sub-journey */
+    .aij { border: 1px solid var(--bb-blue-100); background: var(--bb-blue-50); border-radius: 12px; padding: 12px 15px; margin: 10px 0 12px; }
+    .aij .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; color: var(--bb-blue-700); display: block; margin-bottom: 8px; }
+    .aij .ft { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 8px; align-items: stretch; }
+    .aij .c { background: #fff; border: 1px solid var(--bb-grey-200); border-radius: 9px; padding: 8px 11px; font-size: 9pt; }
+    .aij .c.to { border-left: 3px solid var(--bb-blue-300); }
+    .aij .c b { display: block; font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bb-grey-500); margin-bottom: 3px; }
+    .aij .c.to b { color: var(--bb-blue-700); }
+    .aij .arw { display: flex; align-items: center; justify-content: center; color: var(--bb-pink); font-size: 15pt; }
+    .aij .tools { font-size: 8.4pt; color: var(--bb-grey-500); margin-top: 8px; }
+    .aij .tools strong { color: var(--bb-grey-700); }
+    .sheet { padding-top: 4px; }
+    .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
+    .sheet > h2:first-child,.sheet > .part-kicker:first-child { margin-top: 4px; }
+    .sheet-ftr { display: none; }
+    
+    .toc { margin: 10px 0 4px; }
+    .toc-row { display: flex; align-items: baseline; gap: 12px; padding: 7px 2px; border-bottom: 1px solid var(--bb-grey-200); }
+    .toc-row .n { font-family: var(--font-mono); font-size: 8pt; color: var(--bb-pink); width: 22px; flex: none; }
+    .toc-row .t { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 10.5pt; }
+
+    .cover-page { min-height: 900px; display: flex; flex-direction: column; }
+    .cover-page .cat { margin-bottom: auto; } .cover-page h1 { margin-top: 0; }
+    .cover-page .cover-meta { margin-top: auto; }
+    @media print { .cover-sheet .cover-page { min-height: 252mm; } .cover-sheet { break-after: page; } }
+
+    .cover-page { position: relative; }
+    .cover-elephant { position: absolute; top: 34px; right: 36px; height: 84px; width: auto; }
+
+    .cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 32%, var(--bb-pink) 118%) !important; }
+    .cover-grad .cat { color: #fff !important; }
+    .sub-note { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 7.5pt; color: rgba(255,255,255,0.85); margin-top: 10px; }
+
+    /* ===== Subdued (Boardroom) palette ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .doc h3 { color: var(--bb-grey-700) !important; }
+    .doc h4 { color: var(--bb-grey-500) !important; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root, .handoff { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj { color: var(--bb-grey-700) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; border-left-color: var(--bb-pink) !important; }
+    .flag .lbl { color: var(--bb-grey-500) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+    .stat .v { color: var(--bb-grey-800) !important; }
+    .rolecard h3 { color: var(--bb-grey-800) !important; }
+    .pill { border-color: var(--bb-grey-300) !important; }
+    .script { border-left-color: var(--bb-pink) !important; }
+    .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
+
+    @page { size: A4 portrait; margin: 10mm; }
+    @media print {
+      .sheet + .sheet { margin-top: 8mm !important; border-top: 0 !important; }
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
+      #dc-root, .sc-host { height: auto !important; }
+      .sheet { break-inside: avoid; display: block; box-sizing: border-box; margin-top: 0 !important; border-top: 0 !important; padding-top: 0 !important; }
+      .sheet:first-of-type { break-before: auto; }
+      .sheet > h2:first-child,.sheet > .cover:first-child,.sheet > .part-kicker:first-child,.sheet > .ldiv:first-child { margin-top: 0 !important; }
+      .sheet-ftr { display: none !important; justify-content: space-between; align-items: baseline; margin-top: auto; padding-top: 5mm; border-top: 0.5pt solid var(--bb-grey-200); font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bb-grey-400); }
+      .sheet-ftr .r { color: var(--bb-pink); }
+      h2,h3,h4 { break-after: avoid !important; }
+      h2 + *, h3 + *, h4 + * { break-before: avoid; }
+      .rolecard,.note,.flag,.stat,.stats,.layer,.grid3,.tree,.cover,tr,.relay-node,.handover,.feedback,.iface,.ldiv,.handoff,.aij { break-inside: avoid; }
+      table.t { break-inside: avoid; } table.t thead { display: table-header-group; }
+      p, li { orphans: 3; widows: 3; }
+    }
+
+    /* ===== Boardroom palette (subdued) ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .cover .wordmark { color: var(--bb-pink); }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .handoff { background: var(--bb-grey-800) !important; }
+    .handover.seam .hb { background: var(--bb-pink) !important; box-shadow: none !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+
+    .cover .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.22em; font-size: 7.5pt; color: rgba(255,255,255,0.72); margin-bottom: 20px; }
+    .cover .cat { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 10px; }
+    .cover h1 { margin-top: 0; }
+    /* cover-final-override */
+    .cover.cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 30%, var(--bb-pink) 120%) !important; }
+    .cover-page { min-height: 900px !important; display: flex !important; flex-direction: column !important; }
+    .cover-page .cat { margin-bottom: auto !important; }
+    .cover-page h1 { margin-top: 0 !important; }
+    .cover-page .cover-meta { margin-top: auto !important; }
+    /* table-font-override */
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, table.rep .tg, .doc table.form .target { font-family: var(--font-body) !important; }
+    /* role-body-override */
+    .doc table.t .role { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+    /* all-table-cells-body */
+    .doc table.t td, .doc table.t td .num, .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, .doc table.t .role, table.rep td, table.rep .tg, .doc table.form td, .doc table.form .target { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+
+    .form-field { border: 1px solid var(--bb-grey-300); border-radius: 6px; height: 22px; margin-bottom: 6px; }
+    .form-label { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.07em; color: var(--bb-grey-500); font-family: var(--font-mono); display: block; margin-bottom: 3px; }
+    .doc table.form { width: 100%; border-collapse: collapse; margin: 4px 0 10px; font-size: 8.5pt; }
+    .doc table.form th { background: var(--bb-grey-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 5px 7px; border: 1px solid var(--bb-grey-300); font-size: 7.5pt; }
+    .doc table.form td { padding: 5px 7px; border: 1px solid var(--bb-grey-300); height: 20px; vertical-align: top; }
+    .doc table.form .target { color: var(--bb-grey-500); font-size: 8pt; white-space: nowrap; }
+    .doc table.form .grp td { background: #eceef1; font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 7.6pt; text-transform: uppercase; letter-spacing: 0.05em; }
+    .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 7.5pt; color: rgba(255,255,255,0.9); }
+  </style>
+</helmet>
+
+<main class="doc">
+
+<section class="sheet cover-sheet">
+  <div class="cover cover-page cover-grad">
+    <img class="cover-elephant" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="conf">Strictly private &amp; confidential</div>
+    <div class="cat">Revenue Playbook</div>
+    <h1>How Brainbox earns revenue, end to end</h1>
+    <p class="lede">How Brainbox earns revenue &mdash; one connected function documented layer by layer, from inception to transaction and beyond, with a defined interface where each layer hands off to the next.</p>
+    <div class="cover-meta">
+      <div><span>Document owner</span>Corporate Services Director</div>
+      <div><span>Issue date</span>July 2026</div>
+      <div style="margin-left:auto;align-self:flex-end"><span class="wordmark">BRAINBOX</span></div>
+    </div>
+  </div>
+</section>
+
+  <section class="sheet">
+  <h2>Purpose</h2>
+  <p>This Revenue Playbook guides how Brainbox earns revenue. It brings the whole revenue function into one document, so the people who win and grow work operate from a shared plan. It is the parent of a set of playbooks that hold the operational detail: a Sales Playbook and a Marketing Playbook, each with its own subsets, plus a dedicated section for the US Expansion Project.</p>
+  <p>The document is organised as <strong>one fully documented section per layer</strong>, in the order revenue is actually earned. Each layer sets out what it owns, how it works, and <strong>its own AI transformation sub-journey</strong>, then closes with the <strong>defined interface</strong> by which it hands off to the next. Those seams are where a revenue engine either connects or leaks, so they are named, owned and measured.</p>
+  <div class="note"><span class="lbl">How to read this document</span>Each layer begins on a new page with a banner showing what it receives and what it hands on. This playbook holds the model, the strategy and the plan for change; the operational detail lives in the child playbooks beneath it.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Revenue Playbook &middot; Brainbox</span></div>
+</section>
+
+  <section class="sheet">
+  <h2>Contents</h2>
+  <div class="toc">
+    <div class="toc-row"><span class="n">01</span><span class="t">Purpose</span></div>
+    <div class="toc-row"><span class="n">02</span><span class="t">How revenue is earned</span></div>
+    <div class="toc-row"><span class="n">03</span><span class="t">The revenue relay</span></div>
+    <div class="toc-row"><span class="n">04</span><span class="t">How the function is organised</span></div>
+    <div class="toc-row"><span class="n">05</span><span class="t">Layer 1 — Brand custodian</span></div>
+    <div class="toc-row"><span class="n">06</span><span class="t">Layer 2 — Marketing capability</span></div>
+    <div class="toc-row"><span class="n">07</span><span class="t">Layer 3 — Demand generation</span></div>
+    <div class="toc-row"><span class="n">08</span><span class="t">Layer 4 — Sales execution</span></div>
+    <div class="toc-row"><span class="n">09</span><span class="t">Layer 5 — Relationship management</span></div>
+    <div class="toc-row"><span class="n">10</span><span class="t">US Expansion Project</span></div>
+    <div class="toc-row"><span class="n">11</span><span class="t">Delivering the transformation</span></div>
+    <div class="toc-row"><span class="n">12</span><span class="t">Measuring success</span></div>
+  </div>
+</section>
+
+<section class="sheet">
+  <h2>How revenue is earned</h2>
+  <p class="section-intro">Brainbox earns revenue through five connected layers. The engine works when they connect; it stalls when any one runs on its own.</p>
+  <div class="layer"><div class="ln">1</div><div class="lb"><h4>Brand custodian</h4><p>Owns and protects the Brainbox brand, point of view and positioning &mdash; the asset carried into every conversation, compounding the longer it runs.</p></div></div>
+  <div class="layer"><div class="ln">2</div><div class="lb"><h4>Marketing capability</h4><p>Turns positioning into the collateral, enablement and systems every sales conversation draws on.</p></div></div>
+  <div class="layer"><div class="ln">3</div><div class="lb"><h4>Demand generation</h4><p>Turns that groundwork into qualified, named opportunities &mdash; specific accounts, sequenced and ready.</p></div></div>
+  <div class="layer"><div class="ln">4</div><div class="lb"><h4>Sales execution</h4><p>Converts those opportunities into signed engagements, through an Australian Commercial Manager and US Agents who work under Master Agents by territory.</p></div></div>
+  <div class="layer"><div class="ln">5</div><div class="lb"><h4>Relationship management</h4><p>Keeps and grows signed clients &mdash; expansion, retention and referrals &mdash; and feeds proof and warm leads back to the front of the engine.</p></div></div>
+  <h2>The revenue model at Brainbox</h2>
+  <p>Brainbox sells consultative offshoring and HR advisory to Australian SMEs and US general agencies. Buyers arrive through <strong>relationships, referrals, partnerships and direct conversations with people they trust</strong> &mdash; rarely through a blog post or a search result. The model concentrates effort on the human motions that produce work, and is measured against <strong>signed engagements</strong>, not raw enquiry counts.</p>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Revenue Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <h2>The revenue relay</h2>
+  <p class="section-intro">Revenue is a relay, not a set of silos. Each layer does its work, then <strong>hands a defined thing to the next</strong>. The chips between the layers are those handover points &mdash; the interfaces this playbook documents. Marketing and Sales are both halves of the one revenue engine; the marquee handover is the seam between them, and the dashed loop is where clients feed the engine that won them.</p>
+  <div class="relay">
+    <div class="relay-node mk"><div class="rn">1</div><div class="rt"><b>Brand custodian</b><span>Positioning &amp; point of view</span></div><div class="own">Marketing</div></div>
+    <div class="handover"><span class="ar">&darr;</span><span class="hb">hands over &middot; a clear, credible point of view</span></div>
+    <div class="relay-node mk"><div class="rn">2</div><div class="rt"><b>Marketing capability</b><span>Collateral, enablement &amp; systems</span></div><div class="own">Marketing</div></div>
+    <div class="handover"><span class="ar">&darr;</span><span class="hb">hands over &middot; assets, messaging &amp; the HubSpot system</span></div>
+    <div class="relay-node rev"><div class="rn">3</div><div class="rt"><b>Demand generation</b><span>Qualified, named opportunities</span></div><div class="own">Sales</div></div>
+    <div class="handover seam"><span class="ar">&darr;</span><span class="hb">THE SEAM &middot; booked in-person appointment &rarr; opportunity, with HubSpot handover note</span></div>
+    <div class="relay-node rev"><div class="rn">4</div><div class="rt"><b>Sales execution</b><span>Signed engagements</span></div><div class="own">Sales</div></div>
+    <div class="handover"><span class="ar">&darr;</span><span class="hb">hands over &middot; a signed client &amp; scope to grow</span></div>
+    <div class="relay-node rev"><div class="rn">5</div><div class="rt"><b>Relationship management</b><span>Retention, expansion &amp; referrals</span></div><div class="own">Both halves</div></div>
+    <div class="feedback"><span class="ar">&uarr;</span><span class="hb">feedback loop &middot; case studies to Brand &middot; referrals &amp; expansion accounts to Demand</span></div>
+  </div>
+  <div class="flag"><span class="lbl">Where to focus</span>Every handover is a place work can leak. The two watched hardest are the <strong>demand&ndash;sales seam</strong> and the <strong>relationship&ndash;brand feedback loop</strong>.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Revenue Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <h2>How the function is organised</h2>
+  <p class="section-intro">The five layers are all part of the one revenue function. Within it they group into two halves &mdash; Marketing and Sales &mdash; that meet at HubSpot and at the collateral the marketing pod produces. Relationship management spans both, so proof and referrals flow back across the whole engine. Each area is served by an operational playbook beneath this one.</p>
+  <div class="tree"><div class="root">Revenue Playbook</div><div class="branchrow">
+    <div class="branch"><div class="bh">Marketing</div><div class="leaves">
+      <div class="leaf"><b>Brand custodian</b><span>Brand, positioning &amp; point of view</span></div>
+      <div class="leaf"><b>Marketing capability</b><span>Collateral, enablement, technology &middot; Social Media Playbook</span></div>
+    </div></div>
+    <div class="branch"><div class="bh">Sales</div><div class="leaves">
+      <div class="leaf live"><b>Demand generation</b><span>Qualified opportunities &middot; Demand Generation Playbook (live)</span></div>
+      <div class="leaf"><b>Sales execution</b><span>Signed engagements &middot; Sales Playbook (AU + US)</span></div>
+    </div></div>
+  </div>
+  <div style="margin-top:14px;border:1px solid var(--bb-pink-300);border-radius:10px;background:var(--bb-pink-50);padding:11px 14px;text-align:center"><b style="font-family:var(--font-heading);font-weight:600;color:var(--bb-pink-700);display:block;font-size:10pt">Relationship management</b><span style="color:var(--bb-grey-500);font-size:8.6pt">Spans both Marketing and Sales &mdash; retention, expansion &amp; referrals, feeding proof back to Brand and warm leads to Demand</span></div></div>
+  <div class="note"><span class="lbl">Built as areas mature</span>The Demand Generation Playbook already operates as the manual for the demand-generation layer. The Social Media Playbook and the Sales Playbook (Australia + United States) are built and maintained as their areas mature. Every playbook beneath this one stays consistent with it.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Revenue Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <div class="ldiv"><div class="lk">Layer 1 of 5</div><h1>Brand custodian</h1><p class="role">Owns and protects the Brainbox brand, point of view and positioning &mdash; the compounding asset carried into every revenue conversation.</p><div class="own-pill">Marketing</div><div class="io"><div><span>Receives from</span>Delivered-client proof &amp; case studies (from Relationship management)</div><div><span>Hands on</span>A clear, credible point of view (to Marketing capability)</div></div></div>
+  <h2>The role of this layer</h2>
+  <p>The brand layer owns the Brainbox point of view on offshoring and HR, its positioning, and the voice that carries into every conversation. It is a senior capability, not a production task &mdash; and it is the one asset that <strong>compounds the longer it runs</strong>. We protect it through the transformation and never trade it for a short-term lead count.</p>
+  <h3>What it owns</h3>
+  <ul>
+    <li>The Brainbox positioning and point of view, kept visible and credible in the two markets that matter &mdash; Australian SMEs and US general agencies.</li>
+    <li>Founder- and sales-led thought leadership, run in support of the business partners and thought leaders.</li>
+    <li>The standard and consistency of the brand across every asset the function produces.</li>
+  </ul>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Layer 1 &middot; Brand custodian</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Layer 1 &middot; Brand custodian</div>
+  <h2>Brand in practice &amp; the AI sub-journey</h2>
+  <div class="aij"><span class="lbl">AI transformation &middot; this layer&rsquo;s sub-journey</span><div class="ft"><div class="c"><b>From</b>The Brainbox point of view lives in a few people&rsquo;s heads and surfaces sporadically, limited by how much those people can write.</div><div class="arw">&rarr;</div><div class="c to"><b>To</b>AI drafts founder- and sales-led thought leadership at pace under human editorial direction, and the point of view is optimised to be cited by AI answer engines as search shifts from links to sources.</div></div><div class="tools"><strong>Tooling &amp; what stays human:</strong> Claude for drafting; a documented brand-voice prompt library; answer-engine optimisation. Editorial judgement, the point of view itself and the founder&rsquo;s voice stay human.</div></div>
+  <div class="flag"><span class="lbl">The proof point begins here</span>Brainbox already runs its marketing from the Philippines delivery centre. The brand story is strongest when it can point to the firm operating its own model &mdash; evidence, not just assertion.</div>
+  <div class="iface">
+    <div class="box get"><h4>Interface &middot; receives</h4><p>From Relationship management: delivered-client proof and case studies that make the point of view concrete.</p></div>
+    <div class="box give"><h4>Interface &middot; hands on</h4><p>To Marketing capability: a current, credible point of view and positioning &mdash; the raw material for all collateral.</p></div>
+  </div>
+  <div class="handoff"><span class="k">Interface &middot; Brand custodian &rarr; Marketing capability</span><div class="v">Marketing capability receives the <strong>positioning and point of view</strong> and turns it into collateral, messaging and campaigns. The brand standard travels with it.</div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Layer 1 &middot; Brand custodian</span></div>
+</section>
+
+<section class="sheet">
+  <div class="ldiv"><div class="lk">Layer 2 of 5</div><h1>Marketing capability</h1><p class="role">Turns positioning into the collateral, enablement and systems every sales conversation draws on. This is the layer under active transformation.</p><div class="own-pill">Marketing</div><div class="io"><div><span>Receives from</span>Positioning &amp; point of view (from Brand custodian)</div><div><span>Hands on</span>Assets, messaging &amp; the HubSpot system (to Demand generation)</div></div></div>
+  <h2>The transformation thesis</h2>
+  <p class="section-intro">Two shifts define the new capability layer.</p>
+  <div class="grid2">
+    <div class="rolecard"><h3>Direct, don&rsquo;t produce</h3><p>AI now does most routine making across design, social, development and copy. A function of fewer people who <strong>direct</strong> AI systems outperforms more people operating tools by hand.</p></div>
+    <div class="rolecard"><h3>Reorient toward the sellers</h3><p>Capability exists to make the sellers effective &mdash; to put <strong>qualified, named opportunities</strong> in front of them and arm them with collateral that closes work.</p></div>
+  </div>
+  <h3>What the layer does not do</h3>
+  <ul>
+    <li>It does not treat <strong>inbound lead volume</strong> as its primary measure of success.</li>
+    <li>It does not assign <strong>one person to each production craft</strong>.</li>
+    <li>It does not produce content on a calendar for its own sake, disconnected from what the sellers need.</li>
+    <li>It does not carry a <strong>full-time developer</strong> for a marketing site that AI-assisted build can maintain.</li>
+  </ul>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Layer 2 &middot; Marketing capability</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Layer 2 &middot; Marketing capability</div>
+  <h2>The target operating model</h2>
+  <p>A marketing capability pod holds brand, enablement and technology; the demand-generation layer holds research and outbound. Capability rises while the seat count falls &mdash; what transformation looks like when cost is not the driver.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">8</div><div class="l">Seats today &mdash; Manager, social, SEO, web dev, designer + 3 Associates</div></div>
+    <div class="stat"><div class="v">3</div><div class="l">Marketing pod &mdash; Manager, Technologist, Producer</div></div>
+    <div class="stat"><div class="v">3</div><div class="l">Demand-gen layer &mdash; reporting through the sellers</div></div>
+    <div class="stat"><div class="v">&rarr;1</div><div class="l">Web developer redeployed to billable client delivery</div></div>
+  </div>
+  <div class="flag"><span class="lbl">The headline</span>Not a smaller team &mdash; a function pointed at the people who close work, running on AI rather than on manual production.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Layer 2 &middot; Marketing capability</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Layer 2 &middot; Marketing capability</div>
+  <h2>The capability pod</h2>
+  <p class="section-intro">Three roles sit in the pod, all based in the Philippines delivery centre.</p>
+  <div class="rolecard"><h3>Marketing Manager</h3><div class="from">Directs the pod &middot; senior role in the Revenue Playbook</div><p>Owns brand, positioning and the direction of enablement &mdash; deciding what the AI systems produce and holding the standard. Runs founder- and sales-led thought leadership; coordinates with the Commercial Manager and the US Agents as an equal. As the senior resource in the Revenue Playbook, sits on the Brainbox Executive Leadership Team, giving the function a voice at the top table.</p></div>
+  <div class="rolecard"><h3>Marketing Technologist</h3><div class="from">The pivotal role &middot; built from the current SEO specialist</div><p>Owns the website and the HubSpot CRM end to end. Owns attribution, so the function can prove its contribution. Builds and maintains the AI automation layer. Leads answer-engine optimisation. <strong>The whole function is built around this seat.</strong></p></div>
+  <div class="rolecard"><h3>Content and Brand Producer</h3><div class="from">One AI-augmented role &middot; built from social + graphic designer</div><p>Produces campaign copy, social content and sales collateral under the Manager&rsquo;s direction. Runs founder- and sales-led LinkedIn as the main organic channel. Handles routine design and video using AI tooling. Governed by the Social Media Playbook.</p></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Layer 2 &middot; Marketing capability</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Layer 2 &middot; Marketing capability</div>
+  <h2>The AI sub-journey &amp; tooling</h2>
+  <div class="aij"><span class="lbl">AI transformation &middot; this layer&rsquo;s sub-journey</span><div class="ft"><div class="c"><b>From</b>One person per craft &mdash; designer, developer, writer, social &mdash; producing collateral and campaigns by hand.</div><div class="arw">&rarr;</div><div class="c to"><b>To</b>A Producer directs the production stack for copy, design and video; a Technologist runs the automation and measurement stacks. Fewer people directing AI, not more operating tools.</div></div><div class="tools"><strong>Tooling &amp; what stays human:</strong> Production stack (copy, design, video); automation stack (CRM, reporting, nurture); measurement stack (attribution). Creative direction, brand standard and final judgement stay human.</div></div>
+  <div class="grid3">
+    <div class="rolecard"><h3>Production stack</h3><p>Lets the Producer generate and refine copy, design and video at speed.</p></div>
+    <div class="rolecard"><h3>Automation stack</h3><p>Lets the Technologist run repetitive CRM, reporting and nurture tasks without manual handling.</p></div>
+    <div class="rolecard"><h3>Measurement stack</h3><p>Connects website, CRM and campaign data into attribution the function can act on.</p></div>
+  </div>
+  <div class="handoff"><span class="k">Interface &middot; Marketing capability &rarr; Demand generation</span><div class="v">Demand generation receives <strong>current collateral, sharp messaging and a clean HubSpot system with attribution</strong> &mdash; the tools the Associates and sellers work inside every day.</div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Layer 2 &middot; Marketing capability</span></div>
+</section>
+
+<section class="sheet">
+  <div class="ldiv"><div class="lk">Layer 3 of 5</div><h1>Demand generation</h1><p class="role">Turns brand and collateral into qualified, named opportunities &mdash; specific accounts, sequenced, qualified and ready for the sellers.</p><div class="own-pill">Sales</div><div class="io"><div><span>Receives from</span>Assets, messaging &amp; the HubSpot system (from Marketing capability)</div><div><span>Hands on</span>A booked, in-person qualified appointment (to Sales execution)</div></div></div>
+  <h2>The demand-generation layer</h2>
+  <p class="section-intro">The layer reports <strong>through the sellers</strong> rather than through marketing &mdash; the structural change that ties demand to revenue. The Lead Associate leads the layer, supported by two Australian Associates; the US-facing motion is delivered by the Lead Associate until US demand warrants a dedicated US Associate.</p>
+  <div class="rolecard"><h3>Lead Associate</h3><div class="from">Abi</div><p>Supervises the demand-generation layer and <strong>carries full delivery of the Australian demand generation function</strong>. She also delivers the Philippines (US-facing) demand generation function until demand from that market grows enough to warrant a dedicated US Associate &mdash; holding the standard across both markets throughout.</p></div>
+  <div class="grid2">
+    <div class="rolecard"><h3>Australian Associate</h3><div class="from">Paired with the Australian Commercial Manager</div><p>Runs local-market research, list-building and outbound sequencing for the Australian pipeline, paired with the Commercial Manager.</p></div>
+    <div class="rolecard"><h3>Australian Associate &middot; second seat</h3><div class="from">Paired with the Australian Commercial Manager</div><p>A second Australian Associate, adding research and outbound capacity for the Australian pipeline alongside the first.</p></div>
+  </div>
+  <h3>Reporting &amp; the interface with marketing</h3>
+  <p>The layer reports through the sellers, with the Lead Associate as the supervisory line, and a <strong>dotted line to the Marketing Manager</strong> for content support and CRM standards. Brand, enablement and technology stay with marketing; lead conversion sits with revenue. The two connect at HubSpot.</p>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Layer 3 &middot; Demand generation</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Layer 3 &middot; Demand generation</div>
+  <h2>The Demand Generation Playbook &amp; AI sub-journey</h2>
+  <p>The Associates execute the Demand Generation Playbook &mdash; the operational manual for this layer. The concrete deliverable is a booked, in-person sales appointment with a suitable decision maker, recorded in HubSpot with a business reason, contact history and a recommended angle. <strong>The weekly baseline is at least six in-person appointments for the Commercial Manager, measured as booked and attended, not merely booked.</strong></p>
+  <div class="aij"><span class="lbl">AI transformation &middot; this layer&rsquo;s sub-journey</span><div class="ft"><div class="c"><b>From</b>Slow manual list-building and generic outreach, measured on raw volume.</div><div class="arw">&rarr;</div><div class="c to"><b>To</b>AI-accelerated research and enrichment, and personalised sequencing at scale, so Associates spend their time on qualified conversations, not admin.</div></div><div class="tools"><strong>Tooling &amp; what stays human:</strong> Claude for research &amp; drafting; Apollo enrichment; LinkedIn &amp; Sales Navigator discovery; HubSpot automation; Outlook for outreach. The qualified human conversation and the booked appointment stay human.</div></div>
+  <div class="note"><span class="lbl">Five tools &middot; HubSpot as the single source of truth</span>The Lead Associate carries Australian delivery against Australian SMEs of 10&ndash;100 staff (supported by two Australian Associates), and also delivers the US general-agency motion on a US-adapted version until US demand warrants a dedicated US Associate.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Layer 3 &middot; Demand generation</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Layer 3 &middot; Demand generation</div>
+  <h2>The seam: from appointment to opportunity</h2>
+  <p>This is the most important interface in the engine &mdash; where marketing effort becomes sales pipeline. The layer hands the sales function a <strong>booked, in-person appointment</strong> with a qualified decision maker, recorded in HubSpot with a business reason, contact history and a recommended angle. The definition of a qualified appointment, the handover note and the recommended opening question all live in the Demand Generation Playbook.</p>
+  <div class="iface">
+    <div class="box give"><h4>Demand generation gives</h4><p>Qualified appointment &middot; business reason &middot; contact &amp; company history &middot; recommended angle &middot; calendar booking.</p></div>
+    <div class="box get"><h4>Sales execution takes</h4><p>The meeting, discovery and qualification, and everything after &mdash; scoping, proposal, close.</p></div>
+  </div>
+  <div class="handoff"><span class="k">Interface &middot; Demand generation &rarr; Sales execution &mdash; THE SEAM</span><div class="v">A clean, qualified handover with full context. A defined handover note and clear entry criteria stop qualified interest leaking between the two functions &mdash; the first thing the sales iterations formalise.</div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Layer 3 &middot; Demand generation</span></div>
+</section>
+
+<section class="sheet">
+  <div class="ldiv"><div class="lk">Layer 4 of 5</div><h1>Sales execution</h1><p class="role">Converts qualified opportunities into signed engagements, through an Australian Commercial Manager and US Agents who work under Master Agents by territory.</p><div class="own-pill">Sales</div><div class="io"><div><span>Receives from</span>A booked, in-person qualified appointment (from Demand generation)</div><div><span>Hands on</span>A signed client &amp; scope to grow (to Relationship management)</div></div></div>
+  <h2>The sellers</h2>
+  <p>An <strong>Australian Commercial Manager</strong> owns the local market, working face to face across Australia. In the US, <strong>Agents</strong> sell into the general-agency market, each reporting to a <strong>Master Agent</strong> who owns a defined territory. The demand-generation layer feeds both markets.  The two motions differ enough that the Sales Playbook holds a common core and two market-specific sections.</p>
+  <div class="flag"><span class="lbl">Built with the Corporate Services Director</span>The sales function is built over successive iterations, so it rests on decisions rather than assumptions. The scaffold on the next pages sets the topics each iteration develops.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Layer 4 &middot; Sales execution</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Layer 4 &middot; Sales execution</div>
+  <h2>Australian sales channels</h2>
+  <p class="section-intro">Australian sales run on relationships. Networking and LinkedIn introductions carry the load; the other channels play supporting or emerging roles.</p>
+  <table class="t"><thead><tr><th style="width:58%">Channel</th><th>Current role</th></tr></thead><tbody>
+    <tr><td class="role">Networking</td><td class="maj">Major</td></tr>
+    <tr><td class="role">LinkedIn introductions &amp; meeting requests</td><td class="maj">Major</td></tr>
+    <tr><td class="role">Referrals</td><td class="min">Minor, growing</td></tr>
+    <tr><td class="role">Additional roles within existing customers</td><td class="min">Works, unstructured</td></tr>
+    <tr><td class="role">Social media outreach</td><td class="min">Minor</td></tr>
+    <tr><td class="role">Website</td><td class="min">Minor</td></tr>
+    <tr><td class="role">Webinars</td><td class="min">Untested</td></tr>
+    <tr><td class="role">Partner program</td><td class="min">Untested</td></tr>
+  </tbody></table>
+  <div class="note"><span class="lbl">Where the detail lives</span>How each of these channels is worked &mdash; the motions, cadence and standards &mdash; is documented in the <strong>Sales Playbook</strong>, the subsidiary document to this Revenue Playbook.</div>
+  <div class="aij"><span class="lbl">AI transformation &middot; this layer&rsquo;s sub-journey</span><div class="ft"><div class="c"><b>From</b>The seller does their own account research, note-taking, proposal drafting and CRM admin between meetings.</div><div class="arw">&rarr;</div><div class="c to"><b>To</b>AI prepares account briefs and call summaries, drafts proposals and cost comparisons, and keeps the pipeline current &mdash; so the seller spends time in the room, not on admin.</div></div><div class="tools"><strong>Tooling &amp; what stays human:</strong> AI meeting prep &amp; note capture; proposal &amp; cost-comparison drafting; HubSpot automation. The relationship, the judgement and the close stay firmly human.</div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Layer 4 &middot; Sales execution</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Layer 4 &middot; Sales execution</div>
+  <h2>What the sales iterations will build</h2>
+  <p class="section-intro">Each iteration develops one part of the function with the Corporate Services Director. The order is indicative and follows the greatest need.</p>
+  <ul>
+    <li><strong>The sales process and stages</strong> &mdash; the pipeline from qualified appointment to signed engagement, with clear entry and exit criteria.</li>
+    <li><strong>Discovery and qualification</strong> &mdash; how the seller confirms fit, need, authority and timing in the first meeting.</li>
+    <li><strong>Proposal and pricing</strong> &mdash; how Brainbox scopes an offshore engagement and prices it against the client&rsquo;s loaded local cost.</li>
+    <li><strong>Sales enablement assets</strong> &mdash; case studies, capability annexes, cost comparisons and decks, produced by the marketing pod.</li>
+    <li><strong>Pipeline management and forecasting</strong> &mdash; how the sellers manage HubSpot, forecast and report.</li>
+    <li><strong>Sales targets and cadence</strong> &mdash; the weekly and monthly rhythm for each seller, aligned to the demand-generation baseline.</li>
+  </ul>
+  <div class="handoff"><span class="k">Interface &middot; Sales execution &rarr; Relationship management</span><div class="v">Relationship management receives <strong>a signed client, the agreed scope, and the context to grow the account well</strong> &mdash; who was sold, why, and where the next opportunity sits.</div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Layer 4 &middot; Sales execution</span></div>
+</section>
+
+<section class="sheet">
+  <div class="ldiv"><div class="lk">Layer 5 of 5</div><h1>Relationship management</h1><p class="role">Keeps and grows the clients we win &mdash; retention, account expansion and referrals &mdash; and turns delivered work back into new revenue.</p><div class="own-pill">Spans Marketing &amp; Sales</div><div class="io"><div><span>Receives from</span>A signed client &amp; scope (from Sales execution)</div><div><span>Hands on</span>Case studies to Brand &middot; referrals &amp; expansion accounts to Demand</div></div></div>
+  <h2>Keep and grow the clients we win</h2>
+  <p>Winning a client is the start, not the finish. This layer keeps signed clients, grows them, and turns delivered work back into new revenue. Today this already happens &mdash; additional roles within existing customers is a channel that <strong>works, but unstructured</strong>. Giving it a defined motion is a near-term opportunity the revenue engine should not leave to chance.</p>
+  <h3>What it owns</h3>
+  <ul>
+    <li><strong>Retention</strong> &mdash; regular account reviews that keep engagements healthy and renewing.</li>
+    <li><strong>Expansion</strong> &mdash; a structured land-and-expand motion for additional offshore roles inside existing clients.</li>
+    <li><strong>Referrals</strong> &mdash; deliberately asking satisfied clients for warm introductions, the strongest channel Brainbox has.</li>
+    <li><strong>Proof</strong> &mdash; capturing delivered outcomes as case studies the brand and sellers can use.</li>
+  </ul>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Layer 5 &middot; Relationship management</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Layer 5 &middot; Relationship management</div>
+  <h2>The AI sub-journey &amp; the loop that closes the engine</h2>
+  <div class="aij"><span class="lbl">AI transformation &middot; this layer&rsquo;s sub-journey</span><div class="ft"><div class="c"><b>From</b>Account expansion and referrals handled ad hoc, when someone happens to remember.</div><div class="arw">&rarr;</div><div class="c to"><b>To</b>AI surfaces account-health and expansion signals, prompts the referral ask at the right moment, and drafts review materials and case studies from delivered work.</div></div><div class="tools"><strong>Tooling &amp; what stays human:</strong> CRM &amp; delivery signals; AI drafting of account reviews and case studies. The client relationship, the trust and the ask stay human.</div></div>
+  <div class="iface">
+    <div class="box get"><h4>Interface &middot; receives</h4><p>From Sales execution: a signed client and scope, with the context to grow the account.</p></div>
+    <div class="box give"><h4>Interface &middot; feeds back</h4><p>To Brand: case studies and proof. To Demand: referrals and expansion accounts as warm, named targets.</p></div>
+  </div>
+  <div class="handoff"><span class="k">Interface &middot; Relationship management &rarr; Brand &amp; Demand (the feedback loop)</span><div class="v">Delivered work becomes <strong>proof for the brand</strong> and <strong>warm referrals and expansion accounts for demand generation</strong> &mdash; turning a linear pipeline into a flywheel.</div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Layer 5 &middot; Relationship management</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Closing &middot; The US Expansion Project</div>
+  <h2>Taking Brainbox into the US</h2>
+  <p>The US Expansion Project takes Brainbox into the United States market. It runs as a distinct initiative, built with the Corporate Services Director over successive iterations, and produces the United States section of the Sales Playbook and the US adaptation of the Demand Generation Playbook, among other outcomes.</p>
+  <div class="flag"><span class="lbl">What is settled</span>US <strong>Agents</strong> sell into the general-agency market, each reporting to a <strong>Master Agent</strong> with a defined territory. The US-facing demand-generation motion runs on US hours following a US-adapted Demand Generation Playbook &mdash; delivered by the Lead Associate until US demand warrants a dedicated US Associate. The US motion sells to <strong>general agencies</strong> rather than Australian SMEs, so the ideal customer profile, the channels and the message all differ.</div>
+  <h3>What the US iterations will build</h3>
+  <ul>
+    <li><strong>The US market and ideal customer profile</strong> &mdash; who Brainbox sells to, and how it differs from the Australian SME model.</li>
+    <li><strong>The general-agency and master-agent structure</strong> &mdash; the commercial model for reaching US clients.</li>
+    <li><strong>Regulatory and compliance requirements</strong> &mdash; licensing, data and contractual obligations.</li>
+    <li><strong>The US demand-generation adaptation</strong> &mdash; channels, ICP, personas and cadence for the general-agency market.</li>
+    <li><strong>US sales enablement</strong> &mdash; collateral adapted from the Australian assets.</li>
+    <li><strong>Expansion measures and milestones</strong> &mdash; from first US appointments through to signed engagements.</li>
+  </ul>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Closing &middot; US Expansion Project</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Closing &middot; Delivering the transformation</div>
+  <h2>The mechanics of the change</h2>
+  <p class="section-intro">The near-term work is the marketing-capability transformation. It runs in four stages.</p>
+  <ol class="numlist">
+    <li><strong>Instrument and baseline.</strong> Fix attribution in HubSpot before we touch the team. Record the baseline so the transformation can be measured against it.</li>
+    <li><strong>Redefine the roles.</strong> Rewrite the position descriptions for the pod and Associate roles. Confirm reporting lines and the dotted line to the Manager. Document the AI tooling each role will use.</li>
+    <li><strong>Redeploy and reskill.</strong> Move the web developer to client delivery. Build AI capability in the Technologist and Producer roles &mdash; their upskilling is the transformation itself.</li>
+    <li><strong>Operate and prove.</strong> Run the new model. Track pipeline contribution against the baseline. Build the marketing engine into a case study. Review at ninety days.</li>
+  </ol>
+  <h2>People transitions</h2>
+  <p>The transformation changes roles; it does not default to redundancy. Where skills transfer to billable client work, redeployment keeps capability inside the firm and turns a cost into revenue &mdash; and reflects the Brainbox value of always being kind. The web developer redeploys to client delivery. The social media person and graphic designer merge into the single Producer role, settling to one seat as AI fluency builds. Transitions touch two labour regimes &mdash; Philippine labour law and the Fair Work framework &mdash; and we take advice on both before we act.</p>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Closing &middot; Delivering the transformation</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Closing &middot; Delivering the transformation</div>
+  <h2>Retraining</h2>
+  <p>Retraining will be funded as demand requires &mdash; defensible for a transformation driven by capability rather than cost. It carries one risk: demand-driven funding tends to lag the capability build, and two roles cannot afford to lag. The Technologist and the Producer <strong>are</strong> the transformation.</p>
+  <div class="note"><span class="lbl">Ring-fence a small baseline now</span>The <strong>Technologist</strong> needs prompt engineering, AI workflow design and answer-engine optimisation. The <strong>Producer</strong> needs AI-assisted production fluency across copy, image and video. The rest of the retraining budget stays demand-driven.</div>
+  <h2>Risks and controls</h2>
+  <table class="t"><thead><tr><th style="width:48%">Risk</th><th>Control</th></tr></thead><tbody>
+    <tr><td>Function strips brand &amp; search assets while cutting production &mdash; starving the pipeline within 18 months.</td><td>Protect brand, positioning and search through the transition, owned senior in the pod and never traded for a short-term lead count.</td></tr>
+    <tr><td>The restructure acts on a misleading metric.</td><td>Stage one instruments attribution and sets a baseline before any role changes.</td></tr>
+    <tr><td>Retraining lags the role changes.</td><td>Ring-fenced baseline funding for the Technologist and Producer from the start.</td></tr>
+    <tr><td>The transition mishandles labour obligations across two regimes.</td><td>Advice on both Philippine and Fair Work obligations before any transition; redeployment favoured over redundancy.</td></tr>
+  </tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Closing &middot; Delivering the transformation</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Closing &middot; Measuring success</div>
+  <h2>Measuring success</h2>
+  <p class="section-intro">The transformation is not measured by headcount. It is measured by capability and contribution across the five layers.</p>
+  <div class="grid2">
+    <div class="rolecard"><h3>Pipeline contribution</h3><p>A rising count of qualified, named accounts delivered to the two sellers, tracked against the stage-one baseline.</p></div>
+    <div class="rolecard"><h3>Enablement readiness</h3><p>Sellers report that collateral is current and useful at the point of need.</p></div>
+    <div class="rolecard"><h3>Technology &amp; attribution</h3><p>The function shows which activity produces pipeline, with evidence from a connected CRM and website.</p></div>
+    <div class="rolecard"><h3>Brand &amp; relationships</h3><p>Founder-led thought leadership grows in reach; existing clients expand and refer.</p></div>
+  </div>
+  <div class="flag"><span class="lbl">The proof point</span>Brainbox runs an AI-augmented revenue function from its own delivery centre, feeding sellers across two countries. Few competitors can show a prospect their own offshore engine working. The transformed function is not only cheaper to run or sharper in output &mdash; <strong>it is evidence</strong>. A prospect who questions whether offshoring works for skilled, judgement-heavy work can be shown the firm running exactly that, on itself, every day.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Revenue Playbook &middot; Brainbox</span></div>
+</section>
+
+
+  <section class="sheet">
+  <div class="cover" style="padding:16px 26px;margin-bottom:14px">
+    <div class="conf">Appendix &middot; Monthly revenue report (rollup)</div>
+    <h1 style="font-size:19pt;margin:6px 0 3px">Monthly revenue report</h1>
+    <p class="lede" style="font-size:9pt;margin:0">The consolidated view. Marketing, Demand Generation and Sales measures roll up here to explain the one outcome that matters &mdash; leads that become commercial transactions.</p>
+  </div>
+  <table class="form"><tbody>
+    <tr><th style="width:16%">Compiled by</th><td style="width:34%">Corporate Services Director</td><th style="width:16%">Month</th><td style="width:34%"></td></tr>
+    <tr><th>Presented to</th><td>Executive Leadership Team</td><th>Date</th><td></td></tr>
+  </tbody></table>
+  <h4>Function rollup &mdash; leading indicators feeding revenue</h4>
+  <table class="form"><thead>
+    <tr><th style="width:44%">Measure</th><th>This month</th><th>Last month</th><th>Trend</th><th class="target">Target / signal</th></tr>
+  </thead><tbody>
+    <tr class="grp"><td colspan="5">Marketing &mdash; from the Marketing monthly report</td></tr>
+    <tr><td>MQLs influenced by marketing</td><td></td><td></td><td></td><td class="target">Rising</td></tr>
+    <tr><td>Pipeline value influenced ($)</td><td></td><td></td><td></td><td class="target">Rising</td></tr>
+    <tr><td>Brand share of voice / thought-leadership</td><td></td><td></td><td></td><td class="target">Rising</td></tr>
+    <tr><td>Capacity freed for client work</td><td></td><td></td><td></td><td class="target">Rising</td></tr>
+    <tr class="grp"><td colspan="5">Demand Generation &mdash; from the Demand Generation monthly report</td></tr>
+    <tr><td>In-person appointments for the Commercial Manager (MQL)</td><td></td><td></td><td></td><td class="target">&ge;24&ndash;26</td></tr>
+    <tr><td>Appointments held (show rate)</td><td></td><td></td><td></td><td class="target">&gt; 75%</td></tr>
+    <tr><td>Sales opportunities created (SQL)</td><td></td><td></td><td></td><td class="target">~13</td></tr>
+    <tr><td>Reactivation appointments</td><td></td><td></td><td></td><td class="target">8&ndash;16</td></tr>
+    <tr class="grp"><td colspan="5">Sales &mdash; from the Sales monthly report</td></tr>
+    <tr><td>Win rate, SQL &rarr; signed</td><td></td><td></td><td></td><td class="target">25%</td></tr>
+    <tr><td>Signed engagements</td><td></td><td></td><td></td><td class="target">2&ndash;3</td></tr>
+    <tr><td>New annual value signed ($)</td><td></td><td></td><td></td><td class="target">~$190k</td></tr>
+    <tr><td>Open pipeline coverage (&times; target)</td><td></td><td></td><td></td><td class="target">3&times;</td></tr>
+  </tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Revenue Playbook &middot; Brainbox</span></div>
+</section>
+
+  <section class="sheet">
+  <div class="part-kicker">Appendix &middot; Monthly revenue report (rollup)</div>
+  <h2>The revenue outcome</h2>
+  <p class="section-intro">The leading indicators above converge on one funnel. This is what the Executive Leadership Team reviews each month.</p>
+  <table class="form"><thead>
+    <tr><th style="width:44%">Outcome</th><th>This month</th><th>Last month</th><th>YTD</th><th class="target">Target</th></tr>
+  </thead><tbody>
+    <tr><td>Qualified appointments (MQL)</td><td></td><td></td><td></td><td class="target">~26 / mo</td></tr>
+    <tr><td>Sales opportunities (SQL)</td><td></td><td></td><td></td><td class="target">~13 / mo</td></tr>
+    <tr><td>Signed engagements</td><td></td><td></td><td></td><td class="target">2&ndash;3 / mo</td></tr>
+    <tr><td>New annual recurring value ($)</td><td></td><td></td><td></td><td class="target">~$190k / mo</td></tr>
+    <tr><td><strong>Commercial transactions (final measure)</strong></td><td></td><td></td><td></td><td class="target">Growing</td></tr>
+  </tbody></table>
+  <div class="grid2">
+    <div><h4>Value to the business</h4>
+      <table class="form"><tbody>
+        <tr><th style="width:52%">Total new ARR signed ($)</th><td></td></tr>
+        <tr><th>Total open pipeline ($)</th><td></td></tr>
+        <tr><th>Blended cost per signed client</th><td></td></tr>
+        <tr><th>Marketing-influenced share of wins</th><td></td></tr>
+      </tbody></table>
+    </div>
+    <div><h4>Risks &amp; decisions for the ELT</h4>
+      <table class="form"><tbody>
+        <tr><th style="width:52%">Where the funnel is leaking</th><td></td></tr>
+        <tr><th>Capacity / resourcing calls</th><td></td></tr>
+        <tr><th>Approvals beyond delegated authority</th><td></td></tr>
+        <tr><th>US expansion signals</th><td></td></tr>
+      </tbody></table>
+    </div>
+  </div>
+  <h4>Narrative</h4>
+  <div class="grid2">
+    <div><span class="form-label">What drove the result</span><div class="form-field" style="height:36px"></div></div>
+    <div><span class="form-label">Focus &amp; decisions next month</span><div class="form-field" style="height:36px"></div></div>
+  </div>
+  <div class="flag"><span class="lbl">The final measure</span>Every number on these two pages is a leading indicator of one outcome: leads that become <strong>commercial transactions</strong>. The rollup exists so the ELT can see which function to support to move that number.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Revenue Playbook &middot; Brainbox</span></div>
+</section>
+</main>
+</x-dc>
+</body>
+</html>

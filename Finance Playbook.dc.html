@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #fff; }
+    .doc { box-sizing: border-box; max-width: 210mm; margin: 0 auto; background: inherit; padding: 40px clamp(20px,5vw,16mm) 80px; font-family: var(--font-body); font-weight: 300; color: var(--bb-grey-800); font-size: 10pt; line-height: 1.5; }
+    .doc h1,.doc h2,.doc h3,.doc h4 { font-family: var(--font-heading); color: var(--bb-grey-700); margin: 0; }
+    .doc h1 { font-weight: 600; }
+    .doc h2 { font-weight: 600; font-size: 16pt; color: var(--bb-pink); letter-spacing: -0.01em; margin: 24px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--bb-pink); text-wrap: balance; }
+    .doc h3 { font-weight: 600; font-size: 11.5pt; color: var(--bb-grey-700); margin: 15px 0 5px; text-wrap: balance; }
+    .doc h4 { font-weight: 600; font-size: 9.5pt; color: var(--bb-pink-700); margin: 12px 0 3px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .doc p { margin: 0 0 9px; text-wrap: pretty; }
+    .doc ul,.doc ol { margin: 0 0 9px; padding-left: 17px; }
+    .doc li { margin: 0 0 4px; text-wrap: pretty; } .doc li::marker { color: var(--bb-pink-400); }
+    .doc strong { font-weight: 600; color: var(--bb-grey-800); }
+    .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; }
+    .cover { background: var(--bb-gradient-brand); border-radius: 18px; padding: 44px 38px; color: #fff; margin-bottom: 8px; }
+    .cover .eyebrow { color: rgba(255,255,255,0.92); }
+    .cover h1 { color: #fff; font-size: 32pt; line-height: 1.04; margin: 14px 0 12px; letter-spacing: -0.015em; }
+    .cover .lede { color: rgba(255,255,255,0.95); font-size: 12pt; max-width: 94%; margin: 0; font-weight: 300; line-height: 1.5; }
+    .cover-meta { display: flex; gap: 26px; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.35); flex-wrap: wrap; }
+    .cover-meta div { font-size: 8.5pt; } .cover-meta span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; opacity: 0.8; margin-bottom: 2px; }
+    .wordmark { font-family: var(--font-logo); font-size: 16pt; letter-spacing: 0.14em; color: #fff; }
+    .doc table.t { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 9.4pt; }
+    .doc table.t th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 7px 10px; border-bottom: 1.5px solid var(--bb-pink-200); font-size: 8.7pt; }
+    .doc table.t td { padding: 7px 10px; border-bottom: 1px solid var(--bb-grey-200); vertical-align: top; }
+    .doc table.t tr:nth-child(even) td { background: var(--bb-grey-50); }
+    .doc table.t .role { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); white-space: nowrap; }
+    .doc table.t .maj { font-family: var(--font-mono); color: var(--bb-pink-700); font-weight: 600; font-size: 8.5pt; }
+    .doc table.t .min { font-family: var(--font-mono); color: var(--bb-grey-500); font-size: 8.5pt; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .note { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); border-radius: 8px; padding: 10px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 11px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag .lbl,.note .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .section-intro { color: var(--bb-grey-500); font-size: 10.5pt; margin-bottom: 12px; }
+    .part-kicker { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 2px; }
+    .rolecard { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 15px; margin-bottom: 11px; }
+    .rolecard h3 { margin: 0 0 3px; color: var(--bb-pink); font-size: 11pt; }
+    .rolecard .from { font-family: var(--font-mono); font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bb-grey-500); margin-bottom: 6px; }
+    .rolecard p { margin: 0; font-size: 9.4pt; }
+    .numlist { counter-reset: n; padding: 0; margin: 6px 0 10px; list-style: none; }
+    .numlist > li { position: relative; padding-left: 34px; margin-bottom: 10px; }
+    .numlist > li::before { counter-increment: n; content: counter(n); position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--bb-pink); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 10pt; display: flex; align-items: center; justify-content: center; }
+    .numlist > li strong { color: var(--bb-pink-700); }
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin: 6px 0 14px; }
+    .stat { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 14px; }
+    .stat .v { font-family: var(--font-heading); font-weight: 600; font-size: 17pt; color: var(--bb-pink); line-height: 1; }
+    .stat .l { font-size: 8pt; color: var(--bb-grey-500); margin-top: 6px; line-height: 1.3; }
+    .layer { display: flex; align-items: stretch; gap: 12px; margin-bottom: 9px; }
+    .layer .ln { flex: none; width: 30px; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 600; font-size: 14pt; color: #fff; background: var(--bb-pink); border-radius: 10px; }
+    .layer .lb { flex: 1; border: 1px solid var(--bb-grey-200); border-left: 3px solid var(--bb-pink-300); border-radius: 10px; padding: 9px 14px; }
+    .layer .lb h4 { margin: 0 0 2px; color: var(--bb-grey-700); } .layer .lb p { margin: 0; font-size: 9.2pt; }
+    .tree { margin: 14px 0; }
+    .tree .root { background: var(--bb-gradient-brand); color: #fff; border-radius: 12px; padding: 12px 16px; text-align: center; font-family: var(--font-heading); font-weight: 600; font-size: 12pt; }
+    .tree .branchrow { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 14px; align-items: start; }
+    .tree .branch { border: 1px solid var(--bb-pink-200); border-radius: 12px; padding: 12px; }
+    .tree .branch > .bh { background: var(--bb-pink-50); border-radius: 8px; padding: 8px 12px; text-align: center; font-family: var(--font-heading); font-weight: 600; color: var(--bb-pink-700); font-size: 10.5pt; margin-bottom: 10px; }
+    .tree .leaves { display: flex; flex-direction: column; gap: 8px; }
+    .tree .leaf { border: 1px solid var(--bb-grey-200); border-radius: 8px; padding: 8px 12px; font-size: 9.3pt; }
+    .tree .leaf b { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); display: block; }
+    .tree .leaf span { color: var(--bb-grey-500); font-size: 8.3pt; }
+    .tree .leaf.live { border-color: var(--bb-pink-300); border-left: 3px solid var(--bb-pink); }
+    .relay { margin: 14px 0 10px; }
+    .relay-node { display: flex; align-items: center; gap: 13px; border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 11px 15px; background: #fff; }
+    .relay-node .rn { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--bb-pink); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 12pt; display: flex; align-items: center; justify-content: center; }
+    .relay-node .rt { flex: 1; } .relay-node .rt b { font-family: var(--font-heading); font-weight: 600; font-size: 11pt; color: var(--bb-grey-700); }
+    .relay-node .rt span { display: block; font-size: 8.6pt; color: var(--bb-grey-500); margin-top: 1px; }
+    .relay-node .own { flex: none; font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 999px; }
+    .relay-node.mk { border-left: 4px solid var(--bb-blue-300); } .relay-node.mk .own { background: var(--bb-blue-50); color: var(--bb-blue-700); }
+    .relay-node.rev { border-left: 4px solid var(--bb-pink); } .relay-node.rev .own { background: var(--bb-pink-50); color: var(--bb-pink-700); }
+    .handover { display: flex; align-items: center; gap: 9px; margin: 5px 0 5px 44px; }
+    .handover .ar { color: var(--bb-pink); font-size: 13pt; line-height: 1; }
+    .handover .hb { font-family: var(--font-mono); font-size: 7.4pt; letter-spacing: 0.04em; color: var(--bb-grey-500); background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-radius: 999px; padding: 3px 11px; }
+    .handover.seam { margin-left: 0; justify-content: center; }
+    .handover.seam .hb { background: var(--bb-gradient-brand); color: #fff; border: 0; font-weight: 600; font-size: 8.2pt; padding: 6px 16px; letter-spacing: 0.06em; }
+    .feedback { display: flex; align-items: center; gap: 9px; margin: 7px 0 2px; justify-content: center; }
+    .feedback .hb { font-family: var(--font-mono); font-size: 7.4pt; letter-spacing: 0.04em; color: var(--bb-blue-700); background: #fff; border: 1px dashed var(--bb-blue-300); border-radius: 999px; padding: 4px 13px; }
+    .feedback .ar { color: var(--bb-blue-300); font-size: 12pt; }
+    .iface { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0 12px; }
+    .iface .box { border: 1px solid var(--bb-grey-200); border-radius: 10px; padding: 10px 13px; }
+    .iface .box.give { border-left: 3px solid var(--bb-blue-300); } .iface .box.give h4 { color: var(--bb-blue-700); }
+    .iface .box.get { border-left: 3px solid var(--bb-pink); }
+    .iface .box p { font-size: 9pt; margin: 0; }
+    .ldiv { background: var(--bb-gradient-brand); color: #fff; border-radius: 16px; padding: 30px 32px; margin-bottom: 16px; }
+    .ldiv .lk { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8.5pt; opacity: 0.92; }
+    .ldiv h1 { color: #fff; font-size: 27pt; margin: 8px 0 10px; letter-spacing: -0.015em; line-height: 1.05; }
+    .ldiv .role { font-size: 11.5pt; color: rgba(255,255,255,0.96); max-width: 94%; line-height: 1.5; margin: 0; }
+    .ldiv .io { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.32); }
+    .ldiv .io span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 6.8pt; opacity: 0.82; margin-bottom: 3px; }
+    .ldiv .io div { font-size: 8.9pt; line-height: 1.4; }
+    .ldiv .own-pill { display: inline-block; margin-top: 14px; font-family: var(--font-mono); font-size: 7.2pt; text-transform: uppercase; letter-spacing: 0.09em; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); padding: 4px 12px; border-radius: 999px; }
+    .handoff { background: var(--bb-gradient-brand); color: #fff; border-radius: 12px; padding: 13px 17px; margin: 14px 0 4px; }
+    .handoff .k { display: block; font-family: var(--font-mono); font-size: 7pt; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.9; margin-bottom: 4px; }
+    .handoff .v { font-size: 10pt; line-height: 1.45; } .handoff strong { color: #fff; }
+    /* AI transformation sub-journey */
+    .aij { border: 1px solid var(--bb-blue-100); background: var(--bb-blue-50); border-radius: 12px; padding: 12px 15px; margin: 10px 0 12px; }
+    .aij .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; color: var(--bb-blue-700); display: block; margin-bottom: 8px; }
+    .aij .ft { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 8px; align-items: stretch; }
+    .aij .c { background: #fff; border: 1px solid var(--bb-grey-200); border-radius: 9px; padding: 8px 11px; font-size: 9pt; }
+    .aij .c.to { border-left: 3px solid var(--bb-blue-300); }
+    .aij .c b { display: block; font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bb-grey-500); margin-bottom: 3px; }
+    .aij .c.to b { color: var(--bb-blue-700); }
+    .aij .arw { display: flex; align-items: center; justify-content: center; color: var(--bb-pink); font-size: 15pt; }
+    .aij .tools { font-size: 8.4pt; color: var(--bb-grey-500); margin-top: 8px; }
+    .aij .tools strong { color: var(--bb-grey-700); }
+    .sheet { padding-top: 4px; }
+    .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
+    .sheet > h2:first-child,.sheet > .part-kicker:first-child { margin-top: 4px; }
+    .sheet-ftr { display: none; }
+    
+    .toc { margin: 10px 0 4px; }
+    .toc-row { display: flex; align-items: baseline; gap: 12px; padding: 7px 2px; border-bottom: 1px solid var(--bb-grey-200); }
+    .toc-row .n { font-family: var(--font-mono); font-size: 8pt; color: var(--bb-pink); width: 22px; flex: none; }
+    .toc-row .t { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 10.5pt; }
+
+    .cover-page { min-height: 900px; display: flex; flex-direction: column; }
+    .cover-page .cat { margin-bottom: auto; } .cover-page h1 { margin-top: 0; }
+    .cover-page .cover-meta { margin-top: auto; }
+    @media print { .cover-sheet .cover-page { min-height: 252mm; } .cover-sheet { break-after: page; } }
+
+    .cover-page { position: relative; }
+    .cover-elephant { position: absolute; top: 34px; right: 36px; height: 84px; width: auto; }
+
+    .cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 32%, var(--bb-pink) 118%) !important; }
+    .cover-grad .cat { color: #fff !important; }
+    .sub-note { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 7.5pt; color: rgba(255,255,255,0.85); margin-top: 10px; }
+
+    /* ===== Subdued (Boardroom) palette ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .doc h3 { color: var(--bb-grey-700) !important; }
+    .doc h4 { color: var(--bb-grey-500) !important; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root, .handoff { background: var(--bb-grey-800) !important; }
+    .bank .broot { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj { color: var(--bb-grey-700) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; border-left-color: var(--bb-pink) !important; }
+    .flag .lbl { color: var(--bb-grey-500) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+    .stat .v { color: var(--bb-grey-800) !important; }
+    .rolecard h3 { color: var(--bb-grey-800) !important; }
+    .pill { border-color: var(--bb-grey-300) !important; }
+    .script { border-left-color: var(--bb-pink) !important; }
+    .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
+
+    @page { size: A4 portrait; margin: 10mm; }
+    @media print {
+      .sheet + .sheet { margin-top: 8mm !important; border-top: 0 !important; }
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
+      #dc-root, .sc-host { height: auto !important; }
+      .sheet { break-inside: avoid; display: block; box-sizing: border-box; margin-top: 0 !important; border-top: 0 !important; padding-top: 0 !important; }
+      .sheet:first-of-type { break-before: auto; }
+      .sheet > h2:first-child,.sheet > .cover:first-child,.sheet > .part-kicker:first-child,.sheet > .ldiv:first-child { margin-top: 0 !important; }
+      .sheet-ftr { display: none !important; justify-content: space-between; align-items: baseline; margin-top: auto; padding-top: 5mm; border-top: 0.5pt solid var(--bb-grey-200); font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bb-grey-400); }
+      .sheet-ftr .r { color: var(--bb-pink); }
+      h2,h3,h4 { break-after: avoid !important; }
+      h2 + *, h3 + *, h4 + * { break-before: avoid; }
+      .rolecard,.note,.flag,.stat,.stats,.layer,.grid3,.tree,.cover,tr,.relay-node,.handover,.feedback,.iface,.ldiv,.handoff,.aij,.bank,.bank .acct,.bank .card { break-inside: avoid; }
+      table.t { break-inside: avoid; } table.t thead { display: table-header-group; }
+      p, li { orphans: 3; widows: 3; }
+    }
+
+    /* ===== Boardroom palette (subdued) ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .cover .wordmark { color: var(--bb-pink); }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .handoff { background: var(--bb-grey-800) !important; }
+    .handover.seam .hb { background: var(--bb-pink) !important; box-shadow: none !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+
+    .cover .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.22em; font-size: 7.5pt; color: rgba(255,255,255,0.72); margin-bottom: 20px; }
+    .cover .cat { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 10px; }
+    .cover h1 { margin-top: 0; }
+    /* cover-final-override */
+    .cover.cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 30%, var(--bb-pink) 120%) !important; }
+    .cover-page { min-height: 900px !important; display: flex !important; flex-direction: column !important; }
+    .cover-page .cat { margin-bottom: auto !important; }
+    .cover-page h1 { margin-top: 0 !important; }
+    .cover-page .cover-meta { margin-top: auto !important; }
+    /* table-font-override */
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, table.rep .tg, .doc table.form .target { font-family: var(--font-body) !important; }
+    /* role-body-override */
+    .doc table.t .role { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+    /* all-table-cells-body */
+    .doc table.t td, .doc table.t td .num, .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, .doc table.t .role, table.rep td, table.rep .tg, .doc table.form td, .doc table.form .target { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+
+    .form-field { border: 1px solid var(--bb-grey-300); border-radius: 6px; height: 22px; margin-bottom: 6px; }
+    .form-label { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.07em; color: var(--bb-grey-500); font-family: var(--font-mono); display: block; margin-bottom: 3px; }
+    .doc table.form { width: 100%; border-collapse: collapse; margin: 4px 0 10px; font-size: 8.5pt; }
+    .doc table.form th { background: var(--bb-grey-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 5px 7px; border: 1px solid var(--bb-grey-300); font-size: 7.5pt; }
+    .doc table.form td { padding: 5px 7px; border: 1px solid var(--bb-grey-300); height: 20px; vertical-align: top; }
+    .doc table.form .target { color: var(--bb-grey-500); font-size: 8pt; white-space: nowrap; }
+    .doc table.form .grp td { background: #eceef1; font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 7.6pt; text-transform: uppercase; letter-spacing: 0.05em; }
+    .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 7.5pt; color: rgba(255,255,255,0.9); }
+
+    .kv{display:grid;grid-template-columns:160px 1fr;gap:5px 16px;margin:8px 0 12px;font-size:9.6pt}
+    .kv dt{font-family:var(--font-mono);font-size:7.4pt;text-transform:uppercase;letter-spacing:0.06em;color:var(--bb-grey-500);padding-top:2px}
+    .kv dd{margin:0;color:var(--bb-grey-800)}
+    .checklist{columns:2;column-gap:22px;margin:6px 0 10px}
+    .checklist .grp{break-inside:avoid;margin-bottom:10px;-webkit-column-break-inside:avoid}
+    .checklist h4{margin:0 0 5px}
+    .checklist ul{list-style:none;padding:0;margin:0}
+    .checklist li{position:relative;padding-left:19px;margin-bottom:4px;font-size:9.4pt;color:var(--bb-grey-700)}
+    .checklist li::before{content:"";position:absolute;left:0;top:2px;width:10px;height:10px;border:1.5px solid var(--bb-grey-400);border-radius:3px}
+    .ladder{display:flex;flex-direction:column;gap:7px;margin:8px 0 12px}
+    .rung{border:1px solid var(--bb-grey-200);border-left:3px solid var(--bb-grey-300);border-radius:9px;padding:9px 13px}
+    .rung.cur{border-left-color:var(--bb-pink);background:var(--bb-grey-50)}
+    .rung .lv{font-family:var(--font-heading);font-weight:600;color:var(--bb-grey-800);font-size:9.8pt}
+    .rung .lv .n{display:inline-flex;width:18px;height:18px;align-items:center;justify-content:center;background:var(--bb-grey-700);color:#fff;border-radius:50%;font-size:9pt;margin-right:7px;vertical-align:middle}
+    .rung.cur .lv .n{background:var(--bb-pink)}
+    .rung .cur-tag{float:right;font-family:var(--font-mono);font-size:6.6pt;text-transform:uppercase;letter-spacing:0.08em;color:var(--bb-pink);border:1px solid var(--bb-pink-200);border-radius:999px;padding:2px 7px}
+    .rung p{margin:3px 0 0;font-size:9.4pt;color:var(--bb-grey-500)}
+    .monthgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0 12px}
+    .mcell{border:1px solid var(--bb-grey-200);border-radius:9px;padding:8px 11px}
+    .mcell .mo{font-family:var(--font-mono);font-size:7.4pt;letter-spacing:0.1em;text-transform:uppercase;color:var(--bb-pink);font-weight:600}
+    .mcell .it{font-size:9.4pt;color:var(--bb-grey-700);margin-top:3px;line-height:1.4}
+    .maymay{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 12px}
+    .maymay .box{border:1px solid var(--bb-grey-200);border-radius:10px;padding:10px 13px}
+    .maymay .box.may{border-left:3px solid var(--bb-pink)}
+    .maymay .box.mayn{border-left:3px solid var(--bb-grey-400)}
+    .maymay h4{margin:0 0 5px}
+    .maymay ul{margin:0;padding-left:15px;font-size:9.4pt;color:var(--bb-grey-700)}.maymay li{margin-bottom:3px}
+    .stepflow{display:flex;gap:8px;margin:8px 0 12px}
+    .stepflow .st{flex:1;border:1px solid var(--bb-grey-200);border-top:3px solid var(--bb-pink);border-radius:9px;padding:9px 11px}
+    .stepflow .st .sn{font-family:var(--font-mono);font-size:7pt;color:var(--bb-pink);font-weight:600}
+    .stepflow .st b{display:block;font-family:var(--font-heading);font-size:9pt;color:var(--bb-grey-800);margin:2px 0 3px}
+    .stepflow .st p{margin:0;font-size:9pt;color:var(--bb-grey-500)}
+
+    .doc table.t .role{font-family:var(--font-body);font-weight:300;color:var(--bb-grey-800);}
+    .bank { margin: 14px 0 6px; }
+    .bank .broot { background: var(--bb-gradient-brand); color:#fff; border-radius:12px; padding:11px 16px; text-align:center; font-family:var(--font-heading); font-weight:600; font-size:12.5pt; letter-spacing:-0.01em; }
+    .bank .stem { width:2px; height:13px; background:var(--bb-grey-300); margin:0 auto; }
+    .bank .insts { display:grid; grid-template-columns: 1.55fr 1fr; gap:16px; margin-top:2px; }
+    .bank .ih { background:var(--bb-grey-100); border:1px solid var(--bb-grey-200); border-radius:9px; padding:7px 12px; text-align:center; font-family:var(--font-heading); font-weight:600; color:var(--bb-grey-700); font-size:10.5pt; }
+    .bank .ih .sub { display:block; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.1em; font-size:6.6pt; color:var(--bb-grey-500); margin-top:2px; font-weight:400; }
+    .bank .accts { display:flex; flex-direction:column; gap:8px; margin-top:9px; }
+    .bank .acct { border:1px solid var(--bb-grey-200); border-left:3px solid var(--bb-pink); border-radius:9px; padding:9px 12px; }
+    .bank .acct h4 { margin:0 0 5px; color:var(--bb-grey-800) !important; font-size:9.6pt; }
+    .bank .acct dl { display:grid; grid-template-columns:auto 1fr; gap:2px 10px; margin:0; }
+    .bank .acct dt { font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.04em; font-size:6.5pt; color:var(--bb-grey-500); padding-top:1.5px; }
+    .bank .acct dd { margin:0; color:var(--bb-grey-800); font-size:8.7pt; }
+    .bank .auth { margin-top:6px; display:flex; flex-wrap:wrap; gap:4px; align-items:center; }
+    .bank .auth em { font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.05em; font-size:6.3pt; font-style:normal; color:var(--bb-grey-500); margin-right:2px; }
+    .bank .auth span { font-family:var(--font-mono); font-size:6.8pt; letter-spacing:0.04em; background:var(--bb-grey-100); border:1px solid var(--bb-grey-200); border-radius:4px; padding:2px 6px; color:var(--bb-grey-700); }
+    .bank .cards { margin-top:9px; padding-top:9px; border-top:1px dashed var(--bb-grey-200); display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
+    .bank .card { border:1px solid var(--bb-grey-200); border-top:3px solid var(--bb-blue-300); border-radius:7px; padding:7px 9px; }
+    .bank .card b { display:block; font-family:var(--font-heading); color:var(--bb-grey-800); font-size:8.8pt; }
+    .bank .card .cu { font-family:var(--font-mono); font-size:6.5pt; color:var(--bb-grey-500); word-break:break-all; display:block; margin:2px 0; }
+    .bank .card .lim { font-size:8pt; color:var(--bb-grey-700); }
+    .bank .card .lim .hi { color:var(--bb-pink-700); font-weight:600; }
+  </style>
+</helmet>
+
+<main class="doc">
+
+<section class="sheet cover-sheet"><div class="cover cover-page cover-grad"><img class="cover-elephant" src="assets/brainbox-elephant-white.png" alt=""><div class="conf">Strictly private &amp; confidential</div><div class="cat">Finance Playbook</div><h1>How the finance function runs, end to end</h1><p class="lede">The systems, controls, delegations and rhythms that keep the finance function accurate, compliant and trusted &mdash; in one place. Brainsource Corporation &middot; Brainbox Group Philippine operations.</p><div class="cover-meta"><div><span>Document owner</span>General Manager &ndash; Corporate</div><div><span>Issue date</span>Edition 1 &middot; 2026</div><div style="margin-left:auto;align-self:flex-end"><span class="wordmark">BRAINBOX</span></div></div></div></section>
+
+<section class="sheet">
+<h2>Contents</h2>
+  <div class="toc" style="columns:2;column-gap:30px">
+    <div class="toc-row" style="break-inside:avoid"><span class="n">01</span><span class="t">1.1 &middot; Purpose of this playbook</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">02</span><span class="t">1.2 &middot; The finance function at a glance</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">03</span><span class="t">1.3 &middot; Systems of record</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">04</span><span class="t">1.4 &middot; Financial controls &amp; separation of duties</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">05</span><span class="t">1.5 &middot; Delegations &amp; authorities</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">06</span><span class="t">1.6 &middot; Confidentiality &amp; information security</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">07</span><span class="t">1.7 &middot; Operating philosophy &amp; escalation</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">08</span><span class="t">1.8 &middot; Operating rhythm</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">09</span><span class="t">1.9 &middot; Compliance calendar</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">10</span><span class="t">1.10 &middot; Reporting &amp; assurance</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">11</span><span class="t">1.11 &middot; Non-negotiable rules &amp; outcome</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">12</span><span class="t">2.1 &middot; General Manager &ndash; Corporate</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">13</span><span class="t">2.2 &middot; Accountant</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">14</span><span class="t">2.3 &middot; Accounting Assistant</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">15</span><span class="t">2.4 &middot; Separation of duties &amp; competency</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">16</span><span class="t">3.1 &middot; Month-end close</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">17</span><span class="t">3.2 &middot; Fortnightly payroll run</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">18</span><span class="t">3.3 &middot; AP &amp; payment run</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">19</span><span class="t">3.4 &middot; Monthly statutory &amp; VAT compliance</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">20</span><span class="t">4.1 &middot; Service standards &mdash; what great looks like</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">21</span><span class="t">4.2 &middot; Delegations &amp; authorities register</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">22</span><span class="t">4.3 &middot; Recurring payments schedule</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">23</span><span class="t">4.4 &middot; Significant accounting policies</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">24</span><span class="t">4.5 &middot; Audit program</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">25</span><span class="t">4.6 &middot; Document control</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">26</span><span class="t">5.1 &middot; Australian payroll in Xero</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">27</span><span class="t">5.2 &middot; Australian BAS, PAYG, FBT &amp; company tax</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">28</span><span class="t">5.3 &middot; Philippine compliance</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">29</span><span class="t">5.4 &middot; Philippine payroll</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">30</span><span class="t">5.5&ndash;5.7 &middot; Monthly Gantts</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">31</span><span class="t">6.1 &middot; Brainsource banking structure</span></div>
+  </div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.1 &middot; Purpose of this playbook</h2><p class="section-intro">The shared picture &mdash; the purpose of the function, the systems and controls that govern every transaction, the delegations that bound it, and the cycles that keep it compliant and predictable.</p>
+<p>This playbook sets a clear, consistent framework for managing the business&rsquo;s finances, meeting statutory obligations and Philippine Accounting Standards, and removes ambiguity from how finance work is done.</p>
+<p>Finance work fails when it relies on memory or on any one person holding the whole process. This playbook replaces that with structure: defined systems, separated duties, bounded authorities and a predictable calendar &mdash; so the numbers are accurate, the controls hold, and nothing compliance-critical is ever a surprise.</p>
+<div class="grid2"><div class="rolecard"><h3>Who it applies to</h3><p>The whole finance function &mdash; the GM &ndash; Corporate, the Accountant and the Accounting Assistant &mdash; and anyone who logs into the financial systems or exercises a financial delegation.</p></div><div class="rolecard"><h3>When you may deviate</h3><p>Only where a Director authorises it, or where statutory compliance requires it. Controls and separation of duties are never bypassed for convenience; every exception is documented and reviewed.</p></div></div>
+<div class="flag"><span class="lbl">The aim</span>Make finance predictable, auditable and trusted &mdash; so good financial outcomes don&rsquo;t depend on any one person remembering the right thing at the right moment. No changes without a Director&rsquo;s consent; reviewed at least annually and re-issued, never amended on the run.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.2 &middot; The finance function at a glance</h2>
+<p class="section-intro">A small team, one chain of accountability. The function manages the financial administration of Brainsource Corporation &mdash; the Philippine operations of Brainbox Group &mdash; under Philippine Accounting Standards, accountable through the GM &ndash; Corporate to the Board.</p>
+<dl class="kv"><dt>Entity</dt><dd>Brainsource Corporation &middot; Brainbox Group (Philippine operations)</dd><dt>Led by</dt><dd>General Manager &ndash; Corporate (the &ldquo;GM&rdquo;)</dd><dt>Team</dt><dd>Accountant &middot; Accounting Assistant</dd><dt>Reports to</dt><dd>The Board / Directors &mdash; Tony &amp; Alexis</dd><dt>Reporting standard</dt><dd>Philippine Accounting Standards &middot; accrual basis &middot; PHP</dd></dl>
+<h4>The functions we deliver</h4>
+<div class="grid3"><div class="rolecard"><p>Accounts payable &middot; Accounts receivable &middot; Payroll</p></div><div class="rolecard"><p>Banking &amp; petty cash &middot; Tax &amp; VAT (BIR) &middot; Statutory contributions</p></div><div class="rolecard"><p>Month-end &amp; reporting &middot; Budget &amp; forecasting &middot; Assets &amp; capitalisation</p></div></div>
+<p style="font-size:9pt;color:var(--bb-grey-500)">Also: insurance &amp; investments &middot; transfer pricing &middot; audit, risk &amp; compliance.</p><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.3 &middot; Systems of record</h2>
+<p class="section-intro">A defined set of systems governs every transaction. Xero is the sole source of truth; everything reconciles back to it. If a system is wrong, it is corrected before work proceeds &mdash; personal records never override it.</p>
+<table class="t"><thead><tr><th style="width:20%">System</th><th style="width:22%">Role</th><th>What it governs</th></tr></thead><tbody>
+<tr><td class="role">Xero</td><td>Source of truth</td><td>Bills, invoices, GL, and bank reconciliation. Accounts are not added or archived without the GM&rsquo;s approval; logins require Xero training.</td></tr>
+<tr><td class="role">DEXT</td><td>Expense management</td><td>Captures, reviews, and publishes invoices, receipts, and expense claims to Xero, maintaining supporting documentation and audit trails.</td></tr>
+<tr><td class="role">Bank of the Philippine Islands (BPI) &amp; Metrobank (MBTC)</td><td>Payments &amp; payroll</td><td>BPI for batch payroll, statutory payments, and as primary bank for operations, while Metrobank acts as secondary or back-up bank for suppliers with Metrobank accounts. Payments are authorised, never released alone.</td></tr>
+<tr><td class="role">BambooHR</td><td>People &amp; leave</td><td>The source for leave and employee details feeding payroll, with the Employee Masterlist.</td></tr>
+<tr><td class="role">OneDrive</td><td>Document store</td><td>Working files and supporting documents, named YYYYMMDD. Supplier&ndash;Summary&ndash;Amount and attached to the Xero bill.</td></tr>
+<tr><td class="role">Asana</td><td>Audit findings</td><td>Material audit findings tracked to closure in an audit project, reported periodically to the Board.</td></tr>
+<tr><td class="role">Juan Tax</td><td>Tax compliance &amp; reporting</td><td>Used for the preparation, filing, and monitoring of Philippine tax returns, statutory reports, and tax compliance requirements. Filing records, payment references, and supporting documents must be retained and reconciled to Xero records.</td></tr>
+</tbody></table>
+<div class="flag"><span class="lbl">The rule</span>Everything reconciles to Xero. Other tools inform and support, but the books are the books &mdash; one source of truth, kept current and trusted.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.4 &middot; Financial controls &amp; separation of duties</h2>
+<p class="section-intro">Separation of duties is the principle that no single person controls an end-to-end process &mdash; a system of checks and balances giving process integrity with proper security and quality control.</p>
+<div class="grid3"><div class="rolecard"><h3>Operation vs record</h3><p>The person who acts is not the only person who records.</p></div><div class="rolecard"><h3>Admin vs audit</h3><p>Separate system administration from auditing, and ownership from certification &mdash; so review stays independent.</p></div><div class="rolecard"><h3>Prepare vs approve</h3><p>The person who prepares a payment is not the person who approves it. Authorisation follows the delegations (1.5).</p></div></div>
+<h4>How a payment splits across the team</h4>
+<div class="stepflow"><div class="st"><div class="sn">Prepare</div><b>Assistant / Accountant</b><p>Draft the bill in Xero, attach the receipt and supporting documents, &amp; apply appropriate GL coding.</p></div><div class="st"><div class="sn">Review &amp; approve bill</div><b>Accountant</b><p>Check validity, accuracy, supplier details, coding and completeness of supporting documents. Once satisfied, approve the bill in Xero.</p></div><div class="st"><div class="sn">Prepare payment</div><b>Assistant / Accountant</b><p>Following approval of the bill in Xero, prepare the corresponding payment in BPI or the applicable banking platform and submit it for authorisation. The payment preparer cannot authorise or release their own payment.</p></div><div class="st"><div class="sn">Authorise payment</div><b>GM (per delegation)</b><p>Review and approve/release the payment in the banking platform where the expenditure is within the approved budget and the GM&rsquo;s delegated authority. Payments outside the approved budget or delegated authority must be escalated in accordance with 1.5.</p></div><div class="st"><div class="sn">Reconcile</div><b>Independent reconciler</b><p>Reconcile the bank back to Xero.</p></div></div>
+<div class="note"><span class="lbl">Reviewed, not assumed</span>Separation of duties is reviewed at least annually and tested as part of the May separation-of-duties audit, to ensure appropriate, proportionate controls apply to every key financial system and that incompatible responsibilities have not accumulated with a single individual.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.5 &middot; Delegations &amp; authorities</h2>
+<p class="section-intro">The Board authorises others to exercise defined powers within limits. Authority is vested in a position, not a person, and the Board remains ultimately accountable. The authoritative source is the Schedule of Management Authorities; key Finance lines are in 4.2.</p>
+<ol class="numlist"><li>Exercise authority in line with the law, company policy and any conditions on the delegation &mdash; for a proper business purpose, with no conflict of interest.</li><li>Never approve a transaction you personally benefit from, and never approve beyond your delegated limit &mdash; doing so breaches policy and may constitute misconduct.</li><li>A procurement authority must hold a financial delegation that meets or exceeds the contract&rsquo;s aggregate annual value.</li></ol>
+<div class="grid3"><div class="rolecard"><h3>Board</h3><p>Approves the largest commitments, budgets, investments, auditor and policy. Ultimately accountable.</p></div><div class="rolecard"><h3>GM &ndash; Corporate</h3><p>Approves operating expenditure and contracts within limits; recommends above them; signs banking.</p></div><div class="rolecard"><h3>Accountant</h3><p>Develops, prepares and actions &mdash; executes approved payments and prepares data; does not self-approve.</p></div></div>
+<div class="note"><span class="lbl">The action verbs</span>Each action is one of Develop &middot; Recommend &middot; Approve &middot; Be advised &middot; Ratify &middot; Action &mdash; defined in 4.2. When in doubt about your limit, treat it as beyond your authority and escalate.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.6 &middot; Confidentiality &amp; information security</h2>
+<p class="section-intro">Finance handles the most sensitive information in the business &mdash; payroll, bank access, director and commercial data. Protecting it is foundational, not optional. Read this section as binding.</p>
+<div class="flag"><span class="lbl">The absolute rule</span>Payroll, banking and all personal data relating to staff and the directors is highly confidential and is not shared with any other party &mdash; including those who claim a &ldquo;right to know&rdquo;.</div>
+<div class="grid3"><div class="rolecard"><h3>Credentials &amp; access</h3><p>Strong, unique passwords and MFA on Xero, BPI, Metrobank and email. Credentials never shared; banking authorisation stays with the authorised person only.</p></div><div class="rolecard"><h3>Screen &amp; documents</h3><p>Lock screens when away; keep payroll and bank data off personal devices; store records only in Xero and OneDrive. Clean desk; no sensitive print-outs left out.</p></div><div class="rolecard"><h3>Fraud &amp; payment safety</h3><p>Verify any change to supplier or staff bank details independently before paying. Be alert to invoice and email fraud; when a request feels off, pause and confirm through a known channel.</p></div></div>
+<div class="note"><span class="lbl">Serious misconduct</span>Unauthorised disclosure will be treated as Serious Misconduct. If anyone presses for salary, payment or personal financial information, the answer is a polite decline and escalation to the GM or a Director. If unsure whether something may be shared, say nothing and ask a Director first.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.7 &middot; Operating philosophy &amp; escalation</h2>
+<p class="section-intro">A few principles sit under every finance decision. They explain why the controls and cycles are shaped the way they are &mdash; and how an issue should move.</p>
+<div class="grid3"><div class="rolecard"><h3>Accuracy first</h3><p>The books are right before they are fast. Reconcile, check and support every figure; correct the system before proceeding.</p></div><div class="rolecard"><h3>Controls hold</h3><p>Separation of duties and delegations are never bypassed for speed. A control skipped once becomes a control gone.</p></div><div class="rolecard"><h3>Compliance on time</h3><p>Statutory dates are immovable. The calendar is worked ahead of time, never caught up to after a deadline.</p></div></div>
+<h4>How an issue moves</h4>
+<div class="stepflow"><div class="st"><div class="sn">Step 1</div><b>Spotted</b><p>A discrepancy, error or risk is noticed.</p></div><div class="st"><div class="sn">Step 2</div><b>Logged</b><p>Captured in Xero notes or the Asana audit project.</p></div><div class="st"><div class="sn">Step 3</div><b>Assessed</b><p>Accountant judges materiality &amp; authority.</p></div><div class="st"><div class="sn">Step 4</div><b>Resolved / raised</b><p>Fixed within authority, or escalated to GM &amp; Board.</p></div><div class="st"><div class="sn">Step 5</div><b>Closed</b><p>Closed on confirmation; root cause addressed.</p></div></div>
+<div class="flag"><span class="lbl">Escalate early</span>Anything beyond delegated authority, anything material, or anything touching fraud or a Director&rsquo;s finances is raised at once &mdash; with the facts and the options, not just a question.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.8 &middot; Operating rhythm</h2>
+<p class="section-intro">Finance runs to fixed cycles. Pay runs are fortnightly; statutory remittances and VAT are monthly; budgets, tax and audit fall across the quarter and year. The calendar is the spine (1.9).</p>
+<table class="t"><thead><tr><th style="width:16%">Cycle</th><th>What runs</th></tr></thead><tbody>
+<tr><td class="role">Daily</td><td>Process bills &amp; receipts into Xero, reconcile bank items, monitor cash, action AP/AR as they arise.</td></tr>
+<tr><td class="role">Weekly</td><td>General payment cycle: process supplier payments, reimbursements and other payments through BPI and Metrobank. Claims and supporting documents must be submitted, reviewed and approved by end of day Wednesday for inclusion in the Thursday payment run. Items received or approved after the cut-off are carried forward to the following Thursday unless an exception is authorised.</td></tr>
+<tr><td class="role">Fortnightly</td><td>Payroll run (Wednesdays).</td></tr>
+<tr><td class="role">Monthly</td><td>Month-end close &amp; reporting; recurring payments; SSS, PhilHealth, HDMF, HMO, withholding tax, HMO for new joiners, and VAT remittances.</td></tr>
+<tr><td class="role">Quarterly</td><td>Expanded Withholding Tax (EWT), VAT and income tax; operating-budget updates and forecasts; HMO renewal.</td></tr>
+<tr><td class="role">Annual</td><td>Annual income tax &amp; audited financial statements, annual budget, business-permit &amp; BIR renewals, GIS, insurance renewals, the five scheduled audits.</td></tr>
+</tbody></table>
+<div class="note"><span class="lbl">Pay run</span>Fortnightly, on Wednesdays. Claims arrive in a single email at least three days before; payslips issue via email and pay releases via BPI Payroll. Each cycle has an owner and a date; no statutory date is missed.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.9 &middot; Compliance calendar</h2>
+<p class="section-intro">Six statutory items recur every month &mdash; PhilHealth, HDMF (Pag-IBIG), HMO, SSS, withholding tax and VAT. The items below sit on top, by month. Dates are immovable; work ahead of them.</p>
+<div class="monthgrid">
+<div class="mcell"><div class="mo">Jul</div><div class="it">Statutory Compliance Audit (ext)</div></div>
+<div class="mcell"><div class="mo">Aug</div><div class="it">Monthly statutory items only</div></div>
+<div class="mcell"><div class="mo">Sep</div><div class="it">Reimbursements/Claims Audit &middot; Annual ITR &middot; Annual Board Meeting &middot; Audited FS (prior yr)</div></div>
+<div class="mcell"><div class="mo">Oct</div><div class="it">Quarterly VAT &amp; Income tax &middot; GIS</div></div>
+<div class="mcell"><div class="mo">Nov</div><div class="it">Banking Reconciliation Audit</div></div>
+<div class="mcell"><div class="mo">Dec</div><div class="it">Income tax</div></div>
+<div class="mcell"><div class="mo">Jan</div><div class="it">Quarterly VAT &amp; income tax &middot; Business Permit Renewal &middot; BIR Registration Fee</div></div>
+<div class="mcell"><div class="mo">Feb</div><div class="it">Monthly statutory items only</div></div>
+<div class="mcell"><div class="mo">Mar</div><div class="it">Financial Controls Audit &middot; Business &amp; Fire Insurance (AXA) &middot; GIS Update</div></div>
+<div class="mcell"><div class="mo">Apr</div><div class="it">Quarterly VAT &amp; income tax</div></div>
+<div class="mcell"><div class="mo">May</div><div class="it">Separation of Duties Audit &middot; Lease Renewal (BBT) &middot; HMO Renewal</div></div>
+<div class="mcell"><div class="mo">Jun</div><div class="it">Income tax &middot; Lease Renewal (BBN)</div></div>
+</div>
+<div class="flag"><span class="lbl">Every month, without fail</span>PhilHealth (11th&ndash;15th) &middot; HDMF (10th&ndash;14th) &middot; SSS (25th&ndash;end) &middot; HMO &middot; Withholding tax (1601C &amp; 0619E, 10th) &middot; Quarterly VAT (25th). Recurring operating payments follow 4.3.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.10 &middot; Reporting &amp; assurance</h2>
+<p class="section-intro">Reporting is factual and timely &mdash; it gives the Board a true picture and drives improvement. Assurance comes from a fixed program of audits across the year (4.5).</p>
+<table class="t"><thead><tr><th style="width:16%">Cadence</th><th style="width:30%">Report</th><th>Purpose</th></tr></thead><tbody>
+<tr><td class="role">Monthly</td><td>End of Month report</td><td>Position &amp; performance for the month, drawn from Xero via Claude Reporting.</td></tr>
+<tr><td class="role">Bi-monthly</td><td>Operating budget update &amp; forecast</td><td>Budget vs actual and a refreshed cash-flow forecast via Cash Model report.</td></tr>
+<tr><td class="role">Quarterly</td><td>Compliance &amp; risk review</td><td>Statutory lodgements confirmed; risk reviewed; audit findings tracked.</td></tr>
+<tr><td class="role">Annual</td><td>Audited financial statements</td><td>External audit, annual ITR and statements presented to the Board.</td></tr>
+</tbody></table>
+<div class="note"><span class="lbl">Factual &amp; neutral</span>Reports state the position plainly &mdash; no spin. Exceptions and risks are surfaced clearly so the Board can act early. Material audit findings are tracked in Asana; closed findings are reported back to the Board.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.11 &middot; Non-negotiable rules &amp; outcome</h2>
+<ol class="numlist"><li><strong>Xero is the sole source of truth</strong> &mdash; everything reconciles to it; accounts change only with the GM&rsquo;s approval.</li><li><strong>Separation of duties holds</strong> &mdash; no one person prepares, approves and reconciles the same payment.</li><li><strong>No one approves beyond their delegated limit</strong>, or where they personally benefit.</li><li><strong>Statutory dates are never missed</strong> &mdash; the compliance calendar is worked ahead of every deadline.</li><li><strong>Payroll, banking and personal data are confidential</strong> &mdash; unauthorised disclosure is Serious Misconduct.</li><li>The Finance team <strong>reviews this playbook every quarter</strong> and gives the Board assurance; it changes only with a Director&rsquo;s consent and is re-issued.</li></ol>
+<div class="flag"><span class="lbl">Operating outcome</span>When it is followed, the numbers are accurate, the controls hold, compliance is never late, and the Board can rely on what it sees. Predictable finance builds trust &mdash; and trust is what lets the business move with confidence.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Duty statements</div>
+<h2>2.1 &middot; General Manager &ndash; Corporate</h2><p class="section-intro">What each person owns &mdash; their purpose, the decisions they may make, and when to escalate. Three roles, one chain of accountability through the General Manager &ndash; Corporate to the Board.</p>
+<p class="section-intro">The control &amp; accountability authority for the finance function. Reports to the Board / Directors &middot; full-time &middot; scope: the whole finance function.</p>
+<p>The GM &ndash; Corporate holds firm control over the finance function &mdash; ensuring the books are accurate, controls hold, compliance is on time and the Board can trust what it sees. Accountable for outcomes and integrity, approves within delegated authority, and is the escalation point for the team.</p>
+<div class="grid2"><div class="rolecard"><h3>Control &amp; approvals</h3><p>Approve expenditure, contracts &amp; payments within delegation; recommend above it; govern the chart of accounts.</p></div><div class="rolecard"><h3>Compliance &amp; treasury</h3><p>Oversee statutory lodgements &amp; BIR payments; sign banking; recommend budgets &amp; investments to the Board.</p></div><div class="rolecard"><h3>Reporting &amp; audit</h3><p>Present monthly &amp; annual reporting; recommend the auditor; ensure findings are tracked to closure.</p></div><div class="rolecard"><h3>Team &amp; controls</h3><p>Lead the Accountant &amp; Assistant; uphold separation of duties; own the quarterly playbook review &amp; Board assurance.</p></div></div>
+<div class="maymay"><div class="box may"><h4>May</h4><ul><li>Approve expenditure &amp; contracts within limits</li><li>Sign banking &amp; authorise payments</li><li>Recommend budgets, investments &amp; auditor to the Board</li><li>Approve chart-of-accounts changes</li></ul></div><div class="box mayn"><h4>May not</h4><ul><li>Approve beyond delegated limits or own benefit</li><li>Bypass separation of duties</li><li>Commit the Board&rsquo;s reserved matters alone</li><li>Amend this playbook without a Director&rsquo;s consent</li></ul></div></div>
+<div class="grid2"><div class="note"><span class="lbl">Performance is measured by</span>Accurate books, clean audit outcomes, on-time compliance, no control breaches, and Board confidence in the numbers.</div><div class="flag"><span class="lbl">Non-negotiable</span>Controls hold &middot; delegations respected &middot; confidentiality absolute &middot; compliance never late.</div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Duty statements</div>
+<h2>2.2 &middot; Accountant</h2>
+<p class="section-intro">The execution &amp; integrity engine of the books. Reports to the GM &ndash; Corporate &middot; full-time &middot; focus: close, payroll &amp; reconciliation.</p>
+<p>The Accountant keeps the books accurate and the cycles on time &mdash; running month-end close, payroll, reconciliations, VAT and statutory preparation. The role prepares and actions; it does not self-approve payments, and works strictly within separation-of-duties controls.</p>
+<div class="grid2"><div class="rolecard"><h3>Month-end &amp; reconciliation</h3><p>Run the close, reconcile bank &amp; balance sheet, and prepare the End of Month report from Xero.</p></div><div class="rolecard"><h3>Payroll</h3><p>Run fortnightly payroll &mdash; masterlist, leave from BambooHR, payslips via email, batch payment via BPI Payroll.</p></div><div class="rolecard"><h3>Tax &amp; statutory</h3><p>Prepare VAT, withholding tax, SSS, PhilHealth &amp; HDMF; action BIR &amp; government payments on approval.</p></div><div class="rolecard"><h3>AP, AR &amp; budget</h3><p>Draft bills &amp; invoices, manage AR collection, develop the budget &amp; update operating forecasts.</p></div></div>
+<div class="maymay"><div class="box may"><h4>May</h4><ul><li>Prepare &amp; action payments once approved</li><li>Run payroll &amp; issue payslips</li><li>Prepare statutory lodgements &amp; reconciliations</li><li>Develop the budget &amp; forecasts</li></ul></div><div class="box mayn"><h4>May not</h4><ul><li>Approve own payments or beyond authority</li><li>Add or archive Xero accounts without the GM</li><li>Release banking without authorisation</li><li>Disclose payroll or personal data</li></ul></div></div>
+<div class="grid2"><div class="note"><span class="lbl">Performance is measured by</span>Clean, on-time reconciliations; accurate payroll; statutory items prepared ahead of deadline; audit-ready support for every figure.</div><div class="flag"><span class="lbl">Non-negotiable</span>Prepare, don&rsquo;t self-approve &middot; reconcile to Xero &middot; never miss a statutory date.</div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Duty statements</div>
+<h2>2.3 &middot; Accounting Assistant</h2>
+<p class="section-intro">Accurate capture, clean records &amp; reliable support. Reports to the Accountant &amp; GM &middot; full-time &middot; focus: data entry, AP &amp; records.</p>
+<p>The Accounting Assistant keeps source data clean and complete &mdash; capturing bills, receipts and reimbursements accurately into Xero, maintaining orderly records, and supporting the Accountant through the cycles. The role provides the first half of every separated process: prepare and record, never approve.</p>
+<div class="grid2"><div class="rolecard"><h3>AP &amp; data entry</h3><p>Draft bills in Xero on delivery, code to the GL, and attach correctly named receipts from OneDrive.</p></div><div class="rolecard"><h3>Receipts &amp; reimbursements</h3><p>Check and record employee expense claims as bills for the pay-run, with valid supporting receipts.</p></div><div class="rolecard"><h3>Petty cash, Credit Card Recon, &amp; filing</h3><p>Maintain petty cash records and keep documents filed to the standard so anything is found in seconds.</p></div><div class="rolecard"><h3>Cycle support</h3><p>Support payroll, month-end and audit by preparing data accurately and on time for the Accountant.</p></div></div>
+<div class="maymay"><div class="box may"><h4>May</h4><ul><li>Draft bills &amp; record transactions in Xero</li><li>Check &amp; record reimbursement claims</li><li>Maintain petty cash &amp; records</li><li>Prepare data to support the cycles</li></ul></div><div class="box mayn"><h4>May not</h4><ul><li>Approve or authorise any payment</li><li>Run payroll or release funds</li><li>Change Xero accounts or master data</li><li>Disclose payroll or personal data</li></ul></div></div>
+<div class="grid2"><div class="note"><span class="lbl">Performance is measured by</span>Prompt, accurate capture; correct coding; complete supporting documents; tidy records; reliable support through every cycle.</div><div class="flag"><span class="lbl">Non-negotiable</span>Capture accurately &middot; record, never approve &middot; confidentiality absolute.</div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Duty statements</div>
+<h2>2.4 &middot; Separation of duties &amp; competency</h2>
+<p class="section-intro">Who does what across a transaction &mdash; and who must not do it too. No single person prepares, approves and reconciles the same payment. Reviewed at least annually and tested in the May audit.</p>
+<table class="t"><thead><tr><th style="width:34%">Activity</th><th>Assistant</th><th>Accountant</th><th>GM &ndash; Corp</th></tr></thead><tbody>
+<tr><td class="role">Draft bills &amp; capture receipts</td><td>Prepare</td><td>Review</td><td>&mdash;</td></tr>
+<tr><td class="role">Approve payment</td><td>&mdash;</td><td>&mdash;</td><td>Approve*</td></tr>
+<tr><td class="role">Release / authorise in bank</td><td>&mdash;</td><td>Execute</td><td>Authorise</td></tr>
+<tr><td class="role">Run payroll</td><td>Support</td><td>Run</td><td>Approve</td></tr>
+<tr><td class="role">Bank reconciliation</td><td>&mdash;</td><td>Reconcile</td><td>Review</td></tr>
+<tr><td class="role">Chart of accounts change</td><td>&mdash;</td><td>Recommend</td><td>Approve</td></tr>
+</tbody></table>
+<div class="grid2"><div class="note"><span class="lbl">Competency &amp; training</span>Anyone logging into the financial system (other than for approvals) must have completed the required Xero training. Competency is reviewed with the annual separation-of-duties review.</div><div class="flag"><span class="lbl">*Within delegation</span>The GM approves only within their delegated limit; amounts above it are recommended to the Board. Approval and the bank authorisation that follows never rest with the person who prepared the payment.</div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Three &middot; Checklists</div>
+<h2>3.1 &middot; Month-end close</h2><p class="section-intro">Tick and sign. The working checklists behind the cycles in part one &mdash; carried out on the ground, then recorded in Xero.</p>
+<p class="section-intro">Close the month cleanly so the End of Month report is accurate and audit-ready. Everything reconciles to Xero.</p>
+<div class="checklist"><div class="grp"><h4>Capture &amp; reconcile</h4><ul><li>All bills &amp; invoices entered for the period</li><li>All receipts attached &amp; correctly coded</li><li>Bank reconciled to Xero for every account</li><li>Petty cash counted &amp; reconciled</li><li>Credit-card transactions billed &amp; reconciled</li></ul></div><div class="grp"><h4>Adjust &amp; review</h4><ul><li>Accruals, prepayments &amp; depreciation posted</li><li>Intercompany / transfer-pricing invoice raised</li><li>Balance-sheet accounts reviewed &amp; supported</li><li>Budget vs actual variances explained</li><li>End of Month report prepared (Claude)</li></ul></div><div class="grp"><h4>Sign-off</h4><ul><li>Reconciliations reviewed independently</li><li>Report reviewed &amp; approved by the GM</li><li>Period locked in Xero</li></ul></div><div class="grp"><h4>Always</h4><ul><li>Separation of duties maintained</li><li>Every figure supported &amp; audit-ready</li></ul></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Three &middot; Checklists</div>
+<h2>3.2 &middot; Fortnightly payroll run</h2>
+<p class="section-intro">Run on Wednesdays. Work it in order so pay is accurate, on time, and properly approved before release.</p>
+<div class="checklist"><div class="grp"><h4>Prepare</h4><ul><li>Duplicate latest payroll sheet; name to pay-period end</li><li>Update from Employee Masterlist (new hires / changes)</li><li>Extract leave from BambooHR; plot into template</li><li>Plot holidays &amp; premiums (100% regular / 30% special)</li><li>Calculate gross, deductions, contributions &amp; net</li></ul></div><div class="grp"><h4>Process &amp; pay</h4><ul><li>Roll forward the excel spreadsheet to the current payrun; match the payroll template</li><li>Review &amp; finalise; GM approves the run</li><li>Confirm any bank-detail change independently</li><li>Populate &amp; import BPI recipients&rsquo; template</li><li>Send payslips via email</li></ul></div></div>
+<div class="note"><span class="lbl">Statutory check</span>At the first cut-off of the year, check for updated government contribution tables. Ensure staff deductions equal the remittances submitted (SSS, PhilHealth, HDMF, withholding tax).</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Three &middot; Checklists</div>
+<h2>3.3 &middot; AP &amp; payment run</h2>
+<p class="section-intro">From invoice to reconciled payment &mdash; prepared by one person, approved by another, authorised in the bank, then reconciled. No step is skipped or combined.</p>
+<div class="checklist"><div class="grp"><h4>Receive &amp; record</h4><ul><li>Receive invoice on delivery of goods/services</li><li>Confirm goods/services received &amp; in good order</li><li>Save receipt to OneDrive (standard naming)</li><li>Draft bill in Xero; code to GL; attach receipt</li><li>Submit the bill for approval</li></ul></div><div class="grp"><h4>Approve, pay &amp; reconcile</h4><ul><li>GM approves within delegation (escalate if above)</li><li>Verify payee bank details independently</li><li>Process payment in Metrobank; authorise</li><li>Save the OR; notify the vendor</li><li>Reconcile the payment to Xero (separate person)</li></ul></div></div>
+<div class="note"><span class="lbl">Reimbursements</span>Claims arrive in a single email at least three days before the pay run; check validity, draft bills on the Monday of pay-run week, and pay on the pay date with the rest of the batch.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Three &middot; Checklists</div>
+<h2>3.4 &middot; Monthly statutory &amp; VAT compliance</h2>
+<p class="section-intro">The six monthly lodgements that must never be late. Prepare ahead, remit by the due date, and file the proof.</p>
+<div class="checklist"><div class="grp"><h4>Contributions</h4><ul><li>Withholding tax &mdash; 1601C &amp; 0619E (by 10th)</li><li>HDMF / Pag-IBIG (10th&ndash;14th)</li><li>PhilHealth (11th&ndash;15th, EPRS)</li><li>SSS (25th&ndash;end)</li><li>HMO premium</li></ul></div><div class="grp"><h4>Tax &amp; proof</h4><ul><li>Monthly VAT declaration (by 25th)</li><li>Reconcile deductions to remittances</li><li>GM reviews &amp; approves remittances</li><li>File confirmations &amp; ORs to Asana</li><li>Record payments &amp; reconcile in Xero</li></ul></div></div>
+<div class="flag"><span class="lbl">Don&rsquo;t forget the quarter and YEAR-END</span>Quarterly VAT (25th, Oct/Jan/Apr/Jul) and annual income tax (15th, Oct) sit on top of the monthly run &mdash; check the compliance calendar (1.9) at the start of every month.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.1 &middot; Service standards &mdash; what great looks like</h2><p class="section-intro">The standards that keep it all consistent &mdash; service standards, the delegations register, recurring payments, accounting policy, the audit program, and how this document is controlled.</p>
+<p class="section-intro">Qualitative standards across the whole function &mdash; not targets, but how the work should always feel to the Board and everyone it touches.</p>
+<div class="grid3">
+<div class="rolecard"><h3>Accurate</h3><p>Figures are right the first time and reconcile to Xero. Every number is supported and audit-ready without a scramble.</p></div>
+<div class="rolecard"><h3>On time</h3><p>Pay runs, remittances and lodgements land on or before the date &mdash; the calendar is worked ahead, never caught up to.</p></div>
+<div class="rolecard"><h3>Controlled</h3><p>Separation of duties and delegations hold every time. Controls are never traded away for speed or convenience.</p></div>
+<div class="rolecard"><h3>Discreet</h3><p>Payroll, banking and personal data are held in absolute confidence; security is instinctive (see 1.6).</p></div>
+<div class="rolecard"><h3>Compliant</h3><p>Work follows Philippine Accounting Standards and statutory obligation &mdash; correct, not just convenient.</p></div>
+<div class="rolecard"><h3>Kind &amp; clear</h3><p>Plain, helpful communication with staff, suppliers and the Board. Firm on controls, warm in manner. Always Be Kind.</p></div>
+</div>
+<div class="flag"><span class="lbl">The single measure</span>The Board trusts the numbers without re-checking them, the auditor finds no surprises, and no statutory date is ever missed. Trust in the books is the measure of the function.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.2 &middot; Delegations &amp; authorities register</h2>
+<p class="section-intro">Key Finance lines from the Schedule of Management Authorities (the authoritative source). Thresholds are in PHP, based on a contract&rsquo;s aggregate annual value.</p>
+<table class="t"><thead><tr><th style="width:34%">Decision</th><th>Board</th><th>GM</th><th>Accountant</th></tr></thead><tbody>
+<tr><td class="role">Asset purchase &lt; &#8369;40,000</td><td>&mdash;</td><td>Approve</td><td>&mdash;</td></tr>
+<tr><td class="role">Asset purchase &lt; &#8369;500,000</td><td>Advised</td><td>Approve&dagger;</td><td>&mdash;</td></tr>
+<tr><td class="role">Asset purchase &gt; &#8369;500,000</td><td>Approve</td><td>Recommend</td><td>&mdash;</td></tr>
+<tr><td class="role">Contracts &lt; 1yr or &lt; &#8369;250,000</td><td>Advised</td><td>Approve</td><td>Action</td></tr>
+<tr><td class="role">Contracts &gt; 1yr or &gt; &#8369;250,000</td><td>Approve</td><td>Recommend</td><td>&mdash;</td></tr>
+<tr><td class="role">Annual budget</td><td>Approve</td><td>Recommend</td><td>Develop</td></tr>
+<tr><td class="role">Operating expenses (payment)</td><td>Ratify</td><td>Approve</td><td>Action</td></tr>
+<tr><td class="role">Open / close bank accounts</td><td>Ratify</td><td>Approve</td><td>Recommend</td></tr>
+<tr><td class="role">BIR &amp; other government payments</td><td>Review</td><td>Approve</td><td>Action</td></tr>
+<tr><td class="role">Internal audit (annual)</td><td>Approve</td><td>Advised</td><td>Action</td></tr>
+</tbody></table>
+<div class="grid2"><div class="note"><span class="lbl">What the actions mean</span>Develop (prepare/draft) &middot; Recommend (put to next level) &middot; Approve (decide &amp; activate) &middot; Be advised (informed after) &middot; Ratify (confirm a prior approval) &middot; Action (carry out the approved task).</div><div class="flag"><span class="lbl">&dagger; The rule</span>GM approves if within budget. Authority is vested in a position, not a person; never approve beyond your limit or where you benefit. The full register is the Schedule of Management Authorities.</div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.3 &middot; Recurring payments schedule</h2>
+<p class="section-intro">The standing payments of Brainsource Corporation, by cycle. Dates are the day of the month (or window) each is due.</p>
+<table class="t"><thead><tr><th style="width:20%">Cycle</th><th>Payments (due date / window)</th></tr></thead><tbody>
+<tr><td class="role">Monthly</td><td>Withholding taxes 1601C &amp; 0619E (10) &middot; HDMF (10&ndash;14) &middot; PhilHealth (11&ndash;15) &middot; SSS (25&ndash;31) &middot; Hensonville property payment (28) &middot; La Grande Residence property payment (28) &middot; Water/Electric/Internet (20) &middot; Shuttle service (28&ndash;31) &middot; BBN &ndash; Plaza De Angeles Realty Corp Rent (01) &middot; BBT &ndash; Fortune Millenium Global Corp Rent (01)</td></tr>
+<tr><td class="role">Quarterly</td><td>Quarterly VAT (Oct/Jan/Apr/Jul 25) &middot; Quarterly income tax (Oct/Jan/Apr 15) &middot; HMO (May/Aug/Nov/Feb 25)</td></tr>
+<tr><td class="role">Annual</td><td>Annual Corporate income tax &ndash; 1704 (Oct 15) &middot; Business permit &amp; BIR reg. fee (Jan) &middot; Insurance &mdash; business &amp; fire, AXA (Mar) &middot; HMO renewal (May) &middot; Income Tax Return ITR &ndash; 2316 (Jan 31) &middot; Alphalist of Employees 1604-C (Jan 31) &middot; Alphalist of Payees &ndash; 1604-E (Jan 31)</td></tr>
+</tbody></table>
+<div class="note"><span class="lbl">Note</span>Windows shown are the standard due dates; the Hensonville payment must clear before the 1st. Confirm exact dates against the current BIR and provider schedules each period.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.4 &middot; Significant accounting policies</h2>
+<p class="section-intro">A plain-language summary of the policies that govern the books. The authoritative wording lives in the Finance Operations Manual; these are the working essentials.</p>
+<div class="grid2">
+<div class="rolecard"><h3>Basis of preparation</h3><p>General-purpose statements under Philippine Accounting Standards, on the accrual basis and historical cost &mdash; modified where applicable by fair value.</p></div>
+<div class="rolecard"><h3>VAT</h3><p>Revenue, expenses and assets are net of VAT except where not recoverable from the BIR. Net VAT due to/from the BIR sits in payables/receivables.</p></div>
+<div class="rolecard"><h3>Fixed assets &amp; capitalisation</h3><p>Carried at cost (or fair value) less depreciation. Equipment under the capitalisation threshold (~$1,000) is expensed and held on an asset inventory listing.</p></div>
+<div class="rolecard"><h3>Depreciation</h3><p>Straight-line over useful life from the date ready for use; rates, residuals and useful lives reviewed each reporting period.</p></div>
+<div class="rolecard"><h3>Receivables &amp; payables</h3><p>Receivables reviewed for collectability; uncollectible debts written off when identified. Trade payables unsecured and normally paid within 30 days.</p></div>
+<div class="rolecard"><h3>Employee benefits &amp; leases</h3><p>Benefits provided for as services are rendered. Finance leases capitalised; operating-lease payments expensed over the term.</p></div>
+</div>
+<p style="font-size:9pt;color:var(--bb-grey-500)">Current vs non-current is judged on the 12-month operating cycle. Figures rounded to the nearest dollar; the chart of accounts changes only with the GM&rsquo;s approval.</p><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.5 &middot; Audit program</h2>
+<p class="section-intro">Controls are tested on a fixed schedule, in a spirit of collaboration and improvement. Findings are tracked to closure in Asana and reported to the Board.</p>
+<table class="t"><thead><tr><th style="width:44%">Audit</th><th>Type</th><th>When</th></tr></thead><tbody>
+<tr><td class="role">Financial controls</td><td>Internal</td><td>March</td></tr>
+<tr><td class="role">Separation of duties</td><td>Internal</td><td>May</td></tr>
+<tr><td class="role">Statutory compliance</td><td>External</td><td>July</td></tr>
+<tr><td class="role">Reimbursements &amp; expense claims</td><td>Internal</td><td>September</td></tr>
+<tr><td class="role">Banking reconciliation</td><td>Internal</td><td>November</td></tr>
+</tbody></table>
+<h4>How an audit runs</h4>
+<div class="stepflow"><div class="st"><div class="sn">Scope</div><b>Draft scope</b><p>Board endorses.</p></div><div class="st"><div class="sn">Conduct</div><b>Run or commission</b><p>To the template.</p></div><div class="st"><div class="sn">Report</div><b>Present</b><p>The report to the Board.</p></div><div class="st"><div class="sn">Track</div><b>Findings to closure</b><p>In Asana.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.6 &middot; Document control</h2>
+<p class="section-intro">A controlled document and a living one &mdash; reviewed on a strict quarterly cycle by the Finance team, with completion assurance to the Board, and re-issued as the function evolves.</p>
+<div class="flag"><span class="lbl">Quarterly review obligation</span>The Finance team must review this playbook every quarter to confirm it remains current &mdash; and provide assurance of completed review to the Board.</div>
+<dl class="kv"><dt>Document</dt><dd>Finance Playbook &mdash; Brainsource Corporation</dd><dt>Edition</dt><dd>Edition 1 &middot; 2026 &mdash; first iteration</dd><dt>Owner</dt><dd>General Manager &ndash; Corporate</dd><dt>Review</dt><dd>Quarterly by the Finance team; assurance to the Board</dd><dt>Endorsement</dt><dd>Board of Directors</dd><dt>Classification</dt><dd>Internal &mdash; controlled document</dd></dl>
+<div class="note"><span class="lbl">Related documents</span>Finance Operations Manual (full policies &amp; procedures) &middot; Schedule of Management Authorities (delegations register) &middot; the company Procurement Policy. Where this playbook differs from habit or memory, the playbook wins. No changes without a Director&rsquo;s express consent; changes are re-issued, never made on the run.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Five &middot; Process maps</div>
+<h2>5.1 &middot; Australian payroll in Xero</h2><p class="section-intro">Standard, at-a-glance process maps for the most common finance functions across the group &mdash; the shape of each process, end to end. Detailed steps live in the checklists and the Finance Operations Manual.</p>
+<p class="section-intro">Each pay cycle in Xero Payroll &mdash; from confirming employee data to filing Single Touch Payroll and paying super. Separation of duties applies: the preparer is not the approver.</p>
+<div class="stepflow"><div class="st"><div class="sn">Set up</div><b>Confirm details</b><p>Employee details &amp; super fund; award rates &amp; SG %; pay calendar.</p></div><div class="st"><div class="sn">Process</div><b>Create pay run</b><p>Enter hours, leave &amp; allowances; Xero calculates gross, PAYG-W &amp; super.</p></div><div class="st"><div class="sn">Review</div><b>Approve</b><p>Check totals &amp; variances; authorised approver signs off.</p></div><div class="st"><div class="sn">Pay</div><b>Pay &amp; STP</b><p>Pay staff (ABA/bank file); payslips issue; file STP to the ATO on/before payday.</p></div><div class="st"><div class="sn">Super</div><b>Reconcile</b><p>Pay super with each pay run; reconcile wages, PAYG-W &amp; super to GL.</p></div></div>
+<div class="note"><span class="lbl">Key dates &amp; control</span>STP filed on/before each payday; super paid with each pay run, same day; PAYG-W reported on the BAS. Preparer &ne; approver; bank-detail changes verified independently; pay data held in confidence.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Five &middot; Process maps</div>
+<h2>5.2 &middot; Australian BAS, PAYG, FBT &amp; company tax</h2>
+<p class="section-intro">Four ATO obligations, the same four-step shape &mdash; gather &amp; reconcile, prepare, review &amp; approve, then lodge &amp; pay. Most are lodged through the tax/BAS agent, which extends the due dates shown.</p>
+<table class="t"><thead><tr><th style="width:18%">Obligation</th><th>Prepare</th><th>Lodge &amp; pay</th></tr></thead><tbody>
+<tr><td class="role">BAS &middot; GST</td><td>Reconcile GST &amp; bank in Xero; prepare BAS (GST, PAYG-W &amp; instalment)</td><td>Lodge &amp; pay ATO &middot; 28th after period</td></tr>
+<tr><td class="role">PAYG</td><td>PAYG-W from STP; confirm instalment rate; carried onto the BAS</td><td>Paid with the BAS</td></tr>
+<tr><td class="role">FBT</td><td>Identify fringe benefits; gross-up &amp; calculate taxable value; GM &amp; tax agent review</td><td>Lodge &amp; pay &middot; 21 May (later via agent)</td></tr>
+<tr><td class="role">Company tax</td><td>Finalise year-end accounts; tax reconciliation &amp; adjustments; prepare CTR with tax agent; Board review</td><td>Lodge &amp; pay/refund &middot; agent due date</td></tr>
+</tbody></table>
+<div class="note"><span class="lbl">Note</span>Due dates assume lodgement through the registered tax/BAS agent, which generally extends them &mdash; confirm each period against the ATO lodgement program. GST &amp; PAYG-W reconcile back to Xero and STP before lodging.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Five &middot; Process maps</div>
+<h2>5.3 &middot; Philippine compliance</h2>
+<p class="section-intro">Every PH lodgement follows the same five-step shape. Three streams run on it &mdash; statutory contributions, tax, and the annual filings. Dates are immovable; the calendar (1.9) drives the month.</p>
+<div class="stepflow"><div class="st"><div class="sn">1</div><b>Gather</b><p>Pull payroll, sales &amp; purchase data from Xero and the payroll workbook.</p></div><div class="st"><div class="sn">2</div><b>Compute &amp; prepare</b><p>Compute amounts due; prepare the BIR form or contribution schedule.</p></div><div class="st"><div class="sn">3</div><b>Review &amp; approve</b><p>GM reviews &amp; approves; deductions reconciled to remittances.</p></div><div class="st"><div class="sn">4</div><b>File &amp; remit</b><p>eFPS/eBIR for BIR, EPRS for PhilHealth, accredited banks / Bayad Centers.</p></div><div class="st"><div class="sn">5</div><b>File proof</b><p>Save confirmations &amp; ORs to OneDrive; record &amp; reconcile in Xero.</p></div></div>
+<div class="grid3"><div class="rolecard"><h3>Contributions</h3><p>Withholding tax (10th) &middot; HDMF (10&ndash;14) &middot; PhilHealth (11&ndash;15) &middot; SSS (25&ndash;end) &middot; HMO</p></div><div class="rolecard"><h3>Tax</h3><p>Monthly VAT (20th) &middot; Quarterly VAT (25th) &middot; Quarterly &amp; annual income tax</p></div><div class="rolecard"><h3>Annual</h3><p>Annual ITR &amp; audited FS &middot; Business permit &amp; BIR reg. &middot; GIS &middot; insurance</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Five &middot; Process maps</div>
+<h2>5.4 &middot; Philippine payroll</h2>
+<p class="section-intro">The fortnightly run for Brainsource &mdash; built in the payroll workbook, finalised in Xero, paid through BPI, then remitted to the agencies. Preparer is not the approver.</p>
+<div class="stepflow"><div class="st"><div class="sn">1</div><b>Prepare</b><p>Duplicate latest sheet; update from Masterlist; extract leave from BambooHR.</p></div><div class="st"><div class="sn">2</div><b>Compute</b><p>Plot leave &amp; holiday premiums (100%/30%); calculate gross, deductions, net.</p></div><div class="st"><div class="sn">3</div><b>Payslips &amp; approve</b><p>Build pay run in Xero; GM approves; issue payslips.</p></div><div class="st"><div class="sn">4</div><b>Pay (BPI)</b><p>Verify bank-detail changes; import recipients&rsquo; CSV; submit batch.</p></div><div class="st"><div class="sn">5</div><b>Remit &amp; reconcile</b><p>Remit SSS, PhilHealth, HDMF &amp; withholding tax; reconcile in Xero.</p></div></div>
+<div class="note"><span class="lbl">Cadence &amp; control</span>Fortnightly on Wednesdays. PH regular-holiday premium 100%, special non-working 30% (ordinary days unless also a WA holiday). Preparer &ne; approver; bank-detail changes verified; payroll data strictly confidential.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Five &middot; Process maps</div>
+<h2>5.5&ndash;5.7 &middot; Monthly Gantts</h2>
+<p class="section-intro">The recurring finance tasks across the month for each entity, by day. Windows are indicative &mdash; confirm against 1.9 and 4.3. Superannuation is paid with each pay run.</p>
+<h3>Brainbox &amp; Blue Zoo (AU) &mdash; monthly</h3>
+<table class="t"><thead><tr><th>Task</th><th style="width:26%">Window (day of month)</th></tr></thead><tbody>
+<tr><td class="role">Update cash flow (weekly)</td><td>Weekly</td></tr>
+<tr><td class="role">Download &amp; file bank statements</td><td>1&ndash;5</td></tr>
+<tr><td class="role">Reconcile prior-month transactions</td><td>1&ndash;10</td></tr>
+<tr><td class="role">Calculate Future Fund transfers &amp; transfer to InvestSmart</td><td>10&ndash;15</td></tr>
+<tr><td class="role">Payroll #1&ndash;#3 processing &amp; pay runs (mid &amp; end month)</td><td>Fortnightly</td></tr>
+<tr><td class="role">Review renewing subscriptions</td><td>15&ndash;20</td></tr>
+<tr><td class="role">BAS (GST &amp; PAYG-W)</td><td>21&ndash;28</td></tr>
+<tr><td class="role">Review &amp; update asset register</td><td>20&ndash;25</td></tr>
+<tr><td class="role">End-month Compliance Report &amp; budget-departure report</td><td>28&ndash;30</td></tr>
+</tbody></table>
+<h3>Brainsource (PH) &mdash; monthly</h3>
+<table class="t"><thead><tr><th>Task</th><th style="width:26%">Window (day of month)</th></tr></thead><tbody>
+<tr><td class="role">Update cash flow (weekly) &middot; BBT and BBN rent</td><td>Weekly</td></tr>
+<tr><td class="role">P&amp;L / GL entry check</td><td>1&ndash;10</td></tr>
+<tr><td class="role">Payroll #1 &amp; pay runs</td><td>Fortnightly</td></tr>
+<tr><td class="role">Withholding tax (1601C/0619E) &middot; PAG-IBIG &middot; PhilHealth</td><td>10&ndash;15</td></tr>
+<tr><td class="role">HMO</td><td>15&ndash;20</td></tr>
+<tr><td class="role">SSS &middot; HV and LGR HOA payments</td><td>25&ndash;end</td></tr>
+<tr><td class="role">Budget-departure report</td><td>Quarterly &middot; 28&ndash;30</td></tr>
+<tr><td class="role">Income tax (yearly)</td><td>Yearly &middot; 28&ndash;30</td></tr>
+<tr><td class="role">New-hire enrolments</td><td>As needed</td></tr>
+</tbody></table><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Six &middot; Banking</div>
+<h2>6.1 &middot; Brainsource banking structure</h2>
+<p class="section-intro">The bank accounts and corporate cards Brainsource Corporation operates, where they are held, and who is authorised to transact on each. Account details are controlled information &mdash; treat this map as confidential and confirm live details in Xero and the bank portal before acting.</p>
+<div class="bank">
+  <div class="broot">Brainsource banking structure</div>
+  <div class="stem"></div>
+  <div class="insts">
+    <div class="inst">
+      <div class="ih">Institution<span class="sub">Bank of the Philippine Islands (BPI)</span></div>
+      <div class="accts">
+        <div class="acct">
+          <h4>BS Operating Account</h4>
+          <dl><dt>Acc name</dt><dd>Brainsource Corporation</dd><dt>Acc number</dt><dd>8721005209</dd><dt>Branch held</dt><dd>Angeles &ndash; Sto. Rosario</dd></dl>
+          <div class="auth"><em>Authorities</em><span>MG</span><span>ML</span><span>ME</span><span>TF</span><span>AG</span></div>
+        </div>
+        <div class="acct">
+          <h4>BS Manager Bonus Account</h4>
+          <dl><dt>Acc name</dt><dd>Brainsource Corporation</dd><dt>Acc number</dt><dd>8721005373</dd><dt>Branch held</dt><dd>Angeles &ndash; Sto. Rosario</dd></dl>
+          <div class="auth"><em>Authorities</em><span>MG</span><span>ML</span><span>ME</span><span>TF</span><span>AG</span></div>
+        </div>
+        <div class="acct">
+          <h4>BS Corporate Credit Card</h4>
+          <dl><dt>Acc name</dt><dd>Brainsource Corporation</dd><dt>Acc number</dt><dd><em style="font-style:italic;color:var(--bb-grey-500)">NA</em></dd><dt>Branch held</dt><dd>Angeles &ndash; Sto. Rosario</dd></dl>
+          <div class="auth"><em>Authorities</em><span>MG</span><span>ML</span><span>ME</span><span>TF</span><span>AG</span></div>
+          <div class="cards">
+            <div class="card"><b>Card &middot; MG</b><span class="cu">Cust # 0201002206622088</span><span class="lim">Limit <span class="hi">50k</span></span></div>
+            <div class="card"><b>Card &middot; ML</b><span class="cu">Cust # 0201002206622187</span><span class="lim">Limit <span class="hi">25k</span></span></div>
+            <div class="card"><b>Card &middot; ME</b><span class="cu">Cust # 0201002206622203</span><span class="lim">Limit <span class="hi">25k</span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="inst">
+      <div class="ih">Institution<span class="sub">Metrobank</span></div>
+      <div class="accts">
+        <div class="acct">
+          <h4>BS Secondary Bank (Back-up)</h4>
+          <dl><dt>Acc name</dt><dd>Brainsource Corporation</dd><dt>Acc number</dt><dd>4257425912840</dd><dt>Branch held</dt><dd>Angeles &ndash; Sto. Domingo</dd></dl>
+          <div class="auth"><em>Authorities</em><span>ML</span><span>ME</span><span>TF</span><span>AG</span><span>BF</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="note"><span class="lbl">Reading the authorities</span>The initials are the authorised signatories for each account, per the delegations &amp; authorities register (4.2). Any change to signatories, limits or account details requires a Director&rsquo;s approval and must be updated here and in Xero on the same day.</div>
+<div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Always Be Kind</div>
+<h2>Accurate books, sound controls, trust earned.</h2>
+<p class="section-intro">Structure is what lets finance be both rigorous and kind &mdash; clear systems, separated duties and a steady calendar that protect the business and the people in it. Keep this playbook close, and review it every quarter.</p>
+<div class="note"><span class="lbl">Powerful People Performance</span>Brainsource Corporation &middot; Brainbox Group &middot; Finance Playbook &middot; Edition 1 &middot; 2026 &middot; Internal &mdash; controlled document.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Finance Playbook &middot; Brainbox</span></div>
+</section>
+
+</main>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="omelette-owns-print" content="true">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #fff; }
+    .doc { box-sizing: border-box; max-width: 210mm; margin: 0 auto; background: inherit; padding: 40px clamp(20px,5vw,16mm) 80px; font-family: var(--font-body); font-weight: 300; color: var(--bb-grey-800); font-size: 10pt; line-height: 1.5; }
+    .doc h1,.doc h2,.doc h3,.doc h4 { font-family: var(--font-heading); color: var(--bb-grey-700); margin: 0; }
+    .doc h1 { font-weight: 600; }
+    .doc h2 { font-weight: 600; font-size: 16pt; color: var(--bb-pink); letter-spacing: -0.01em; margin: 24px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--bb-pink); text-wrap: balance; }
+    .doc h3 { font-weight: 600; font-size: 11.5pt; color: var(--bb-grey-700); margin: 15px 0 5px; text-wrap: balance; }
+    .doc h4 { font-weight: 600; font-size: 9.5pt; color: var(--bb-pink-700); margin: 12px 0 3px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .doc p { margin: 0 0 9px; text-wrap: pretty; }
+    .doc ul,.doc ol { margin: 0 0 9px; padding-left: 17px; }
+    .doc li { margin: 0 0 4px; text-wrap: pretty; } .doc li::marker { color: var(--bb-pink-400); }
+    .doc strong { font-weight: 600; color: var(--bb-grey-800); }
+    .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; }
+    .cover { background: var(--bb-gradient-brand); border-radius: 18px; padding: 44px 38px; color: #fff; margin-bottom: 8px; }
+    .cover .eyebrow { color: rgba(255,255,255,0.92); }
+    .cover h1 { color: #fff; font-size: 32pt; line-height: 1.04; margin: 14px 0 12px; letter-spacing: -0.015em; }
+    .cover .lede { color: rgba(255,255,255,0.95); font-size: 12pt; max-width: 94%; margin: 0; font-weight: 300; line-height: 1.5; }
+    .cover-meta { display: flex; gap: 26px; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.35); flex-wrap: wrap; }
+    .cover-meta div { font-size: 8.5pt; } .cover-meta span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; opacity: 0.8; margin-bottom: 2px; }
+    .wordmark { font-family: var(--font-logo); font-size: 16pt; letter-spacing: 0.14em; color: #fff; }
+    .doc table.t { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 9.4pt; }
+    .doc table.t th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 7px 10px; border-bottom: 1.5px solid var(--bb-pink-200); font-size: 8.7pt; }
+    .doc table.t td { padding: 7px 10px; border-bottom: 1px solid var(--bb-grey-200); vertical-align: top; }
+    .doc table.t tr:nth-child(even) td { background: var(--bb-grey-50); }
+    .doc table.t .role { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); white-space: nowrap; }
+    .doc table.t .maj { font-family: var(--font-mono); color: var(--bb-pink-700); font-weight: 600; font-size: 8.5pt; }
+    .doc table.t .min { font-family: var(--font-mono); color: var(--bb-grey-500); font-size: 8.5pt; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .note { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); border-radius: 8px; padding: 10px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 11px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag .lbl,.note .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .section-intro { color: var(--bb-grey-500); font-size: 10.5pt; margin-bottom: 12px; }
+    .part-kicker { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 2px; }
+    .rolecard { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 15px; margin-bottom: 11px; }
+    .rolecard h3 { margin: 0 0 3px; color: var(--bb-pink); font-size: 11pt; }
+    .rolecard .from { font-family: var(--font-mono); font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bb-grey-500); margin-bottom: 6px; }
+    .rolecard p { margin: 0; font-size: 9.4pt; }
+    .numlist { counter-reset: n; padding: 0; margin: 6px 0 10px; list-style: none; }
+    .numlist > li { position: relative; padding-left: 34px; margin-bottom: 10px; }
+    .numlist > li::before { counter-increment: n; content: counter(n); position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--bb-pink); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 10pt; display: flex; align-items: center; justify-content: center; }
+    .numlist > li strong { color: var(--bb-pink-700); }
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin: 6px 0 14px; }
+    .stat { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 14px; }
+    .stat .v { font-family: var(--font-heading); font-weight: 600; font-size: 17pt; color: var(--bb-pink); line-height: 1; }
+    .stat .l { font-size: 8pt; color: var(--bb-grey-500); margin-top: 6px; line-height: 1.3; }
+    .layer { display: flex; align-items: stretch; gap: 12px; margin-bottom: 9px; }
+    .layer .ln { flex: none; width: 30px; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 600; font-size: 14pt; color: #fff; background: var(--bb-pink); border-radius: 10px; }
+    .layer .lb { flex: 1; border: 1px solid var(--bb-grey-200); border-left: 3px solid var(--bb-pink-300); border-radius: 10px; padding: 9px 14px; }
+    .layer .lb h4 { margin: 0 0 2px; color: var(--bb-grey-700); } .layer .lb p { margin: 0; font-size: 9.2pt; }
+    .tree { margin: 14px 0; }
+    .tree .root { background: var(--bb-gradient-brand); color: #fff; border-radius: 12px; padding: 12px 16px; text-align: center; font-family: var(--font-heading); font-weight: 600; font-size: 12pt; }
+    .tree .branchrow { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 14px; align-items: start; }
+    .tree .branch { border: 1px solid var(--bb-pink-200); border-radius: 12px; padding: 12px; }
+    .tree .branch > .bh { background: var(--bb-pink-50); border-radius: 8px; padding: 8px 12px; text-align: center; font-family: var(--font-heading); font-weight: 600; color: var(--bb-pink-700); font-size: 10.5pt; margin-bottom: 10px; }
+    .tree .leaves { display: flex; flex-direction: column; gap: 8px; }
+    .tree .leaf { border: 1px solid var(--bb-grey-200); border-radius: 8px; padding: 8px 12px; font-size: 9.3pt; }
+    .tree .leaf b { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); display: block; }
+    .tree .leaf span { color: var(--bb-grey-500); font-size: 8.3pt; }
+    .tree .leaf.live { border-color: var(--bb-pink-300); border-left: 3px solid var(--bb-pink); }
+    .relay { margin: 14px 0 10px; }
+    .relay-node { display: flex; align-items: center; gap: 13px; border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 11px 15px; background: #fff; }
+    .relay-node .rn { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--bb-pink); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 12pt; display: flex; align-items: center; justify-content: center; }
+    .relay-node .rt { flex: 1; } .relay-node .rt b { font-family: var(--font-heading); font-weight: 600; font-size: 11pt; color: var(--bb-grey-700); }
+    .relay-node .rt span { display: block; font-size: 8.6pt; color: var(--bb-grey-500); margin-top: 1px; }
+    .relay-node .own { flex: none; font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 999px; }
+    .relay-node.mk { border-left: 4px solid var(--bb-blue-300); } .relay-node.mk .own { background: var(--bb-blue-50); color: var(--bb-blue-700); }
+    .relay-node.rev { border-left: 4px solid var(--bb-pink); } .relay-node.rev .own { background: var(--bb-pink-50); color: var(--bb-pink-700); }
+    .handover { display: flex; align-items: center; gap: 9px; margin: 5px 0 5px 44px; }
+    .handover .ar { color: var(--bb-pink); font-size: 13pt; line-height: 1; }
+    .handover .hb { font-family: var(--font-mono); font-size: 7.4pt; letter-spacing: 0.04em; color: var(--bb-grey-500); background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-radius: 999px; padding: 3px 11px; }
+    .handover.seam { margin-left: 0; justify-content: center; }
+    .handover.seam .hb { background: var(--bb-gradient-brand); color: #fff; border: 0; font-weight: 600; font-size: 8.2pt; padding: 6px 16px; letter-spacing: 0.06em; }
+    .feedback { display: flex; align-items: center; gap: 9px; margin: 7px 0 2px; justify-content: center; }
+    .feedback .hb { font-family: var(--font-mono); font-size: 7.4pt; letter-spacing: 0.04em; color: var(--bb-blue-700); background: #fff; border: 1px dashed var(--bb-blue-300); border-radius: 999px; padding: 4px 13px; }
+    .feedback .ar { color: var(--bb-blue-300); font-size: 12pt; }
+    .iface { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0 12px; }
+    .iface .box { border: 1px solid var(--bb-grey-200); border-radius: 10px; padding: 10px 13px; }
+    .iface .box.give { border-left: 3px solid var(--bb-blue-300); } .iface .box.give h4 { color: var(--bb-blue-700); }
+    .iface .box.get { border-left: 3px solid var(--bb-pink); }
+    .iface .box p { font-size: 9pt; margin: 0; }
+    .ldiv { background: var(--bb-gradient-brand); color: #fff; border-radius: 16px; padding: 30px 32px; margin-bottom: 16px; }
+    .ldiv .lk { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8.5pt; opacity: 0.92; }
+    .ldiv h1 { color: #fff; font-size: 27pt; margin: 8px 0 10px; letter-spacing: -0.015em; line-height: 1.05; }
+    .ldiv .role { font-size: 11.5pt; color: rgba(255,255,255,0.96); max-width: 94%; line-height: 1.5; margin: 0; }
+    .ldiv .io { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.32); }
+    .ldiv .io span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 6.8pt; opacity: 0.82; margin-bottom: 3px; }
+    .ldiv .io div { font-size: 8.9pt; line-height: 1.4; }
+    .ldiv .own-pill { display: inline-block; margin-top: 14px; font-family: var(--font-mono); font-size: 7.2pt; text-transform: uppercase; letter-spacing: 0.09em; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); padding: 4px 12px; border-radius: 999px; }
+    .handoff { background: var(--bb-gradient-brand); color: #fff; border-radius: 12px; padding: 13px 17px; margin: 14px 0 4px; }
+    .handoff .k { display: block; font-family: var(--font-mono); font-size: 7pt; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.9; margin-bottom: 4px; }
+    .handoff .v { font-size: 10pt; line-height: 1.45; } .handoff strong { color: #fff; }
+    /* AI transformation sub-journey */
+    .aij { border: 1px solid var(--bb-blue-100); background: var(--bb-blue-50); border-radius: 12px; padding: 12px 15px; margin: 10px 0 12px; }
+    .aij .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; color: var(--bb-blue-700); display: block; margin-bottom: 8px; }
+    .aij .ft { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 8px; align-items: stretch; }
+    .aij .c { background: #fff; border: 1px solid var(--bb-grey-200); border-radius: 9px; padding: 8px 11px; font-size: 9pt; }
+    .aij .c.to { border-left: 3px solid var(--bb-blue-300); }
+    .aij .c b { display: block; font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bb-grey-500); margin-bottom: 3px; }
+    .aij .c.to b { color: var(--bb-blue-700); }
+    .aij .arw { display: flex; align-items: center; justify-content: center; color: var(--bb-pink); font-size: 15pt; }
+    .aij .tools { font-size: 8.4pt; color: var(--bb-grey-500); margin-top: 8px; }
+    .aij .tools strong { color: var(--bb-grey-700); }
+    .sheet { padding-top: 4px; }
+    .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
+    .sheet > h2:first-child,.sheet > .part-kicker:first-child { margin-top: 4px; }
+    .sheet-ftr { display: none; }
+    
+    .toc { margin: 10px 0 4px; }
+    .toc-row { display: flex; align-items: baseline; gap: 12px; padding: 7px 2px; border-bottom: 1px solid var(--bb-grey-200); }
+    .toc-row .n { font-family: var(--font-mono); font-size: 8pt; color: var(--bb-pink); width: 22px; flex: none; }
+    .toc-row .t { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 10.5pt; }
+
+    .cover-page { min-height: 900px; display: flex; flex-direction: column; }
+    .cover-page .cat { margin-bottom: auto; } .cover-page h1 { margin-top: 0; }
+    .cover-page .cover-meta { margin-top: auto; }
+    @media print { .cover-sheet .cover-page { min-height: 252mm; } .cover-sheet { break-after: page; } }
+
+    .cover-page { position: relative; }
+    .cover-elephant { position: absolute; top: 34px; right: 36px; height: 84px; width: auto; }
+
+    .cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 32%, var(--bb-pink) 118%) !important; }
+    .cover-grad .cat { color: #fff !important; }
+    .sub-note { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 7.5pt; color: rgba(255,255,255,0.85); margin-top: 10px; }
+
+    /* ===== Subdued (Boardroom) palette ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .doc h3 { color: var(--bb-grey-700) !important; }
+    .doc h4 { color: var(--bb-grey-500) !important; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root, .handoff { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj { color: var(--bb-grey-700) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; border-left-color: var(--bb-pink) !important; }
+    .flag .lbl { color: var(--bb-grey-500) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+    .stat .v { color: var(--bb-grey-800) !important; }
+    .rolecard h3 { color: var(--bb-grey-800) !important; }
+    .pill { border-color: var(--bb-grey-300) !important; }
+    .script { border-left-color: var(--bb-pink) !important; }
+    .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
+
+    @page { size: A4 portrait; margin: 10mm; }
+    @media print {
+      .sheet + .sheet { margin-top: 8mm !important; border-top: 0 !important; }
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
+      #dc-root, .sc-host { height: auto !important; }
+      .sheet { break-inside: avoid; display: block; box-sizing: border-box; margin-top: 0 !important; border-top: 0 !important; padding-top: 0 !important; }
+      .sheet:first-of-type { break-before: auto; }
+      .sheet > h2:first-child,.sheet > .cover:first-child,.sheet > .part-kicker:first-child,.sheet > .ldiv:first-child { margin-top: 0 !important; }
+      .sheet-ftr { display: none !important; justify-content: space-between; align-items: baseline; margin-top: auto; padding-top: 5mm; border-top: 0.5pt solid var(--bb-grey-200); font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bb-grey-400); }
+      .sheet-ftr .r { color: var(--bb-pink); }
+      h2,h3,h4 { break-after: avoid !important; }
+      h2 + *, h3 + *, h4 + * { break-before: avoid; }
+      .rolecard,.note,.flag,.stat,.stats,.layer,.grid3,.tree,.cover,tr,.relay-node,.handover,.feedback,.iface,.ldiv,.handoff,.aij { break-inside: avoid; }
+      table.t { break-inside: avoid; } table.t thead { display: table-header-group; }
+      p, li { orphans: 3; widows: 3; }
+    }
+
+    /* ===== Boardroom palette (subdued) ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .cover .wordmark { color: var(--bb-pink); }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .handoff { background: var(--bb-grey-800) !important; }
+    .handover.seam .hb { background: var(--bb-pink) !important; box-shadow: none !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+
+    .cover .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.22em; font-size: 7.5pt; color: rgba(255,255,255,0.72); margin-bottom: 20px; }
+    .cover .cat { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 10px; }
+    .cover h1 { margin-top: 0; }
+    /* cover-final-override */
+    .cover.cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 30%, var(--bb-pink) 120%) !important; }
+    .cover-page { min-height: 900px !important; display: flex !important; flex-direction: column !important; }
+    .cover-page .cat { margin-bottom: auto !important; }
+    .cover-page h1 { margin-top: 0 !important; }
+    .cover-page .cover-meta { margin-top: auto !important; }
+    /* table-font-override */
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, table.rep .tg, .doc table.form .target { font-family: var(--font-body) !important; }
+    /* role-body-override */
+    .doc table.t .role { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+    /* all-table-cells-body */
+    .doc table.t td, .doc table.t td .num, .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, .doc table.t .role, table.rep td, table.rep .tg, .doc table.form td, .doc table.form .target { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+
+    .form-field { border: 1px solid var(--bb-grey-300); border-radius: 6px; height: 22px; margin-bottom: 6px; }
+    .form-label { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.07em; color: var(--bb-grey-500); font-family: var(--font-mono); display: block; margin-bottom: 3px; }
+    .doc table.form { width: 100%; border-collapse: collapse; margin: 4px 0 10px; font-size: 8.5pt; }
+    .doc table.form th { background: var(--bb-grey-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 5px 7px; border: 1px solid var(--bb-grey-300); font-size: 7.5pt; }
+    .doc table.form td { padding: 5px 7px; border: 1px solid var(--bb-grey-300); height: 20px; vertical-align: top; }
+    .doc table.form .target { color: var(--bb-grey-500); font-size: 8pt; white-space: nowrap; }
+    .doc table.form .grp td { background: #eceef1; font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 7.6pt; text-transform: uppercase; letter-spacing: 0.05em; }
+    .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 7.5pt; color: rgba(255,255,255,0.9); }
+
+    .kv{display:grid;grid-template-columns:160px 1fr;gap:5px 16px;margin:8px 0 12px;font-size:9.6pt}
+    .kv dt{font-family:var(--font-mono);font-size:7.4pt;text-transform:uppercase;letter-spacing:0.06em;color:var(--bb-grey-500);padding-top:2px}
+    .kv dd{margin:0;color:var(--bb-grey-800)}
+    .checklist{columns:2;column-gap:22px;margin:6px 0 10px}
+    .checklist .grp{break-inside:avoid;margin-bottom:10px;-webkit-column-break-inside:avoid}
+    .checklist h4{margin:0 0 5px}
+    .checklist ul{list-style:none;padding:0;margin:0}
+    .checklist li{position:relative;padding-left:19px;margin-bottom:4px;font-size:9.4pt;color:var(--bb-grey-700)}
+    .checklist li::before{content:"";position:absolute;left:0;top:2px;width:10px;height:10px;border:1.5px solid var(--bb-grey-400);border-radius:3px}
+    .ladder{display:flex;flex-direction:column;gap:7px;margin:8px 0 12px}
+    .rung{border:1px solid var(--bb-grey-200);border-left:3px solid var(--bb-grey-300);border-radius:9px;padding:9px 13px}
+    .rung.cur{border-left-color:var(--bb-pink);background:var(--bb-grey-50)}
+    .rung .lv{font-family:var(--font-heading);font-weight:600;color:var(--bb-grey-800);font-size:9.8pt}
+    .rung .lv .n{display:inline-flex;width:18px;height:18px;align-items:center;justify-content:center;background:var(--bb-grey-700);color:#fff;border-radius:50%;font-size:9pt;margin-right:7px;vertical-align:middle}
+    .rung.cur .lv .n{background:var(--bb-pink)}
+    .rung .cur-tag{float:right;font-family:var(--font-mono);font-size:6.6pt;text-transform:uppercase;letter-spacing:0.08em;color:var(--bb-pink);border:1px solid var(--bb-pink-200);border-radius:999px;padding:2px 7px}
+    .rung p{margin:3px 0 0;font-size:9.4pt;color:var(--bb-grey-500)}
+    .monthgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:8px 0 12px}
+    .mcell{border:1px solid var(--bb-grey-200);border-radius:9px;padding:8px 11px}
+    .mcell .mo{font-family:var(--font-mono);font-size:7.4pt;letter-spacing:0.1em;text-transform:uppercase;color:var(--bb-pink);font-weight:600}
+    .mcell .it{font-size:9.4pt;color:var(--bb-grey-700);margin-top:3px;line-height:1.4}
+    .maymay{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 12px}
+    .maymay .box{border:1px solid var(--bb-grey-200);border-radius:10px;padding:10px 13px}
+    .maymay .box.may{border-left:3px solid var(--bb-pink)}
+    .maymay .box.mayn{border-left:3px solid var(--bb-grey-400)}
+    .maymay h4{margin:0 0 5px}
+    .maymay ul{margin:0;padding-left:15px;font-size:9.4pt;color:var(--bb-grey-700)}.maymay li{margin-bottom:3px}
+    .stepflow{display:flex;gap:8px;margin:8px 0 12px}
+    .stepflow .st{flex:1;border:1px solid var(--bb-grey-200);border-top:3px solid var(--bb-pink);border-radius:9px;padding:9px 11px}
+    .stepflow .st .sn{font-family:var(--font-mono);font-size:7pt;color:var(--bb-pink);font-weight:600}
+    .stepflow .st b{display:block;font-family:var(--font-heading);font-size:9pt;color:var(--bb-grey-800);margin:2px 0 3px}
+    .stepflow .st p{margin:0;font-size:9pt;color:var(--bb-grey-500)}
+    .daytime{display:grid;grid-template-columns:88px 1fr;gap:0;margin:8px 0 12px}
+    .daytime .tm{font-family:var(--font-mono);font-size:9pt;color:var(--bb-pink);font-weight:600;padding:8px 0;border-top:1px solid var(--bb-grey-200)}
+    .daytime .ev{padding:8px 0 8px 12px;border-top:1px solid var(--bb-grey-200)}
+    .daytime .ev b{font-family:var(--font-heading);font-weight:600;font-size:9.2pt;color:var(--bb-grey-800);display:block;margin-bottom:2px}
+    .daytime .ev p{margin:0;font-size:9.4pt;color:var(--bb-grey-500)}
+
+    .doc table.t .role{font-family:var(--font-body);font-weight:300;color:var(--bb-grey-800);}
+  </style>
+</helmet>
+
+<main class="doc">
+
+<section class="sheet cover-sheet"><div class="cover cover-page cover-grad"><img class="cover-elephant" src="assets/brainbox-elephant-white.png" alt=""><div class="conf">Strictly private &amp; confidential</div><div class="cat">Client Travel Playbook</div><h1>How Brainbox hosts a client visit</h1><p class="lede">The internal policies and procedures behind a seamless client visit — from the first travel request to a safe departure. The client sees the Travel Guide; this is how we deliver it.</p><div class="sub-note">Subsidiary to the Fleet &amp; Facilities Playbook</div><div class="cover-meta"><div><span>Document owner</span>May Engreso · Facilities Manager</div><div><span>Issue date</span>Edition 1 · 2026</div><div style="margin-left:auto;align-self:flex-end"><span class="wordmark">BRAINBOX</span></div></div></div></section>
+<section class="sheet">
+  <h2>Contents</h2>
+  <p class="section-intro">A practical manual for the teams who make a client visit work — the companion to the client-facing Client Travel Guide.</p>
+  <div class="toc">
+    <div class="toc-row"><span class="n">01</span><span class="t">Purpose &amp; how this playbook fits</span></div>
+    <div class="toc-row"><span class="n">02</span><span class="t">Roles &amp; responsibilities</span></div>
+    <div class="toc-row"><span class="n">03</span><span class="t">The client visit lifecycle</span></div>
+    <div class="toc-row"><span class="n">04</span><span class="t">Pre-visit planning &amp; the itinerary</span></div>
+    <div class="toc-row"><span class="n">05</span><span class="t">Travel &amp; entry requirements — what we brief</span></div>
+    <div class="toc-row"><span class="n">06</span><span class="t">Airport transfers &amp; local transport</span></div>
+    <div class="toc-row"><span class="n">07</span><span class="t">Accommodation</span></div>
+    <div class="toc-row"><span class="n">08</span><span class="t">At the office — access, workspace &amp; lunch</span></div>
+    <div class="toc-row"><span class="n">09</span><span class="t">Leisure program</span></div>
+    <div class="toc-row"><span class="n">10</span><span class="t">Currency, costs &amp; what is complimentary</span></div>
+    <div class="toc-row"><span class="n">11</span><span class="t">Emergency &amp; duty of care</span></div>
+    <div class="toc-row"><span class="n">12</span><span class="t">Key contacts</span></div>
+    <div class="toc-row"><span class="n">13</span><span class="t">Pre-arrival readiness checklist</span></div>
+    <div class="toc-row"><span class="n">14</span><span class="t">Non-negotiable rules &amp; the outcome we want</span></div>
+  </div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 1 · Orientation</div>
+  <h2>Purpose &amp; how this playbook fits</h2>
+  <p>This playbook defines how Brainbox arranges and supports <strong>client visits to the Philippines</strong>. It is the internal counterpart to the client-facing <em>Client Travel Guide</em>: the Guide tells the client what to expect; this playbook tells our teams how to deliver it, reliably, every time. It is a <strong>subsidiary of the Fleet &amp; Facilities Playbook</strong>, and works alongside the Accommodation Playbook for the client’s stay.</p>
+  <p>Client visits matter because they build the relationship no video call can. Face-to-face time bridges cultural and language gaps, builds trust and confidence in the offshore team, and lets clients see the quality of their people first-hand. A visit that runs smoothly reinforces that trust; a visit that stumbles undermines it. Efficient, warm logistics are therefore a commercial asset, not an overhead.</p>
+  <div class="note"><span class="lbl">Who this is for</span>The General Manager — Service Delivery (who owns the visit and its itinerary), Facilities (transfers, accommodation, transport), IT (access and connectivity), People &amp; Culture and the visited team. One visit, several teams — coordinated to look effortless to the client.</div>
+  <div class="flag"><span class="lbl">The standard we hold to</span>Every client is met by name at the airport, has a ready room at LaGrande, a working desk and access on day one, and a single, responsive point of contact throughout. Nothing about their trip should require them to chase us.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Client Travel Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 2 · People</div>
+  <h2>Roles &amp; responsibilities</h2>
+  <p class="section-intro">A visit touches several teams. Each owns a clear part; the General Manager — Service Delivery holds the whole together.</p>
+  <table class="t">
+    <thead><tr><th style="width:28%">Role</th><th>Owns for a client visit</th></tr></thead>
+    <tbody>
+      <tr><td class="role">General Manager — Service Delivery</td><td>Owns the visit end to end — itinerary, client liaison, team meeting bookings, and the single point of contact before and during the trip.</td></tr>
+      <tr><td class="role">General Manager — Service Delivery</td><td>Accommodation at LaGrande, airport transfers, hire car and local transport, and the physical readiness of the room and meeting space.</td></tr>
+      <tr><td class="role">Driver &amp; Front-of-House</td><td>Airport meet-and-greet with a name sign, transfers to and from LaGrande, and transport during the stay.</td></tr>
+      <tr><td class="role">IT</td><td>Biometric face-scan registration on arrival and Wi-Fi access at the office.</td></tr>
+      <tr><td class="role">Facilities Manager</td><td>Cultural welcome, leisure-program support, and pastoral/duty-of-care backup.</td></tr>
+      <tr><td class="role">Visited team</td><td>Meeting agenda, day-to-day hosting, and arranging the client’s lunch.</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><span class="lbl">One owner, many hands</span>The Facilities Manager coordinates; Facilities executes the logistics. If anything is unclear, it resolves to the Facilities Manager — the client should never have to work out who to ask.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Client Travel Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 3 · The process</div>
+  <h2>The client visit lifecycle</h2>
+  <p class="section-intro">Every visit follows the same path. Getting the early steps right is what makes the visit itself feel effortless.</p>
+  <div class="stepflow">
+    <div class="st"><div class="sn">Step 1</div><b>Request &amp; dates</b><p>Visit proposed; dates and purpose captured by the General Manager — Service Delivery.</p></div>
+    <div class="st"><div class="sn">Step 2</div><b>Plan &amp; book</b><p>Accommodation held, transfers arranged, itinerary and meetings drafted.</p></div>
+    <div class="st"><div class="sn">Step 3</div><b>Pre-arrival</b><p>Guide sent, entry requirements confirmed, flight details collected.</p></div>
+    <div class="st"><div class="sn">Step 4</div><b>Arrival &amp; stay</b><p>Airport meet, room ready, office access and daily hosting.</p></div>
+    <div class="st"><div class="sn">Step 5</div><b>Departure &amp; follow-up</b><p>Return transfer, thanks, and a short internal debrief.</p></div>
+  </div>
+  <table class="t">
+    <thead><tr><th style="width:26%">Timing</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Weeks ahead</td><td>Client shares plans with the General Manager — Service Delivery; accommodation and meeting rooms booked; itinerary built.</td></tr>
+      <tr><td class="role">72 hours before</td><td>Client completes the eTravel registration; flight and arrival details confirmed to Facilities.</td></tr>
+      <tr><td class="role">Day of arrival</td><td>Driver meets the client by name; transfer to LaGrande; room and welcome ready.</td></tr>
+      <tr><td class="role">During the stay</td><td>Office access, daily transport, meetings and leisure program run to plan.</td></tr>
+      <tr><td class="role">Departure</td><td>Return transfer arranged; internal debrief captures anything to improve.</td></tr>
+    </tbody>
+  </table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Client Travel Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 4 · Planning</div>
+  <h2>Pre-visit planning &amp; the itinerary</h2>
+  <p class="section-intro">The itinerary is the backbone of the visit. It is built early, with the client, and shared with everyone who has a part to play.</p>
+  <div class="grid2">
+    <div>
+      <h4>Collect the plan early</h4>
+      <p>The client is asked to share their plans with the General Manager — Service Delivery <strong>weeks before</strong> arrival — especially weekend plans and any team meetings to be booked. Early notice is what makes transfers, rooms and the leisure program fall into place.</p>
+      <h4>Build &amp; confirm the itinerary</h4>
+      <p>The Facilities Manager drafts a day-by-day itinerary: flights, transfers, meetings, meals, leisure and free time. It is confirmed with the client and circulated to Facilities, IT and the visited team.</p>
+    </div>
+    <div>
+      <h4>Book the logistics</h4>
+      <p>Accommodation held at LaGrande (see the Accommodation Playbook), airport transfers scheduled, meeting room reserved, and any hire car or activities arranged — each with an owner and a confirmation.</p>
+      <h4>Brief the team</h4>
+      <p>The visited team knows who is coming, when, and what the meeting agenda is, so the client’s time is well spent from the first morning.</p>
+    </div>
+  </div>
+  <div class="flag"><span class="lbl">Client holds come first</span>A confirmed client visit places an accommodation hold at LaGrande <strong>before</strong> those nights are released to the short-stay market — the room is never at risk of being sold from under a client.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Client Travel Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 5 · Entry</div>
+  <h2>Travel &amp; entry requirements — what we brief</h2>
+  <p class="section-intro">We proactively brief every client on entry requirements so nothing delays them at the border. These are the points the General Manager — Service Delivery confirms before travel.</p>
+  <table class="t">
+    <thead><tr><th style="width:30%">Requirement</th><th>What we confirm with the client</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Passport validity</td><td>At least six months’ remaining validity for admission to the Philippines.</td></tr>
+      <tr><td class="role">Visa</td><td>Not required for short business or tourism trips.</td></tr>
+      <tr><td class="role">eTravel QR code</td><td>Registered at etravel.gov.ph within 72 hours before arrival; QR presented at boarding. Accommodation listed as LaGrande Residences, Sarmiento Street, Malabanias.</td></tr>
+      <tr><td class="role">Route</td><td>Typically transiting Singapore from Australia or the USA, arriving at Clark International Airport.</td></tr>
+      <tr><td class="role">Medication</td><td>Bring prescriptions; confirm any prescribed medicine is permitted in the Philippines.</td></tr>
+      <tr><td class="role">Power &amp; packing</td><td>220V; most sockets take AU and US plugs, but advise a travel adapter. Business-casual, modest attire for a conservative, humid climate.</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><span class="lbl">Why we brief, not assume</span>A client turned back at the border, or stuck without their eTravel QR, is a failure of our planning — not theirs. The General Manager — Service Delivery confirms each point rather than trusting it to chance.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Client Travel Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 6 · Transport</div>
+  <h2>Airport transfers &amp; local transport</h2>
+  <p class="section-intro">Transport is where a visit is won or lost in the first hour. The airport meet is complimentary, personal and never left to chance.</p>
+  <div class="grid2">
+    <div class="rolecard"><h3>Airport meet &amp; transfer</h3><p>Complimentary. After immigration, baggage and customs, the client looks for a Brainbox staff member holding a sign with their name. The driver transfers them to LaGrande. Flight details are confirmed in advance so the meet is on time.</p></div>
+    <div class="rolecard"><h3>During the stay</h3><p>Daily transport between LaGrande and the office is arranged around the itinerary. The driver’s schedule is set the day before and protected.</p></div>
+  </div>
+  <table class="t">
+    <thead><tr><th style="width:26%">Option</th><th>How we handle it</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Hire car</td><td>Arranged on request. We advise that Filipinos drive on the right (opposite to Australia) and traffic is busy — offered with a clear caution.</td></tr>
+      <tr><td class="role">Trikes (local)</td><td>A trike station sits outside LaGrande; the norm for local trips (~200 PHP / ~$5 AUD across the metro). We brief clients who prefer to travel like a local.</td></tr>
+      <tr><td class="role">Brainbox transport</td><td>The default for office and itinerary travel — comfortable, reliable and included.</td></tr>
+    </tbody>
+  </table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Client Travel Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 7 · Stay</div>
+  <h2>Accommodation</h2>
+  <p class="section-intro">Visiting clients are accommodated, complimentary, at LaGrande Residences. The stay itself is run under the Accommodation Playbook; this page covers the client-visit specifics.</p>
+  <div class="grid2">
+    <div>
+      <h4>What we provide</h4>
+      <p>Complimentary accommodation at LaGrande for the duration of the visit — a premium, secure residence with 24/7 security, concierge, pool and wellness facilities. The unit is prepared to the same turnover standard as any guest stay.</p>
+      <h4>Readiness</h4>
+      <p>The room is confirmed ready before arrival: cleaned, checked, safe, with access working. Facilities blocks the nights in Uplisting as a client hold so the room is guaranteed.</p>
+    </div>
+    <div>
+      <h4>Welcome &amp; on-site support</h4>
+      <p>A welcome is prepared for arrival. Any issue during the stay routes to Facilities through the single point of contact and is handled fast, as for any guest.</p>
+      <div class="note"><span class="lbl">See also</span>The <strong>Accommodation Playbook</strong> holds the full operating detail for LaGrande — cleaning, maintenance, safety and key handling.</div>
+    </div>
+  </div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Client Travel Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 8 · The office</div>
+  <h2>At the office — access, workspace &amp; lunch</h2>
+  <p class="section-intro">Day one at the office should be frictionless: the client can work beside their team within minutes of arriving.</p>
+  <table class="t">
+    <thead><tr><th style="width:26%">Item</th><th>How we handle it</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Building access</td><td>Entry is via biometric face scan. IT registers the client on arrival, so they move freely from the first day.</td></tr>
+      <tr><td class="role">Connectivity</td><td>High-speed fibre throughout; IT provides the Wi-Fi password on arrival.</td></tr>
+      <tr><td class="role">Workspace</td><td>Large open-plan office; the client may work alongside their team or use the private meeting room — whichever they prefer. The meeting room is booked in advance if needed.</td></tr>
+      <tr><td class="role">Lunch (12–1)</td><td>Filipinos share food together from 12–1. A team member asks the client’s preference and arranges it; in-building restaurants (Indian, Korean, Filipino) are options if they prefer to eat separately.</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">Ready on arrival</span>IT registration and the Wi-Fi password are handled the moment the client arrives — not after the first meeting. The client should never sit idle waiting for access.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Client Travel Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 9 · Experience</div>
+  <h2>Leisure program</h2>
+  <p class="section-intro">Beyond team time, a curated leisure program leaves clients with a genuine sense of the Philippines — and lasting goodwill toward Brainbox.</p>
+  <div class="grid2">
+    <div>
+      <h4>What we can arrange</h4>
+      <p>A program tailored to the client’s interests: outdoor adventures such as wave boarding, shopping at modern malls, local and international dining, or relaxation at the residence’s wellness clinic. Weekend excursions to beaches and tourist destinations where time allows.</p>
+    </div>
+    <div>
+      <h4>How we coordinate it</h4>
+      <p>The Facilities Manager confirms interests during planning and builds leisure into the itinerary. People &amp; Culture and the team help host. Activities, transport and any bookings are arranged and confirmed ahead of time.</p>
+    </div>
+  </div>
+  <div class="note"><span class="lbl">Purposeful, not filler</span>The leisure program exists to deepen the relationship and give the client a real feel for local life — it is planned with the same care as the working agenda, and sized to the visit and the client’s energy.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Client Travel Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 10 · Money</div>
+  <h2>Currency, costs &amp; what is complimentary</h2>
+  <p class="section-intro">Clarity on what Brainbox covers avoids awkward moments and keeps the visit generous but controlled.</p>
+  <table class="t">
+    <thead><tr><th style="width:34%">Item</th><th>Who covers it</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Accommodation at LaGrande</td><td>Complimentary — provided by Brainbox.</td></tr>
+      <tr><td class="role">Airport transfers</td><td>Complimentary — provided by Brainbox.</td></tr>
+      <tr><td class="role">Office lunch (team days)</td><td>Arranged by Brainbox.</td></tr>
+      <tr><td class="role">Leisure program</td><td>Arranged by Brainbox; scope and any premium activities agreed in planning.</td></tr>
+      <tr><td class="role">Hire car / personal spending</td><td>Arranged on request; personal costs to the client’s account.</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><span class="lbl">Currency briefing</span>The currency is the Philippine peso (PHP). We advise clients that cities accept international cards and ATMs are widely available, to carry local cash for trips outside major centres, and to notify their bank before travelling. Currency can be exchanged at the airport, banks and hotels.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Client Travel Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 11 · Duty of care</div>
+  <h2>Emergency &amp; duty of care</h2>
+  <p class="section-intro">We are responsible for the wellbeing of every visiting client. The emergency path is known in advance and shared with the client on arrival.</p>
+  <div class="grid2">
+    <div class="rolecard"><h3>Nearest hospital</h3><p><strong>Sacred Heart Medical Center</strong> — McArthur Highway, Sto. Domingo, Angeles City 2009, Pampanga. Adjacent to the Brainbox headquarters and easily reached by major roads.<br>Landline (045) 624 5606 · Mobile +63 908 814 5602</p></div>
+    <div class="rolecard"><h3>If something goes wrong</h3><p>Contact the Facilities Manager first; for a medical or safety emergency, call the emergency contacts below or local emergency services immediately, then notify the Facilities Manager and General Manager — Service Delivery.</p></div>
+  </div>
+  <table class="t">
+    <thead><tr><th style="width:40%">Emergency contact</th><th>Number</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Margrace Gacang — General Manager — Corporate Services</td><td>+63 917 127 1363</td></tr>
+      <tr><td class="role">March Lobos — General Manager — Service Delivery</td><td>+63 9452 749 256</td></tr>
+      <tr><td class="role">Betina Feliciano — Quality &amp; Compliance Manager</td><td>+63 9989 984 014</td></tr>
+      <tr><td class="role">May Engreso — Facilities Manager</td><td>+63 9971 807 784</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">Non-negotiable</span>Client health and safety come before every other consideration. If a client is unwell or at risk, act first and coordinate second.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Client Travel Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 12 · Contacts</div>
+  <h2>Key contacts</h2>
+  <p class="section-intro">Who owns what, and who to reach. The General Manager — Service Delivery is the single point of contact for the client throughout.</p>
+  <table class="t">
+    <thead><tr><th style="width:34%">Contact</th><th style="width:30%">For</th><th>Reach</th></tr></thead>
+    <tbody>
+      <tr><td class="role">General Manager — Service Delivery</td><td>Itinerary, client liaison, meetings</td><td>Single point of contact</td></tr>
+      <tr><td class="role">May Engreso — Facilities Manager</td><td>Accommodation, transfers, transport</td><td>+63 9971 807 784</td></tr>
+      <tr><td class="role">IT team</td><td>Biometric access &amp; Wi-Fi</td><td>On arrival at the office</td></tr>
+      <tr><td class="role">March Lobos — General Manager — Service Delivery</td><td>Welcome, leisure, pastoral care</td><td>+63 9452 749 256</td></tr>
+      <tr><td class="role">Margrace Gacang — General Manager — Corporate Services</td><td>Escalation &amp; emergencies</td><td>+63 917 127 1363</td></tr>
+      <tr><td class="role">Betina Feliciano — Quality &amp; Compliance</td><td>Compliance &amp; incident matters</td><td>+63 9989 984 014</td></tr>
+    </tbody>
+  </table>
+  <div class="ladder">
+    <div class="rung cur"><div class="lv"><span class="n">1</span>GM — Service Delivery</div><p>Owns the visit; first port of call for the client and the team.</p></div>
+    <div class="rung"><div class="lv"><span class="n">2</span>Facilities / IT / P&amp;C</div><p>Logistics, access and hosting, coordinated by the GM — Service Delivery.</p></div>
+    <div class="rung"><div class="lv"><span class="n">3</span>General Manager / emergency services</div><p>Escalation, incidents and any threat to client safety.</p></div>
+  </div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Client Travel Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 13 · Checklist</div>
+  <h2>Pre-arrival readiness checklist</h2>
+  <p class="section-intro">Run before every arrival. If any item is open, it is closed before the client lands.</p>
+  <div class="checklist">
+    <div class="grp"><h4>Planning</h4><ul><li>Dates &amp; purpose confirmed</li><li>Itinerary built &amp; agreed with client</li><li>Team meetings booked</li><li>Itinerary circulated internally</li></ul></div>
+    <div class="grp"><h4>Travel &amp; entry</h4><ul><li>Passport validity confirmed</li><li>eTravel QR reminder sent (72h)</li><li>Flight &amp; arrival details received</li><li>Travel Guide sent to client</li></ul></div>
+    <div class="grp"><h4>Ground logistics</h4><ul><li>Airport meet &amp; name sign arranged</li><li>LaGrande room held &amp; ready</li><li>Daily transport scheduled</li><li>Hire car (if requested) booked</li></ul></div>
+    <div class="grp"><h4>Office &amp; experience</h4><ul><li>IT briefed for biometric &amp; Wi-Fi</li><li>Meeting room reserved</li><li>Lunch arrangements noted</li><li>Leisure program confirmed</li></ul></div>
+  </div>
+  <div class="flag"><span class="lbl">One owner signs it off</span>The General Manager — Service Delivery confirms every item is closed before arrival day. A single unchecked box — a missed transfer, an unready room — is what a client remembers.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Client Travel Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 14 · The rules</div>
+  <h2>Non-negotiable rules &amp; the outcome we want</h2>
+  <ol class="numlist">
+    <li><strong>One owner.</strong> The General Manager — Service Delivery owns the visit and is the client’s single point of contact throughout.</li>
+    <li><strong>Plan early.</strong> Itinerary and logistics are set weeks ahead, not improvised on arrival.</li>
+    <li><strong>Meet every client by name.</strong> No client arrives to an empty arrivals hall.</li>
+    <li><strong>Room ready, access ready.</strong> Accommodation and office access are confirmed before the client lands.</li>
+    <li><strong>Complimentary is complimentary.</strong> Accommodation and transfers are provided; scope of extras agreed in planning.</li>
+    <li><strong>Safety first, always.</strong> Client wellbeing overrides every other consideration.</li>
+  </ol>
+  <div class="flag"><span class="lbl">The outcome we want</span>A client who leaves with valuable team time, real trust in their offshore team, and lasting memories of the Philippines — having never once had to chase us for anything. Delivered with care and, in every interaction, <strong>kindness</strong>.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Client Travel Playbook · Brainbox</span></div>
+</section>
+</main>
+</x-dc>
+</body>
+</html>

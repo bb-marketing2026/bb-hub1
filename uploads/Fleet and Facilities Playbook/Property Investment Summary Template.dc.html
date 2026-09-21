@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/bb-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+<link rel="stylesheet" href="_ds/bb-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+<link rel="stylesheet" href="_ds/bb-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+<link rel="stylesheet" href="_ds/bb-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #e7e7ea; }
+  .sheet { width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff; padding: 12mm 13mm;
+    color: var(--bb-grey-800); font-family: var(--font-body); font-weight: 300;
+    -webkit-font-smoothing: antialiased; box-shadow: 0 6px 48px rgba(43,43,43,.18); }
+  .sheet + .sheet { margin-top: 26px; }
+  .num { font-variant-numeric: tabular-nums; font-family: var(--font-mono); }
+
+  .head { display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 3px solid var(--bb-pink); padding-bottom: 9px; margin-bottom: 10px; }
+  .head .ey { font-family: var(--font-heading); font-weight: 600; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--bb-pink); margin: 0 0 5px; }
+  .head h1 { font-family: var(--font-heading); font-weight: 600; font-size: 23px; line-height: 1.05; color: var(--bb-grey-800); margin: 0; }
+  .head .sub { font-size: 11.5px; color: var(--bb-grey-500); margin: 5px 0 0; }
+  .head img { height: 30px; }
+
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 11px; }
+  .kpi { border: 1px solid var(--bb-grey-200); border-radius: 13px; padding: 9px 13px; }
+  .kpi.profit { background: var(--bb-gradient-brand); border: 0; color: #fff; }
+  .kpi .k { font-family: var(--font-heading); font-weight: 600; font-size: 9px; letter-spacing: .11em; text-transform: uppercase; color: var(--bb-grey-500); margin-bottom: 7px; }
+  .kpi.profit .k { color: rgba(255,255,255,.85); }
+  .kpi .v { font-family: var(--font-heading); font-weight: 600; font-size: 19px; line-height: 1; color: var(--bb-grey-800); }
+  .kpi.profit .v { color: #fff; }
+  .kpi .m { font-size: 10px; color: var(--bb-grey-500); margin-top: 5px; }
+  .kpi.profit .m { color: rgba(255,255,255,.9); }
+
+  .grid2 { display: grid; grid-template-columns: 1.15fr 1fr; gap: 18px; align-items: start; }
+  h2.sec { font-family: var(--font-heading); font-weight: 600; font-size: 13px; color: var(--bb-grey-700); margin: 0 0 5px; }
+
+  table.t { width: 100%; border-collapse: collapse; font-size: 11px; }
+  table.t th { text-align: right; font-family: var(--font-heading); font-weight: 600; font-size: 9px; letter-spacing: .04em; text-transform: uppercase; color: var(--bb-grey-500); padding: 0 0 5px; border-bottom: 1.5px solid var(--bb-grey-300); }
+  table.t th:first-child { text-align: left; }
+  table.t td { padding: 3.8px 0; border-bottom: 1px solid var(--bb-grey-100); text-align: right; color: var(--bb-grey-700); }
+  table.t td:first-child { text-align: left; font-family: var(--font-heading); font-weight: 500; color: var(--bb-grey-800); }
+  table.t tr.grp td { background: var(--bb-pink-50); font-family: var(--font-heading); font-weight: 600; font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--bb-pink); padding: 5px 8px; border-bottom: 0; }
+  table.t tr.grp td:first-child { border-radius: 6px 0 0 6px; }
+  table.t tr.grp td:last-child { border-radius: 0 6px 6px 0; }
+  table.t tr.sub td { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-800); border-top: 1.5px solid var(--bb-grey-300); border-bottom: 0; }
+  table.t tr.tot td { font-family: var(--font-heading); font-weight: 700; color: #fff; background: var(--bb-grey-800); padding: 8px; }
+  table.t tr.tot td:first-child { border-radius: 7px 0 0 7px; color: #fff; }
+  table.t tr.tot td:last-child { border-radius: 0 7px 7px 0; }
+  .pos { color: var(--bb-grey-800); }
+
+  .chart { border: 1px solid var(--bb-grey-200); border-radius: 14px; padding: 11px 14px; }
+  .crow { display: grid; grid-template-columns: 58px 1fr 52px; gap: 9px; align-items: center; margin-bottom: 6px; }
+  .crow.wide { grid-template-columns: 72px 1fr 96px; }
+  .crow:last-child { margin-bottom: 0; }
+  .crow .cl { font-family: var(--font-heading); font-weight: 600; font-size: 10.5px; color: var(--bb-grey-700); }
+  .crow .cl small { display: block; font-family: var(--font-body); font-weight: 300; font-size: 8.5px; color: var(--bb-grey-400); }
+  .ctrack { position: relative; height: 22px; background: var(--bb-grey-100); border-radius: 5px; overflow: hidden; }
+  .cbar { position: absolute; top: 0; bottom: 0; left: 0; border-radius: 5px; min-width: 3px; }
+  .cbar.lg { background: var(--bb-gradient-brand); }
+  .cbar.hv { background: var(--bb-blue-700); }
+  .cval { font-family: var(--font-mono); font-size: 9.5px; font-weight: 500; color: var(--bb-grey-700); text-align: right; }
+  .leg { display: flex; gap: 16px; margin-top: 12px; font-size: 9.5px; color: var(--bb-grey-500); }
+  .leg span { display: inline-flex; align-items: center; gap: 6px; }
+  .leg i { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+
+  .notes { margin-top: 9px; border-top: 1px solid var(--bb-grey-200); padding-top: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 5px 20px; }
+  .notes p { margin: 0; font-size: 9.5px; color: var(--bb-grey-500); line-height: 1.4; }
+  .notes b { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); }
+  .foot { margin-top: 8px; display: flex; justify-content: space-between; font-size: 9px; color: var(--bb-grey-400); font-family: var(--font-heading); letter-spacing: .03em; }
+
+  .sheet.land { width: 297mm; }
+  .mt { width: 100%; border-collapse: collapse; font-size: 7.6px; margin-top: 4px; }
+  .mt th, .mt td { padding: 2.3px 5px; text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; border-bottom: 1px solid var(--bb-grey-100); }
+  .mt thead .u { font-family: var(--font-heading); font-weight: 600; font-size: 8.5px; text-align: center; color: var(--bb-pink); background: var(--bb-pink-50); border-bottom: 0; padding: 3px 5px; }
+  .mt thead .u.hv { color: var(--bb-blue-700); background: rgba(150,179,210,.18); }
+  .mt thead .h { font-family: var(--font-heading); font-weight: 600; font-size: 7px; letter-spacing: .02em; text-transform: uppercase; color: var(--bb-grey-500); text-align: right; border-bottom: 1.5px solid var(--bb-grey-300); padding-top: 2px; padding-bottom: 3px; }
+  .mt .mth { text-align: left; font-family: var(--font-heading); font-weight: 500; font-size: 8px; color: var(--bb-grey-700); }
+  .mt td.g, .mt th.g { border-left: 1px solid var(--bb-grey-200); }
+  .mt .neg { color: var(--bb-grey-400); }
+  .mt tr.tot td { font-family: var(--font-heading); font-weight: 700; color: #fff; background: var(--bb-grey-800); border-bottom: 0; }
+  .mt tr.tot td.mth { color: #fff; }
+  @page { size: A4 portrait; margin: 0; }
+  @page land { size: A4 landscape; margin: 0; }
+  @media print {
+    html, body { background: #fff; }
+    .sheet { width: auto; min-height: 0; margin: 0; padding: 10mm; box-shadow: none; }
+    .sheet.land { page: land; }
+    .sheet + .sheet { break-before: page; margin-top: 0; }
+  }
+</style>
+</helmet>
+<div class="sheet" data-screen-label="Investment summary">
+  <div class="head">
+    <div>
+      <p class="ey">Annual summary &middot; FY__ full year</p>
+      <h1>Property Investment Performance</h1>
+      <p class="sub">Per-property income, cost and net return across the portfolio &middot; source: Summary Report vFY__</p>
+    </div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="k">Total income</div><div class="v num">&mdash;</div><div class="m">&mdash;</div></div>
+    <div class="kpi"><div class="k">Total expense</div><div class="v num">&mdash;</div><div class="m">incl. &#8369;84,000 Uplisting fee</div></div>
+    <div class="kpi profit"><div class="k">Net profit</div><div class="v num">&mdash;</div><div class="m">after &#8369;84,000 Uplisting fee</div></div>
+    <div class="kpi"><div class="k">Portfolio margin</div><div class="v num">&mdash;</div><div class="m">Net profit &divide; income</div></div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <h2 class="sec">Performance by property</h2>
+      <table class="t">
+        <thead><tr><th>Property</th><th>Income</th><th>Expense</th><th>Profit</th><th>Margin</th></tr></thead>
+        <tbody>
+          <tr class="grp"><td colspan="5">La Grande &middot; short-stay (Uplisting)</td></tr>
+          <tr><td>U405 &middot; JS</td><td class="num"></td><td class="num"></td><td class="num pos"></td><td class="num"></td></tr>
+          <tr><td>U505 &middot; AG</td><td class="num"></td><td class="num"></td><td class="num pos"></td><td class="num"></td></tr>
+          <tr><td>U507 &middot; TF</td><td class="num"></td><td class="num"></td><td class="num pos"></td><td class="num"></td></tr>
+          <tr><td>U514 &middot; TF/AG</td><td class="num"></td><td class="num"></td><td class="num pos"></td><td class="num"></td></tr>
+          <tr><td>U516 &middot; JS</td><td class="num"></td><td class="num"></td><td class="num pos"></td><td class="num"></td></tr>
+          <tr><td>Uplisting fee &middot; 12 &times; &#8369;7,000</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+          <tr class="sub"><td>La Grande net subtotal</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+          <tr class="grp"><td colspan="5">Hensonville</td></tr>
+          <tr><td>U305 &middot; AG</td><td class="num"></td><td class="num"></td><td class="num pos"></td><td class="num"></td></tr>
+          <tr><td>U307 &middot; TF</td><td class="num"></td><td class="num"></td><td class="num pos"></td><td class="num"></td></tr>
+          <tr><td>U308 &middot; AG/TF</td><td class="num"></td><td class="num"></td><td class="num pos"></td><td class="num"></td></tr>
+          <tr class="sub"><td>Hensonville subtotal</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+          <tr class="tot"><td>Portfolio total</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <h2 class="sec">Net profit by property</h2>
+      <div class="chart">
+        <div class="crow"><div class="cl">U516<small>La Grande</small></div><div class="ctrack"><div class="cbar lg" style="width:0%;"></div></div><div class="cval"></div></div>
+        <div class="crow"><div class="cl">U405<small>La Grande</small></div><div class="ctrack"><div class="cbar lg" style="width:0%;"></div></div><div class="cval"></div></div>
+        <div class="crow"><div class="cl">U514<small>La Grande</small></div><div class="ctrack"><div class="cbar lg" style="width:0%;"></div></div><div class="cval"></div></div>
+        <div class="crow"><div class="cl">U507<small>La Grande</small></div><div class="ctrack"><div class="cbar lg" style="width:0%;"></div></div><div class="cval"></div></div>
+        <div class="crow"><div class="cl">U307<small>Hensonville</small></div><div class="ctrack"><div class="cbar hv" style="width:0%;"></div></div><div class="cval"></div></div>
+        <div class="crow"><div class="cl">U505<small>La Grande</small></div><div class="ctrack"><div class="cbar lg" style="width:0%;"></div></div><div class="cval"></div></div>
+        <div class="crow"><div class="cl">U305<small>Hensonville</small></div><div class="ctrack"><div class="cbar hv" style="width:0%;"></div></div><div class="cval"></div></div>
+        <div class="crow"><div class="cl">U308<small>Hensonville</small></div><div class="ctrack"><div class="cbar hv" style="width:0%;"></div></div><div class="cval"></div></div>
+        <div class="leg"><span><i style="background:var(--bb-pink);"></i> La Grande</span><span><i style="background:var(--bb-blue-700);"></i> Hensonville</span></div>
+      </div>
+
+      <h2 class="sec" style="margin-top:10px;">Portfolio split</h2>
+      <div class="chart">
+        <div class="crow wide"><div class="cl">La Grande</div><div class="ctrack"><div class="cbar lg" style="width:0%;"></div></div><div class="cval"></div></div>
+        <div class="crow wide"><div class="cl">Hensonville</div><div class="ctrack"><div class="cbar hv" style="width:0%;"></div></div><div class="cval"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="sec" style="margin-top:11px;">Estimated asset value &mdash; by portfolio &amp; owner</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;">
+    <div>
+      <table class="t">
+        <thead><tr><th>Portfolio</th><th>Units</th><th>Value / unit</th><th>Est. value</th></tr></thead>
+        <tbody>
+          <tr><td>La Grande &middot; studio</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+          <tr><td>Hensonville</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+          <tr class="tot"><td>Portfolio value</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:10px;color:var(--bb-grey-500);margin:7px 0 0;">Implied yield <b style="font-family:var(--font-heading);font-weight:600;color:var(--bb-grey-700);">&mdash;</b> gross &middot; <b style="font-family:var(--font-heading);font-weight:600;color:var(--bb-grey-700);">&mdash;</b> net (on &#8369;____ value)</p>
+    </div>
+    <div>
+      <table class="t">
+        <thead><tr><th>Owner</th><th style="text-align:left;">Holdings</th><th>Est. value</th><th>Share</th></tr></thead>
+        <tbody>
+          <tr><td>JS</td><td style="text-align:left;font-family:var(--font-body);font-weight:300;font-size:9.5px;color:var(--bb-grey-500);">U405, U516</td><td class="num"></td><td class="num"></td></tr>
+          <tr><td>TF</td><td style="text-align:left;font-family:var(--font-body);font-weight:300;font-size:9.5px;color:var(--bb-grey-500);">U507, U307, &frac12; U514, &frac12; U308</td><td class="num"></td><td class="num"></td></tr>
+          <tr><td>AG</td><td style="text-align:left;font-family:var(--font-body);font-weight:300;font-size:9.5px;color:var(--bb-grey-500);">U505, U305, &frac12; U514, &frac12; U308</td><td class="num"></td><td class="num"></td></tr>
+          <tr class="tot"><td>Total</td><td></td><td class="num"></td><td class="num"></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:10px;color:var(--bb-grey-500);margin:7px 0 0;">Shared units (TF/AG) split 50/50 between owners.</p>
+    </div>
+  </div>
+
+  <h2 class="sec" style="margin-top:11px;">Owner profit distribution &mdash; FY__</h2>
+  <table class="t">
+    <thead><tr><th>Owner</th><th>La Grande</th><th>Hensonville</th><th>Total profit</th><th>Share</th></tr></thead>
+    <tbody>
+      <tr><td>JS</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+      <tr><td>TF</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+      <tr><td>AG</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+      <tr class="tot"><td>Total</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:10px;color:var(--bb-grey-500);margin:7px 0 0;">La Grande net (after Uplisting fee) shared by ownership &mdash; JS 40% &middot; TF 30% &middot; AG 30%. Hensonville profit shared equally between TF &amp; AG.</p>
+
+  <div class="notes">
+    <p><b>Figures.</b> FY__ full year (Jul 20__ &ndash; Jun 20__) as reported in Summary Report vFY__. Profit = income &minus; expense.</p>
+    <p><b>Uplisting fee.</b> La Grande carries a &#8369;7,000/month (&#8369;84,000/yr) Uplisting fee, deducted before net profit. Per-unit bars show profit before this portfolio-level fee.</p>
+    <p><b>Valuation.</b> Asset values are expected sale figures (~8% below current asking); La Grande from studio comparables at La Grande Residence, Hensonville held at the low end of range.</p>
+    <p><b>Excluded.</b> Staff housing (Arvin; Mica &amp; Rica) and storage are internal cost centres, not income-producing investments.</p>
+  </div>
+  <div class="foot"></div>
+</div>
+
+<div class="sheet land" data-screen-label="Monthly detail">
+  <div class="head">
+    <div>
+      <p class="ey">Monthly detail &middot; FY__ full year</p>
+      <h1>Month-by-month by unit</h1>
+      <p class="sub">Income, expense and profit/loss per unit, month by month &middot; source: Summary Report vFY__</p>
+    </div>
+  </div>
+    <h2 class="sec" style="margin-top:12px;">La Grande &mdash; short-stay (Uplisting)</h2>
+    <table class="mt">
+      <thead>
+        <tr><th class="mth" rowspan="2">Month</th><th class="u g" colspan="3">U405 · JS</th><th class="u g" colspan="3">U505 · AG</th><th class="u g" colspan="3">U507 · TF</th><th class="u g" colspan="3">U514 · TF/AG</th><th class="u g" colspan="3">U516 · JS</th></tr>
+        <tr><th class="h g">Inc</th><th class="h">Exp</th><th class="h">P&amp;L</th><th class="h g">Inc</th><th class="h">Exp</th><th class="h">P&amp;L</th><th class="h g">Inc</th><th class="h">Exp</th><th class="h">P&amp;L</th><th class="h g">Inc</th><th class="h">Exp</th><th class="h">P&amp;L</th><th class="h g">Inc</th><th class="h">Exp</th><th class="h">P&amp;L</th></tr>
+      </thead>
+      <tbody>
+      <tr><td class="mth">Jul</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Aug</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Sep</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Oct</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Nov</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Dec</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Jan</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Feb</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Mar</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Apr</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">May</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Jun</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr class="tot"><td class="mth">Total</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+    <h2 class="sec" style="margin-top:12px;">Hensonville</h2>
+    <table class="mt">
+      <thead>
+        <tr><th class="mth" rowspan="2">Month</th><th class="u hv g" colspan="3">U305 · AG</th><th class="u hv g" colspan="3">U307 · TF</th><th class="u hv g" colspan="3">U308 · AG/TF</th></tr>
+        <tr><th class="h g">Inc</th><th class="h">Exp</th><th class="h">P&amp;L</th><th class="h g">Inc</th><th class="h">Exp</th><th class="h">P&amp;L</th><th class="h g">Inc</th><th class="h">Exp</th><th class="h">P&amp;L</th></tr>
+      </thead>
+      <tbody>
+      <tr><td class="mth">Jul</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Aug</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Sep</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Oct</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Nov</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Dec</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Jan</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Feb</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Mar</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Apr</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">May</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr><td class="mth">Jun</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      <tr class="tot"><td class="mth">Total</td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td><td class="g"></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  <p style="font-size:9px;color:var(--bb-grey-500);margin:9px 0 0;">Profit/loss = income &minus; expense. Totals sum each column across the 12 months (Jul &ndash; Jun). La Grande figures are before the &#8369;84,000 annual Uplisting fee.</p>
+</div>
+
+<div class="sheet" data-screen-label="JS owner report">
+  <div class="head">
+    <div>
+      <p class="ey">JS owner statement &middot; FY__ full year</p>
+      <h1>JS &mdash; Owner Report</h1>
+      <p class="sub">Properties owned by JS, profit entitlement and asset value &middot; source: Summary Report vFY__</p>
+    </div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="k">JS asset value</div><div class="v num">&mdash;</div><div class="m">2 units &middot; expected sale basis</div></div>
+    <div class="kpi"><div class="k">La Grande pool share</div><div class="v num">&mdash;</div><div class="m">of pooled net profit</div></div>
+    <div class="kpi"><div class="k">Units owned</div><div class="v num">&mdash;</div><div class="m">U405 &middot; U516</div></div>
+    <div class="kpi profit"><div class="k">JS profit entitlement</div><div class="v num">&mdash;</div><div class="m">FY__ &middot; La Grande pool</div></div>
+  </div>
+
+  <h2 class="sec">Properties owned by JS</h2>
+  <table class="t">
+    <thead><tr><th>Property</th><th style="text-align:left;">Portfolio</th><th>JS share</th><th>Unit profit</th><th>JS value</th></tr></thead>
+    <tbody>
+      <tr><td>U405 &middot; JS</td><td style="text-align:left;color:var(--bb-grey-500);">La Grande</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+      <tr><td>U516 &middot; JS</td><td style="text-align:left;color:var(--bb-grey-500);">La Grande</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+      <tr class="tot"><td>JS units combined</td><td></td><td></td><td class="num"></td><td class="num"></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:10px;color:var(--bb-grey-500);margin:7px 0 0;">Unit profit is the full-unit figure. La Grande results are pooled and JS is paid 40% of the pool (below), not the sum of these units. JS holds no Hensonville interest.</p>
+
+  <div class="grid2" style="margin-top:11px;">
+    <div>
+      <h2 class="sec">JS profit entitlement &mdash; FY__</h2>
+      <table class="t">
+        <tbody>
+          <tr><td>La Grande pooled income</td><td class="num"></td></tr>
+          <tr><td>less operating expenses</td><td class="num"></td></tr>
+          <tr><td>less Uplisting fee</td><td class="num"></td></tr>
+          <tr class="sub"><td>La Grande net profit</td><td class="num"></td></tr>
+          <tr class="tot"><td>JS share @ 40%</td><td class="num"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h2 class="sec">JS asset value</h2>
+      <table class="t">
+        <thead><tr><th>Unit</th><th style="text-align:left;">Type</th><th>Est. value</th></tr></thead>
+        <tbody>
+          <tr><td>U405 &middot; JS</td><td style="text-align:left;color:var(--bb-grey-500);">Studio</td><td class="num"></td></tr>
+          <tr><td>U516 &middot; JS</td><td style="text-align:left;color:var(--bb-grey-500);">Studio</td><td class="num"></td></tr>
+          <tr class="tot"><td>Total</td><td></td><td class="num"></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:10px;color:var(--bb-grey-500);margin:7px 0 0;">Expected sale basis (~8% below current asking).</p>
+    </div>
+  </div>
+
+  <div class="notes">
+    <p><b>Distribution rule.</b> La Grande owners pool income and expenses; profit is shared JS 40% &middot; TF 30% &middot; AG 30%.</p>
+    <p><b>Figures.</b> FY__ full year as reported in Summary Report vFY__; asset values on expected sale basis (~8% below asking).</p>
+  </div>
+  <div class="foot"></div>
+</div>
+
+<div class="sheet" data-screen-label="AG owner report">
+  <div class="head">
+    <div>
+      <p class="ey">AG owner statement &middot; FY__ full year</p>
+      <h1>AG &mdash; Owner Report</h1>
+      <p class="sub">Properties owned by AG, profit entitlement and asset value &middot; source: Summary Report vFY__</p>
+    </div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="k">AG asset value</div><div class="v num">&mdash;</div><div class="m">4 units &middot; 2 shared 50%</div></div>
+    <div class="kpi"><div class="k">La Grande pool share</div><div class="v num">&mdash;</div><div class="m">of pooled net profit</div></div>
+    <div class="kpi"><div class="k">Hensonville share</div><div class="v num">&mdash;</div><div class="m">shared with TF</div></div>
+    <div class="kpi profit"><div class="k">AG profit entitlement</div><div class="v num">&mdash;</div><div class="m">FY__ &middot; both portfolios</div></div>
+  </div>
+
+  <h2 class="sec">Properties owned by AG</h2>
+  <table class="t">
+    <thead><tr><th>Property</th><th style="text-align:left;">Portfolio</th><th>AG share</th><th>Unit profit</th><th>AG value</th></tr></thead>
+    <tbody>
+      <tr><td>U505 &middot; AG</td><td style="text-align:left;color:var(--bb-grey-500);">La Grande</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+      <tr><td>U514 &middot; TF/AG</td><td style="text-align:left;color:var(--bb-grey-500);">La Grande</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+      <tr><td>U305 &middot; AG</td><td style="text-align:left;color:var(--bb-grey-500);">Hensonville</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+      <tr><td>U308 &middot; AG/TF</td><td style="text-align:left;color:var(--bb-grey-500);">Hensonville</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+      <tr class="tot"><td>AG asset value</td><td></td><td></td><td></td><td class="num"></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:10px;color:var(--bb-grey-500);margin:7px 0 0;">Unit profit is the full-unit figure. La Grande results are pooled and AG is paid 30% of the pool (below), not per unit; &ldquo;AG value&rdquo; reflects AG&rsquo;s ownership share.</p>
+
+  <div class="grid2" style="margin-top:11px;">
+    <div>
+      <h2 class="sec">AG profit entitlement &mdash; FY__</h2>
+      <table class="t">
+        <tbody>
+          <tr><td>La Grande net profit (pooled)</td><td class="num"></td></tr>
+          <tr class="sub"><td>AG share @ 30%</td><td class="num"></td></tr>
+          <tr><td>Hensonville profit</td><td class="num"></td></tr>
+          <tr class="sub"><td>AG share @ 50%</td><td class="num"></td></tr>
+          <tr class="tot"><td>AG total entitlement</td><td class="num"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h2 class="sec">Entitlement by portfolio</h2>
+      <div class="chart">
+        <div class="crow wide"><div class="cl">La Grande</div><div class="ctrack"><div class="cbar lg" style="width:0%;"></div></div><div class="cval"></div></div>
+        <div class="crow wide"><div class="cl">Hensonville</div><div class="ctrack"><div class="cbar hv" style="width:0%;"></div></div><div class="cval"></div></div>
+      </div>
+      <p style="font-size:10px;color:var(--bb-grey-500);margin:7px 0 0;">__% of AG&rsquo;s return comes from La Grande, __% from Hensonville.</p>
+    </div>
+  </div>
+
+  <div class="notes">
+    <p><b>Distribution rule.</b> La Grande profit shared JS 40% &middot; TF 30% &middot; AG 30%; Hensonville shared TF &amp; AG 50/50.</p>
+    <p><b>Figures.</b> FY__ full year as reported in Summary Report vFY__; asset values on expected sale basis (~8% below asking).</p>
+  </div>
+  <div class="foot"></div>
+</div>
+<div class="sheet" data-screen-label="TF owner report">
+  <div class="head">
+    <div>
+      <p class="ey">TF owner statement &middot; FY__ full year</p>
+      <h1>TF &mdash; Owner Report</h1>
+      <p class="sub">Properties owned by TF, profit entitlement and asset value &middot; source: Summary Report vFY__</p>
+    </div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="k">TF asset value</div><div class="v num">&mdash;</div><div class="m">4 units &middot; 2 shared 50%</div></div>
+    <div class="kpi"><div class="k">La Grande pool share</div><div class="v num">&mdash;</div><div class="m">of pooled net profit</div></div>
+    <div class="kpi"><div class="k">Hensonville share</div><div class="v num">&mdash;</div><div class="m">shared with AG</div></div>
+    <div class="kpi profit"><div class="k">TF profit entitlement</div><div class="v num">&mdash;</div><div class="m">FY__ &middot; both portfolios</div></div>
+  </div>
+
+  <h2 class="sec">Properties owned by TF</h2>
+  <table class="t">
+    <thead><tr><th>Property</th><th style="text-align:left;">Portfolio</th><th>TF share</th><th>Unit profit</th><th>TF value</th></tr></thead>
+    <tbody>
+      <tr><td>U507 &middot; TF</td><td style="text-align:left;color:var(--bb-grey-500);">La Grande</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+      <tr><td>U514 &middot; TF/AG</td><td style="text-align:left;color:var(--bb-grey-500);">La Grande</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+      <tr><td>U307 &middot; TF</td><td style="text-align:left;color:var(--bb-grey-500);">Hensonville</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+      <tr><td>U308 &middot; AG/TF</td><td style="text-align:left;color:var(--bb-grey-500);">Hensonville</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+      <tr class="tot"><td>TF asset value</td><td></td><td></td><td></td><td class="num"></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:10px;color:var(--bb-grey-500);margin:7px 0 0;">Unit profit is the full-unit figure. La Grande results are pooled and TF is paid 30% of the pool (below), not per unit; &ldquo;TF value&rdquo; reflects TF&rsquo;s ownership share.</p>
+
+  <div class="grid2" style="margin-top:11px;">
+    <div>
+      <h2 class="sec">TF profit entitlement &mdash; FY__</h2>
+      <table class="t">
+        <tbody>
+          <tr><td>La Grande net profit (pooled)</td><td class="num"></td></tr>
+          <tr class="sub"><td>TF share @ 30%</td><td class="num"></td></tr>
+          <tr><td>Hensonville profit</td><td class="num"></td></tr>
+          <tr class="sub"><td>TF share @ 50%</td><td class="num"></td></tr>
+          <tr class="tot"><td>TF total entitlement</td><td class="num"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h2 class="sec">Entitlement by portfolio</h2>
+      <div class="chart">
+        <div class="crow wide"><div class="cl">La Grande</div><div class="ctrack"><div class="cbar lg" style="width:0%;"></div></div><div class="cval"></div></div>
+        <div class="crow wide"><div class="cl">Hensonville</div><div class="ctrack"><div class="cbar hv" style="width:0%;"></div></div><div class="cval"></div></div>
+      </div>
+      <p style="font-size:10px;color:var(--bb-grey-500);margin:7px 0 0;">__% of TF&rsquo;s return comes from La Grande, __% from Hensonville.</p>
+    </div>
+  </div>
+
+  <div class="notes">
+    <p><b>Distribution rule.</b> La Grande profit shared JS 40% &middot; TF 30% &middot; AG 30%; Hensonville shared TF &amp; AG 50/50.</p>
+    <p><b>Figures.</b> FY__ full year as reported in Summary Report vFY__; asset values on expected sale basis (~8% below asking).</p>
+  </div>
+  <div class="foot"></div>
+</div></x-dc>
+</body>
+</html>

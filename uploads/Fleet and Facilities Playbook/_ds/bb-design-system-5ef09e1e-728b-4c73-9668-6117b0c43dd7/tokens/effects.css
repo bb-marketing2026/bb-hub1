@@ -1,0 +1,39 @@
+/* ===========================================================================
+   Brainbox — Effects: radii, shadows, borders, motion
+   Soft, friendly, rounded — echoing the elephant linework and the pill
+   shapes of the "Always Be Kind" mark. Shadows are low + diffuse, never harsh.
+   =========================================================================== */
+
+:root {
+  /* ---- Corner radii (generous & rounded — the brand is friendly) -------- */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   18px;
+  --radius-xl:   28px;
+  --radius-2xl:  40px;
+  --radius-pill: 999px;
+  --radius-card: var(--radius-lg);
+
+  /* ---- Borders ---------------------------------------------------------- */
+  --border-width:   1px;
+  --border-width-2: 2px;
+
+  /* ---- Shadows — soft, pink-tinted ambient ------------------------------ */
+  --shadow-xs:  0 1px 2px rgba(43,43,43,0.06);
+  --shadow-sm:  0 2px 6px rgba(43,43,43,0.08);
+  --shadow-md:  0 6px 18px rgba(43,43,43,0.10);
+  --shadow-lg:  0 14px 38px rgba(43,43,43,0.12);
+  --shadow-xl:  0 28px 64px rgba(43,43,43,0.16);
+  /* Brand glow — for hero/primary moments */
+  --shadow-brand: 0 12px 32px rgba(255,0,128,0.28);
+  --shadow-focus: 0 0 0 3px rgba(255,0,128,0.30);
+
+  /* ---- Motion — quick, gentle, no bounce -------------------------------- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);   /* @kind other */
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);  /* @kind other */
+  --ease-in:       cubic-bezier(0.4, 0, 1, 1);     /* @kind other */
+  --duration-fast:   120ms;                        /* @kind other */
+  --duration-normal: 200ms;                        /* @kind other */
+  --duration-slow:   360ms;                        /* @kind other */
+}

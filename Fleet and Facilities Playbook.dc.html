@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #fff; }
+    .doc { box-sizing: border-box; max-width: 210mm; margin: 0 auto; background: inherit; padding: 40px clamp(20px,5vw,16mm) 80px; font-family: var(--font-body); font-weight: 300; color: var(--bb-grey-800); font-size: 10pt; line-height: 1.5; }
+    .doc h1,.doc h2,.doc h3,.doc h4 { font-family: var(--font-heading); color: var(--bb-grey-700); margin: 0; }
+    .doc h1 { font-weight: 600; }
+    .doc h2 { font-weight: 600; font-size: 16pt; color: var(--bb-pink); letter-spacing: -0.01em; margin: 24px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--bb-pink); text-wrap: balance; }
+    .doc h3 { font-weight: 600; font-size: 11.5pt; color: var(--bb-grey-700); margin: 15px 0 5px; text-wrap: balance; }
+    .doc h4 { font-weight: 600; font-size: 9.5pt; color: var(--bb-pink-700); margin: 12px 0 3px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .doc p { margin: 0 0 9px; text-wrap: pretty; }
+    .doc ul,.doc ol { margin: 0 0 9px; padding-left: 17px; }
+    .doc li { margin: 0 0 4px; text-wrap: pretty; } .doc li::marker { color: var(--bb-pink-400); }
+    .doc strong { font-weight: 600; color: var(--bb-grey-800); }
+    .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; }
+    .cover { background: var(--bb-gradient-brand); border-radius: 18px; padding: 44px 38px; color: #fff; margin-bottom: 8px; }
+    .cover .eyebrow { color: rgba(255,255,255,0.92); }
+    .cover h1 { color: #fff; font-size: 32pt; line-height: 1.04; margin: 14px 0 12px; letter-spacing: -0.015em; }
+    .cover .lede { color: rgba(255,255,255,0.95); font-size: 12pt; max-width: 94%; margin: 0; font-weight: 300; line-height: 1.5; }
+    .cover-meta { display: flex; gap: 26px; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.35); flex-wrap: wrap; }
+    .cover-meta div { font-size: 8.5pt; } .cover-meta span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; opacity: 0.8; margin-bottom: 2px; }
+    .wordmark { font-family: var(--font-logo); font-size: 16pt; letter-spacing: 0.14em; color: #fff; }
+    .doc table.t { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 9.4pt; }
+    .doc table.t th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 7px 10px; border-bottom: 1.5px solid var(--bb-pink-200); font-size: 8.7pt; }
+    .doc table.t td { padding: 7px 10px; border-bottom: 1px solid var(--bb-grey-200); vertical-align: top; }
+    .doc table.t tr:nth-child(even) td { background: var(--bb-grey-50); }
+    .doc table.t .role { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); white-space: nowrap; }
+    .doc table.t .maj { font-family: var(--font-mono); color: var(--bb-pink-700); font-weight: 600; font-size: 8.5pt; }
+    .doc table.t .min { font-family: var(--font-mono); color: var(--bb-grey-500); font-size: 8.5pt; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .note { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); border-radius: 8px; padding: 10px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 11px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag .lbl,.note .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .section-intro { color: var(--bb-grey-500); font-size: 10.5pt; margin-bottom: 12px; }
+    .part-kicker { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 2px; }
+    .rolecard { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 15px; margin-bottom: 11px; }
+    .rolecard h3 { margin: 0 0 3px; color: var(--bb-pink); font-size: 11pt; }
+    .rolecard .from { font-family: var(--font-mono); font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bb-grey-500); margin-bottom: 6px; }
+    .rolecard p { margin: 0; font-size: 9.4pt; }
+    .numlist { counter-reset: n; padding: 0; margin: 6px 0 10px; list-style: none; }
+    .numlist > li { position: relative; padding-left: 34px; margin-bottom: 10px; }
+    .numlist > li::before { counter-increment: n; content: counter(n); position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--bb-pink); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 10pt; display: flex; align-items: center; justify-content: center; }
+    .numlist > li strong { color: var(--bb-pink-700); }
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin: 6px 0 14px; }
+    .stat { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 14px; }
+    .stat .v { font-family: var(--font-heading); font-weight: 600; font-size: 17pt; color: var(--bb-pink); line-height: 1; }
+    .stat .l { font-size: 8pt; color: var(--bb-grey-500); margin-top: 6px; line-height: 1.3; }
+    .layer { display: flex; align-items: stretch; gap: 12px; margin-bottom: 9px; }
+    .layer .ln { flex: none; width: 30px; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 600; font-size: 14pt; color: #fff; background: var(--bb-pink); border-radius: 10px; }
+    .layer .lb { flex: 1; border: 1px solid var(--bb-grey-200); border-left: 3px solid var(--bb-pink-300); border-radius: 10px; padding: 9px 14px; }
+    .layer .lb h4 { margin: 0 0 2px; color: var(--bb-grey-700); } .layer .lb p { margin: 0; font-size: 9.2pt; }
+    .tree { margin: 14px 0; }
+    .tree .root { background: var(--bb-gradient-brand); color: #fff; border-radius: 12px; padding: 12px 16px; text-align: center; font-family: var(--font-heading); font-weight: 600; font-size: 12pt; }
+    .tree .branchrow { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 14px; align-items: start; }
+    .tree .branch { border: 1px solid var(--bb-pink-200); border-radius: 12px; padding: 12px; }
+    .tree .branch > .bh { background: var(--bb-pink-50); border-radius: 8px; padding: 8px 12px; text-align: center; font-family: var(--font-heading); font-weight: 600; color: var(--bb-pink-700); font-size: 10.5pt; margin-bottom: 10px; }
+    .tree .leaves { display: flex; flex-direction: column; gap: 8px; }
+    .tree .leaf { border: 1px solid var(--bb-grey-200); border-radius: 8px; padding: 8px 12px; font-size: 9.3pt; }
+    .tree .leaf b { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); display: block; }
+    .tree .leaf span { color: var(--bb-grey-500); font-size: 8.3pt; }
+    .tree .leaf.live { border-color: var(--bb-pink-300); border-left: 3px solid var(--bb-pink); }
+    .relay { margin: 14px 0 10px; }
+    .relay-node { display: flex; align-items: center; gap: 13px; border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 11px 15px; background: #fff; }
+    .relay-node .rn { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--bb-pink); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 12pt; display: flex; align-items: center; justify-content: center; }
+    .relay-node .rt { flex: 1; } .relay-node .rt b { font-family: var(--font-heading); font-weight: 600; font-size: 11pt; color: var(--bb-grey-700); }
+    .relay-node .rt span { display: block; font-size: 8.6pt; color: var(--bb-grey-500); margin-top: 1px; }
+    .relay-node .own { flex: none; font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 999px; }
+    .relay-node.mk { border-left: 4px solid var(--bb-blue-300); } .relay-node.mk .own { background: var(--bb-blue-50); color: var(--bb-blue-700); }
+    .relay-node.rev { border-left: 4px solid var(--bb-pink); } .relay-node.rev .own { background: var(--bb-pink-50); color: var(--bb-pink-700); }
+    .handover { display: flex; align-items: center; gap: 9px; margin: 5px 0 5px 44px; }
+    .handover .ar { color: var(--bb-pink); font-size: 13pt; line-height: 1; }
+    .handover .hb { font-family: var(--font-mono); font-size: 7.4pt; letter-spacing: 0.04em; color: var(--bb-grey-500); background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-radius: 999px; padding: 3px 11px; }
+    .handover.seam { margin-left: 0; justify-content: center; }
+    .handover.seam .hb { background: var(--bb-gradient-brand); color: #fff; border: 0; font-weight: 600; font-size: 8.2pt; padding: 6px 16px; letter-spacing: 0.06em; }
+    .feedback { display: flex; align-items: center; gap: 9px; margin: 7px 0 2px; justify-content: center; }
+    .feedback .hb { font-family: var(--font-mono); font-size: 7.4pt; letter-spacing: 0.04em; color: var(--bb-blue-700); background: #fff; border: 1px dashed var(--bb-blue-300); border-radius: 999px; padding: 4px 13px; }
+    .feedback .ar { color: var(--bb-blue-300); font-size: 12pt; }
+    .iface { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0 12px; }
+    .iface .box { border: 1px solid var(--bb-grey-200); border-radius: 10px; padding: 10px 13px; }
+    .iface .box.give { border-left: 3px solid var(--bb-blue-300); } .iface .box.give h4 { color: var(--bb-blue-700); }
+    .iface .box.get { border-left: 3px solid var(--bb-pink); }
+    .iface .box p { font-size: 9pt; margin: 0; }
+    .ldiv { background: var(--bb-gradient-brand); color: #fff; border-radius: 16px; padding: 30px 32px; margin-bottom: 16px; }
+    .ldiv .lk { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8.5pt; opacity: 0.92; }
+    .ldiv h1 { color: #fff; font-size: 27pt; margin: 8px 0 10px; letter-spacing: -0.015em; line-height: 1.05; }
+    .ldiv .role { font-size: 11.5pt; color: rgba(255,255,255,0.96); max-width: 94%; line-height: 1.5; margin: 0; }
+    .ldiv .io { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.32); }
+    .ldiv .io span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 6.8pt; opacity: 0.82; margin-bottom: 3px; }
+    .ldiv .io div { font-size: 8.9pt; line-height: 1.4; }
+    .ldiv .own-pill { display: inline-block; margin-top: 14px; font-family: var(--font-mono); font-size: 7.2pt; text-transform: uppercase; letter-spacing: 0.09em; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); padding: 4px 12px; border-radius: 999px; }
+    .handoff { background: var(--bb-gradient-brand); color: #fff; border-radius: 12px; padding: 13px 17px; margin: 14px 0 4px; }
+    .handoff .k { display: block; font-family: var(--font-mono); font-size: 7pt; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.9; margin-bottom: 4px; }
+    .handoff .v { font-size: 10pt; line-height: 1.45; } .handoff strong { color: #fff; }
+    /* AI transformation sub-journey */
+    .aij { border: 1px solid var(--bb-blue-100); background: var(--bb-blue-50); border-radius: 12px; padding: 12px 15px; margin: 10px 0 12px; }
+    .aij .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; color: var(--bb-blue-700); display: block; margin-bottom: 8px; }
+    .aij .ft { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 8px; align-items: stretch; }
+    .aij .c { background: #fff; border: 1px solid var(--bb-grey-200); border-radius: 9px; padding: 8px 11px; font-size: 9pt; }
+    .aij .c.to { border-left: 3px solid var(--bb-blue-300); }
+    .aij .c b { display: block; font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bb-grey-500); margin-bottom: 3px; }
+    .aij .c.to b { color: var(--bb-blue-700); }
+    .aij .arw { display: flex; align-items: center; justify-content: center; color: var(--bb-pink); font-size: 15pt; }
+    .aij .tools { font-size: 8.4pt; color: var(--bb-grey-500); margin-top: 8px; }
+    .aij .tools strong { color: var(--bb-grey-700); }
+    .sheet { padding-top: 4px; }
+    .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
+    .sheet > h2:first-child,.sheet > .part-kicker:first-child { margin-top: 4px; }
+    .sheet-ftr { display: none; }
+    
+    .toc { margin: 10px 0 4px; }
+    .toc-row { display: flex; align-items: baseline; gap: 12px; padding: 7px 2px; border-bottom: 1px solid var(--bb-grey-200); }
+    .toc-row .n { font-family: var(--font-mono); font-size: 8pt; color: var(--bb-pink); width: 22px; flex: none; }
+    .toc-row .t { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 10.5pt; }
+
+    .cover-page { min-height: 900px; display: flex; flex-direction: column; }
+    .cover-page .cat { margin-bottom: auto; } .cover-page h1 { margin-top: 0; }
+    .cover-page .cover-meta { margin-top: auto; }
+    @media print { .cover-sheet .cover-page { min-height: 252mm; } .cover-sheet { break-after: page; } }
+
+    .cover-page { position: relative; }
+    .cover-elephant { position: absolute; top: 34px; right: 36px; height: 84px; width: auto; }
+
+    .cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 32%, var(--bb-pink) 118%) !important; }
+    .cover-grad .cat { color: #fff !important; }
+    .sub-note { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 7.5pt; color: rgba(255,255,255,0.85); margin-top: 10px; }
+
+    /* ===== Subdued (Boardroom) palette ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .doc h3 { color: var(--bb-grey-700) !important; }
+    .doc h4 { color: var(--bb-grey-500) !important; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root, .handoff { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj { color: var(--bb-grey-700) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; border-left-color: var(--bb-pink) !important; }
+    .flag .lbl { color: var(--bb-grey-500) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+    .stat .v { color: var(--bb-grey-800) !important; }
+    .rolecard h3 { color: var(--bb-grey-800) !important; }
+    .pill { border-color: var(--bb-grey-300) !important; }
+    .script { border-left-color: var(--bb-pink) !important; }
+    .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
+
+    @page { size: A4 portrait; margin: 10mm; }
+    @media print {
+      .sheet + .sheet { margin-top: 8mm !important; border-top: 0 !important; }
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
+      #dc-root, .sc-host { height: auto !important; }
+      .sheet { break-inside: avoid; display: block; box-sizing: border-box; margin-top: 0 !important; border-top: 0 !important; padding-top: 0 !important; }
+      .sheet:first-of-type { break-before: auto; }
+      .sheet > h2:first-child,.sheet > .cover:first-child,.sheet > .part-kicker:first-child,.sheet > .ldiv:first-child { margin-top: 0 !important; }
+      .sheet-ftr { display: none !important; justify-content: space-between; align-items: baseline; margin-top: auto; padding-top: 5mm; border-top: 0.5pt solid var(--bb-grey-200); font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bb-grey-400); }
+      .sheet-ftr .r { color: var(--bb-pink); }
+      h2,h3,h4 { break-after: avoid !important; }
+      h2 + *, h3 + *, h4 + * { break-before: avoid; }
+      .rolecard,.note,.flag,.stat,.stats,.layer,.grid3,.tree,.cover,tr,.relay-node,.handover,.feedback,.iface,.ldiv,.handoff,.aij { break-inside: avoid; }
+      table.t { break-inside: avoid; } table.t thead { display: table-header-group; }
+      p, li { orphans: 3; widows: 3; }
+    }
+
+    /* ===== Boardroom palette (subdued) ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .cover .wordmark { color: var(--bb-pink); }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .handoff { background: var(--bb-grey-800) !important; }
+    .handover.seam .hb { background: var(--bb-pink) !important; box-shadow: none !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+
+    .cover .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.22em; font-size: 7.5pt; color: rgba(255,255,255,0.72); margin-bottom: 20px; }
+    .cover .cat { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 10px; }
+    .cover h1 { margin-top: 0; }
+    /* cover-final-override */
+    .cover.cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 30%, var(--bb-pink) 120%) !important; }
+    .cover-page { min-height: 900px !important; display: flex !important; flex-direction: column !important; }
+    .cover-page .cat { margin-bottom: auto !important; }
+    .cover-page h1 { margin-top: 0 !important; }
+    .cover-page .cover-meta { margin-top: auto !important; }
+    /* table-font-override */
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, table.rep .tg, .doc table.form .target { font-family: var(--font-body) !important; }
+    /* role-body-override */
+    .doc table.t .role { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+    /* all-table-cells-body */
+    .doc table.t td, .doc table.t td .num, .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, .doc table.t .role, table.rep td, table.rep .tg, .doc table.form td, .doc table.form .target { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+
+    .form-field { border: 1px solid var(--bb-grey-300); border-radius: 6px; height: 22px; margin-bottom: 6px; }
+    .form-label { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.07em; color: var(--bb-grey-500); font-family: var(--font-mono); display: block; margin-bottom: 3px; }
+    .doc table.form { width: 100%; border-collapse: collapse; margin: 4px 0 10px; font-size: 8.5pt; }
+    .doc table.form th { background: var(--bb-grey-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 5px 7px; border: 1px solid var(--bb-grey-300); font-size: 7.5pt; }
+    .doc table.form td { padding: 5px 7px; border: 1px solid var(--bb-grey-300); height: 20px; vertical-align: top; }
+    .doc table.form .target { color: var(--bb-grey-500); font-size: 8pt; white-space: nowrap; }
+    .doc table.form .grp td { background: #eceef1; font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 7.6pt; text-transform: uppercase; letter-spacing: 0.05em; }
+    .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 7.5pt; color: rgba(255,255,255,0.9); }
+
+    .kv{display:grid;grid-template-columns:160px 1fr;gap:5px 16px;margin:8px 0 12px;font-size:9.6pt}
+    .kv dt{font-family:var(--font-mono);font-size:7.4pt;text-transform:uppercase;letter-spacing:0.06em;color:var(--bb-grey-500);padding-top:2px}
+    .kv dd{margin:0;color:var(--bb-grey-800)}
+    .checklist{columns:2;column-gap:22px;margin:6px 0 10px}
+    .checklist .grp{break-inside:avoid;margin-bottom:10px;-webkit-column-break-inside:avoid}
+    .checklist h4{margin:0 0 5px}
+    .checklist ul{list-style:none;padding:0;margin:0}
+    .checklist li{position:relative;padding-left:19px;margin-bottom:4px;font-size:9.4pt;color:var(--bb-grey-700)}
+    .checklist li::before{content:"";position:absolute;left:0;top:2px;width:10px;height:10px;border:1.5px solid var(--bb-grey-400);border-radius:3px}
+    .ladder{display:flex;flex-direction:column;gap:7px;margin:8px 0 12px}
+    .rung{border:1px solid var(--bb-grey-200);border-left:3px solid var(--bb-grey-300);border-radius:9px;padding:9px 13px}
+    .rung.cur{border-left-color:var(--bb-pink);background:var(--bb-grey-50)}
+    .rung .lv{font-family:var(--font-heading);font-weight:600;color:var(--bb-grey-800);font-size:9.8pt}
+    .rung .lv .n{display:inline-flex;width:18px;height:18px;align-items:center;justify-content:center;background:var(--bb-grey-700);color:#fff;border-radius:50%;font-size:9pt;margin-right:7px;vertical-align:middle}
+    .rung.cur .lv .n{background:var(--bb-pink)}
+    .rung .cur-tag{float:right;font-family:var(--font-mono);font-size:6.6pt;text-transform:uppercase;letter-spacing:0.08em;color:var(--bb-pink);border:1px solid var(--bb-pink-200);border-radius:999px;padding:2px 7px}
+    .rung p{margin:3px 0 0;font-size:9.4pt;color:var(--bb-grey-500)}
+    .monthgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:8px 0 12px}
+    .mcell{border:1px solid var(--bb-grey-200);border-radius:9px;padding:8px 11px}
+    .mcell .mo{font-family:var(--font-mono);font-size:7.4pt;letter-spacing:0.1em;text-transform:uppercase;color:var(--bb-pink);font-weight:600}
+    .mcell .it{font-size:9.4pt;color:var(--bb-grey-700);margin-top:3px;line-height:1.4}
+    .maymay{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 12px}
+    .maymay .box{border:1px solid var(--bb-grey-200);border-radius:10px;padding:10px 13px}
+    .maymay .box.may{border-left:3px solid var(--bb-pink)}
+    .maymay .box.mayn{border-left:3px solid var(--bb-grey-400)}
+    .maymay h4{margin:0 0 5px}
+    .maymay ul{margin:0;padding-left:15px;font-size:9.4pt;color:var(--bb-grey-700)}.maymay li{margin-bottom:3px}
+    .stepflow{display:flex;gap:8px;margin:8px 0 12px}
+    .stepflow .st{flex:1;border:1px solid var(--bb-grey-200);border-top:3px solid var(--bb-pink);border-radius:9px;padding:9px 11px}
+    .stepflow .st .sn{font-family:var(--font-mono);font-size:7pt;color:var(--bb-pink);font-weight:600}
+    .stepflow .st b{display:block;font-family:var(--font-heading);font-size:9pt;color:var(--bb-grey-800);margin:2px 0 3px}
+    .stepflow .st p{margin:0;font-size:9pt;color:var(--bb-grey-500)}
+    .daytime{display:grid;grid-template-columns:88px 1fr;gap:0;margin:8px 0 12px}
+    .daytime .tm{font-family:var(--font-mono);font-size:9pt;color:var(--bb-pink);font-weight:600;padding:8px 0;border-top:1px solid var(--bb-grey-200)}
+    .daytime .ev{padding:8px 0 8px 12px;border-top:1px solid var(--bb-grey-200)}
+    .daytime .ev b{font-family:var(--font-heading);font-weight:600;font-size:9.2pt;color:var(--bb-grey-800);display:block;margin-bottom:2px}
+    .daytime .ev p{margin:0;font-size:9.4pt;color:var(--bb-grey-500)}
+
+    .doc table.t .role{font-family:var(--font-body);font-weight:300;color:var(--bb-grey-800);}
+  </style>
+</helmet>
+
+<main class="doc">
+
+<section class="sheet cover-sheet"><div class="cover cover-page cover-grad"><img class="cover-elephant" src="assets/brainbox-elephant-white.png" alt=""><div class="conf">Strictly private &amp; confidential</div><div class="cat">Fleet &amp; Facilities Playbook</div><h1>How the Facilities department runs</h1><p class="lede">Every environment, role, rhythm and rule, in one place &mdash; BBT &amp; BBN commercial buildings, residential &amp; short-stay accommodation, and fleet operations.</p><div class="cover-meta"><div><span>Document owner</span>May Engreso &middot; Facilities Manager</div><div><span>Issue date</span>Edition 2 &middot; 2026</div><div style="margin-left:auto;align-self:flex-end"><span class="wordmark">BRAINBOX</span></div></div></div></section>
+
+<section class="sheet">
+<h2>Contents</h2>
+  <div class="toc">
+    <div class="toc-row"><span class="n">01</span><span class="t">1.1 &middot; Purpose of this manual</span></div>
+    <div class="toc-row"><span class="n">02</span><span class="t">1.2 &middot; Assets &amp; functions we manage</span></div>
+    <div class="toc-row"><span class="n">03</span><span class="t">1.3 &middot; Systems of record</span></div>
+    <div class="toc-row"><span class="n">04</span><span class="t">1.4 &middot; Operating philosophy &amp; escalation</span></div>
+    <div class="toc-row"><span class="n">05</span><span class="t">1.5 &middot; Roles &amp; working arrangements</span></div>
+    <div class="toc-row"><span class="n">06</span><span class="t">1.6 &middot; Accommodation cleaning framework</span></div>
+    <div class="toc-row"><span class="n">07</span><span class="t">1.7 &middot; Daily operating rhythm</span></div>
+    <div class="toc-row"><span class="n">08</span><span class="t">1.8&ndash;1.10 &middot; Weekend, weekly &amp; monthly rhythms</span></div>
+    <div class="toc-row"><span class="n">09</span><span class="t">1.11 &middot; Reporting &amp; assurance</span></div>
+    <div class="toc-row"><span class="n">10</span><span class="t">1.12 &middot; Asset register &amp; renewal</span></div>
+    <div class="toc-row"><span class="n">11</span><span class="t">1.13&ndash;1.14 &middot; Non-negotiable rules &amp; outcome</span></div>
+    <div class="toc-row"><span class="n">12</span><span class="t">2.1 &middot; May &mdash; Facilities Manager</span></div>
+    <div class="toc-row"><span class="n">13</span><span class="t">2.2 &middot; Jho &mdash; Facilities Assistant</span></div>
+    <div class="toc-row"><span class="n">14</span><span class="t">2.3 &middot; Arvin &mdash; Maintenance Lead</span></div>
+    <div class="toc-row"><span class="n">15</span><span class="t">2.4 &middot; Jong &mdash; Driver &amp; Front-of-House</span></div>
+    <div class="toc-row"><span class="n">16</span><span class="t">2.5 &middot; Venus &amp; Ivy &mdash; Cleaning team</span></div>
+    <div class="toc-row"><span class="n">17</span><span class="t">2.6 &middot; Training &amp; competency matrix</span></div>
+    <div class="toc-row"><span class="n">18</span><span class="t">3.1 &middot; Studio apartment &mdash; cleaning &amp; consumables</span></div>
+    <div class="toc-row"><span class="n">19</span><span class="t">3.2 &middot; Monthly safety &amp; compliance inspection</span></div>
+    <div class="toc-row"><span class="n">20</span><span class="t">3.3 &middot; Fleet vehicle &mdash; weekly maintenance check</span></div>
+    <div class="toc-row"><span class="n">21</span><span class="t">4.1 &middot; Response &amp; resolution SLAs</span></div>
+    <div class="toc-row"><span class="n">22</span><span class="t">4.2 &middot; Asana conventions</span></div>
+    <div class="toc-row"><span class="n">23</span><span class="t">4.3 &middot; Vehicle accident &amp; incident</span></div>
+    <div class="toc-row"><span class="n">24</span><span class="t">4.4 &middot; Keys, codes &amp; access register</span></div>
+    <div class="toc-row"><span class="n">25</span><span class="t">4.5 &middot; Document control</span></div>
+    <div class="toc-row"><span class="n">26</span><span class="t">4.6 &middot; Monthly report</span></div>
+  </div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.1 &middot; Purpose of this manual</h2><p class="section-intro">The shared picture &mdash; what we look after, the systems that govern every decision, and the daily, weekly and monthly rhythms that keep it all predictable.</p>
+<p>This manual exists to provide certainty. It removes ambiguity from daily operations, defines how work flows through the Fleet &amp; Facilities Department, and establishes who does what, when, and why.</p>
+<p>Facilities work often fails when it relies on memory, goodwill or constant verbal instruction. This manual replaces those habits with structure. It creates a rhythm that is predictable, auditable and repeatable &mdash; so good outcomes don&rsquo;t depend on any one person remembering the right thing at the right moment.</p>
+<div class="grid2"><div class="rolecard"><h3>Who it applies to</h3><p>All Fleet &amp; Facilities staff &mdash; during normal operations, peak demand and weekends, and regardless of individual availability, workload pressure or competing priorities.</p></div><div class="rolecard"><h3>When you may deviate</h3><p>Only where safety, legal compliance or guest welfare requires it. Every deviation is recorded and reviewed &mdash; never made quietly.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.2 &middot; Assets &amp; functions we manage</h2>
+<p class="section-intro">The department operates across four environments. Each has a different demand profile and tolerance for delay &mdash; but all are managed through the same functions and the same systems.</p>
+<div class="grid2">
+<div class="rolecard"><h3>BBT &amp; BBN commercial buildings</h3><p>Two buildings, both operating 24&times;7. Shared spaces are heavily used at lunch and shift changes; small lapses are noticed quickly. Work here is preventative. Only BBT has parking, and the vehicle fleet is stored there.</p></div>
+<div class="rolecard"><h3>Residential &amp; short-stay</h3><p>Ten residential properties, five run as short-stay. Guest expectations are high and tolerance for defects low. Work is time-bound: check-in readiness is not flexible and cleaning windows are fixed.</p></div>
+<div class="rolecard"><h3>Vehicle fleet</h3><p>Vehicles support staff transport and operations. Stored and managed at BBT, with Facilities responsible for protection, presentation, availability and safety. Repairs are escalated, not improvised.</p></div>
+<div class="rolecard"><h3>One standard, everywhere</h3><p>However different the environments feel, they share one safety standard, one set of systems, and one chain of accountability through the Facilities Manager.</p></div>
+</div>
+<div class="note"><span class="lbl">The functions we deliver</span><strong>Building:</strong> maintenance, utilities, safety, access, cleaning, consumables, asset renewal. <strong>Fleet:</strong> driver &amp; route management, rostering, maintenance, safety, cleaning, repairs, asset renewal. Daily work removes risk, weekly work prevents backlog, monthly work keeps assets safe and compliant, triggered work responds to bookings and faults.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.3 &middot; Systems of record</h2>
+<p class="section-intro">Two systems govern every decision. Discipline in how we use them is what makes the whole operation visible and auditable. If a system is wrong, it is corrected before work proceeds &mdash; personal judgement does not override it.</p>
+<div class="grid2"><div class="rolecard"><h3>Uplisting</h3><p>The authoritative source for accommodation activity &mdash; arrival dates and times, length of stay, same-day turnovers, and third-day cleaning triggers for long stays. Cleaning schedules are derived from Uplisting data alone.</p></div><div class="rolecard"><h3>Asana</h3><p>The single work register. Maintenance issues, cleaning observations, guest &amp; internal requests and security concerns are all logged here. Work is not actioned unless it is logged; verbal requests become tasks before work begins.</p></div></div>
+<h4>The work-control workflow</h4>
+<div class="stepflow"><div class="st"><div class="sn">Step 1 &middot; Intake</div><b>Raised &amp; routed to Jho</b><p>All requests funnel to Jho &mdash; the single point of contact.</p></div><div class="st"><div class="sn">Step 2 &middot; Log</div><b>Logged in Asana</b><p>Clear, categorised task with description and photos; no duplicates.</p></div><div class="st"><div class="sn">Step 3 &middot; Triage</div><b>Prioritised by May</b><p>May sets priority and direction; Jho coordinates under it.</p></div><div class="st"><div class="sn">Step 4 &middot; Action</div><b>Actioned or escalated</b><p>Resolved within authority, or stabilised and escalated to a contractor.</p></div><div class="st"><div class="sn">Step 5 &middot; Close</div><b>Closed &amp; reviewed</b><p>Closed only on confirmation; patterns reviewed so faults are designed out.</p></div></div>
+<div class="flag"><span class="lbl">The rule</span>If it isn&rsquo;t in Asana, it isn&rsquo;t happening. A task gives every piece of work an owner, a history and a finish line &mdash; that&rsquo;s what makes the department accountable rather than busy.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.4 &middot; Operating philosophy &amp; escalation</h2>
+<p class="section-intro">A few principles sit underneath every decision. They explain why the rhythms in the rest of this manual are shaped the way they are.</p>
+<div class="grid3"><div class="rolecard"><h3>Readiness first</h3><p>Short-stay readiness takes priority over all other work. Fixed time windows are protected. The daily plan is locked once &mdash; replanning is the exception.</p></div><div class="rolecard"><h3>Use the hours well</h3><p>Early hours reduce risk before buildings get busy; later hours manage outcomes. Noise is avoided; visibility maintained throughout.</p></div><div class="rolecard"><h3>Log once, track to close</h3><p>Problems are logged once, tracked until closed, and reviewed for patterns. Reporting exists to drive change &mdash; never produced for its own sake.</p></div></div>
+<h4>How a problem moves</h4>
+<p style="font-size:9pt;color:var(--bb-grey-500)">Observed (reported to Jho, not fixed quietly) &rarr; Logged in Asana (with description &amp; photos) &rarr; Triaged by May against guest readiness, safety and business continuity, who chooses:</p>
+<div class="grid3"><div class="rolecard"><h3>Resolve</h3><p>Fixed within authority &amp; skill by Arvin or the team.</p></div><div class="rolecard"><h3>Stabilise</h3><p>Made safe now; contractor engaged for full repair.</p></div><div class="rolecard"><h3>Escalate</h3><p>Contractor or expenditure approved by May.</p></div></div>
+<div class="note"><span class="lbl">Closed on confirmation</span>The task is closed only when completion is confirmed &mdash; never assumed. Critical safety items are confirmed personally, and recurring faults are surfaced in weekly and monthly reviews so the root cause is addressed.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.5 &middot; Roles &amp; working arrangements</h2>
+<p class="section-intro">Six people, one chain of accountability. All roles are full-time except the Facilities Assistant, who is allocated part-time. Full duty statements are in part two &mdash; this is the team at a glance.</p>
+<table class="t"><thead><tr><th style="width:14%">Person</th><th style="width:22%">Role</th><th style="width:20%">Pattern</th><th>Owns</th></tr></thead><tbody>
+<tr><td class="role">May</td><td>Facilities Manager</td><td>Full-time &middot; on call weekends</td><td>Accountability for the whole environment &mdash; staff, budget, priorities, risk, fleet compliance, capacity planning.</td></tr>
+<tr><td class="role">Jho</td><td>Facilities Assistant</td><td>Part-time &middot; Mon&ndash;Fri</td><td>Single intake point for all requests; coordinates the Asana queue under May&rsquo;s direction; reporting.</td></tr>
+<tr><td class="role">Arvin</td><td>Maintenance Lead</td><td>Full-time &middot; Mon&ndash;Fri</td><td>Maintenance, inspections, presentation, access &amp; logistics &mdash; plus traffic management &amp; concierge cover.</td></tr>
+<tr><td class="role">Jong</td><td>Driver &amp; Front-of-House</td><td>Full-time &middot; Mon&ndash;Fri</td><td>Staff transport, fleet readiness &amp; protection &mdash; plus traffic management &amp; concierge cover.</td></tr>
+<tr><td class="role">Venus &amp; Ivy</td><td>Cleaning team</td><td>Full-time &middot; weekend on call</td><td>Accommodation &amp; building cleaning, laundry, pantry &amp; cleaning inventory, defect observation.</td></tr>
+</tbody></table>
+<div class="flag"><span class="lbl">Concierge desk &mdash; never unattended in the day</span>Only BBT has parking, and the fleet is stored there. Arvin and Jong both hold traffic-management duties, and at least one must be at the BBT concierge desk through the day &mdash; managing the forecourt and vehicle ingress and egress. The desk is never left empty without the Manager&rsquo;s approval.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.6 &middot; Accommodation cleaning framework</h2>
+<p class="section-intro">Accommodation cleaning follows strict rules that prevent scope creep and overload. With two cleaners, properties can be turned around in parallel &mdash; but only the properties the rules authorise, and only within the fixed window.</p>
+<div class="stepflow"><div class="st"><div class="sn">Trigger</div><b>Uplisting flags it</b><p>A same-day turnover, or a long-stay guest (over 3 days) reaching the next third-day clean.</p></div><div class="st"><div class="sn">Confirm</div><b>Jho extracts the list</b><p>The day&rsquo;s authorised properties are confirmed from Uplisting and put to May for lock-in.</p></div><div class="st"><div class="sn">Clean</div><b>Venus &amp; Ivy, 11:00&ndash;1:40</b><p>Depart BBT on time; clean only authorised properties, in parallel.</p></div><div class="st"><div class="sn">Return</div><b>Back by 1:40pm</b><p>Cleaning ceases in time to return for building cleaning; the window is never extended.</p></div><div class="st"><div class="sn">Report</div><b>Observations to Jho</b><p>Defects seen during cleaning are reported and logged &mdash; reported, not fixed.</p></div></div>
+<div class="grid2"><div class="rolecard"><h3>The fixed window</h3><p>All accommodation cleaning happens strictly between 11:00am and 1:40pm. Travel time is planned and protected. The window is not compressed or extended &mdash; attempts to do so create downstream failure.</p></div><div class="rolecard"><h3>Laundry &amp; linen</h3><p>Handled by property, washed, dried, folded and stored to a consistent standard. Damaged or stained items are removed from circulation, and shortages reported promptly. Quality is maintained; improvisation avoided.</p></div></div>
+<div class="note"><span class="lbl">Cleaning triggers</span>On turnover (same-day check-out and check-in) &middot; long-stay guests over 3 days (cleaned every third day). No other cleaning is permitted unless guest-paid and approved by May &mdash; this keeps capacity aligned with demand.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.7 &middot; Daily operating rhythm</h2>
+<p class="section-intro">The day runs to a known shape: remove risk early, lock the plan once, protect the fixed windows, and close cleanly. The concierge desk stays covered throughout.</p>
+<div class="daytime">
+<div class="tm">6:00am</div><div class="ev"><b>Early operations &amp; vehicle readiness</b><p>Jong uncovers and safety-checks the fleet at BBT; Arvin runs early inspections across BBT and BBN. Focus is safety, access and urgent defects; anything unresolved is escalated to May.</p></div>
+<div class="tm">6:30&ndash;8:00</div><div class="ev"><b>Morning staff transport</b><p>Jong runs the approved routes on time. Arvin covers early access and opens the concierge desk so the forecourt is managed as vehicles arrive.</p></div>
+<div class="tm">8:30am</div><div class="ev"><b>Pre-start control</b><p>On-site presence at the BBT concierge desk. Jho reviews Uplisting &mdash; arrivals, stay lengths, cleaning triggers &mdash; and prepares a concise summary for May.</p></div>
+<div class="tm">9:00am</div><div class="ev"><b>Manager triage &amp; lock-in</b><p>May works through the summary with Jho. Decisions made once: which properties clean, check-in attendance, cleaner timing, May&rsquo;s 2&ndash;6 availability, priority maintenance. Asana updated; plan locked.</p></div>
+<div class="tm">9:20am</div><div class="ev"><b>Stand-up</b><p>A short stand-up for confirmation, not debate. Each person confirms understanding; no new work is introduced.</p></div>
+<div class="tm">11:00&ndash;1:40</div><div class="ev"><b>Accommodation cleaning</b><p>Venus and Ivy clean only authorised properties, in parallel, returning by 1:40. Jho monitors guest messages; concierge desk stays covered.</p></div>
+<div class="tm">2:00&ndash;3:00</div><div class="ev"><b>Building cleaning &mdash; BBT &amp; BBN</b><p>The team restores Levels 2&ndash;5 across both buildings, clearing lunch-period residue in two 24&times;7 environments.</p></div>
+<div class="tm">2:00&ndash;6:00</div><div class="ev"><b>Check-in control window</b><p>May attends residential check-ins/outs and guest liaison for visiting clients. Jho manages messaging; Arvin and Jong hold the forecourt. Internal meetings avoided.</p></div>
+<div class="tm">End of day</div><div class="ev"><b>Clean close</b><p>Jho prepares the daily report; May reviews exceptions only. Open issues roll forward visibly in Asana.</p></div>
+</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.8&ndash;1.10 &middot; Weekend, weekly &amp; monthly rhythms</h2>
+<h3>Weekend operations</h3>
+<p class="section-intro">Weekend work is controlled and exception-based &mdash; this protects the team from burnout and preserves weekday capacity.</p>
+<div class="grid3"><div class="rolecard"><h3>Cleaning</h3><p>Venus and Ivy work only when triggered by the cleaning rules &mdash; same-day turnover or a third-day stay. No discretionary cleaning.</p></div><div class="rolecard"><h3>Management</h3><p>May is on call for guest messaging and check-ins, and for guest liaison where Brainbox clients are staying.</p></div><div class="rolecard"><h3>Everything else</h3><p>No discretionary tasks introduced. All issues logged in Asana for review on the next business day.</p></div></div>
+<h3>Weekly rhythm</h3>
+<table class="t"><thead><tr><th style="width:16%">Day</th><th style="width:20%">Focus</th><th>What runs</th></tr></thead><tbody>
+<tr><td class="role">Monday</td><td>Plan</td><td>Establish the week&rsquo;s plan. Confirm bookings, priorities and any check-ins ahead.</td></tr>
+<tr><td class="role">Tuesday</td><td>Buildings</td><td>BBT &amp; BBN &mdash; presentation, common areas and preventive checks.</td></tr>
+<tr><td class="role">Wednesday</td><td>Residential</td><td>Residential maintenance and property inspections between cleans.</td></tr>
+<tr><td class="role">Thursday</td><td>Fleet</td><td>Fleet and compliance &mdash; vehicle cleaning, checks, licensing and servicing status.</td></tr>
+<tr><td class="role">Friday</td><td>Assure</td><td>Confirm quality and weekend readiness. End-of-week review; note trends; Jho prepares the weekly report.</td></tr>
+</tbody></table>
+<h3>Monthly rhythm</h3>
+<div class="stepflow"><div class="st"><div class="sn">01</div><b>Safety &amp; maintenance inspection</b><p>Structured inspection across buildings, properties and fleet by May, Betina and Arvin, with findings logged.</p></div><div class="st"><div class="sn">02</div><b>Preventive maintenance</b><p>Corrective and preventive actions planned from findings, critical items confirmed closed.</p></div><div class="st"><div class="sn">03</div><b>Review &amp; assess</b><p>Guest satisfaction reviewed and capacity assessed across premises and fleet.</p></div><div class="st"><div class="sn">04</div><b>Refine systems</b><p>Processes and priorities refined from evidence, carried into next month&rsquo;s plan.</p></div></div>
+<div class="flag"><span class="lbl">Mandatory</span>The monthly full safety and maintenance inspection covers fire, electrical, water and access safety items across every asset, including fleet. It uses a standard checklist, all findings are logged, and critical items are confirmed closed.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.11 &middot; Reporting &amp; assurance</h2>
+<p class="section-intro">Reporting is structured and factual &mdash; neutral language, emotion excluded. It exists to drive change, not to be produced for its own sake.</p>
+<table class="t"><thead><tr><th style="width:14%">Cadence</th><th style="width:26%">Report</th><th style="width:20%">Owner</th><th>Purpose</th></tr></thead><tbody>
+<tr><td class="role">Daily</td><td>Verbal execution report</td><td>Jho &rarr; May</td><td>Confirm execution; surface exceptions for May to review.</td></tr>
+<tr><td class="role">Weekly</td><td>Facilities report</td><td>Jho</td><td>Tasks opened/closed, recurring issues, cleaning volume, check-ins attended.</td></tr>
+<tr><td class="role">Monthly</td><td>Fleet &amp; Facilities meeting</td><td>Minuted by Jho</td><td>Trends, persistent fault categories and decisions across the function.</td></tr>
+<tr><td class="role">Monthly</td><td>Property financial report</td><td>May &rarr; Director</td><td>Financial position across the property portfolio.</td></tr>
+</tbody></table>
+<h2 style="margin-top:22px">1.12 &middot; Asset register &amp; renewal</h2>
+<p>Every major asset is recorded, reviewed on a fixed cycle, and carried on a renewal plan &mdash; so replacement is budgeted and deliberate, never a surprise. The register is the single source of truth for what we own, its condition, and when it is due for renewal.</p>
+<div class="stepflow"><div class="st"><div class="sn">Step 1</div><b>Verify</b><p>Walk the register against the assets &mdash; confirm each exists, its location and condition.</p></div><div class="st"><div class="sn">Step 2</div><b>Record movements</b><p>Log assets purchased, replaced or written off since the last review.</p></div><div class="st"><div class="sn">Step 3</div><b>Re-rate &amp; forecast</b><p>Update expected life and condition; reset renewal year and estimate.</p></div><div class="st"><div class="sn">Step 4</div><b>Plan &amp; budget</b><p>Refresh the renewal plan; feed forecast spend into the budget cycle.</p></div></div>
+<div class="note"><span class="lbl">Policy</span>No major asset is purchased, replaced or written off outside the approved budget and policy. Write-offs are documented with reason and authorisation; every active major asset carries a current renewal year. May and Jho review the full register twice a year.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.13&ndash;1.14 &middot; Non-negotiable rules &amp; outcome</h2>
+<ol class="numlist"><li>Uplisting governs accommodation cleaning &mdash; the only booking source.</li><li>Asana governs all work control &mdash; the only work register. If it isn&rsquo;t logged, it isn&rsquo;t actioned.</li><li>All issues, complaints and requests route through Jho.</li><li>Cleaning windows are fixed; building cleaning across BBT &amp; BBN is mandatory.</li><li>The concierge desk is never unattended during the day without the Manager&rsquo;s approval.</li><li>Manager availability is protected on check-in days.</li><li>Vehicle licensing and maintenance never lapse; unsafe vehicles are not operated.</li><li>Weekend work is exception-based; the monthly safety inspection is mandatory.</li></ol>
+<div class="flag"><span class="lbl">Operating outcome</span>This manual exists to create calm. When it is followed, the department becomes predictable. Predictability builds trust, and trust reduces escalation. Structure is what lets us be kind under pressure &mdash; to guests, to colleagues, and to ourselves.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Duty statements</div>
+<h2>2.1 &middot; May &mdash; Facilities Manager</h2><p class="section-intro">What each person owns, day to day &mdash; purpose, responsibilities, the decisions they may make, and when to escalate. One chain of accountability, five clear roles.</p><p class="section-intro">Reports to senior management &middot; full-time, from ~9:00am, on call weekends &middot; scope: buildings, accommodation &amp; fleet.</p><p>The Facilities Manager provides firm operational control across buildings, accommodation and fleet, ensuring everything runs safely, legally and predictably while staying scalable as demand grows. Accountable for outcomes, not volume of activity &mdash; control, anticipation and early intervention are the core expectations, and the role sets the behavioural standard for the whole function.</p>
+<div class="grid2"><div class="rolecard"><h3>Staff, training &amp; delegation</h3><p>Lead without micromanagement, set expectations at stand-up, delegate, monitor workload, and arrange training so the team stays capable as demand grows.</p></div><div class="rolecard"><h3>Daily operational control</h3><p>Review Uplisting, confirm check-in attendance, approve the cleaning list, protect the fixed windows, and lock the daily plan once.</p></div><div class="rolecard"><h3>Fleet &amp; safety</h3><p>Maintain the vehicle register, keep licensing current, approve servicing/repairs, and run the monthly safety inspection with Betina and Arvin.</p></div><div class="rolecard"><h3>Budget, risk &amp; capacity</h3><p>Oversee the budget and the monthly property financial report; act as escalation point; maintain forward visibility so capacity scales ahead of need.</p></div></div>
+<div class="maymay"><div class="box may"><h4>May</h4><ul><li>Set priorities and approve exceptions</li><li>Manage staff and delegate work</li><li>Engage contractors</li><li>Approve fleet servicing and replacement</li><li>Approve Facilities expenditure within authority</li></ul></div><div class="box mayn"><h4>May not</h4><ul><li>Ignore system data</li><li>Permit unlicensed vehicle operation</li><li>Allow fixed windows to be eroded without cause</li></ul></div></div>
+<div class="grid2"><div class="note"><span class="lbl">Performance is measured by</span>Stability, foresight and control &mdash; predictable operations, no lapses in vehicle licensing or servicing, completed monthly inspections, early identification of capacity constraints, minimal last-minute escalation, and high internal and guest confidence.</div><div class="flag"><span class="lbl">Non-negotiable</span>Short-stay readiness overrides all other work &middot; cleaning windows protected &middot; monthly safety inspections mandatory &middot; vehicle licensing never lapses &middot; capacity planning proactive &middot; Asana the single source of truth.</div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+
+<div class="part-kicker">Part Two &middot; Duty statements</div>
+<h2>2.2 &middot; Jho &mdash; Facilities Assistant</h2><p class="section-intro">Reports to the Facilities Manager &middot; part-time, Mon&ndash;Fri, no weekends &middot; short structured blocks, capped &amp; protected.</p><p>The Facilities Assistant provides administrative control, visibility and reporting discipline across the function without absorbing operational decision-making. The role is the single system interface between bookings, requests, issues and reports &mdash; reducing interruption to the Manager. It does not direct staff or approve work; it ensures information is accurate, timely and traceable.</p>
+<div class="grid2"><div class="rolecard"><h3>Request intake &amp; routing</h3><p>Receive every issue, complaint and request; acknowledge promptly and convert each into a clear, categorised Asana task.</p></div><div class="rolecard"><h3>Asana queue coordination</h3><p>Maintain Asana as the single register under May&rsquo;s direction: clear descriptions, photos, no duplicates, statuses current. Order the queue as directed; do not self-prioritise.</p></div><div class="rolecard"><h3>Uplisting &amp; daily summary</h3><p>Each weekday morning, review arrivals, departures and in-stay guests; identify turnovers and third-day triggers; prepare a short summary so May can lock the plan.</p></div><div class="rolecard"><h3>Reporting</h3><p>Handle routine guest messaging using approved templates; produce the weekly report and support monthly reporting and meeting minutes.</p></div></div>
+<div class="maymay"><div class="box may"><h4>May</h4><ul><li>Access Uplisting and Asana</li><li>Log, order and update tasks as directed</li><li>Communicate factual information to guests</li></ul></div><div class="box mayn"><h4>May not</h4><ul><li>Approve work or change priorities alone</li><li>Allocate tasks to staff</li><li>Commit to timelines or outcomes</li></ul></div></div>
+<div class="grid2"><div class="note"><span class="lbl">Performance is measured by</span>Control, clarity and restraint &mdash; clean, accurate Asana records, no unlogged work, timely daily summaries, low administrative interruption to the Manager, and adherence to the capped weekly effort.</div><div class="flag"><span class="lbl">Non-negotiable</span>Asana is the only work register &middot; Uplisting the only booking source &middot; no work actioned without visibility &middot; effort capped and protected &middot; scope creep escalated, not absorbed.</div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+
+<div class="part-kicker">Part Two &middot; Duty statements</div>
+<h2>2.3 &middot; Arvin &mdash; Maintenance Lead</h2><p class="section-intro">Reports to the Facilities Manager &middot; full-time, Mon&ndash;Fri, 6:00am&ndash;6:00pm window &middot; focus: maintenance, prevention &amp; access.</p><p>The Maintenance Lead maintains operational continuity across BBT, BBN, residential and short-stay properties and supporting assets &mdash; early detection, rapid response to defects, and preventing downstream failures. Execution-focused; planning and approval sit with the Manager. Now also carries shared traffic-management and concierge cover.</p>
+<div class="grid2"><div class="rolecard"><h3>Early-morning risk reduction</h3><p>Start at 6:00am with inspections before peak activity &mdash; access points, lighting, doors, gates and overnight issues across both buildings.</p></div><div class="rolecard"><h3>Reactive &amp; preventive maintenance</h3><p>Work assigned Asana tasks in priority, carry out minor repairs within authority, stabilise issues needing a contractor, and catch emerging faults before failure.</p></div><div class="rolecard"><h3>Traffic management &amp; concierge</h3><p>Share concierge-desk cover with Jong so the BBT forecourt is always managed and the desk staffed through the day.</p></div><div class="rolecard"><h3>Access, presentation &amp; fleet support</h3><p>Provide access for cleaners, drivers and contractors; address minor presentation defects; identify and report visible vehicle defects for logging.</p></div></div>
+<div class="maymay"><div class="box may"><h4>May</h4><ul><li>Carry out minor repairs within skill and safety limits</li><li>Stabilise faults to prevent escalation</li><li>Recommend contractor involvement</li></ul></div><div class="box mayn"><h4>May not</h4><ul><li>Approve expenditure or engage contractors independently</li><li>Change priorities without direction</li><li>Undertake discretionary work not logged or approved</li></ul></div></div>
+<div class="grid2"><div class="note"><span class="lbl">Performance is measured by</span>Reliability, judgement and follow-through &mdash; low repeat faults, few urgent escalations during check-in periods, early identification of issues, accurate task updates, and reliable coverage across the full window.</div><div class="flag"><span class="lbl">Non-negotiable</span>Follow the daily plan &middot; respect fixed cleaning windows &middot; keep the concierge desk covered &middot; do not self-prioritise &middot; log issues accurately &middot; escalate early rather than late.</div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+
+<div class="part-kicker">Part Two &middot; Duty statements</div>
+<h2>2.4 &middot; Jong &mdash; Driver &amp; Front-of-House</h2><p class="section-intro">Reports to the Facilities Manager &middot; full-time, Mon&ndash;Fri, on-site BBT 8:30&ndash;4:00 &middot; focus: transport, fleet &amp; front-of-house.</p><p>The Driver &amp; Front-of-House role ensures reliable staff transport, protects and presents the vehicle fleet, and maintains a controlled, safe and orderly entry environment at BBT &mdash; the only site with parking. Visible operational discipline: reducing risk, preventing congestion, protecting assets and reinforcing security through presence. Shares traffic-management and concierge cover with Arvin.</p>
+<div class="grid2"><div class="rolecard"><h3>Vehicle readiness &amp; transport</h3><p>From 6:00am uncover and safety-check vehicles; run the approved route and timetable, driving defensively so staff arrive on time and safely.</p></div><div class="rolecard"><h3>Fleet protection &amp; control</h3><p>Return vehicles to allocated bays, cover those not in use, secure keys, and prevent unauthorised access or misuse.</p></div><div class="rolecard"><h3>Traffic management &amp; concierge</h3><p>Hold the BBT concierge desk and forecourt &mdash; guiding ingress and egress, preventing unsafe parking, intervening early to avoid congestion. Shared with Arvin.</p></div><div class="rolecard"><h3>Entry security &amp; presentation</h3><p>Observe entry points, challenge unknown persons politely, keep the entrance neat and professional, and escalate security concerns immediately.</p></div></div>
+<div class="maymay"><div class="box may"><h4>May</h4><ul><li>Operate vehicles as scheduled</li><li>Control parking and access within assigned areas</li><li>Report defects and security concerns</li></ul></div><div class="box mayn"><h4>May not</h4><ul><li>Authorise repairs or expenditure, or engage contractors</li><li>Change transport routes without approval</li><li>Allocate work to others</li></ul></div></div>
+<div class="grid2"><div class="note"><span class="lbl">Performance is measured by</span>Reliability, visibility and discipline &mdash; on-time transport runs, no preventable vehicle damage, orderly parking areas, early detection of security or access issues, and accurate reporting.</div><div class="flag"><span class="lbl">Non-negotiable</span>Staff transport is the first priority &middot; vehicles covered when not in use &middot; the concierge desk and forecourt not left unattended without approval &middot; security concerns escalated immediately &middot; all issues logged.</div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+
+<div class="part-kicker">Part Two &middot; Duty statements</div>
+<h2>2.5 &middot; Venus &amp; Ivy &mdash; Cleaning team</h2><p class="section-intro">Report to the Facilities Manager &middot; full-time, fixed windows, weekend on call &middot; focus: accommodation &amp; building cleaning.</p><p>The cleaning team ensures accommodation readiness, hygiene and presentation across the short-stay properties and the BBT and BBN commercial buildings. Time-critical and sequence-dependent &mdash; cleaning must happen within fixed windows to support check-ins and two 24&times;7 environments. With two cleaners, properties and buildings are covered in parallel. Planning and scheduling sit with the Manager and Assistant.</p>
+<div class="grid2"><div class="rolecard"><h3>Accommodation cleaning</h3><p>Clean and sanitise bathrooms and kitchenettes, vacuum and mop, remake beds, empty bins and wipe high-touch surfaces &mdash; only when triggered by the approved rules.</p></div><div class="rolecard"><h3>Fixed window, 11:00&ndash;1:40</h3><p>Depart BBT on time, complete all authorised cleans, and return by 1:40pm &mdash; no overruns that affect building duties or check-in readiness.</p></div><div class="rolecard"><h3>Laundry, linen &amp; buildings</h3><p>Strip, wash, dry, fold and store linen to standard; clean Levels 2&ndash;5 of both buildings 2:00&ndash;3:00pm, restoring hygiene after lunch.</p></div><div class="rolecard"><h3>Observe &amp; report</h3><p>Spot leaks, faults, appliance failure, mould or odours during cleaning; photograph, report urgent items, and ensure they reach Asana &mdash; reported, not fixed.</p></div></div>
+<div class="maymay"><div class="box may"><h4>May</h4><ul><li>Carry out all authorised cleaning tasks</li><li>Handle laundry and linen</li><li>Report defects and shortages</li></ul></div><div class="box mayn"><h4>May not</h4><ul><li>Change schedules or add properties to the list</li><li>Approve additional work</li><li>Undertake repairs</li></ul></div></div>
+<div class="grid2"><div class="note"><span class="lbl">Performance is measured by</span>Consistency, hygiene standards and adherence to process &mdash; cleaning completed within fixed windows, low cleanliness complaints, early reporting of defects and shortages, and reliable weekend response when triggered.</div><div class="flag"><span class="lbl">Non-negotiable</span>Accommodation cleaning happens only within the fixed window &middot; building cleaning is mandatory &middot; no tasks added after daily lock-in &middot; maintenance issues reported, not fixed &middot; all instructions flow through the Facilities Manager.</div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Duty statements</div>
+<h2>2.6 &middot; Training &amp; competency matrix</h2>
+<p class="section-intro">May owns training and development. This matrix sets the expected competency for each role &mdash; use it to plan induction, refreshers and certification, and to spot gaps before they affect safety or service. Reassess at least annually and whenever a role or asset changes.</p>
+<table class="t"><thead><tr><th style="width:34%">Competency</th><th>May</th><th>Jho</th><th>Arvin</th><th>Jong</th><th>V &amp; I</th></tr></thead><tbody>
+<tr><td class="role">WHS &amp; safe work practices</td><td>Lead</td><td>Prac</td><td>Prac</td><td>Prac</td><td>Prac</td></tr>
+<tr><td class="role">Chemical handling &amp; SDS</td><td>Aware</td><td>&mdash;</td><td>Prac</td><td>Aware</td><td>Lead</td></tr>
+<tr><td class="role">Fire &amp; emergency response</td><td>Lead</td><td>Aware</td><td>Prac</td><td>Prac</td><td>Prac</td></tr>
+<tr><td class="role">First aid</td><td>Prac</td><td>Aware</td><td>Prac</td><td>Prac</td><td>Aware</td></tr>
+<tr><td class="role">Asana &mdash; work control</td><td>Lead</td><td>Lead</td><td>Prac</td><td>Prac</td><td>Aware</td></tr>
+<tr><td class="role">Uplisting &mdash; bookings</td><td>Prac</td><td>Lead</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td class="role">Asset register &amp; renewal</td><td>Lead</td><td>Prac</td><td>Aware</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td class="role">Cleaning &amp; presentation</td><td>Aware</td><td>&mdash;</td><td>Aware</td><td>Aware</td><td>Lead</td></tr>
+<tr><td class="role">Defensive driving &amp; licence</td><td>&mdash;</td><td>&mdash;</td><td>Aware</td><td>Lead</td><td>&mdash;</td></tr>
+<tr><td class="role">Traffic management &amp; concierge</td><td>Aware</td><td>&mdash;</td><td>Prac</td><td>Prac</td><td>&mdash;</td></tr>
+<tr><td class="role">Vehicle inspection</td><td>Aware</td><td>&mdash;</td><td>Prac</td><td>Lead</td><td>&mdash;</td></tr>
+<tr><td class="role">Budget &amp; financial oversight</td><td>Lead</td><td>Prac</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr><td class="role">Guest &amp; client liaison</td><td>Lead</td><td>Prac</td><td>Aware</td><td>Aware</td><td>Aware</td></tr>
+</tbody></table>
+<div class="note"><span class="lbl">Levels</span>Lead (accountable/expert) &middot; Prac (performs routinely) &middot; Aware &middot; &mdash; (not required). Every Lead and Practitioner cell should be backed by current training or certification &mdash; first aid, fire response, chemical handling and driver licensing in particular. May reviews at induction and at least annually.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Three &middot; Checklists</div>
+<h2>3.1 &middot; Studio apartment &mdash; cleaning &amp; consumables</h2><p class="section-intro">Print, tick and sign. The working checklists behind the routines in part one &mdash; carried out on the ground, then logged in Asana.</p>
+<p class="section-intro">Work top to bottom, back to front, so finished areas stay clean. Complete every clean within the fixed window. Report &mdash; never fix &mdash; any maintenance issue you find.</p>
+<div class="checklist"><div class="grp"><h4>1 Arrival &amp; setup</h4><ul><li>Confirm the property is on today&rsquo;s authorised list</li><li>Knock, confirm vacant, enter with correct key/code</li><li>PPE on; set out caddy, cloths and chemicals</li><li>Open curtains; check lights, aircon and hot water</li><li>Note any damage or items left before starting</li></ul></div><div class="grp"><h4>2 Bathroom</h4><ul><li>Strip used linen &amp; towels into the laundry bag</li><li>Cleaner to toilet, shower and basin; let dwell</li><li>Scrub and flush toilet; clean shower &amp; screen</li><li>Clean basin, vanity, taps; polish mirror</li><li>Empty bin, sanitise, reline; mop floor</li></ul></div><div class="grp"><h4>3 Kitchenette</h4><ul><li>Clear and wipe benches and splashback</li><li>Clean sink and taps; deodorise drain</li><li>Microwave in/out; kettle descaled</li><li>Cooktop &amp; rangehood degreased; fridge wiped</li><li>Empty bin, sanitise and reline</li></ul></div><div class="grp"><h4>4 Living &amp; sleeping</h4><ul><li>Dust surfaces, shelves, sills and skirting</li><li>Wipe high-touch points; clean mirrors &amp; glass</li><li>Make bed with fresh linen; check protector</li><li>Fold spare towels; wipe TV, bedside, desk</li></ul></div><div class="grp"><h4>5 Floors &amp; finish</h4><ul><li>Vacuum carpets, rugs and edges</li><li>Vacuum then mop hard floors to the door</li><li>Ventilate if needed; stage the room to standard</li></ul></div><div class="grp"><h4>6 Consumables restock</h4><ul><li>Bathroom: soap, shower gel, shampoo, conditioner</li><li>2 toilet rolls (1 spare), tissues</li><li>Kitchen: tea, coffee, sugar, milk, dishwashing</li><li>Laundry: detergent, spare bin liners</li></ul></div><div class="grp"><h4>7 Handover &amp; reporting</h4><ul><li>Final walk-through against this checklist</li><li>Photograph the finished room</li><li>Report any defect to Jho for Asana</li><li>Remove equipment; lock up; key/code secured</li><li>Confirm completion so the property is marked ready</li></ul></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Three &middot; Checklists</div>
+<h2>3.2 &middot; Monthly safety &amp; compliance inspection</h2>
+<p class="section-intro">For a multi-level commercial building in Angeles City, Philippines. Inspect every level. Log all findings in Asana, prioritise corrective actions, and confirm critical items closed.</p>
+<div class="checklist"><div class="grp"><h4>1 Fire safety &amp; emergency</h4><ul><li>Extinguishers present, charged, tagged &amp; in date</li><li>Fire alarm panel normal; detectors functional</li><li>Emergency &amp; exit lighting illuminate on test</li><li>Exits, stairwells &amp; corridors clear and unlocked</li><li>Fire doors self-latch; evacuation plan posted</li><li>Valid FSIC on file</li></ul></div><div class="grp"><h4>2 Electrical &amp; power</h4><ul><li>Panels closed, labelled, accessible</li><li>No exposed wiring, scorching or overheating</li><li>Breakers/RCD tested; no persistent tripping</li><li>Outlets secure; no overloaded boards</li><li>Generator starts &amp; carries load; ATS operates</li></ul></div><div class="grp"><h4>3 Vertical transport &amp; access</h4><ul><li>Lift inspection certificate current</li><li>Lift emergency phone/alarm works</li><li>Stairwell handrails secure; treads non-slip</li><li>Common areas &amp; car park well lit</li><li>Access control / CCTV operational</li></ul></div><div class="grp"><h4>4 Water, sanitation &amp; HVAC</h4><ul><li>Water pumps &amp; pressure normal; tanks clean</li><li>No leaks, damp or staining (check after rain)</li><li>Drainage clear; no pooling</li><li>Comfort rooms clean, stocked, functional</li><li>Aircon serviced; filters clean</li></ul></div><div class="grp"><h4>5 Structural &amp; general</h4><ul><li>Walls, ceilings, floors free of new cracks</li><li>Waterproofing &amp; roof sound</li><li>Glazing, balustrades &amp; railings secure</li><li>Signage, fixtures &amp; finishes intact</li><li>Car park markings, barriers &amp; bollards in order</li></ul></div><div class="grp"><h4>6 Health, pest &amp; documents</h4><ul><li>Pest control current; no infestation</li><li>Garbage area clean, segregated &amp; collected</li><li>First-aid kits stocked &amp; in date</li><li>Occupancy, business &amp; sanitary permits current</li><li>Previous inspection actions closed out</li></ul></div></div>
+<div class="flag"><span class="lbl">Critical items</span>Any fire-safety, electrical or structural failure is logged immediately, prioritised, and confirmed closed before the inspection is signed off. Inspection conducted by May, Betina and Arvin.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Three &middot; Checklists</div>
+<h2>3.3 &middot; Fleet vehicle &mdash; weekly maintenance check</h2>
+<p class="section-intro">Completed by the driver each week with the engine cold. Walk around the vehicle first, then check from the cab. Report any defect to Jho for logging in Asana &mdash; do not operate an unsafe or unroadworthy vehicle.</p>
+<div class="checklist"><div class="grp"><h4>1 Exterior &amp; body</h4><ul><li>Bodywork free of new dents/damage</li><li>Head, tail, brake &amp; reverse lights work</li><li>Indicators &amp; hazards work front and rear</li><li>Plates secure, clean &amp; legible</li><li>Mirrors intact; windscreen free of cracks; wipers work</li></ul></div><div class="grp"><h4>2 Tyres &amp; wheels</h4><ul><li>Tread depth legal; even wear</li><li>Pressures correct (incl. spare), checked cold</li><li>No cuts, bulges or embedded objects</li><li>Wheel nuts secure; no missing nuts/caps</li></ul></div><div class="grp"><h4>3 Under bonnet</h4><ul><li>Engine oil correct level &amp; clean</li><li>Coolant between min/max</li><li>Brake &amp; clutch fluid at level</li><li>Washer fluid topped up</li><li>Battery secure; belts &amp; hoses intact; no leaks</li></ul></div><div class="grp"><h4>4 Cab &amp; controls</h4><ul><li>All seatbelts latch &amp; retract</li><li>Horn works; warning lights clear</li><li>Air-con &amp; demister work</li><li>Interior clean; no loose items</li><li>Registration &amp; insurance in vehicle; fuel adequate</li></ul></div><div class="grp"><h4>5 Operation &amp; brakes</h4><ul><li>Foot brake firm; pulls up straight</li><li>Handbrake holds on an incline</li><li>Steering responsive; no pull or vibration</li><li>Gear selection / transmission smooth</li></ul></div><div class="grp"><h4>6 Safety equipment</h4><ul><li>First-aid kit present &amp; stocked</li><li>Warning triangle / hazard kit present</li><li>Fire extinguisher present, charged &amp; in date</li><li>Jack, wheel brace &amp; tools present</li><li>Spare tyre serviceable &amp; inflated</li></ul></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.1 &middot; Response &amp; resolution SLAs</h2><p class="section-intro">The standards and records that keep the system consistent &mdash; service levels, system conventions, incident response, access control and document governance.</p>
+<p class="section-intro">Every Asana task carries a priority, and each priority carries a clear expectation. SLA clocks run in business hours unless the item is a safety or guest-readiness risk, which runs around the clock.</p>
+<table class="t"><thead><tr><th style="width:16%">Priority</th><th>What it means</th><th style="width:14%">Acknowledge</th><th style="width:16%">Resolve / make safe</th></tr></thead><tbody>
+<tr><td class="role">P1 Critical</td><td>Danger to people, security breach, or a property unable to receive a guest now.</td><td>15 min</td><td>Make safe &lt; 1 hr</td></tr>
+<tr><td class="role">P2 Urgent</td><td>Affects guest readiness, safety margin or fleet availability today.</td><td>1 hr</td><td>Same day</td></tr>
+<tr><td class="role">P3 Routine</td><td>Should be fixed soon but does not stop operations.</td><td>Same day</td><td>2&ndash;3 business days</td></tr>
+<tr><td class="role">P4 Scheduled</td><td>Planned or preventive work with a target date.</td><td>1 business day</td><td>By planned date</td></tr>
+</tbody></table>
+<div class="flag"><span class="lbl">If in doubt, raise it higher</span>Anything affecting safety or a guest arriving today is treated as P1/P2 until May confirms otherwise. Re-prioritising down is a decision; leaving something too low is a failure. A task that will breach its SLA is escalated before the deadline.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.2 &middot; Asana conventions</h2>
+<p class="section-intro">A consistent queue is a readable queue. These conventions keep tasks findable, sortable and free of duplicates &mdash; so the work register stays the single source of truth.</p>
+<div class="grid2"><div class="rolecard"><h3>Task naming</h3><p>Every task follows the same shape: <strong>[Site] &middot; [Category] &mdash; short description</strong>. E.g. &ldquo;BBT &middot; Electrical &mdash; L3 kitchen power point sparking&rdquo;; &ldquo;Unit 5 &middot; Plumbing &mdash; shower draining slowly&rdquo;; &ldquo;Fleet &middot; Vehicle &mdash; HiAce front tyre wear&rdquo;.</p></div><div class="rolecard"><h3>Categories</h3><p>Maintenance &middot; Electrical &middot; Plumbing &middot; Cleaning &middot; Consumables &middot; Safety &middot; Access &amp; security &middot; Traffic / concierge &middot; Vehicle &middot; Guest request &middot; Asset renewal &middot; Admin.</p></div></div>
+<div class="checklist"><div class="grp"><h4>Every task carries</h4><ul><li>Name in the standard format</li><li>Category &amp; priority (P1&ndash;P4) set</li><li>Assignee and due date</li><li>Clear description &mdash; what, where, since when</li><li>Photo where it helps</li></ul></div><div class="grp"><h4>Housekeeping rules</h4><ul><li>Search before creating &mdash; never duplicate</li><li>Update status as work progresses</li><li>Comment, don&rsquo;t reopen, for follow-ups</li><li>Close only on confirmed completion</li><li>Verbal requests become tasks before work starts</li></ul></div></div>
+<div class="note"><span class="lbl">Priority definitions</span>P1 Critical &middot; P2 Urgent &middot; P3 Routine &middot; P4 Scheduled &mdash; as defined in 4.1. Priority is set by May (or proposed by Jho and confirmed by May); it is never left blank.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.3 &middot; Vehicle accident &amp; incident</h2>
+<p class="section-intro">If a fleet vehicle is involved in an accident or incident, follow these steps in order. Safety first, then secure the scene, then record everything. Do not admit fault or agree to private settlement.</p>
+<ol class="numlist"><li><strong>Make safe &amp; check for injuries.</strong> Stop immediately. Check for injury; if anyone is hurt, call emergency services first. Hazard lights on; set out the warning triangle.</li><li><strong>Call for help.</strong> Where there is injury, danger or a crime, call emergency services. Then notify May immediately &mdash; do not wait until you return.</li><li><strong>Do not admit fault.</strong> Stay calm and polite. Do not accept blame, sign anything, or agree to a private cash settlement. Exchange details only.</li><li><strong>Exchange &amp; gather details.</strong> Record the other driver&rsquo;s name, contact, licence, plate, vehicle and insurer; note witnesses and the attending officer.</li><li><strong>Photograph everything.</strong> All vehicles, damage, plates, the wider scene, road conditions and any injuries. More is better.</li><li><strong>Report &amp; log.</strong> Complete the incident report form, give it to May, and log a P1 task in Asana so insurance and repair follow-up is tracked to closure.</li></ol>
+<div class="note"><span class="lbl">Incident report form captures</span>Driver &middot; vehicle/rego &middot; date &amp; time &middot; location &middot; weather/road conditions &middot; injuries &middot; police attended &amp; officer ref &middot; other party name/contact/plate/insurer &middot; sequence of events &middot; photos taken &middot; Asana task no. &middot; time reported to May &middot; signatures.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.4 &middot; Keys, codes &amp; access register</h2>
+<p class="section-intro">Access is granted on a need-to-use basis and recorded. Keys are signed out and back; codes are changed on staff change or after any suspected compromise. May owns the register; Jho keeps it current.</p>
+<table class="t"><thead><tr><th style="width:22%">Level</th><th style="width:26%">Holder</th><th>Covers</th></tr></thead><tbody>
+<tr><td class="role">Full</td><td>May (Facilities Manager)</td><td>All buildings, all properties, fleet, plant/comms rooms, master keys and all codes.</td></tr>
+<tr><td class="role">Operational</td><td>Arvin (Maintenance Lead)</td><td>BBT &amp; BBN common and plant areas, all properties for maintenance, fleet keys.</td></tr>
+<tr><td class="role">Fleet &amp; forecourt</td><td>Jong (Driver / FOH)</td><td>Fleet keys, BBT forecourt, concierge and entry areas, key cabinet.</td></tr>
+<tr><td class="role">Property</td><td>Venus &amp; Ivy (Cleaning)</td><td>Authorised properties on the day&rsquo;s list and the laundry/store; issued and returned daily.</td></tr>
+<tr><td class="role">Admin</td><td>Jho (Assistant)</td><td>Systems (Uplisting, Asana), the register itself and office areas. No master keys.</td></tr>
+<tr><td class="role">Temporary</td><td>Contractors / guests</td><td>Time-limited, single-area access, issued and recovered by May or Arvin and logged.</td></tr>
+</tbody></table>
+<div class="flag"><span class="lbl">Control rules</span>Keys are never copied without May&rsquo;s approval &middot; codes are changed when a staff member leaves or a compromise is suspected &middot; lost keys or exposed codes are reported and logged in Asana immediately &middot; contractor and guest access is time-limited and recovered.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.5 &middot; Document control</h2>
+<p class="section-intro">This is a controlled document. It is the authority for how Fleet &amp; Facilities work is done; where it differs from habit or memory, the document wins. Changes are made deliberately, versioned, and re-issued &mdash; never edited on the run.</p>
+<dl class="kv"><dt>Document owner</dt><dd>May Engreso &middot; Facilities Manager</dd><dt>Current version</dt><dd>20260628</dd><dt>Next review</dt><dd>June 2027</dd><dt>Classification</dt><dd>Internal &mdash; controlled document</dd></dl>
+<table class="t"><thead><tr><th style="width:18%">Version</th><th style="width:16%">Date</th><th>Summary of change</th></tr></thead><tbody>
+<tr><td class="role">20260628</td><td>28 Jun 2026</td><td>Edition 2 reissue &mdash; added BBN; Asana as work register; team and traffic/concierge changes; asset register &amp; renewal; checklists; competency matrix; reference section.</td></tr>
+<tr><td class="role">20250000</td><td>2025</td><td>Edition 1 &mdash; original Fleet &amp; Facilities Operating Manual.</td></tr>
+</tbody></table>
+<div class="note"><span class="lbl">Change control</span>Proposed changes go to the document owner. Approved changes are made to the master, the version (YYYYMMDD) is updated, and the new version is re-issued. Superseded versions are archived, not deleted. Reviewed at least at the next review date, and whenever roles, assets or systems change materially.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.6 &middot; Monthly report</h2>
+<p class="section-intro">Compiled by Jho and reviewed by May at the monthly Fleet &amp; Facilities meeting. Each metric is recorded this month against last month and a target. Figures are drawn from Asana, Uplisting and the asset register &mdash; not from memory.</p>
+<table class="t"><thead><tr><th style="width:52%">Metric</th><th>This month</th><th>Last month</th><th>Target</th></tr></thead><tbody>
+<tr><td class="role">Tasks raised / closed / open at month-end</td><td></td><td></td><td>Closed &asymp; raised</td></tr>
+<tr><td class="role">Recurring / repeat faults; backlog &gt; 7 / &gt; 30 days</td><td></td><td></td><td>Trending down; 0 &gt;30d</td></tr>
+<tr><td class="role">Cleans completed vs triggered</td><td></td><td></td><td>100%</td></tr>
+<tr><td class="role">Cleaning defects / re-cleans; guest cleanliness issues</td><td></td><td></td><td>0</td></tr>
+<tr><td class="role">Building common-area / hygiene complaints</td><td></td><td></td><td>0</td></tr>
+<tr><td class="role">Vehicle availability / uptime</td><td></td><td></td><td>&ge; 95%</td></tr>
+<tr><td class="role">Weekly inspections completed on time</td><td></td><td></td><td>100%</td></tr>
+<tr><td class="role">Accidents / incidents; servicing &amp; rego currency</td><td></td><td></td><td>0; 0 overdue</td></tr>
+<tr><td class="role">Monthly safety inspection completed; critical items closed</td><td></td><td></td><td>Yes; all closed</td></tr>
+<tr><td class="role">Assets purchased/replaced/written off; budget vs actual</td><td></td><td></td><td>Per policy; within budget</td></tr>
+<tr><td class="role">Total residential night-stays (all units, Uplisting)</td><td></td><td></td><td>&mdash;</td></tr>
+</tbody></table>
+<div class="note"><span class="lbl">Reading the report</span>The report exists to drive change, not to be filed. Anything off-target is tied to an Asana task or a decision in the monthly meeting &mdash; recurring faults, overdue compliance and ageing backlog are reviewed first.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Always Be Kind</div>
+<h2>Structure creates calm. Calm protects people&rsquo;s time.</h2>
+<p class="section-intro">When this manual is followed, the Facilities Department becomes predictable &mdash; and predictability builds trust.</p>
+<div class="note"><span class="lbl">Powerful People Performance</span>Fleet &amp; Facilities Operating Manual &middot; Edition 2 &middot; 2026 &middot; Brainbox Group &middot; Internal use only.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Fleet &amp; Facilities Playbook &middot; Brainbox</span></div>
+</section>
+
+</main>
+</x-dc>
+</body>
+</html>

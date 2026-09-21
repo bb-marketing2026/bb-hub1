@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <script src="./doc-page.js"></script>
+  <style>
+    doc-page:not(:defined) { visibility:hidden; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    * { animation-delay:-99s !important; animation-duration:.001s !important; animation-iteration-count:1 !important;
+        animation-fill-mode:both !important; animation-play-state:running !important; transition-duration:0s !important; }
+    body { font-family:var(--font-body); color:var(--bb-grey-800); }
+    .sheetin { padding:46px 54px; box-sizing:border-box; }
+    .adblock { margin:0; padding:0; border:0; }
+    .adhd { display:flex; align-items:baseline; gap:16px; margin-bottom:8px; flex-wrap:wrap;
+            padding-bottom:12px; border-bottom:1px solid var(--bb-grey-200); }
+    .adhd .n { font-family:var(--font-mono); font-size:13px; letter-spacing:0.16em; color:var(--bb-pink); font-weight:600; }
+    .adhd h2 { font-family:var(--font-heading); font-weight:600; font-size:25px; margin:0; letter-spacing:-0.01em; color:var(--bb-grey-800); }
+    .adhd .aud { font-family:var(--font-mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--bb-grey-500); }
+    .row { display:flex; gap:26px; align-items:flex-start; margin-top:20px; }
+    .slot { display:flex; flex-direction:column; gap:8px; }
+    .slotlbl { font-family:var(--font-mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--bb-grey-500); }
+    .slotlbl b { color:var(--bb-grey-800); font-weight:600; }
+    .ad { zoom:0.38; }
+/* ===== artboard ===== */
+    .ad { position:relative; overflow:hidden; box-sizing:border-box; background:#2d2d30;
+          box-shadow:0 10px 30px rgba(40,40,45,.16); }
+    .ad .ph { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .ad .inner { position:relative; display:flex; flex-direction:column; height:100%; box-sizing:border-box; }
+    .ad .ele { position:absolute; opacity:.95; z-index:2; }
+    .ad .eyebrow { font-family:var(--font-mono); text-transform:uppercase; color:rgba(255,255,255,.86); font-weight:600; }
+    .ad h3 { font-family:var(--font-heading); font-weight:600; color:#fff; margin:0; letter-spacing:-0.02em; line-height:1.04; text-wrap:balance;
+             text-shadow:0 2px 18px rgba(0,0,0,.35); }
+    .ad .sub { color:rgba(255,255,255,.93); font-weight:300; margin:0; text-wrap:pretty; text-shadow:0 1px 12px rgba(0,0,0,.35); }
+    .ad .rule { background:var(--bb-pink); border-radius:3px; }
+    .ad .cta { display:inline-flex; align-items:center; align-self:flex-start; background:var(--bb-pink); color:#fff;
+               font-family:var(--font-heading); font-weight:600; border-radius:999px; white-space:nowrap;
+               box-shadow:0 6px 20px rgba(255,0,128,.36); }
+    .ad .foot { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:auto; }
+    .ad .wm { font-family:var(--font-logo); color:#fff; }
+    .ad .site { font-family:var(--font-mono); color:rgba(255,255,255,.75); }
+
+    /* square · instagram — subject up top, copy in a scrimmed base */
+    .ig { width:1080px; height:1080px; }
+    .ig .ph { object-position:50% 22%; }
+    .ig .scrim { position:absolute; inset:0; background:linear-gradient(0deg, rgba(30,30,33,.96) 0%, rgba(30,30,33,.90) 34%, rgba(30,30,33,.20) 60%, rgba(30,30,33,.05) 100%); }
+    .ig .wash { position:absolute; inset:0; background:linear-gradient(105deg, rgba(255,0,128,0) 55%, rgba(255,0,128,.34) 118%); }
+    .ig .inner { padding:56px 62px 56px; justify-content:flex-end; }
+    .ig .ele { top:52px; right:56px; height:70px; }
+    .ig .eyebrow { font-size:17px; letter-spacing:0.22em; }
+    .ig .rule { width:74px; height:5px; margin:20px 0 24px; }
+    .ig h3 { font-size:72px; max-width:92%; }
+    .ig .sub { font-size:24px; line-height:1.42; margin-top:20px; max-width:88%; }
+    .ig .cta { font-size:23px; padding:17px 34px; margin-top:32px; }
+    .ig .foot { margin-top:40px; flex:0 0 auto; } .ig .wm { font-size:25px; letter-spacing:0.16em; } .ig .site { font-size:15px; letter-spacing:0.1em; }
+
+    /* landscape · subject left, copy in a scrimmed right column */
+    .lsc { width:1200px; }
+    .li { height:627px; } .fb { height:630px; }
+    .lsc .ph { object-position:22% 28%; }
+    .lsc .scrim { position:absolute; inset:0; background:linear-gradient(90deg, rgba(30,30,33,.04) 0%, rgba(30,30,33,.22) 26%, rgba(30,30,33,.80) 50%, rgba(30,30,33,.94) 72%, rgba(30,30,33,.96) 100%); }
+    .lsc .wash { position:absolute; inset:0; background:linear-gradient(105deg, rgba(255,0,128,0) 62%, rgba(255,0,128,.20) 124%); }
+    .lsc .inner { padding:46px 52px 42px 596px; }
+    .lsc .ele { top:40px; right:48px; height:54px; }
+    .lsc .eyebrow { font-size:13px; letter-spacing:0.2em; }
+    .lsc .rule { width:58px; height:4px; margin:15px 0 18px; }
+    .lsc h3 { font-size:46px; }
+    .lsc .sub { font-size:17px; line-height:1.45; margin-top:14px; }
+    .lsc .cta { font-size:17px; padding:12px 25px; margin-top:20px; }
+    .lsc .foot { margin-top:auto; } .lsc .wm { font-size:19px; letter-spacing:0.16em; } .lsc .site { font-size:11px; letter-spacing:0.1em; }
+
+    /* copy + tags panel */
+    .meta { width:560px; }
+    .meta h4 { font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.14em; font-size:10px;
+               color:var(--bb-pink); font-weight:600; margin:0 0 6px; }
+    .meta .cap { border:1px solid var(--bb-grey-200); border-left:3px solid var(--bb-pink); border-radius:0 10px 10px 0;
+                 padding:13px 16px; font-size:13.5px; line-height:1.55; color:var(--bb-grey-800); margin:0 0 16px; background:#fff; }
+    .tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
+    .tag { border:1px solid var(--bb-grey-300); border-radius:999px; padding:4px 11px; font-size:11.5px;
+           font-family:var(--font-heading); color:var(--bb-grey-700); }
+    .spec { font-size:12px; color:var(--bb-grey-500); line-height:1.5; }
+    .spec b { color:var(--bb-grey-800); font-weight:600; }
+
+    .meta { width:560px; }
+  </style>
+</helmet>
+
+<doc-page size="a4" orientation="landscape" content-width="1780px" content-height="700px">
+  <section class="page">
+    <div class="sheetin">
+<div class="adblock">
+    <div class="adhd"><span class="n">AD 01</span><h2>Cost out is EBITDA in</h2><span class="aud">Managing &amp; operating partners</span></div>
+    <div class="row">
+      <div class="slot"><div class="slotlbl">Instagram · <b>1080 × 1080</b></div>
+      <div class="ad ig">
+        <img class="ph" src="assets/ad-win.jpg" alt="" style="object-position:44% 18%">
+        <div class="scrim"></div><div class="wash"></div>
+        <div class="inner">
+          <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+          <div class="eyebrow">Portfolio value creation</div>
+          <div class="rule"></div>
+          <h3>Cost out is EBITDA in.</h3>
+          <p class="sub">Every dollar you take out of a portfolio company&rsquo;s back office is EBITDA &mdash; and EBITDA is what you sell on.</p>
+          <span class="cta">Read the insight article</span>
+          <div class="foot"><span class="wm">BRAINBOX</span><span class="site">brain-box.com.au</span></div>
+        </div>
+      </div></div>
+      <div class="slot"><div class="slotlbl">LinkedIn · <b>1200 × 627</b></div>
+      <div class="ad lsc li">
+        <img class="ph" src="assets/ad-win.jpg" alt="" style="object-position:30% 22%">
+        <div class="scrim"></div><div class="wash"></div>
+        <div class="inner">
+          <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+          <div class="eyebrow">Portfolio value creation</div>
+          <div class="rule"></div>
+          <h3>Cost out is EBITDA in.</h3>
+          <p class="sub">Every dollar you take out of a portfolio company&rsquo;s back office is EBITDA &mdash; and EBITDA is what you sell on.</p>
+          <span class="cta">Read the insight article</span>
+          <div class="foot"><span class="wm">BRAINBOX</span><span class="site">brain-box.com.au</span></div>
+        </div>
+      </div>
+        <div class="slotlbl" style="margin-top:14px">Facebook · <b>1200 × 630</b></div>
+      <div class="ad lsc fb">
+        <img class="ph" src="assets/ad-win.jpg" alt="" style="object-position:30% 22%">
+        <div class="scrim"></div><div class="wash"></div>
+        <div class="inner">
+          <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+          <div class="eyebrow">Portfolio value creation</div>
+          <div class="rule"></div>
+          <h3>Cost out is EBITDA in.</h3>
+          <p class="sub">Every dollar you take out of a portfolio company&rsquo;s back office is EBITDA &mdash; and EBITDA is what you sell on.</p>
+          <span class="cta">Read the insight article</span>
+          <div class="foot"><span class="wm">BRAINBOX</span><span class="site">brain-box.com.au</span></div>
+        </div>
+      </div>
+      </div>
+      <div class="slot meta">
+        <h4>Post caption</h4>
+        <p class="cap">Every dollar of sustainable cost you remove from a portfolio company is EBITDA. And EBITDA is what the company is valued on at exit.<br><br>Brainbox places dedicated, managed offshore teams into portfolio companies &mdash; finance, administration, reporting and support. For a fund, that is not an outsourcing decision. It is a value-creation lever you can apply across the whole portfolio, inside the hold period.<br><br>Most Arizona firms start with a single pilot role in one company, prove it, then repeat it.</p>
+        <h4>Tags</h4>
+        <div class="tags"><span class="tag">#PrivateEquity</span><span class="tag">#ValueCreation</span><span class="tag">#PortfolioOps</span><span class="tag">#EBITDA</span><span class="tag">#Offshoring</span><span class="tag">#Arizona</span><span class="tag">#Phoenix</span><span class="tag">#Scottsdale</span><span class="tag">#AlwaysBeKind</span></div>
+        <h4>Placement notes</h4>
+        <p class="spec"><b>Lead advert of the month.</b> Sponsor on LinkedIn to Managing Partner, Operating Partner and Head of Portfolio Operations within Arizona. Destination: the two-page insight article. Instagram and Facebook run as retargeting.</p>
+      </div>
+    </div>
+  
+    </div>
+  </section>
+  <section class="page">
+    <div class="sheetin">
+<div class="adblock">
+    <div class="adhd"><span class="n">AD 02</span><h2>Your management fee is fixed</h2><span class="aud">Partners at lean funds</span></div>
+    <div class="row">
+      <div class="slot"><div class="slotlbl">Instagram · <b>1080 × 1080</b></div>
+      <div class="ad ig">
+        <img class="ph" src="assets/ad-phone.jpg" alt="" style="object-position:36% 20%">
+        <div class="scrim"></div><div class="wash"></div>
+        <div class="inner">
+          <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+          <div class="eyebrow">Fund operations</div>
+          <div class="rule"></div>
+          <h3>Your management fee is fixed. Your workload isn&rsquo;t.</h3>
+          <p class="sub">Dedicated offshore analyst and fund-operations support &mdash; more capacity, no new US headcount.</p>
+          <span class="cta">Book 20 minutes</span>
+          <div class="foot"><span class="wm">BRAINBOX</span><span class="site">brain-box.com.au</span></div>
+        </div>
+      </div></div>
+      <div class="slot"><div class="slotlbl">LinkedIn · <b>1200 × 627</b></div>
+      <div class="ad lsc li">
+        <img class="ph" src="assets/ad-phone.jpg" alt="" style="object-position:24% 26%">
+        <div class="scrim"></div><div class="wash"></div>
+        <div class="inner">
+          <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+          <div class="eyebrow">Fund operations</div>
+          <div class="rule"></div>
+          <h3>Your management fee is fixed. Your workload isn&rsquo;t.</h3>
+          <p class="sub">Dedicated offshore analyst and fund-operations support &mdash; more capacity, no new US headcount.</p>
+          <span class="cta">Book 20 minutes</span>
+          <div class="foot"><span class="wm">BRAINBOX</span><span class="site">brain-box.com.au</span></div>
+        </div>
+      </div>
+        <div class="slotlbl" style="margin-top:14px">Facebook · <b>1200 × 630</b></div>
+      <div class="ad lsc fb">
+        <img class="ph" src="assets/ad-phone.jpg" alt="" style="object-position:24% 26%">
+        <div class="scrim"></div><div class="wash"></div>
+        <div class="inner">
+          <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+          <div class="eyebrow">Fund operations</div>
+          <div class="rule"></div>
+          <h3>Your management fee is fixed. Your workload isn&rsquo;t.</h3>
+          <p class="sub">Dedicated offshore analyst and fund-operations support &mdash; more capacity, no new US headcount.</p>
+          <span class="cta">Book 20 minutes</span>
+          <div class="foot"><span class="wm">BRAINBOX</span><span class="site">brain-box.com.au</span></div>
+        </div>
+      </div>
+      </div>
+      <div class="slot meta">
+        <h4>Post caption</h4>
+        <p class="cap">The management fee does not grow when deal flow does.<br><br>So every new hire in Phoenix is a real trade-off, while screening, comps, diligence coordination, portfolio KPI packs and LP reporting keep expanding.<br><br>Brainbox places dedicated offshore analysts and fund-operations support &mdash; managed by us, working in your systems, under your access controls. Your partners stay senior-heavy. Your funnel gets wider.</p>
+        <h4>Tags</h4>
+        <div class="tags"><span class="tag">#PrivateEquity</span><span class="tag">#VentureCapital</span><span class="tag">#FundOperations</span><span class="tag">#DealFlow</span><span class="tag">#InvestmentAnalyst</span><span class="tag">#Arizona</span><span class="tag">#Phoenix</span><span class="tag">#Offshoring</span><span class="tag">#AlwaysBeKind</span></div>
+        <h4>Placement notes</h4>
+        <p class="spec"><b>Week two.</b> Narrow targeting to funds under roughly 25 investment professionals. Destination: booking page for the Arizona Agent. Strongest performer for direct meeting conversion.</p>
+      </div>
+    </div>
+  
+    </div>
+  </section>
+  <section class="page">
+    <div class="sheetin">
+<div class="adblock">
+    <div class="adhd"><span class="n">AD 03</span><h2>Start with one role</h2><span class="aud">Cautious buyers &amp; prior outsourcing failures</span></div>
+    <div class="row">
+      <div class="slot"><div class="slotlbl">Instagram · <b>1080 × 1080</b></div>
+      <div class="ad ig">
+        <img class="ph" src="assets/ad-ok.jpg" alt="" style="object-position:34% 22%">
+        <div class="scrim"></div><div class="wash"></div>
+        <div class="inner">
+          <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+          <div class="eyebrow">How firms start</div>
+          <div class="rule"></div>
+          <h3>Start with one role, not a programme.</h3>
+          <p class="sub">We scope it, recruit to your brief, train, supervise and cover it. You measure it for a quarter.</p>
+          <span class="cta">Talk to us about a pilot</span>
+          <div class="foot"><span class="wm">BRAINBOX</span><span class="site">brain-box.com.au</span></div>
+        </div>
+      </div></div>
+      <div class="slot"><div class="slotlbl">LinkedIn · <b>1200 × 627</b></div>
+      <div class="ad lsc li">
+        <img class="ph" src="assets/ad-ok.jpg" alt="" style="object-position:22% 26%">
+        <div class="scrim"></div><div class="wash"></div>
+        <div class="inner">
+          <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+          <div class="eyebrow">How firms start</div>
+          <div class="rule"></div>
+          <h3>Start with one role, not a programme.</h3>
+          <p class="sub">We scope it, recruit to your brief, train, supervise and cover it. You measure it for a quarter.</p>
+          <span class="cta">Talk to us about a pilot</span>
+          <div class="foot"><span class="wm">BRAINBOX</span><span class="site">brain-box.com.au</span></div>
+        </div>
+      </div>
+        <div class="slotlbl" style="margin-top:14px">Facebook · <b>1200 × 630</b></div>
+      <div class="ad lsc fb">
+        <img class="ph" src="assets/ad-ok.jpg" alt="" style="object-position:22% 26%">
+        <div class="scrim"></div><div class="wash"></div>
+        <div class="inner">
+          <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+          <div class="eyebrow">How firms start</div>
+          <div class="rule"></div>
+          <h3>Start with one role, not a programme.</h3>
+          <p class="sub">We scope it, recruit to your brief, train, supervise and cover it. You measure it for a quarter.</p>
+          <span class="cta">Talk to us about a pilot</span>
+          <div class="foot"><span class="wm">BRAINBOX</span><span class="site">brain-box.com.au</span></div>
+        </div>
+      </div>
+      </div>
+      <div class="slot meta">
+        <h4>Post caption</h4>
+        <p class="cap">Most firms do not need a portfolio-wide offshoring strategy. They need one role, in one company, that works.<br><br>That is how nearly every Brainbox relationship starts. We scope the position, recruit to your brief, train and supervise the person, and cover them when they are away. Measure it for a quarter. If it works, repeat it in the next company.<br><br>It is a managed model, not a freelance marketplace &mdash; usually the difference between offshoring that sticks and offshoring that quietly fails.</p>
+        <h4>Tags</h4>
+        <div class="tags"><span class="tag">#PortfolioCompanies</span><span class="tag">#OperatingPartner</span><span class="tag">#SharedServices</span><span class="tag">#BackOffice</span><span class="tag">#ManagedTeams</span><span class="tag">#Arizona</span><span class="tag">#Tucson</span><span class="tag">#PrivateEquity</span><span class="tag">#AlwaysBeKind</span></div>
+        <h4>Placement notes</h4>
+        <p class="spec"><b>Week three.</b> Retarget everyone who engaged with ads 01 or 02 but did not book. This is the de-risking message &mdash; it answers the &ldquo;we tried outsourcing once&rdquo; objection before the call.</p>
+      </div>
+    </div>
+  
+    </div>
+  </section>
+  <section class="page">
+    <div class="sheetin">
+<div class="adblock">
+    <div class="adhd"><span class="n">AD 04</span><h2>Kind is good business</h2><span class="aud">Founder-led funds &amp; venture investors</span></div>
+    <div class="row">
+      <div class="slot"><div class="slotlbl">Instagram · <b>1080 × 1080</b></div>
+      <div class="ad ig">
+        <img class="ph" src="assets/ad-desk.jpg" alt="" style="object-position:50% 20%">
+        <div class="scrim"></div><div class="wash"></div>
+        <div class="inner">
+          <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+          <div class="eyebrow">Always be kind</div>
+          <div class="rule"></div>
+          <h3>Kind is good business.</h3>
+          <p class="sub">Permanent employees, properly paid and supported. That is why they stay &mdash; and why the work is good.</p>
+          <span class="cta">Meet the team</span>
+          <div class="foot"><span class="wm">BRAINBOX</span><span class="site">brain-box.com.au</span></div>
+        </div>
+      </div></div>
+      <div class="slot"><div class="slotlbl">LinkedIn · <b>1200 × 627</b></div>
+      <div class="ad lsc li">
+        <img class="ph" src="assets/ad-desk.jpg" alt="" style="object-position:44% 26%">
+        <div class="scrim"></div><div class="wash"></div>
+        <div class="inner">
+          <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+          <div class="eyebrow">Always be kind</div>
+          <div class="rule"></div>
+          <h3>Kind is good business.</h3>
+          <p class="sub">Permanent employees, properly paid and supported. That is why they stay &mdash; and why the work is good.</p>
+          <span class="cta">Meet the team</span>
+          <div class="foot"><span class="wm">BRAINBOX</span><span class="site">brain-box.com.au</span></div>
+        </div>
+      </div>
+        <div class="slotlbl" style="margin-top:14px">Facebook · <b>1200 × 630</b></div>
+      <div class="ad lsc fb">
+        <img class="ph" src="assets/ad-desk.jpg" alt="" style="object-position:44% 26%">
+        <div class="scrim"></div><div class="wash"></div>
+        <div class="inner">
+          <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+          <div class="eyebrow">Always be kind</div>
+          <div class="rule"></div>
+          <h3>Kind is good business.</h3>
+          <p class="sub">Permanent employees, properly paid and supported. That is why they stay &mdash; and why the work is good.</p>
+          <span class="cta">Meet the team</span>
+          <div class="foot"><span class="wm">BRAINBOX</span><span class="site">brain-box.com.au</span></div>
+        </div>
+      </div>
+      </div>
+      <div class="slot meta">
+        <h4>Post caption</h4>
+        <p class="cap">Offshoring has a reputation problem, and most of it is deserved.<br><br>Brainbox was built on one value: always be kind. Our people are permanent employees, properly paid, developed and supported from our own facility in the Philippines &mdash; not gig workers rented by the hour.<br><br>For an investor that matters commercially. A stable, well-treated team means your portfolio company is not re-training someone new every six months.<br><br>Powerful people, performing.</p>
+        <h4>Tags</h4>
+        <div class="tags"><span class="tag">#AlwaysBeKind</span><span class="tag">#PowerfulPeoplePerformance</span><span class="tag">#TogetherWeThrive</span><span class="tag">#ResponsibleOutsourcing</span><span class="tag">#CompanyCulture</span><span class="tag">#PrivateEquity</span><span class="tag">#VentureCapital</span><span class="tag">#Arizona</span></div>
+        <h4>Placement notes</h4>
+        <p class="spec"><b>Week four, and always-on.</b> Brand advert &mdash; run at low spend continuously rather than in a burst. Destination: the team page.</p>
+      </div>
+    </div>
+  </div>
+
+    </div>
+  </section>
+</doc-page>
+</x-dc>
+</body>
+</html>
