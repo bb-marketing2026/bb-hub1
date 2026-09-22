@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/Hub.dc.html"
+      "destination": "/Playbook Hub.dc.html"
     }
   ]
 }
