@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <style>
+    body { margin:0; background:#faf9f8; font-family:var(--font-body); color:var(--bb-grey-800); -webkit-font-smoothing:antialiased; }
+    [hidden] { display:none !important; }
+    a { color:var(--bb-pink); }
+    a:hover { color:var(--bb-pink-700); }
+    input::placeholder { color:#b4b4b4; }
+    @media print {
+      @page { size:A4 portrait; margin:14mm; }
+      body { background:#fff; }
+      .noprint { display:none !important; }
+      .bbcard, .bbrow { break-inside:avoid; box-shadow:none !important; }
+    }
+  </style>
+</helmet>
+
+<div style="background:#3f3f3f;color:#fff;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;padding:7px 18px;text-align:center">
+  <span style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#FF6FB5;font-weight:600">Strictly private &amp; confidential</span>
+  <span style="font-size:11.5px;font-weight:300;color:rgba(255,255,255,.82)">Internal Brainbox use only — do not forward, publish or distribute outside the group.</span>
+</div>
+
+<div class="noprint" style="position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:11px clamp(20px,4vw,44px);background:rgba(255,255,255,.93);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #ececec">
+  <a href="#home" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+    <img src="assets/brainbox-elephant.png" alt="Brainbox" style="height:24px;width:auto">
+    <span style="font-family:var(--font-logo);font-size:15px;letter-spacing:0.16em;color:#3f3f3f">BRAINBOX</span>
+  </a>
+  <span style="width:1px;height:18px;background:#e4e4e4"></span>
+  <div style="display:flex;align-items:center;gap:9px;min-width:0">
+    <a href="#home" style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.13em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600;white-space:nowrap">BB Hub</a>
+    <span id="bbcrumbsep" hidden style="color:#c9c9c9;font-size:11px">/</span>
+    <span id="bbcrumb" style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.13em;text-transform:uppercase;color:#8d8d8d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></span>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;margin-left:auto">
+    <button id="bbback" hidden data-act="back" style="display:inline-flex;align-items:center;gap:7px;font-family:var(--font-body);font-size:12px;font-weight:500;color:#4a4a4a;background:#fff;border:1px solid #e0e0e0;border-radius:999px;padding:7px 14px;cursor:pointer;transition:background .2s ease-out,border-color .2s ease-out,color .2s ease-out" style-hover="background:#fff0f7;border-color:#FF0080;color:#c2005f">← Back</button>
+    <a href="#home" style="display:inline-flex;align-items:center;gap:7px;font-family:var(--font-body);font-size:12px;font-weight:500;color:#4a4a4a;background:#fff;border:1px solid #e0e0e0;border-radius:999px;padding:7px 14px;text-decoration:none;transition:background .2s ease-out,border-color .2s ease-out,color .2s ease-out" style-hover="background:#fff0f7;border-color:#FF0080;color:#c2005f">Home</a>
+    <button data-act="hubprint" style="display:inline-flex;align-items:center;gap:7px;font-family:var(--font-body);font-size:12px;font-weight:500;color:#fff;background:#FF0080;border:1px solid #FF0080;border-radius:999px;padding:7px 15px;cursor:pointer;transition:background .2s ease-out" style-hover="background:#d1006b;border-color:#d1006b">Export as PDF</button>
+  </div>
+</div>
+
+<section data-lib="home">
+  <div style="position:relative;overflow:hidden;background:var(--bb-gradient-brand);color:#fff;padding:clamp(34px,5vw,58px) clamp(22px,4vw,54px) clamp(38px,5vw,60px)">
+    <img src="assets/brainbox-elephant-white.png" alt="" style="position:absolute;right:clamp(20px,4vw,60px);top:50%;transform:translateY(-50%);height:clamp(70px,10vw,118px);width:auto;opacity:.92;pointer-events:none">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,.88);font-weight:600">Brainbox · Governance library</div>
+      <h1 style="color:#fff;font-family:var(--font-heading);font-weight:600;font-size:clamp(30px,4.4vw,46px);line-height:1.04;letter-spacing:-0.02em;margin:14px 0 12px">BB Hub</h1>
+      <p style="margin:0;max-width:58ch;font-size:clamp(13px,1.3vw,15px);line-height:1.6;font-weight:300;color:rgba(255,255,255,.95);text-wrap:pretty">The home for Brainbox's playbooks. Each playbook is a self-contained library — open one to reach its plan, the documents beneath it and the supporting assets.</p>
+    </div>
+  </div>
+
+  <div class="noprint" style="max-width:1240px;margin:0 auto;padding:22px clamp(22px,4vw,54px) 0;display:flex;flex-wrap:wrap;align-items:center;gap:12px">
+    <div style="display:flex;align-items:center;gap:9px;flex:1 1 250px;max-width:360px;background:#fff;border:1px solid #e4e4e4;border-radius:999px;padding:9px 15px">
+      <svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke:#b0b0b0;fill:none;stroke-width:2;stroke-linecap:round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg>
+      <input id="bbsearch" type="search" placeholder="Search the library…" style="flex:1;min-width:0;border:0;outline:none;background:transparent;font-family:var(--font-body);font-size:13px;color:#3f3f3f">
+    </div>
+    <span id="bbcount" style="margin-left:auto;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#9a9a9a"></span>
+  </div>
+
+  <div style="max-width:1240px;margin:0 auto;padding:26px clamp(22px,4vw,54px) 70px">
+
+    <div id="bbresults" hidden style="margin-bottom:30px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+        <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.19em;text-transform:uppercase;color:#8d8d8d;font-weight:600">Matching documents</span>
+        <span id="bbresultscount" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;color:#b4b4b4"></span>
+        <span style="flex:1;height:1px;background:#e8e8e8"></span>
+      </div>
+      <div id="bbresultsrow" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px"></div>
+    </div>
+
+    <div id="bbrecent" hidden style="margin-bottom:26px">
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:#9a9a9a;margin-bottom:9px">Recently opened</div>
+      <div id="bbrecentrow" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+    </div>
+
+    <div id="bblibhead" style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+      <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.19em;text-transform:uppercase;color:#8d8d8d;font-weight:600">The playbooks</span>
+      <span style="flex:1;height:1px;background:#e8e8e8"></span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(282px,1fr));gap:18px">
+
+      <a class="bblib" href="#strategy" data-q="strategic playbook board governance vision divisions executive leadership" style="display:flex;flex-direction:column;gap:11px;padding:22px;background:#fff;border:1px solid #ededed;border-top:3px solid #FF0080;border-radius:16px;box-shadow:0 1px 3px rgba(40,40,45,.05);text-decoration:none;transition:transform .2s ease-out,box-shadow .2s ease-out" style-hover="transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,0,128,.14)">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:#fff0f7">
+            <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#FF0080;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3.4"></circle></svg>
+          </span>
+          <span style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.13em;text-transform:uppercase;color:#fff;background:#FF0080;border-radius:999px;padding:4px 10px">Available</span>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#a0a0a0;margin-top:4px">Level 1 · Board governance</div>
+        <div style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.2;letter-spacing:-0.012em;color:#3f3f3f">Strategic Playbook</div>
+        <p style="margin:0;font-size:12.5px;line-height:1.55;color:#7a7a7a;font-weight:300;text-wrap:pretty">Where Brainbox is going and how we get there — the vision, the divisions that deliver it and the plans it all hangs off.</p>
+        <span style="margin-top:auto;padding-top:14px;font-family:var(--font-body);font-size:12.5px;font-weight:500;color:#FF0080">Open library →</span>
+      </a>
+
+      <a class="bblib" href="#revenue" data-q="revenue playbook commercial marketing sales demand generation ai engine" style="display:flex;flex-direction:column;gap:11px;padding:22px;background:#fff;border:1px solid #ededed;border-top:3px solid #FF0080;border-radius:16px;box-shadow:0 1px 3px rgba(40,40,45,.05);text-decoration:none;transition:transform .2s ease-out,box-shadow .2s ease-out" style-hover="transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,0,128,.14)">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:#fff0f7">
+            <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#FF0080;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M3 17.5 9 11l4 4 8-8.5"></path><path d="M15 6.5h6v6"></path></svg>
+          </span>
+          <span style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.13em;text-transform:uppercase;color:#fff;background:#FF0080;border-radius:999px;padding:4px 10px">Available</span>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#a0a0a0;margin-top:4px">Level 2 · Core governance</div>
+        <div style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.2;letter-spacing:-0.012em;color:#3f3f3f">Revenue Playbook</div>
+        <p style="margin:0;font-size:12.5px;line-height:1.55;color:#7a7a7a;font-weight:300;text-wrap:pretty">The parent commercial playbook, with the four functional playbooks beneath it — marketing, demand generation, sales and AI.</p>
+        <span style="margin-top:auto;padding-top:14px;font-family:var(--font-body);font-size:12.5px;font-weight:500;color:#FF0080">Open library →</span>
+      </a>
+
+      <a class="bblib" href="#demandgen" data-q="demand generation campaigns fy27 packs prospecting outbound readiness templates" style="display:flex;flex-direction:column;gap:11px;padding:22px;background:#fff;border:1px solid #ededed;border-top:3px solid #FF0080;border-radius:16px;box-shadow:0 1px 3px rgba(40,40,45,.05);text-decoration:none;transition:transform .2s ease-out,box-shadow .2s ease-out" style-hover="transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,0,128,.14)">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:#fff0f7">
+            <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#FF0080;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M3 10v4h4l5 4V6l-5 4H3Z"></path><path d="M16.5 9a4 4 0 0 1 0 6"></path><path d="M19.5 6.5a8 8 0 0 1 0 11"></path></svg>
+          </span>
+          <span style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.13em;text-transform:uppercase;color:#fff;background:#FF0080;border-radius:999px;padding:4px 10px">Available</span>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#a0a0a0;margin-top:4px">Level 3 · Functional</div>
+        <div style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.2;letter-spacing:-0.012em;color:#3f3f3f">Demand Generation Playbook</div>
+        <p style="margin:0;font-size:12.5px;line-height:1.55;color:#7a7a7a;font-weight:300;text-wrap:pretty">The biggest library — the FY27 campaign programme, the readiness plan, eleven sector packs and the campaign template set.</p>
+        <span style="margin-top:auto;padding-top:14px;font-family:var(--font-body);font-size:12.5px;font-weight:500;color:#FF0080">Open library →</span>
+      </a>
+
+      <a class="bblib" href="#marketing" data-q="marketing playbook brand content insight articles linkedin social ads channels" style="display:flex;flex-direction:column;gap:11px;padding:22px;background:#fff;border:1px solid #ededed;border-top:3px solid #FF0080;border-radius:16px;box-shadow:0 1px 3px rgba(40,40,45,.05);text-decoration:none;transition:transform .2s ease-out,box-shadow .2s ease-out" style-hover="transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,0,128,.14)">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:#fff0f7">
+            <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#FF0080;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M4 10v4h3l7 4V6l-7 4H4Z"></path><path d="M18 8.5v7"></path><path d="M21 6.5v11"></path></svg>
+          </span>
+          <span style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.13em;text-transform:uppercase;color:#fff;background:#FF0080;border-radius:999px;padding:4px 10px">Available</span>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#a0a0a0;margin-top:4px">Level 3 · Functional</div>
+        <div style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.2;letter-spacing:-0.012em;color:#3f3f3f">Marketing Playbook</div>
+        <p style="margin:0;font-size:12.5px;line-height:1.55;color:#7a7a7a;font-weight:300;text-wrap:pretty">Brand, channels and measures — plus every insight article, LinkedIn set and piece of campaign artwork.</p>
+        <span style="margin-top:auto;padding-top:14px;font-family:var(--font-body);font-size:12.5px;font-weight:500;color:#FF0080">Open library →</span>
+      </a>
+
+      <a class="bblib" href="#sales" data-q="sales playbook pipeline stages capability maps rcm proposals" style="display:flex;flex-direction:column;gap:11px;padding:22px;background:#fff;border:1px solid #ededed;border-top:3px solid #FF0080;border-radius:16px;box-shadow:0 1px 3px rgba(40,40,45,.05);text-decoration:none;transition:transform .2s ease-out,box-shadow .2s ease-out" style-hover="transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,0,128,.14)">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:#fff0f7">
+            <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#FF0080;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M4 19V9"></path><path d="M10 19V5"></path><path d="M16 19v-7"></path><path d="M21 19H3"></path></svg>
+          </span>
+          <span style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.13em;text-transform:uppercase;color:#fff;background:#FF0080;border-radius:999px;padding:4px 10px">Available</span>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#a0a0a0;margin-top:4px">Level 3 · Functional</div>
+        <div style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.2;letter-spacing:-0.012em;color:#3f3f3f">Sales Playbook</div>
+        <p style="margin:0;font-size:12.5px;line-height:1.55;color:#7a7a7a;font-weight:300;text-wrap:pretty">From first conversation to signed engagement — with the capability maps used in prospect meetings.</p>
+        <span style="margin-top:auto;padding-top:14px;font-family:var(--font-body);font-size:12.5px;font-weight:500;color:#FF0080">Open library →</span>
+      </a>
+
+      <a class="bblib" href="#ai" data-q="ai transformation playbook automation adoption journeys guardrails" style="display:flex;flex-direction:column;gap:11px;padding:22px;background:#fff;border:1px solid #ededed;border-top:3px solid #FF0080;border-radius:16px;box-shadow:0 1px 3px rgba(40,40,45,.05);text-decoration:none;transition:transform .2s ease-out,box-shadow .2s ease-out" style-hover="transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,0,128,.14)">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:#fff0f7">
+            <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#FF0080;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><rect x="6" y="6" width="12" height="12" rx="3"></rect><path d="M12 3v3"></path><path d="M12 18v3"></path><path d="M3 12h3"></path><path d="M18 12h3"></path></svg>
+          </span>
+          <span style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.13em;text-transform:uppercase;color:#fff;background:#FF0080;border-radius:999px;padding:4px 10px">Available</span>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#a0a0a0;margin-top:4px">Level 3 · Functional</div>
+        <div style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.2;letter-spacing:-0.012em;color:#3f3f3f">AI Transformation Playbook</div>
+        <p style="margin:0;font-size:12.5px;line-height:1.55;color:#7a7a7a;font-weight:300;text-wrap:pretty">How the group adopts AI — the journeys, the guardrails and the order we do it in.</p>
+        <span style="margin-top:auto;padding-top:14px;font-family:var(--font-body);font-size:12.5px;font-weight:500;color:#FF0080">Open library →</span>
+      </a>
+
+      <a class="bblib" href="#finance" data-q="finance playbook budget fy27 monthly report controls bookkeeper" style="display:flex;flex-direction:column;gap:11px;padding:22px;background:#fff;border:1px solid #ededed;border-top:3px solid #FF0080;border-radius:16px;box-shadow:0 1px 3px rgba(40,40,45,.05);text-decoration:none;transition:transform .2s ease-out,box-shadow .2s ease-out" style-hover="transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,0,128,.14)">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:#fff0f7">
+            <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#FF0080;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M12 3v18"></path><path d="M16.5 7.5c0-1.7-2-2.5-4.5-2.5s-4.5.9-4.5 2.8S9.5 11 12 11.6s4.5 1.2 4.5 3.1S14 17.5 12 17.5s-4.5-.8-4.5-2.5"></path></svg>
+          </span>
+          <span style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.13em;text-transform:uppercase;color:#fff;background:#FF0080;border-radius:999px;padding:4px 10px">Available</span>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#a0a0a0;margin-top:4px">Level 2 · Core governance</div>
+        <div style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.2;letter-spacing:-0.012em;color:#3f3f3f">Finance Playbook</div>
+        <p style="margin:0;font-size:12.5px;line-height:1.55;color:#7a7a7a;font-weight:300;text-wrap:pretty">How money moves through the group — controls, the reporting rhythm, the FY27 budget and the monthly report.</p>
+        <span style="margin-top:auto;padding-top:14px;font-family:var(--font-body);font-size:12.5px;font-weight:500;color:#FF0080">Open library →</span>
+      </a>
+
+      <a class="bblib" href="#facilities" data-q="fleet facilities playbook vehicles offices accommodation client travel" style="display:flex;flex-direction:column;gap:11px;padding:22px;background:#fff;border:1px solid #ededed;border-top:3px solid #FF0080;border-radius:16px;box-shadow:0 1px 3px rgba(40,40,45,.05);text-decoration:none;transition:transform .2s ease-out,box-shadow .2s ease-out" style-hover="transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,0,128,.14)">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:#fff0f7">
+            <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#FF0080;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M3 10.5 12 4l9 6.5"></path><path d="M5 9.5V20h14V9.5"></path><path d="M10 20v-5h4v5"></path></svg>
+          </span>
+          <span style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.13em;text-transform:uppercase;color:#fff;background:#FF0080;border-radius:999px;padding:4px 10px">Available</span>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#a0a0a0;margin-top:4px">Level 2 · Core governance</div>
+        <div style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.2;letter-spacing:-0.012em;color:#3f3f3f">Fleet &amp; Facilities Playbook</div>
+        <p style="margin:0;font-size:12.5px;line-height:1.55;color:#7a7a7a;font-weight:300;text-wrap:pretty">Vehicles, offices and physical assets — with the accommodation and client travel playbooks beneath it.</p>
+        <span style="margin-top:auto;padding-top:14px;font-family:var(--font-body);font-size:12.5px;font-weight:500;color:#FF0080">Open library →</span>
+      </a>
+
+      <a class="bblib" href="#execsupport" data-q="executive assistant playbook exec support capability maps contract variation letter" style="display:flex;flex-direction:column;gap:11px;padding:22px;background:#fff;border:1px solid #ededed;border-top:3px solid #FF0080;border-radius:16px;box-shadow:0 1px 3px rgba(40,40,45,.05);text-decoration:none;transition:transform .2s ease-out,box-shadow .2s ease-out" style-hover="transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,0,128,.14)">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:#fff0f7">
+            <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#FF0080;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><circle cx="12" cy="8" r="3.6"></circle><path d="M5 20c0-3.6 3.1-5.6 7-5.6s7 2 7 5.6"></path></svg>
+          </span>
+          <span style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.13em;text-transform:uppercase;color:#fff;background:#FF0080;border-radius:999px;padding:4px 10px">Available</span>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#a0a0a0;margin-top:4px">Level 3 · Functional</div>
+        <div style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.2;letter-spacing:-0.012em;color:#3f3f3f">Executive Assistant Playbook</div>
+        <p style="margin:0;font-size:12.5px;line-height:1.55;color:#7a7a7a;font-weight:300;text-wrap:pretty">The offshore EA service — scope and rhythm, with the role capability maps and standard letters.</p>
+        <span style="margin-top:auto;padding-top:14px;font-family:var(--font-body);font-size:12.5px;font-weight:500;color:#FF0080">Open library →</span>
+      </a>
+
+      <div class="bblib" data-q="operations playbook service delivery offshore coming soon planned" style="display:flex;flex-direction:column;gap:11px;padding:22px;background:#fdfdfd;border:1px dashed #dcdcdc;border-radius:16px">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:#f3f3f3">
+            <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#a8a8a8;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg>
+          </span>
+          <span style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.13em;text-transform:uppercase;color:#6f6f6f;background:#f1f1f1;border:1px solid #e4e4e4;border-radius:999px;padding:3px 10px">Coming soon</span>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#a0a0a0;margin-top:4px">Level 2 · Core governance</div>
+        <div style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.2;letter-spacing:-0.012em;color:#3f3f3f">Operations Playbook</div>
+        <p style="margin:0;font-size:12.5px;line-height:1.55;color:#7a7a7a;font-weight:300;text-wrap:pretty">How engagements are delivered and the offshore operating model runs. In development.</p>
+        <span style="margin-top:auto;padding-top:14px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#b4b4b4">Not yet available</span>
+      </div>
+
+      <div class="bblib" data-q="governance playbook policies critical procedures board risk coming soon planned" style="display:flex;flex-direction:column;gap:11px;padding:22px;background:#fdfdfd;border:1px dashed #dcdcdc;border-radius:16px">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:#f3f3f3">
+            <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#a8a8a8;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M12 3.5 5 6.5v5.2c0 4 2.9 7.3 7 8.8 4.1-1.5 7-4.8 7-8.8V6.5Z"></path></svg>
+          </span>
+          <span style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.13em;text-transform:uppercase;color:#6f6f6f;background:#f1f1f1;border:1px solid #e4e4e4;border-radius:999px;padding:3px 10px">Coming soon</span>
+        </div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#a0a0a0;margin-top:4px">Level 2 · Core governance</div>
+        <div style="font-family:var(--font-heading);font-weight:600;font-size:18px;line-height:1.2;letter-spacing:-0.012em;color:#3f3f3f">Governance Playbook</div>
+        <p style="margin:0;font-size:12.5px;line-height:1.55;color:#7a7a7a;font-weight:300;text-wrap:pretty">Board rhythm, delegations and risk — parent to the policies and critical procedures set. In development.</p>
+        <span style="margin-top:auto;padding-top:14px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#b4b4b4">Not yet available</span>
+      </div>
+
+    </div>
+
+    <div id="bbempty" hidden style="text-align:center;padding:50px 20px;color:#9a9a9a">
+      <div style="font-family:var(--font-heading);font-weight:600;font-size:17px;color:#3f3f3f;margin-bottom:6px">Nothing matches that</div>
+      <p style="margin:0;font-size:13px;font-weight:300">Try a different word, or clear the search to see the whole library.</p>
+    </div>
+
+    <div id="bbhier" style="margin-top:52px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
+        <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.19em;text-transform:uppercase;color:#8d8d8d;font-weight:600">The hierarchy</span>
+        <span style="flex:1;height:1px;background:#e8e8e8"></span>
+      </div>
+      <p style="margin:0 0 20px;font-size:12.5px;line-height:1.55;color:#9a9a9a;font-weight:300;max-width:66ch">Six levels of governance, from the board plan down to the campaign templates. Every card is a document or a library.</p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:16px;padding:16px 0;border-top:1px solid #eeeeee">
+        <div style="flex:0 0 150px"><div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#FF0080;font-weight:600">Level 1</div><div style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;margin-top:3px">Board governance</div></div>
+        <div style="flex:1 1 400px;display:flex;flex-wrap:wrap;gap:9px">
+          <a class="bbmini" href="#strategy" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">Strategic Playbook</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Library</span></a>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:16px;padding:16px 0;border-top:1px solid #eeeeee">
+        <div style="flex:0 0 150px"><div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#FF0080;font-weight:600">Level 2</div><div style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;margin-top:3px">Core governance</div></div>
+        <div style="flex:1 1 400px;display:flex;flex-wrap:wrap;gap:9px">
+          <a class="bbmini" href="#revenue" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">Revenue</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Library</span></a>
+          <a class="bbmini" href="#finance" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">Finance</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Library</span></a>
+          <a class="bbmini" href="#facilities" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">Facilities</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Library</span></a>
+          <span class="bbmini" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fdfdfd;border:1px dashed #dcdcdc;border-radius:10px"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#a8a8a8;line-height:1.2">Operations</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#bdbdbd">Coming soon</span></span>
+          <span class="bbmini" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fdfdfd;border:1px dashed #dcdcdc;border-radius:10px"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#a8a8a8;line-height:1.2">Governance</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#bdbdbd">Coming soon</span></span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:16px;padding:16px 0;border-top:1px solid #eeeeee">
+        <div style="flex:0 0 150px"><div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#FF0080;font-weight:600">Level 3</div><div style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;margin-top:3px">Functional governance</div></div>
+        <div style="flex:1 1 400px;display:flex;flex-wrap:wrap;gap:9px">
+          <a class="bbmini" href="#marketing" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">Marketing</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Under Revenue</span></a>
+          <a class="bbmini" href="#demandgen" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">Demand Generation</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Under Revenue</span></a>
+          <a class="bbmini" href="#sales" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">Sales</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Under Revenue</span></a>
+          <a class="bbmini" href="#ai" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">AI Transformation</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Under Revenue</span></a>
+          <a class="bbmini" href="Accommodation%20Playbook.dc.html" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">Accommodation</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Under Facilities</span></a>
+          <a class="bbmini" href="Client%20Travel%20Playbook.dc.html" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">Client Travel</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Under Facilities</span></a>
+          <span class="bbmini" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fdfdfd;border:1px dashed #dcdcdc;border-radius:10px"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#a8a8a8;line-height:1.2">Policies</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#bdbdbd">Coming soon</span></span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:16px;padding:16px 0;border-top:1px solid #eeeeee">
+        <div style="flex:0 0 150px"><div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#FF0080;font-weight:600">Level 4</div><div style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;margin-top:3px">Execution guidance</div></div>
+        <div style="flex:1 1 400px;display:flex;flex-wrap:wrap;gap:9px">
+          <a class="bbmini" href="FY27%20Campaign%20Planning%20Overview.dc.html" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">FY27 Campaign Overview</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Under Demand Gen</span></a>
+          <a class="bbmini" href="#demandgen" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">Campaigns</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">11 packs</span></a>
+          <span class="bbmini" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fdfdfd;border:1px dashed #dcdcdc;border-radius:10px"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#a8a8a8;line-height:1.2">Critical Procedures</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#bdbdbd">Coming soon</span></span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:16px;padding:16px 0;border-top:1px solid #eeeeee">
+        <div style="flex:0 0 150px"><div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#FF0080;font-weight:600">Level 5</div><div style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;margin-top:3px">Execution support</div></div>
+        <div style="flex:1 1 400px;display:flex;flex-wrap:wrap;gap:9px">
+          <a class="bbmini" href="Demand%20Generation%20Readiness%20Plan.dc.html" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">FY27 Readiness Plan</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Under FY27 Overview</span></a>
+          <a class="bbmini" href="Templates/Demand%20Generation%20Playbook%20-%20Template.dc.html" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #96B3D2;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(150,179,210,.22)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">Campaign Plan Template</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Template set</span></a>
+          <a class="bbmini" href="#demandgen" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">Individual Campaigns</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Under Campaigns</span></a>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:16px;padding:16px 0;border-top:1px solid #eeeeee;border-bottom:1px solid #eeeeee">
+        <div style="flex:0 0 150px"><div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:#FF0080;font-weight:600">Level 6</div><div style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;margin-top:3px">Campaign templates</div></div>
+        <div style="flex:1 1 400px;display:flex;flex-wrap:wrap;gap:9px">
+          <a class="bbmini" href="Insight%20Article%20-%20Growth%20Done%20Differently.html" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">Insight Article</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Content</span></a>
+          <a class="bbmini" href="LinkedIn%20Posts%20-%20Building%20-%20Trades.dc.html" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:10px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateX(2px);box-shadow:0 6px 16px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#3f3f3f;line-height:1.2">Socials</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Content</span></a>
+          <span class="bbmini" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fdfdfd;border:1px dashed #dcdcdc;border-radius:10px"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#a8a8a8;line-height:1.2">Landing Page</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#bdbdbd">Coming soon</span></span>
+          <span class="bbmini" style="display:flex;flex-direction:column;gap:2px;min-width:168px;padding:11px 14px;background:#fdfdfd;border:1px dashed #dcdcdc;border-radius:10px"><span style="font-family:var(--font-heading);font-weight:600;font-size:13px;color:#a8a8a8;line-height:1.2">Blogs</span><span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#bdbdbd">Coming soon</span></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section data-lib="strategy" hidden>
+  <div style="background:linear-gradient(112deg,#2b2b2b 14%,#66002e 68%,#ff0080 132%);color:#fff;padding:clamp(28px,4vw,46px) clamp(22px,4vw,54px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,.72)">Level 1 · Board governance</div>
+      <h2 style="color:#fff;font-family:var(--font-heading);font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.08;letter-spacing:-0.018em;margin:11px 0 10px">Strategic Playbook library</h2>
+      <p style="margin:0;max-width:60ch;font-size:13.5px;line-height:1.6;font-weight:300;color:rgba(255,255,255,.9);text-wrap:pretty">The parent document of the whole suite, plus the strategic plans it was built from.</p>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:30px clamp(22px,4vw,54px) 70px;display:flex;flex-direction:column;gap:26px">
+    <div>
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600;margin-bottom:12px">The playbook</div>
+      <div class="bbrow" data-k="Strategic Playbook.dc.html" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:16px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+        <div style="flex:1 1 240px;min-width:0"><a href="Strategic%20Playbook.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:15px;color:#3f3f3f;text-decoration:none" style-hover="color:#FF0080">Brainbox Strategic Playbook</a><div style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Strategic playbook · Live</div></div>
+        <div style="display:flex;gap:12px;align-items:center;margin-left:auto">
+          <a href="Strategic%20Playbook.dc.html" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a>
+          <button data-act="save" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button>
+          <a href="Strategic%20Playbook.dc.html#print" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600;margin-bottom:12px">Reference &amp; source documents</div>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <div class="bbrow" data-k="source-pdfs/Brainsource Strategic Plan FY25-28 (part 1).pdf" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:14px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #96B3D2;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1 1 240px;min-width:0"><a href="source-pdfs/Brainsource%20Strategic%20Plan%20FY25-28%20(part%201).pdf" style="font-family:var(--font-heading);font-weight:600;font-size:14px;color:#3f3f3f;text-decoration:none" style-hover="color:#FF0080">Brainsource Strategic Plan FY25–28 · Part 1</a><div style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Source PDF</div></div>
+          <div style="display:flex;gap:12px;align-items:center;margin-left:auto"><a href="source-pdfs/Brainsource%20Strategic%20Plan%20FY25-28%20(part%201).pdf" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a><button data-act="save" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="source-pdfs/Brainsource%20Strategic%20Plan%20FY25-28%20(part%201).pdf" download style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">Download</a></div>
+        </div>
+        <div class="bbrow" data-k="source-pdfs/Brainsource Strategic Plan FY25-28 (part 2).pdf" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:14px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #96B3D2;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1 1 240px;min-width:0"><a href="source-pdfs/Brainsource%20Strategic%20Plan%20FY25-28%20(part%202).pdf" style="font-family:var(--font-heading);font-weight:600;font-size:14px;color:#3f3f3f;text-decoration:none" style-hover="color:#FF0080">Brainsource Strategic Plan FY25–28 · Part 2</a><div style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Source PDF</div></div>
+          <div style="display:flex;gap:12px;align-items:center;margin-left:auto"><a href="source-pdfs/Brainsource%20Strategic%20Plan%20FY25-28%20(part%202).pdf" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a><button data-act="save" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="source-pdfs/Brainsource%20Strategic%20Plan%20FY25-28%20(part%202).pdf" download style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">Download</a></div>
+        </div>
+        <div class="bbrow" data-k="Playbook Hierarchy.dc.html" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:14px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #96B3D2;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1 1 240px;min-width:0"><a href="Playbook%20Hierarchy.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:14px;color:#3f3f3f;text-decoration:none" style-hover="color:#FF0080">Playbook Hierarchy</a><div style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Reference</div></div>
+          <div style="display:flex;gap:12px;align-items:center;margin-left:auto"><a href="Playbook%20Hierarchy.dc.html" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a><button data-act="save" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Playbook%20Hierarchy.dc.html#print" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-lib="revenue" hidden>
+  <div style="background:linear-gradient(112deg,#2b2b2b 14%,#66002e 68%,#ff0080 132%);color:#fff;padding:clamp(28px,4vw,46px) clamp(22px,4vw,54px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,.72)">Level 2 · Core governance</div>
+      <h2 style="color:#fff;font-family:var(--font-heading);font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.08;letter-spacing:-0.018em;margin:11px 0 10px">Revenue library</h2>
+      <p style="margin:0;max-width:60ch;font-size:13.5px;line-height:1.6;font-weight:300;color:rgba(255,255,255,.9);text-wrap:pretty">The commercial engine — the parent playbook and the four functional libraries beneath it.</p>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:30px clamp(22px,4vw,54px) 70px;display:flex;flex-direction:column;gap:26px">
+    <div>
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600;margin-bottom:12px">The playbook</div>
+      <div class="bbrow" data-k="Revenue Playbook.dc.html" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:16px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+        <div style="flex:1 1 240px;min-width:0"><a href="Revenue%20Playbook.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:15px;color:#3f3f3f;text-decoration:none" style-hover="color:#FF0080">Revenue Playbook</a><div style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Playbook · Live</div></div>
+        <div style="display:flex;gap:12px;align-items:center;margin-left:auto"><a href="Revenue%20Playbook.dc.html" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a><button data-act="save" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Revenue%20Playbook.dc.html#print" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a></div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600;margin-bottom:12px">Libraries under Revenue</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px">
+        <a href="#marketing" style="display:flex;flex-direction:column;gap:4px;padding:16px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:15px;color:#3f3f3f">Marketing</span><span style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Library · brand &amp; content</span></a>
+        <a href="#demandgen" style="display:flex;flex-direction:column;gap:4px;padding:16px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:15px;color:#3f3f3f">Demand Generation</span><span style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Library · 11 campaign packs</span></a>
+        <a href="#sales" style="display:flex;flex-direction:column;gap:4px;padding:16px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:15px;color:#3f3f3f">Sales</span><span style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Library · pipeline</span></a>
+        <a href="#ai" style="display:flex;flex-direction:column;gap:4px;padding:16px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;text-decoration:none;transition:transform .18s ease-out,box-shadow .18s ease-out" style-hover="transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,0,128,.12)"><span style="font-family:var(--font-heading);font-weight:600;font-size:15px;color:#3f3f3f">AI Transformation</span><span style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0">Library · adoption</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-lib="demandgen" hidden>
+  <div style="background:linear-gradient(112deg,#2b2b2b 14%,#66002e 68%,#ff0080 132%);color:#fff;padding:clamp(28px,4vw,46px) clamp(22px,4vw,54px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,.72)">Level 3 · Under Revenue</div>
+      <h2 style="color:#fff;font-family:var(--font-heading);font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.08;letter-spacing:-0.018em;margin:11px 0 10px">Demand Generation library</h2>
+      <p style="margin:0;max-width:60ch;font-size:13.5px;line-height:1.6;font-weight:300;color:rgba(255,255,255,.9);text-wrap:pretty">The playbook, the FY27 programme and every sector campaign pack with its paired article.</p>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:30px clamp(22px,4vw,54px) 70px;display:flex;flex-direction:column;gap:26px">
+    <div>
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600;margin-bottom:12px">The playbook &amp; the plan</div>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <div class="bbrow" data-k="Demand Generation Playbook.dc.html" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:16px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1 1 240px;min-width:0"><a href="Demand%20Generation%20Playbook.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:15px;color:#3f3f3f;text-decoration:none" style-hover="color:#FF0080">Demand Generation Playbook</a><div style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Playbook · Live</div></div>
+          <div style="display:flex;gap:12px;align-items:center;margin-left:auto"><a href="Demand%20Generation%20Playbook.dc.html" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a><button data-act="save" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Demand%20Generation%20Playbook.dc.html#print" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="source-pdfs/Lead%20Generation%20Playbook.pdf" download style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">Source</a></div>
+        </div>
+        <div class="bbrow" data-k="FY27 Campaign Planning Overview.dc.html" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:14px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1 1 240px;min-width:0"><a href="FY27%20Campaign%20Planning%20Overview.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:14px;color:#3f3f3f;text-decoration:none" style-hover="color:#FF0080">FY27 Campaign Planning Overview</a><div style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Overview · Level 4</div></div>
+          <div style="display:flex;gap:12px;align-items:center;margin-left:auto"><a href="FY27%20Campaign%20Planning%20Overview.dc.html" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a><button data-act="save" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="FY27%20Campaign%20Planning%20Overview.dc.html#print" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="source-pdfs/FY27%20Campaign%20Overview.pdf" download style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">Source</a></div>
+        </div>
+        <div class="bbrow" data-k="Demand Generation Readiness Plan.dc.html" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:14px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1 1 240px;min-width:0"><a href="Demand%20Generation%20Readiness%20Plan.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:14px;color:#3f3f3f;text-decoration:none" style-hover="color:#FF0080">FY27 Readiness Plan</a><div style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Plan · Level 5</div></div>
+          <div style="display:flex;gap:12px;align-items:center;margin-left:auto"><a href="Demand%20Generation%20Readiness%20Plan.dc.html" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a><button data-act="save" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Demand%20Generation%20Readiness%20Plan.dc.html#print" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a></div>
+        </div>
+        <div class="bbrow" data-k="Templates/Demand Generation Playbook - Template.dc.html" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:14px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #96B3D2;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1 1 240px;min-width:0"><a href="Templates/Demand%20Generation%20Playbook%20-%20Template.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:14px;color:#3f3f3f;text-decoration:none" style-hover="color:#FF0080">Campaign Plan Template</a><div style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Template set · Draft</div></div>
+          <div style="display:flex;gap:12px;align-items:center;margin-left:auto"><a href="Templates/Demand%20Generation%20Playbook%20-%20Template.dc.html" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a><button data-act="save" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:12px">
+        <span style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600">Campaign packs</span>
+        <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;color:#b4b4b4">11 sectors</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px">
+
+        <div class="bbrow" data-k="Campaign 01 - Residential Building - Trades.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;color:#d6d6d6">01</span>
+          <div style="flex:1;min-width:0"><a href="Campaign%2001%20-%20Residential%20Building%20-%20Trades.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Residential Building &amp; Trades</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign pack</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Campaign%2001%20-%20Residential%20Building%20-%20Trades.dc.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Campaign%2001%20-%20Residential%20Building%20-%20Trades.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+
+        <div class="bbrow" data-k="Campaign 02 - Allied Health - NDIS.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;color:#d6d6d6">02</span>
+          <div style="flex:1;min-width:0"><a href="Campaign%2002%20-%20Allied%20Health%20-%20NDIS.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Allied Health &amp; NDIS</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign pack · article paired</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Campaign%2002%20-%20Allied%20Health%20-%20NDIS.dc.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Campaign%2002%20-%20Allied%20Health%20-%20NDIS.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+
+        <div class="bbrow" data-k="Campaign 03 - Mining Services - METS.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;color:#d6d6d6">03</span>
+          <div style="flex:1;min-width:0"><a href="Campaign%2003%20-%20Mining%20Services%20-%20METS.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Mining Services &amp; METS</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign pack · article paired</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Campaign%2003%20-%20Mining%20Services%20-%20METS.dc.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Campaign%2003%20-%20Mining%20Services%20-%20METS.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+
+        <div class="bbrow" data-k="Campaign 04 - Engineering - Consultancies.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;color:#d6d6d6">04</span>
+          <div style="flex:1;min-width:0"><a href="Campaign%2004%20-%20Engineering%20-%20Consultancies.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Engineering Consultancies</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign pack · article paired</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Campaign%2004%20-%20Engineering%20-%20Consultancies.dc.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Campaign%2004%20-%20Engineering%20-%20Consultancies.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+
+        <div class="bbrow" data-k="Campaign 05 - Transport - Logistics.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;color:#d6d6d6">05</span>
+          <div style="flex:1;min-width:0"><a href="Campaign%2005%20-%20Transport%20-%20Logistics.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Transport &amp; Logistics</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign pack</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Campaign%2005%20-%20Transport%20-%20Logistics.dc.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Campaign%2005%20-%20Transport%20-%20Logistics.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+
+        <div class="bbrow" data-k="Campaign 06 - Insurance Broking.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;color:#d6d6d6">06</span>
+          <div style="flex:1;min-width:0"><a href="Campaign%2006%20-%20Insurance%20Broking.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Insurance Broking</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign pack</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Campaign%2006%20-%20Insurance%20Broking.dc.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Campaign%2006%20-%20Insurance%20Broking.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+
+        <div class="bbrow" data-k="Campaign 07 - Training - RTOs.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;color:#d6d6d6">07</span>
+          <div style="flex:1;min-width:0"><a href="Campaign%2007%20-%20Training%20-%20RTOs.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Training &amp; RTOs</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign pack</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Campaign%2007%20-%20Training%20-%20RTOs.dc.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Campaign%2007%20-%20Training%20-%20RTOs.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+
+        <div class="bbrow" data-k="Campaign 08 - Strata - Property.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;color:#d6d6d6">08</span>
+          <div style="flex:1;min-width:0"><a href="Campaign%2008%20-%20Strata%20-%20Property.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Strata &amp; Property</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign pack</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Campaign%2008%20-%20Strata%20-%20Property.dc.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Campaign%2008%20-%20Strata%20-%20Property.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+
+        <div class="bbrow" data-k="Campaign 09 - IT - Cybersecurity -MSPs-.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;color:#d6d6d6">09</span>
+          <div style="flex:1;min-width:0"><a href="Campaign%2009%20-%20IT%20-%20Cybersecurity%20-MSPs-.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">IT, Cybersecurity &amp; MSPs</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign pack · article paired</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Campaign%2009%20-%20IT%20-%20Cybersecurity%20-MSPs-.dc.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Campaign%2009%20-%20IT%20-%20Cybersecurity%20-MSPs-.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+
+        <div class="bbrow" data-k="Campaign 10 - Agribusiness - Food.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;color:#d6d6d6">10</span>
+          <div style="flex:1;min-width:0"><a href="Campaign%2010%20-%20Agribusiness%20-%20Food.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Agribusiness &amp; Food</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign pack</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Campaign%2010%20-%20Agribusiness%20-%20Food.dc.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Campaign%2010%20-%20Agribusiness%20-%20Food.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+
+        <div class="bbrow" data-k="Campaign 11 - Arizona - PE-VC Firms.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;color:#d6d6d6">11</span>
+          <div style="flex:1;min-width:0"><a href="Campaign%2011%20-%20Arizona%20-%20PE-VC%20Firms.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Arizona PE &amp; VC Firms</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign pack · US · article paired</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Campaign%2011%20-%20Arizona%20-%20PE-VC%20Firms.dc.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Campaign%2011%20-%20Arizona%20-%20PE-VC%20Firms.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-lib="marketing" hidden>
+  <div style="background:linear-gradient(112deg,#2b2b2b 14%,#66002e 68%,#ff0080 132%);color:#fff;padding:clamp(28px,4vw,46px) clamp(22px,4vw,54px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,.72)">Level 3 · Under Revenue</div>
+      <h2 style="color:#fff;font-family:var(--font-heading);font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.08;letter-spacing:-0.018em;margin:11px 0 10px">Marketing library</h2>
+      <p style="margin:0;max-width:60ch;font-size:13.5px;line-height:1.6;font-weight:300;color:rgba(255,255,255,.9);text-wrap:pretty">The playbook, every insight article and the campaign content that goes out the door.</p>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:30px clamp(22px,4vw,54px) 70px;display:flex;flex-direction:column;gap:26px">
+    <div>
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600;margin-bottom:12px">The playbook</div>
+      <div class="bbrow" data-k="Marketing Playbook.dc.html" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:16px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+        <div style="flex:1 1 240px;min-width:0"><a href="Marketing%20Playbook.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:15px;color:#3f3f3f;text-decoration:none" style-hover="color:#FF0080">Marketing Playbook</a><div style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Playbook · Live</div></div>
+        <div style="display:flex;gap:12px;align-items:center;margin-left:auto"><a href="Marketing%20Playbook.dc.html" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a><button data-act="save" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Marketing%20Playbook.dc.html#print" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a></div>
+      </div>
+    </div>
+    <div>
+      <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:12px"><span style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600">Insight articles</span><span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;color:#b4b4b4">6 articles</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px">
+        <div class="bbrow" data-k="Insight Article - Growth Done Differently.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="Insight%20Article%20-%20Growth%20Done%20Differently.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Growth, done differently</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Evergreen · flagship</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Insight%20Article%20-%20Growth%20Done%20Differently.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Insight%20Article%20-%20Growth%20Done%20Differently.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+        <div class="bbrow" data-k="Insight Article - Care Done Differently.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="Insight%20Article%20-%20Care%20Done%20Differently.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Care, done differently</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign 02 · allied health</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Insight%20Article%20-%20Care%20Done%20Differently.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Insight%20Article%20-%20Care%20Done%20Differently.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+        <div class="bbrow" data-k="Insight Article - Mining Done Differently.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="Insight%20Article%20-%20Mining%20Done%20Differently.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Mining, done differently</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign 03 · METS</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Insight%20Article%20-%20Mining%20Done%20Differently.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Insight%20Article%20-%20Mining%20Done%20Differently.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+        <div class="bbrow" data-k="Insight Article - Cleared For Growth.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="Insight%20Article%20-%20Cleared%20For%20Growth.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Cleared for growth</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign 04 · aerospace</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Insight%20Article%20-%20Cleared%20For%20Growth.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Insight%20Article%20-%20Cleared%20For%20Growth.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+        <div class="bbrow" data-k="Insight Article - Built Done Differently.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="Insight%20Article%20-%20Built%20Done%20Differently.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Built, done differently</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign 09 · technology</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Insight%20Article%20-%20Built%20Done%20Differently.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Insight%20Article%20-%20Built%20Done%20Differently.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+        <div class="bbrow" data-k="Insight Article - Offshoring for PE and VC.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="Insight%20Article%20-%20Offshoring%20for%20PE%20and%20VC.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Offshoring for PE &amp; VC</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign 11 · investors</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Insight%20Article%20-%20Offshoring%20for%20PE%20and%20VC.dc.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Insight%20Article%20-%20Offshoring%20for%20PE%20and%20VC.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600;margin-bottom:12px">Social &amp; artwork</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px">
+        <div class="bbrow" data-k="LinkedIn Posts - Building - Trades.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="LinkedIn%20Posts%20-%20Building%20-%20Trades.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">LinkedIn Posts — Building &amp; Trades</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Campaign 01 · ready to post</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="LinkedIn%20Posts%20-%20Building%20-%20Trades.dc.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="LinkedIn%20Posts%20-%20Building%20-%20Trades.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+        <div class="bbrow" data-k="Social Ads - Campaign 11.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="Social%20Ads%20-%20Campaign%2011.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Social Ads — Campaign 11</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Artwork · presentation view</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Social%20Ads%20-%20Campaign%2011-print.dc.html" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">Present</a><a href="Social%20Ads%20-%20Campaign%2011.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-lib="sales" hidden>
+  <div style="background:linear-gradient(112deg,#2b2b2b 14%,#66002e 68%,#ff0080 132%);color:#fff;padding:clamp(28px,4vw,46px) clamp(22px,4vw,54px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,.72)">Level 3 · Under Revenue</div>
+      <h2 style="color:#fff;font-family:var(--font-heading);font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.08;letter-spacing:-0.018em;margin:11px 0 10px">Sales library</h2>
+      <p style="margin:0;max-width:60ch;font-size:13.5px;line-height:1.6;font-weight:300;color:rgba(255,255,255,.9);text-wrap:pretty">The sales playbook and the capability maps that carry a prospect conversation.</p>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:30px clamp(22px,4vw,54px) 70px;display:flex;flex-direction:column;gap:26px">
+    <div>
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600;margin-bottom:12px">The playbook</div>
+      <div class="bbrow" data-k="Sales Playbook.dc.html" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:16px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+        <div style="flex:1 1 240px;min-width:0"><a href="Sales%20Playbook.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:15px;color:#3f3f3f;text-decoration:none" style-hover="color:#FF0080">Sales Playbook</a><div style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Playbook · Live</div></div>
+        <div style="display:flex;gap:12px;align-items:center;margin-left:auto"><a href="Sales%20Playbook.dc.html" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a><button data-act="save" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Sales%20Playbook.dc.html#print" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a></div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600;margin-bottom:12px">Capability maps</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px">
+        <div class="bbrow" data-k="RCM - Metal fabricator.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="RCM%20-%20Metal%20fabricator.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Metal Fabricator</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Capability map · presentation view</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="RCM%20-%20Metal%20fabricator.dc-print.html" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">Present</a><a href="RCM%20-%20Metal%20fabricator.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+        <div class="bbrow" data-k="source-pdfs/Capability Map - Executive Assistant.pdf" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #96B3D2;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="source-pdfs/Capability%20Map%20-%20Executive%20Assistant.pdf" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Executive Assistant</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Capability map · PDF</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="source-pdfs/Capability%20Map%20-%20Executive%20Assistant.pdf" download style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">Download</a><a href="source-pdfs/Capability%20Map%20-%20Executive%20Assistant.pdf" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+        <div class="bbrow" data-k="source-pdfs/Capability Map - Bookkeeper.pdf" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #96B3D2;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="source-pdfs/Capability%20Map%20-%20Bookkeeper.pdf" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Bookkeeper</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Capability map · PDF</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="source-pdfs/Capability%20Map%20-%20Bookkeeper.pdf" download style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">Download</a><a href="source-pdfs/Capability%20Map%20-%20Bookkeeper.pdf" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+        <div class="bbrow" data-k="source-pdfs/Capability Map - HR Support Officer.pdf" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #96B3D2;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="source-pdfs/Capability%20Map%20-%20HR%20Support%20Officer.pdf" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">HR Support Officer</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Capability map · PDF</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="source-pdfs/Capability%20Map%20-%20HR%20Support%20Officer.pdf" download style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">Download</a><a href="source-pdfs/Capability%20Map%20-%20HR%20Support%20Officer.pdf" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-lib="ai" hidden>
+  <div style="background:linear-gradient(112deg,#2b2b2b 14%,#66002e 68%,#ff0080 132%);color:#fff;padding:clamp(28px,4vw,46px) clamp(22px,4vw,54px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,.72)">Level 3 · Under Revenue</div>
+      <h2 style="color:#fff;font-family:var(--font-heading);font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.08;letter-spacing:-0.018em;margin:11px 0 10px">AI Transformation library</h2>
+      <p style="margin:0;max-width:60ch;font-size:13.5px;line-height:1.6;font-weight:300;color:rgba(255,255,255,.9);text-wrap:pretty">How the group adopts AI — the journeys, the guardrails and the order we do it in.</p>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:30px clamp(22px,4vw,54px) 70px">
+    <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600;margin-bottom:12px">The playbook</div>
+    <div class="bbrow" data-k="AI Transformation.dc.html" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:16px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+      <div style="flex:1 1 240px;min-width:0"><a href="AI%20Transformation.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:15px;color:#3f3f3f;text-decoration:none" style-hover="color:#FF0080">AI Transformation Playbook</a><div style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Playbook · Live</div></div>
+      <div style="display:flex;gap:12px;align-items:center;margin-left:auto"><a href="AI%20Transformation.dc.html" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a><button data-act="save" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="AI%20Transformation.dc.html#print" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a></div>
+    </div>
+  </div>
+</section>
+
+<section data-lib="finance" hidden>
+  <div style="background:linear-gradient(112deg,#2b2b2b 14%,#66002e 68%,#ff0080 132%);color:#fff;padding:clamp(28px,4vw,46px) clamp(22px,4vw,54px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,.72)">Level 2 · Core governance</div>
+      <h2 style="color:#fff;font-family:var(--font-heading);font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.08;letter-spacing:-0.018em;margin:11px 0 10px">Finance library</h2>
+      <p style="margin:0;max-width:60ch;font-size:13.5px;line-height:1.6;font-weight:300;color:rgba(255,255,255,.9);text-wrap:pretty">The playbook, the budget it plans against and the monthly report it produces.</p>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:30px clamp(22px,4vw,54px) 70px;display:flex;flex-direction:column;gap:26px">
+    <div>
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600;margin-bottom:12px">The playbook</div>
+      <div class="bbrow" data-k="Finance Playbook.dc.html" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:16px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+        <div style="flex:1 1 240px;min-width:0"><a href="Finance%20Playbook.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:15px;color:#3f3f3f;text-decoration:none" style-hover="color:#FF0080">Finance Playbook</a><div style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Playbook · Live</div></div>
+        <div style="display:flex;gap:12px;align-items:center;margin-left:auto"><a href="Finance%20Playbook.dc.html" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a><button data-act="save" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Finance%20Playbook.dc.html#print" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="source-pdfs/Brainbox%20-%20Playbook%20-%20Finance.pdf" download style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">Source</a></div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600;margin-bottom:12px">Reporting &amp; reference</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px">
+        <div class="bbrow" data-k="Report - Monthly Finance.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="Report%20-%20Monthly%20Finance.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Monthly Finance Report</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Report · standing format</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Report%20-%20Monthly%20Finance.dc.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Report%20-%20Monthly%20Finance.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+        <div class="bbrow" data-k="source-pdfs/BB FY27 Budget.pdf" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #96B3D2;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="source-pdfs/BB%20FY27%20Budget.pdf" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">FY27 Budget</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Source PDF · approved</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="source-pdfs/BB%20FY27%20Budget.pdf" download style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">Download</a><a href="source-pdfs/BB%20FY27%20Budget.pdf" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-lib="facilities" hidden>
+  <div style="background:linear-gradient(112deg,#2b2b2b 14%,#66002e 68%,#ff0080 132%);color:#fff;padding:clamp(28px,4vw,46px) clamp(22px,4vw,54px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,.72)">Level 2 · Core governance</div>
+      <h2 style="color:#fff;font-family:var(--font-heading);font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.08;letter-spacing:-0.018em;margin:11px 0 10px">Fleet &amp; Facilities library</h2>
+      <p style="margin:0;max-width:60ch;font-size:13.5px;line-height:1.6;font-weight:300;color:rgba(255,255,255,.9);text-wrap:pretty">Vehicles, offices and assets — with the accommodation and client travel playbooks beneath.</p>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:30px clamp(22px,4vw,54px) 70px;display:flex;flex-direction:column;gap:26px">
+    <div>
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600;margin-bottom:12px">The playbook</div>
+      <div class="bbrow" data-k="Fleet and Facilities Playbook.dc.html" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:16px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+        <div style="flex:1 1 240px;min-width:0"><a href="Fleet%20and%20Facilities%20Playbook.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:15px;color:#3f3f3f;text-decoration:none" style-hover="color:#FF0080">Fleet &amp; Facilities Playbook</a><div style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Playbook · Live</div></div>
+        <div style="display:flex;gap:12px;align-items:center;margin-left:auto"><a href="Fleet%20and%20Facilities%20Playbook.dc.html" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a><button data-act="save" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Fleet%20and%20Facilities%20Playbook.dc.html#print" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="source-pdfs/Brainbox%20-%20Playbook%20-%20Fleet%20and%20Facilities.pdf" download style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">Source</a></div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600;margin-bottom:12px">Playbooks under Facilities</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px">
+        <div class="bbrow" data-k="Accommodation Playbook.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="Accommodation%20Playbook.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Accommodation Playbook</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Level 3 · under Facilities</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Accommodation%20Playbook.dc.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Accommodation%20Playbook.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+        <div class="bbrow" data-k="Client Travel Playbook.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="Client%20Travel%20Playbook.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Client Travel Playbook</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Level 3 · under Facilities</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="source-pdfs/BB%20-%20Client%20Travel%20Guide.pdf" download style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">Source</a><a href="Client%20Travel%20Playbook.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-lib="execsupport" hidden>
+  <div style="background:linear-gradient(112deg,#2b2b2b 14%,#66002e 68%,#ff0080 132%);color:#fff;padding:clamp(28px,4vw,46px) clamp(22px,4vw,54px)">
+    <div style="max-width:1240px;margin:0 auto">
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,.72)">Level 3 · Functional governance</div>
+      <h2 style="color:#fff;font-family:var(--font-heading);font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.08;letter-spacing:-0.018em;margin:11px 0 10px">Executive Assistant library</h2>
+      <p style="margin:0;max-width:60ch;font-size:13.5px;line-height:1.6;font-weight:300;color:rgba(255,255,255,.9);text-wrap:pretty">The offshore EA service, the role capability maps and the standard letters that go with it.</p>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:30px clamp(22px,4vw,54px) 70px;display:flex;flex-direction:column;gap:26px">
+    <div>
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600;margin-bottom:12px">The playbook</div>
+      <div class="bbrow" data-k="Executive Assistant Playbook.dc.html" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:16px 18px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+        <div style="flex:1 1 240px;min-width:0"><a href="Executive%20Assistant%20Playbook.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:15px;color:#3f3f3f;text-decoration:none" style-hover="color:#FF0080">Executive Assistant Playbook</a><div style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Playbook · Live</div></div>
+        <div style="display:flex;gap:12px;align-items:center;margin-left:auto"><a href="Executive%20Assistant%20Playbook.dc.html" style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a><button data-act="save" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Executive%20Assistant%20Playbook.dc.html#print" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="source-pdfs/Brainbox%20-%20Playbook%20-%20Executive%20Support.pdf" download style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">Source</a></div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8d8d8d;font-weight:600;margin-bottom:12px">Roles &amp; letters</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px">
+        <div class="bbrow" data-k="source-pdfs/Capability Map - Executive Assistant.pdf" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #96B3D2;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="source-pdfs/Capability%20Map%20-%20Executive%20Assistant.pdf" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Capability Map — Executive Assistant</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Source PDF</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="source-pdfs/Capability%20Map%20-%20Executive%20Assistant.pdf" download style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">Download</a><a href="source-pdfs/Capability%20Map%20-%20Executive%20Assistant.pdf" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+        <div class="bbrow" data-k="source-pdfs/Capability Map - HR Support Officer.pdf" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #96B3D2;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="source-pdfs/Capability%20Map%20-%20HR%20Support%20Officer.pdf" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Capability Map — HR Support Officer</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Source PDF</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="source-pdfs/Capability%20Map%20-%20HR%20Support%20Officer.pdf" download style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">Download</a><a href="source-pdfs/Capability%20Map%20-%20HR%20Support%20Officer.pdf" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+        <div class="bbrow" data-k="Contract Variation Letter.dc.html" style="display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)">
+          <div style="flex:1;min-width:0"><a href="Contract%20Variation%20Letter.dc.html" style="font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2" style-hover="color:#FF0080">Contract Variation Letter</a><div style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px">Standard letter</div></div>
+          <div style="display:flex;gap:10px;align-items:center"><button data-act="save" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Save</button><a href="Contract%20Variation%20Letter.dc.html#print" style="font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:#9a9a9a;text-decoration:none" style-hover="color:#FF0080">PDF</a><a href="Contract%20Variation%20Letter.dc.html" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600">Open →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="border-top:1px solid #ececec;background:#fff;padding:28px clamp(22px,4vw,54px) 40px">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;justify-content:space-between">
+    <div style="max-width:62ch">
+      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#FF0080;font-weight:600;margin-bottom:7px">Strictly private &amp; confidential</div>
+      <p style="margin:0;font-size:12px;line-height:1.6;font-weight:300;color:#8d8d8d;text-wrap:pretty">This hub and every document in it are the confidential property of Brainbox Group. They are for internal use by directors, executives, managers and the sales and marketing team only. Do not forward, print for external parties, or share links outside the group without director approval.</p>
+    </div>
+    <div style="font-family:var(--font-logo);font-size:14px;letter-spacing:0.16em;color:#c4c4c4">BRAINBOX</div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1320,&quot;height&quot;:980}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = document.body;
+    const NAMES = {
+      home: '', strategy: 'Strategic Playbook', revenue: 'Revenue', demandgen: 'Demand Generation',
+      marketing: 'Marketing', sales: 'Sales', ai: 'AI Transformation', finance: 'Finance',
+      facilities: 'Fleet & Facilities', execsupport: 'Executive Assistant'
+    };
+    const secs = Array.from(root.querySelectorAll('[data-lib]'));
+    const libs = Array.from(root.querySelectorAll('.bblib'));
+    const rows = Array.from(root.querySelectorAll('.bbrow'));
+    const search = root.querySelector('#bbsearch');
+    const countEl = root.querySelector('#bbcount');
+    const empty = root.querySelector('#bbempty');
+    const hier = root.querySelector('#bbhier');
+    const crumb = root.querySelector('#bbcrumb');
+    const crumbSep = root.querySelector('#bbcrumbsep');
+    const backBtn = root.querySelector('#bbback');
+    const recentWrap = root.querySelector('#bbrecent');
+    const recentRow = root.querySelector('#bbrecentrow');
+
+    const read = k => { try { return JSON.parse(localStorage.getItem(k) || '[]'); } catch (e) { return []; } };
+    const write = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+
+    const route = () => {
+      const id = (location.hash || '#home').slice(1) || 'home';
+      const target = NAMES[id] !== undefined ? id : 'home';
+      secs.forEach(s => { s.hidden = s.getAttribute('data-lib') !== target; });
+      crumb.textContent = NAMES[target] || '';
+      crumb.hidden = target === 'home';
+      crumbSep.hidden = target === 'home';
+      backBtn.hidden = target === 'home';
+      window.scrollTo(0, 0);
+    };
+
+    const paintSaved = () => {
+      const saved = read('bb-hub-saved');
+      rows.forEach(r => {
+        const b = r.querySelector('[data-act="save"]');
+        if (!b) return;
+        const on = saved.indexOf(r.getAttribute('data-k')) > -1;
+        b.textContent = on ? '★ Saved' : 'Save';
+        b.style.color = on ? '#FF0080' : '#9a9a9a';
+      });
+    };
+
+    const titleOf = r => {
+      const a = r.querySelector('a[href]');
+      return (a && a.textContent.trim()) || r.getAttribute('data-k');
+    };
+
+    const paintRecent = () => {
+      const byKey = {};
+      rows.forEach(r => { byKey[r.getAttribute('data-k')] = { t: titleOf(r), h: r.querySelector('a[href]').getAttribute('href') }; });
+      const items = read('bb-hub-recent').filter(k => byKey[k]).slice(0, 6);
+      recentRow.textContent = '';
+      items.forEach(k => {
+        const a = document.createElement('a');
+        a.href = byKey[k].h;
+        a.textContent = byKey[k].t;
+        a.style.cssText = 'display:inline-flex;align-items:center;font-family:var(--font-body);font-size:12px;color:#4a4a4a;text-decoration:none;background:#fff;border:1px solid #e6e6e6;border-radius:999px;padding:6px 13px;transition:border-color .18s ease-out,color .18s ease-out';
+        a.addEventListener('mouseenter', () => { a.style.borderColor = '#FF0080'; a.style.color = '#c2005f'; });
+        a.addEventListener('mouseleave', () => { a.style.borderColor = '#e6e6e6'; a.style.color = '#4a4a4a'; });
+        recentRow.appendChild(a);
+      });
+      recentWrap.hidden = items.length === 0;
+    };
+
+    const results = root.querySelector('#bbresults');
+    const resultsRow = root.querySelector('#bbresultsrow');
+    const resultsCount = root.querySelector('#bbresultscount');
+
+    const index = [];
+    const seen = {};
+    rows.forEach(r => {
+      const key = r.getAttribute('data-k');
+      if (!key || seen[key]) return;
+      seen[key] = 1;
+      const link = r.querySelector('a[href]');
+      const sec = r.closest('[data-lib]');
+      index.push({
+        key,
+        title: titleOf(r),
+        href: link ? link.getAttribute('href') : '#home',
+        lib: sec ? (NAMES[sec.getAttribute('data-lib')] || '') : '',
+        libId: sec ? sec.getAttribute('data-lib') : 'home',
+        hay: (titleOf(r) + ' ' + key + ' ' + r.textContent).toLowerCase()
+      });
+    });
+
+    const apply = () => {
+      const q = (search.value || '').trim().toLowerCase();
+      let shown = 0;
+      libs.forEach(c => {
+        const hay = ((c.getAttribute('data-q') || '') + ' ' + c.textContent).toLowerCase();
+        const ok = !q || hay.indexOf(q) > -1;
+        c.hidden = !ok;
+        if (ok) shown++;
+      });
+
+      const hits = q ? index.filter(d => d.hay.indexOf(q) > -1) : [];
+      resultsRow.textContent = '';
+      hits.slice(0, 40).forEach(d => {
+        const card = document.createElement('div');
+        card.style.cssText = 'display:flex;align-items:center;gap:13px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;box-shadow:0 1px 2px rgba(40,40,45,.04)';
+        const mid = document.createElement('div');
+        mid.style.cssText = 'flex:1;min-width:0';
+        const a = document.createElement('a');
+        a.href = d.href;
+        a.textContent = d.title;
+        a.style.cssText = 'font-family:var(--font-heading);font-weight:600;font-size:13.5px;color:#3f3f3f;text-decoration:none;line-height:1.2';
+        a.addEventListener('mouseenter', () => { a.style.color = '#FF0080'; });
+        a.addEventListener('mouseleave', () => { a.style.color = '#3f3f3f'; });
+        const meta = document.createElement('a');
+        meta.href = '#' + d.libId;
+        meta.textContent = d.lib ? d.lib + ' library' : 'Document';
+        meta.style.cssText = 'display:block;font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-top:3px;text-decoration:none';
+        mid.appendChild(a);
+        mid.appendChild(meta);
+        const open = document.createElement('a');
+        open.href = d.href;
+        open.textContent = 'Open →';
+        open.style.cssText = 'font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#FF0080;text-decoration:none;font-weight:600';
+        card.appendChild(mid);
+        card.appendChild(open);
+        resultsRow.appendChild(card);
+      });
+      results.hidden = !q || hits.length === 0;
+      resultsCount.textContent = hits.length + (hits.length === 1 ? ' document' : ' documents');
+
+      countEl.textContent = q
+        ? shown + (shown === 1 ? ' playbook' : ' playbooks') + ' · ' + hits.length + (hits.length === 1 ? ' document' : ' documents')
+        : '11 playbooks · 37 documents';
+      empty.hidden = shown > 0 || hits.length > 0;
+      hier.hidden = !!q;
+      const libHead = root.querySelector('#bblibhead');
+      if (libHead) libHead.hidden = shown === 0;
+    };
+
+    root.addEventListener('click', e => {
+      const save = e.target.closest && e.target.closest('[data-act="save"]');
+      if (save) {
+        e.preventDefault();
+        const row = save.closest('.bbrow');
+        const key = row.getAttribute('data-k');
+        const s = read('bb-hub-saved');
+        const i = s.indexOf(key);
+        if (i > -1) s.splice(i, 1); else s.push(key);
+        write('bb-hub-saved', s);
+        paintSaved();
+        return;
+      }
+      if (e.target.closest && e.target.closest('[data-act="hubprint"]')) window.print();
+      if (e.target.closest && e.target.closest('[data-act="back"]')) {
+        if (history.length > 1) history.back(); else location.hash = '#home';
+      }
+    });
+
+    search.addEventListener('input', apply);
+    window.addEventListener('hashchange', route);
+    route();
+    paintSaved();
+    paintRecent();
+    apply();
+  }
+}
+
+</script>
+</body>
+</html>

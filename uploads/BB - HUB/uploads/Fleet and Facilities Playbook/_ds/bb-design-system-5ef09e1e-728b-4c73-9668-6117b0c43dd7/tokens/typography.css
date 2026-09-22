@@ -1,0 +1,50 @@
+/* ===========================================================================
+   Brainbox — Typography tokens
+   Display / Headings : Exo  (H1 = SemiBold 600, H2 = Regular 400)
+   Body               : Aptos (body = Light 300, per brand guide)
+   Mono               : Aptos Mono
+   Logotype only      : Beon
+   =========================================================================== */
+
+:root {
+  /* ---- Families --------------------------------------------------------- */
+  --font-display: "Exo", "Segoe UI", system-ui, sans-serif;
+  --font-heading: "Exo", "Segoe UI", system-ui, sans-serif;
+  --font-body:    "Aptos", "Segoe UI", system-ui, sans-serif;
+  --font-mono:    "Aptos Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-logo:    "Beon", "Exo", sans-serif;
+
+  /* ---- Weights ---------------------------------------------------------- */
+  --weight-light:     300;  /* body copy default */
+  --weight-regular:   400;  /* H2, subheads */
+  --weight-medium:    500;
+  --weight-semibold:  600;  /* H1, buttons, emphasis */
+  --weight-bold:      700;
+  --weight-extrabold: 800;
+
+  /* ---- Type scale (1.25 major-third-ish, tuned) ------------------------- */
+  --text-3xs:  0.6875rem;  /* 11px — micro labels */
+  --text-2xs:  0.75rem;    /* 12px — captions, meta */
+  --text-xs:   0.8125rem;  /* 13px */
+  --text-sm:   0.875rem;   /* 14px */
+  --text-base: 1rem;       /* 16px — body default */
+  --text-md:   1.125rem;   /* 18px — lead body */
+  --text-lg:   1.375rem;   /* 22px — H4 */
+  --text-xl:   1.75rem;    /* 28px — H3 */
+  --text-2xl:  2.25rem;    /* 36px — H2 */
+  --text-3xl:  3rem;       /* 48px — H1 */
+  --text-4xl:  4rem;       /* 64px — display */
+  --text-5xl:  5.5rem;     /* 88px — hero display */
+
+  /* ---- Line heights ----------------------------------------------------- */
+  --leading-tight:   1.08;  /* display / hero */
+  --leading-snug:    1.2;   /* headings */
+  --leading-normal:  1.5;   /* body */
+  --leading-relaxed: 1.7;   /* long-form body */
+
+  /* ---- Letter spacing --------------------------------------------------- */
+  --tracking-tight:  -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.04em;   /* small caps / eyebrows */
+  --tracking-wider:  0.14em;   /* the BRAINBOX wordmark feel */
+}

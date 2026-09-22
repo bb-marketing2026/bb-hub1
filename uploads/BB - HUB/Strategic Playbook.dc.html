@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="omelette-owns-print" content="true">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #fff; }
+    .doc { box-sizing: border-box; max-width: 210mm; margin: 0 auto; background: inherit; padding: 40px clamp(20px,5vw,16mm) 80px; font-family: var(--font-body); font-weight: 300; color: var(--bb-grey-800); font-size: 10pt; line-height: 1.5; }
+    .doc h1,.doc h2,.doc h3,.doc h4 { font-family: var(--font-heading); color: var(--bb-grey-700); margin: 0; }
+    .doc h1 { font-weight: 600; }
+    .doc h2 { font-weight: 600; font-size: 16pt; color: var(--bb-pink); letter-spacing: -0.01em; margin: 24px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--bb-pink); text-wrap: balance; }
+    .doc h3 { font-weight: 600; font-size: 11.5pt; color: var(--bb-grey-700); margin: 15px 0 5px; text-wrap: balance; }
+    .doc h4 { font-weight: 600; font-size: 9.5pt; color: var(--bb-pink-700); margin: 12px 0 3px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .doc p { margin: 0 0 9px; text-wrap: pretty; }
+    .doc ul,.doc ol { margin: 0 0 9px; padding-left: 17px; }
+    .doc li { margin: 0 0 4px; text-wrap: pretty; } .doc li::marker { color: var(--bb-pink-400); }
+    .doc strong { font-weight: 600; color: var(--bb-grey-800); }
+    .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; }
+    .cover { background: var(--bb-gradient-brand); border-radius: 18px; padding: 44px 38px; color: #fff; margin-bottom: 8px; }
+    .cover .eyebrow { color: rgba(255,255,255,0.92); }
+    .cover h1 { color: #fff; font-size: 32pt; line-height: 1.04; margin: 14px 0 12px; letter-spacing: -0.015em; }
+    .cover .lede { color: rgba(255,255,255,0.95); font-size: 12pt; max-width: 94%; margin: 0; font-weight: 300; line-height: 1.5; }
+    .cover-meta { display: flex; gap: 26px; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.35); flex-wrap: wrap; }
+    .cover-meta div { font-size: 8.5pt; } .cover-meta span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; opacity: 0.8; margin-bottom: 2px; }
+    .wordmark { font-family: var(--font-logo); font-size: 16pt; letter-spacing: 0.14em; color: #fff; }
+    .doc table.t { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 9.4pt; }
+    .doc table.t th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 7px 10px; border-bottom: 1.5px solid var(--bb-pink-200); font-size: 8.7pt; }
+    .doc table.t td { padding: 7px 10px; border-bottom: 1px solid var(--bb-grey-200); vertical-align: top; }
+    .doc table.t tr:nth-child(even) td { background: var(--bb-grey-50); }
+    .doc table.t .role { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); white-space: nowrap; }
+    .doc table.t .maj { font-family: var(--font-mono); color: var(--bb-pink-700); font-weight: 600; font-size: 8.5pt; }
+    .doc table.t .min { font-family: var(--font-mono); color: var(--bb-grey-500); font-size: 8.5pt; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .note { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); border-radius: 8px; padding: 10px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 11px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag .lbl,.note .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .section-intro { color: var(--bb-grey-500); font-size: 10.5pt; margin-bottom: 12px; }
+    .part-kicker { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 2px; }
+    .rolecard { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 15px; margin-bottom: 11px; }
+    .rolecard h3 { margin: 0 0 3px; color: var(--bb-pink); font-size: 11pt; }
+    .rolecard .from { font-family: var(--font-mono); font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bb-grey-500); margin-bottom: 6px; }
+    .rolecard p { margin: 0; font-size: 9.4pt; }
+    .numlist { counter-reset: n; padding: 0; margin: 6px 0 10px; list-style: none; }
+    .numlist > li { position: relative; padding-left: 34px; margin-bottom: 10px; }
+    .numlist > li::before { counter-increment: n; content: counter(n); position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--bb-pink); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 10pt; display: flex; align-items: center; justify-content: center; }
+    .numlist > li strong { color: var(--bb-pink-700); }
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin: 6px 0 14px; }
+    .stat { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 14px; }
+    .stat .v { font-family: var(--font-heading); font-weight: 600; font-size: 17pt; color: var(--bb-pink); line-height: 1; }
+    .stat .l { font-size: 8pt; color: var(--bb-grey-500); margin-top: 6px; line-height: 1.3; }
+    .layer { display: flex; align-items: stretch; gap: 12px; margin-bottom: 9px; }
+    .layer .ln { flex: none; width: 30px; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 600; font-size: 14pt; color: #fff; background: var(--bb-pink); border-radius: 10px; }
+    .layer .lb { flex: 1; border: 1px solid var(--bb-grey-200); border-left: 3px solid var(--bb-pink-300); border-radius: 10px; padding: 9px 14px; }
+    .layer .lb h4 { margin: 0 0 2px; color: var(--bb-grey-700); } .layer .lb p { margin: 0; font-size: 9.2pt; }
+    .tree { margin: 14px 0; }
+    .tree .root { background: var(--bb-gradient-brand); color: #fff; border-radius: 12px; padding: 12px 16px; text-align: center; font-family: var(--font-heading); font-weight: 600; font-size: 12pt; }
+    .tree .branchrow { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 14px; align-items: start; }
+    .tree .branch { border: 1px solid var(--bb-pink-200); border-radius: 12px; padding: 12px; }
+    .tree .branch > .bh { background: var(--bb-pink-50); border-radius: 8px; padding: 8px 12px; text-align: center; font-family: var(--font-heading); font-weight: 600; color: var(--bb-pink-700); font-size: 10.5pt; margin-bottom: 10px; }
+    .tree .leaves { display: flex; flex-direction: column; gap: 8px; }
+    .tree .leaf { border: 1px solid var(--bb-grey-200); border-radius: 8px; padding: 8px 12px; font-size: 9.3pt; }
+    .tree .leaf b { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); display: block; }
+    .tree .leaf span { color: var(--bb-grey-500); font-size: 8.3pt; }
+    .tree .leaf.live { border-color: var(--bb-pink-300); border-left: 3px solid var(--bb-pink); }
+    .relay { margin: 14px 0 10px; }
+    .relay-node { display: flex; align-items: center; gap: 13px; border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 11px 15px; background: #fff; }
+    .relay-node .rn { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--bb-pink); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 12pt; display: flex; align-items: center; justify-content: center; }
+    .relay-node .rt { flex: 1; } .relay-node .rt b { font-family: var(--font-heading); font-weight: 600; font-size: 11pt; color: var(--bb-grey-700); }
+    .relay-node .rt span { display: block; font-size: 8.6pt; color: var(--bb-grey-500); margin-top: 1px; }
+    .relay-node .own { flex: none; font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 999px; }
+    .relay-node.mk { border-left: 4px solid var(--bb-blue-300); } .relay-node.mk .own { background: var(--bb-blue-50); color: var(--bb-blue-700); }
+    .relay-node.rev { border-left: 4px solid var(--bb-pink); } .relay-node.rev .own { background: var(--bb-pink-50); color: var(--bb-pink-700); }
+    .handover { display: flex; align-items: center; gap: 9px; margin: 5px 0 5px 44px; }
+    .handover .ar { color: var(--bb-pink); font-size: 13pt; line-height: 1; }
+    .handover .hb { font-family: var(--font-mono); font-size: 7.4pt; letter-spacing: 0.04em; color: var(--bb-grey-500); background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-radius: 999px; padding: 3px 11px; }
+    .handover.seam { margin-left: 0; justify-content: center; }
+    .handover.seam .hb { background: var(--bb-gradient-brand); color: #fff; border: 0; font-weight: 600; font-size: 8.2pt; padding: 6px 16px; letter-spacing: 0.06em; }
+    .feedback { display: flex; align-items: center; gap: 9px; margin: 7px 0 2px; justify-content: center; }
+    .feedback .hb { font-family: var(--font-mono); font-size: 7.4pt; letter-spacing: 0.04em; color: var(--bb-blue-700); background: #fff; border: 1px dashed var(--bb-blue-300); border-radius: 999px; padding: 4px 13px; }
+    .feedback .ar { color: var(--bb-blue-300); font-size: 12pt; }
+    .iface { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0 12px; }
+    .iface .box { border: 1px solid var(--bb-grey-200); border-radius: 10px; padding: 10px 13px; }
+    .iface .box.give { border-left: 3px solid var(--bb-blue-300); } .iface .box.give h4 { color: var(--bb-blue-700); }
+    .iface .box.get { border-left: 3px solid var(--bb-pink); }
+    .iface .box p { font-size: 9pt; margin: 0; }
+    .ldiv { background: var(--bb-gradient-brand); color: #fff; border-radius: 16px; padding: 30px 32px; margin-bottom: 16px; }
+    .ldiv .lk { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8.5pt; opacity: 0.92; }
+    .ldiv h1 { color: #fff; font-size: 27pt; margin: 8px 0 10px; letter-spacing: -0.015em; line-height: 1.05; }
+    .ldiv .role { font-size: 11.5pt; color: rgba(255,255,255,0.96); max-width: 94%; line-height: 1.5; margin: 0; }
+    .ldiv .io { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.32); }
+    .ldiv .io span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 6.8pt; opacity: 0.82; margin-bottom: 3px; }
+    .ldiv .io div { font-size: 8.9pt; line-height: 1.4; }
+    .ldiv .own-pill { display: inline-block; margin-top: 14px; font-family: var(--font-mono); font-size: 7.2pt; text-transform: uppercase; letter-spacing: 0.09em; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); padding: 4px 12px; border-radius: 999px; }
+    .handoff { background: var(--bb-gradient-brand); color: #fff; border-radius: 12px; padding: 13px 17px; margin: 14px 0 4px; }
+    .handoff .k { display: block; font-family: var(--font-mono); font-size: 7pt; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.9; margin-bottom: 4px; }
+    .handoff .v { font-size: 10pt; line-height: 1.45; } .handoff strong { color: #fff; }
+    /* AI transformation sub-journey */
+    .aij { border: 1px solid var(--bb-blue-100); background: var(--bb-blue-50); border-radius: 12px; padding: 12px 15px; margin: 10px 0 12px; }
+    .aij .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; color: var(--bb-blue-700); display: block; margin-bottom: 8px; }
+    .aij .ft { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 8px; align-items: stretch; }
+    .aij .c { background: #fff; border: 1px solid var(--bb-grey-200); border-radius: 9px; padding: 8px 11px; font-size: 9pt; }
+    .aij .c.to { border-left: 3px solid var(--bb-blue-300); }
+    .aij .c b { display: block; font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bb-grey-500); margin-bottom: 3px; }
+    .aij .c.to b { color: var(--bb-blue-700); }
+    .aij .arw { display: flex; align-items: center; justify-content: center; color: var(--bb-pink); font-size: 15pt; }
+    .aij .tools { font-size: 8.4pt; color: var(--bb-grey-500); margin-top: 8px; }
+    .aij .tools strong { color: var(--bb-grey-700); }
+    .sheet { padding-top: 4px; }
+    .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
+    .sheet > h2:first-child,.sheet > .part-kicker:first-child { margin-top: 4px; }
+    .sheet-ftr { display: none; }
+    
+    .toc { margin: 10px 0 4px; }
+    .toc-row { display: flex; align-items: baseline; gap: 12px; padding: 7px 2px; border-bottom: 1px solid var(--bb-grey-200); }
+    .toc-row .n { font-family: var(--font-mono); font-size: 8pt; color: var(--bb-pink); width: 22px; flex: none; }
+    .toc-row .t { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 10.5pt; }
+
+    .cover-page { min-height: 900px; display: flex; flex-direction: column; }
+    .cover-page .cat { margin-bottom: auto; } .cover-page h1 { margin-top: 0; }
+    .cover-page .cover-meta { margin-top: auto; }
+    @media print { .cover-sheet .cover-page { min-height: 252mm; } .cover-sheet { break-after: page; } }
+
+    .cover-page { position: relative; }
+    .cover-elephant { position: absolute; top: 34px; right: 36px; height: 84px; width: auto; }
+
+    .cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 32%, var(--bb-pink) 118%) !important; }
+    .cover-grad .cat { color: #fff !important; }
+    .sub-note { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 7.5pt; color: rgba(255,255,255,0.85); margin-top: 10px; }
+
+    /* ===== Subdued (Boardroom) palette ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .doc h3 { color: var(--bb-grey-700) !important; }
+    .doc h4 { color: var(--bb-grey-500) !important; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root, .handoff { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj { color: var(--bb-grey-700) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; border-left-color: var(--bb-pink) !important; }
+    .flag .lbl { color: var(--bb-grey-500) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+    .stat .v { color: var(--bb-grey-800) !important; }
+    .rolecard h3 { color: var(--bb-grey-800) !important; }
+    .pill { border-color: var(--bb-grey-300) !important; }
+    .script { border-left-color: var(--bb-pink) !important; }
+    .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
+
+    @page { size: A4 portrait; margin: 10mm; }
+    @media print {
+      .sheet + .sheet { margin-top: 8mm !important; border-top: 0 !important; }
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
+      #dc-root, .sc-host { height: auto !important; }
+      .sheet { break-inside: avoid; display: block; box-sizing: border-box; margin-top: 0 !important; border-top: 0 !important; padding-top: 0 !important; }
+      .sheet:first-of-type { break-before: auto; }
+      .sheet > h2:first-child,.sheet > .cover:first-child,.sheet > .part-kicker:first-child,.sheet > .ldiv:first-child { margin-top: 0 !important; }
+      .sheet-ftr { display: none !important; justify-content: space-between; align-items: baseline; margin-top: auto; padding-top: 5mm; border-top: 0.5pt solid var(--bb-grey-200); font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bb-grey-400); }
+      .sheet-ftr .r { color: var(--bb-pink); }
+      h2,h3,h4 { break-after: avoid !important; }
+      h2 + *, h3 + *, h4 + * { break-before: avoid; }
+      .rolecard,.note,.flag,.stat,.stats,.layer,.grid3,.tree,.cover,tr,.relay-node,.handover,.feedback,.iface,.ldiv,.handoff,.aij { break-inside: avoid; }
+      table.t { break-inside: avoid; } table.t thead { display: table-header-group; }
+      p, li { orphans: 3; widows: 3; }
+    }
+
+    /* ===== Boardroom palette (subdued) ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .cover .wordmark { color: var(--bb-pink); }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .handoff { background: var(--bb-grey-800) !important; }
+    .handover.seam .hb { background: var(--bb-pink) !important; box-shadow: none !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+
+    .cover .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.22em; font-size: 7.5pt; color: rgba(255,255,255,0.72); margin-bottom: 20px; }
+    .cover .cat { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 10px; }
+    .cover h1 { margin-top: 0; }
+    /* cover-final-override */
+    .cover.cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 30%, var(--bb-pink) 120%) !important; }
+    .cover-page { min-height: 900px !important; display: flex !important; flex-direction: column !important; }
+    .cover-page .cat { margin-bottom: auto !important; }
+    .cover-page h1 { margin-top: 0 !important; }
+    .cover-page .cover-meta { margin-top: auto !important; }
+    /* table-font-override */
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, table.rep .tg, .doc table.form .target { font-family: var(--font-body) !important; }
+    /* role-body-override */
+    .doc table.t .role { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+    /* all-table-cells-body */
+    .doc table.t td, .doc table.t td .num, .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, .doc table.t .role, table.rep td, table.rep .tg, .doc table.form td, .doc table.form .target { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+
+    .form-field { border: 1px solid var(--bb-grey-300); border-radius: 6px; height: 22px; margin-bottom: 6px; }
+    .form-label { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.07em; color: var(--bb-grey-500); font-family: var(--font-mono); display: block; margin-bottom: 3px; }
+    .doc table.form { width: 100%; border-collapse: collapse; margin: 4px 0 10px; font-size: 8.5pt; }
+    .doc table.form th { background: var(--bb-grey-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 5px 7px; border: 1px solid var(--bb-grey-300); font-size: 7.5pt; }
+    .doc table.form td { padding: 5px 7px; border: 1px solid var(--bb-grey-300); height: 20px; vertical-align: top; }
+    .doc table.form .target { color: var(--bb-grey-500); font-size: 8pt; white-space: nowrap; }
+    .doc table.form .grp td { background: #eceef1; font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 7.6pt; text-transform: uppercase; letter-spacing: 0.05em; }
+    .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 7.5pt; color: rgba(255,255,255,0.9); }
+  </style>
+</helmet>
+
+<main class="doc">
+
+<section class="sheet cover-sheet">
+  <div class="cover cover-page cover-grad">
+    <img class="cover-elephant" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="conf">Strictly private &amp; confidential</div>
+    <div class="cat">Strategic Playbook</div>
+    <h1>Where Brainbox is going, and how we get there together</h1>
+    <p class="lede">The four-year growth strategy for Brainbox — our vision, the five Divisions that deliver it, and the Executive Leadership Team accountable for it. This is the parent document of the Brainbox playbook suite: every functional playbook beneath it executes a part of this plan.</p>
+    <div class="cover-meta">
+      <div><span>Document owner</span>Director — Corporate Services</div>
+      <div><span>Horizon</span>FY25–FY28</div>
+      <div><span>Issue date</span>July 2026</div>
+      <div style="margin-left:auto;align-self:flex-end"><span class="wordmark">BRAINBOX</span></div>
+    </div>
+  </div>
+</section>
+<section class="sheet">
+  <h2>Contents</h2>
+  <p class="section-intro">The plan reads in the order it is delivered — who we are and where we are going, how we are organised to get there, the strategy itself, and how we hold ourselves accountable.</p>
+  <div class="toc">
+    <div class="toc-row"><span class="n">01</span><span class="t">Purpose &amp; how to read this playbook</span></div>
+    <div class="toc-row"><span class="n">02</span><span class="t">Vision, mission &amp; corporate value</span></div>
+    <div class="toc-row"><span class="n">03</span><span class="t">Brainbox today — the current state</span></div>
+    <div class="toc-row"><span class="n">04</span><span class="t">How Brainbox is organised — the five Divisions</span></div>
+    <div class="toc-row"><span class="n">05</span><span class="t">The Executive Leadership Team</span></div>
+    <div class="toc-row"><span class="n">06</span><span class="t">Market analysis &amp; competitive position</span></div>
+    <div class="toc-row"><span class="n">07</span><span class="t">The four-year growth thesis — six objectives</span></div>
+    <div class="toc-row"><span class="n">08</span><span class="t">Strategic initiatives</span></div>
+    <div class="toc-row"><span class="n">09</span><span class="t">Organisational development</span></div>
+    <div class="toc-row"><span class="n">10</span><span class="t">Operational efficiency &amp; resource optimisation</span></div>
+    <div class="toc-row"><span class="n">11</span><span class="t">Financial projections &amp; resource allocation</span></div>
+    <div class="toc-row"><span class="n">12</span><span class="t">Risk management &amp; compliance</span></div>
+    <div class="toc-row"><span class="n">13</span><span class="t">Implementation plan &amp; four-year timeline</span></div>
+    <div class="toc-row"><span class="n">14</span><span class="t">Performance monitoring &amp; continuous improvement</span></div>
+    <div class="toc-row"><span class="n">15</span><span class="t">Managerial accountability — BAU &amp; Business Excellence</span></div>
+    <div class="toc-row"><span class="n">16</span><span class="t">Division objectives &amp; key results (OKRs)</span></div>
+  </div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">At a glance</div>
+  <h2>The strategy on a page</h2>
+  <p class="section-intro">The whole plan in one view — where we are going, the objectives that get us there, and how we measure success. Every page that follows expands one part of this.</p>
+  <div class="handoff"><span class="k">Vision</span><span class="v">To be the trusted partner for Australian businesses, redefining offshore excellence with tailored solutions — delivered kindly.</span></div>
+  <h3>Six objectives (FY25–FY28)</h3>
+  <div class="grid3">
+    <div class="rolecard"><h3>1 · Workforce</h3><p>41 → 100 billable (FY27) → 120 (FY28).</p></div>
+    <div class="rolecard"><h3>2 · Building</h3><p>Sub-lease and sweat the new facility.</p></div>
+    <div class="rolecard"><h3>3 · Direct sales</h3><p>Build in-house sales capacity in the PH.</p></div>
+    <div class="rolecard"><h3>4 · US market</h3><p>5% of revenue from the US by FY27, 10% by FY28.</p></div>
+    <div class="rolecard"><h3>5 · Engagement</h3><p>Full-time, part-time and project models.</p></div>
+    <div class="rolecard"><h3>6 · Partnerships</h3><p>A network of new sales entities.</p></div>
+  </div>
+  <div class="grid2" style="margin-top:4px">
+    <div class="flag"><span class="lbl">The targets that define success</span>120 billable staff by FY28 · $4.0M revenue · 10% US revenue · 20% margin · ISO 27001 · top-3 client reliance down to 50% of revenue.</div>
+    <div class="note"><span class="lbl">How we are organised to deliver it</span>Five Divisions — Revenue, Service Delivery, Finance, Facilities, Governance — led by a seven-person ELT under two Directors, and documented in a connected playbook suite beneath this one.</div>
+  </div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 1 · Orientation</div>
+  <h2>Purpose &amp; how to read this playbook</h2>
+  <p>This Strategic Playbook sets out where Brainbox is going over the next four years and how the business is organised to get there. It is the <strong>parent document of the Brainbox playbook suite</strong>: the Revenue, Operations, Finance, Facilities and Governance playbooks — and every subsidiary beneath them — execute a defined part of this plan. Where this document sets direction, the functional playbooks hold the operational detail.</p>
+  <p>Brainbox is a Philippines-based business process outsourcing partner to Australian organisations. We do not run a call centre; we place specialised, tailored offshore talent — from academic assessors and engineers to allied-health administrators and back-office professionals — alongside Australian teams. Our single corporate value, <strong>“Always Be Kind,”</strong> underwrites every decision in this plan.</p>
+  <div class="note"><span class="lbl">How to read this document</span>Sections 1–6 establish who we are, how we are organised, and the market we operate in. Sections 7–14 set out the strategy, the money and the implementation. Sections 15–16 define how the Executive Leadership Team is held accountable for delivering it, through Business-As-Usual and Business-Excellence key result areas.<p></p></div>
+  <div class="flag"><span class="lbl">The plan in one line</span>Grow the billable workforce to <strong>120 staff</strong> (100 by FY27, 120 by FY28), open the <strong>United States</strong> market, diversify how clients engage us, and make the new Brainbox building work harder — all while holding a profit margin of <strong>20%</strong> and achieving <strong>ISO 27001</strong> accreditation.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 2 · Why we exist</div>
+  <h2>Vision, mission &amp; corporate value</h2>
+  <div class="grid2">
+    <div class="rolecard"><h3>Vision</h3><p>To be the trusted partner for Australian businesses, redefining offshore excellence with innovative, tailored solutions that drive growth and success.</p></div>
+    <div class="rolecard"><h3>Mission</h3><p>Delivering tailored offshore solutions that empower Australian businesses to thrive through innovation, efficiency, and exceptional partnerships.</p></div>
+  </div>
+  <div class="flag"><span class="lbl">Corporate value</span><strong>“Always Be Kind”</strong> is the cornerstone of Brainbox’s philosophy — guiding how we treat employees, clients and partners. It underscores every decision in this plan, fostering respect, collaboration and mutual growth.</div>
+  <h3>What the next four years must deliver</h3>
+  <div class="stats">
+    <div class="stat"><div class="v">120</div><div class="l">Billable staff by FY28 (100 by FY27, from 41 today)</div></div>
+    <div class="stat"><div class="v">$4.0M</div><div class="l">Revenue by FY28 ($3.5M in FY27)</div></div>
+    <div class="stat"><div class="v">20%</div><div class="l">Target profit margin</div></div>
+    <div class="stat"><div class="v">ISO 27001</div><div class="l">Information-security accreditation by FY26</div></div>
+  </div>
+  <p>These outcomes are interconnected: workforce growth funds market expansion; the US market maximises the assets we already own; flexible engagement widens the client base; and accreditation unlocks the higher-value, regulated work that sustains margin. No objective stands alone.</p>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 3 · Starting point</div>
+  <h2>Brainbox at the start of FY25</h2>
+  <p class="section-intro">A clear, honest read of where the business stands today — its people, its offering, its clients and its assets — is the foundation every strategic choice is built on.</p>
+  <div class="grid2">
+    <div>
+      <h4>The workforce</h4>
+      <p>Brainbox employs <strong>58 people — 41 billable and 17 non-billable</strong>. The billable team delivers specialised offshore roles; the non-billable team runs the business that supports them.</p>
+      <h4>Service offerings</h4>
+      <p>Academic assessors, engineers, allied-health and medical administration, and traditional back-office support (bookkeeping, payroll, data and admin). The breadth lets us tailor to each client rather than sell a single product.</p>
+    </div>
+    <div>
+      <h4>Clients &amp; geography</h4>
+      <p>Our clients are <strong>Australian businesses, concentrated in Western Australia</strong>. That focus built a reputation for reliability — and a concentration risk this plan is designed to reduce.</p>
+      <h4>The new Brainbox building</h4>
+      <p>A modern, purpose-built facility with room to grow, strong technology infrastructure, and <strong>sub-leasable space</strong> that can offset cost and seed partnerships.</p>
+    </div>
+  </div>
+  <div class="note"><span class="lbl">Our unique selling proposition</span><strong>Specialisation</strong> (roles most BPOs don’t offer), <strong>customisation</strong> (solutions built to each client), <strong>value alignment</strong> (“Always Be Kind” in every interaction) and <strong>operational efficiency</strong> (a lean structure and modern facility) — together these let us command premium positioning in a crowded market.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 4 · Structure</div>
+  <h2>How Brainbox is organised — the five Divisions</h2>
+  <p class="section-intro">Brainbox delivers this strategy through five organisational Divisions. Each owns a clear part of the business, each is led from the Executive Leadership Team, and each is documented in its own playbook beneath this one.</p>
+  <div class="tree">
+    <div class="root">Brainbox — Strategic Playbook</div>
+    <div class="branchrow" style="grid-template-columns:repeat(5,1fr);gap:12px">
+      <div class="branch"><div class="bh">Revenue</div><div class="leaves"><div class="leaf live"><b>Win &amp; grow work</b><span>Marketing, demand generation and sales — the whole path from brand to signed client.</span></div></div></div>
+      <div class="branch"><div class="bh">Service Delivery</div><div class="leaves"><div class="leaf live"><b>Deliver &amp; keep people</b><span>Service delivery, workforce, and people &amp; culture — the billable engine and the team behind it.</span></div></div></div>
+      <div class="branch"><div class="bh">Finance</div><div class="leaves"><div class="leaf live"><b>Fund &amp; control</b><span>Budgeting, cash, reporting, tax and financial governance across both geographies.</span></div></div></div>
+      <div class="branch"><div class="bh">Facilities</div><div class="leaves"><div class="leaf live"><b>Environment &amp; assets</b><span>The building, fleet, accommodation and client travel — and the sub-leasing strategy.</span></div></div></div>
+      <div class="branch"><div class="bh">Governance</div><div class="leaves"><div class="leaf live"><b>Quality &amp; compliance</b><span>Risk, policy, quality, ISO 27001 and regulatory compliance in the PH, AU and US.</span></div></div></div>
+    </div>
+  </div>
+  <div class="flag"><span class="lbl">One architecture, top to bottom</span>These five Divisions are the same five branches shown in the Playbook Hierarchy. They group under two Directors: <strong>Corporate Services</strong> (Revenue, Finance, Facilities and Governance) and <strong>Service Delivery</strong>. Each Division’s playbook — and its subsidiaries — is a faithful expansion of the remit named here, so the whole suite stays consistent from strategy to daily execution.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 5 · Leadership</div>
+  <h2>The Executive Leadership Team</h2>
+  <p class="section-intro">The business is led by an Executive Leadership Team (ELT) of <strong>seven</strong>: two Directors, two General Managers and three Managers. Together they set strategy, own the five Divisions, and are jointly accountable for delivering this plan.</p>
+  <table class="t">
+    <thead><tr><th>Level</th><th>Role</th><th>Remit</th><th>Division led</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Director</td><td>Director — Corporate Services</td><td>Accountable for Revenue, Finance, Facilities and Governance; chairs the leadership rhythm.</td><td>Revenue · Finance · Facilities · Governance</td></tr>
+      <tr><td class="role">Director</td><td>Director — Service Delivery</td><td>Accountable for the Service Delivery Division — the billable engine and the people who run it.</td><td>Service Delivery</td></tr>
+      <tr><td class="role">General Manager</td><td>General Manager — Corporate Services</td><td>Runs the Corporate Services divisions day to day: revenue, finance, facilities and governance.</td><td>Corporate Services</td></tr>
+      <tr><td class="role">General Manager</td><td>General Manager — Service Delivery</td><td>Runs service delivery day to day: workforce, delivery and people &amp; culture.</td><td>Service Delivery</td></tr>
+      <tr><td class="role">Manager</td><td>Finance Manager</td><td>Budgeting, cash, reporting, tax and financial control.</td><td>Finance</td></tr>
+      <tr><td class="role">Manager</td><td>Fleet &amp; Facilities Manager</td><td>Building, fleet, accommodation, client travel and sub-leasing.</td><td>Facilities</td></tr>
+      <tr><td class="role">Manager</td><td>Quality &amp; Compliance Manager</td><td>Quality, risk, policy and ISO 27001 accreditation.</td><td>Governance</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><span class="lbl">How the ELT works together</span>The ELT meets on a fixed weekly rhythm chaired by the Director — Corporate Services. Business-As-Usual results are largely the individual accountability of each member; Business-Excellence results (Section 15–16) are delivered jointly, as a team. Cross-Division initiatives — US entry, the building, ISO 27001 — are run by cross-functional groups drawn from the ELT.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 5 · Operating rhythm</div>
+  <h2>The ELT operating rhythm</h2>
+  <p class="section-intro">Strategy is delivered through a fixed cadence of forums, each with a clear purpose, owner and decision remit. This is the heartbeat that keeps the five Divisions moving together.</p>
+  <table class="t">
+    <thead><tr><th>Forum</th><th>Cadence</th><th>Chair</th><th>Purpose &amp; decisions</th></tr></thead>
+    <tbody>
+      <tr><td class="role">ELT meeting</td><td>Weekly</td><td>Director — Corporate Services</td><td>Run the business: cross-Division coordination, blockers, this week’s priorities and rapid decisions.</td></tr>
+      <tr><td class="role">Performance review</td><td>Monthly</td><td>Director — Corporate Services</td><td>Review BAU KRAs and Division dashboards against target; agree corrective action.</td></tr>
+      <tr><td class="role">Initiative / PMO review</td><td>Monthly</td><td>Initiative owners</td><td>Track the Business-Excellence initiatives — US entry, ISO 27001, the building — against milestones.</td></tr>
+      <tr><td class="role">Strategy review</td><td>Quarterly</td><td>Directors</td><td>Review OKRs, reallocate resources, adjust the plan on the evidence; report to the board.</td></tr>
+      <tr><td class="role">Strategy refresh</td><td>Annual</td><td>Directors</td><td>Revisit the four-year plan against market conditions; reset the year’s priorities and budget.</td></tr>
+      <tr><td class="role">Whole-of-company town hall</td><td>Monthly</td><td>ELT</td><td>Cascade the plan, celebrate milestones, and keep every team connected to the strategy.</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><span class="lbl">Individual vs joint</span>Monthly performance holds each ELT member to their <strong>BAU</strong> accountabilities; the quarterly strategy review holds the team <strong>jointly</strong> to the Business-Excellence OKRs. Both draw on the same live dashboards, so there is one version of the truth.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 6 · The market</div>
+  <h2>Market analysis &amp; competitive position</h2>
+  <p class="section-intro">The opportunity is real and growing — but so is the concentration risk of a single market. This section works through a full SWOT: a page each on our strengths, weaknesses, opportunities and threats. Artificial intelligence appears deliberately on both sides of the ledger — it is at once our largest opportunity and one of our most serious threats.</p>
+  <div class="note"><span class="lbl">How to read the SWOT</span>Strengths and weaknesses look inward at Brainbox as it is today; opportunities and threats look outward at the market we are entering. The strategy in Sections 7–13 is, in effect, a plan to press our strengths, close our weaknesses, capture the opportunities and blunt the threats.</div>
+  <div class="flag"><span class="lbl">The through-line</span>The United States is the world’s largest consumer of outsourcing, and the time-zone gap lets Brainbox run <strong>dual shifts from the same workstations</strong>. That single fact links most of what follows — it is a strength we can exploit, an opportunity to pursue, and a source of operational and regulatory threat to manage.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 6 · SWOT — Strengths</div>
+  <h2>Strengths — what we can press</h2>
+  <p class="section-intro">Brainbox competes from a genuinely differentiated base. These are the assets the strategy leans on, and the ones we must protect as we scale.</p>
+  <div class="grid2">
+    <div>
+      <h4>Specialisation few BPOs match</h4>
+      <p>We place academic assessors, engineers, allied-health and medical administrators and specialised back-office professionals — not undifferentiated call-centre seats. This lets us compete on capability and outcome rather than price alone, and to command premium positioning in niches most competitors avoid.</p>
+      <h4>Tailored, consultative delivery</h4>
+      <p>Every engagement is built to the client’s need rather than sold from a fixed menu. That flexibility deepens relationships, lifts retention, and creates natural expansion paths from a single role into a standing team.</p>
+      <h4>A values-led culture that clients feel</h4>
+      <p>“Always Be Kind” is not a slogan on a wall — it shapes how our people work with client teams. It is a real driver of retention on both sides of the relationship and a genuine point of difference in a commoditised market.</p>
+    </div>
+    <div>
+      <h4>A lean, accountable structure</h4>
+      <p>Five clear Divisions and a seven-person Executive Leadership Team keep decisions fast and ownership unambiguous. As we grow toward 100 billable staff, this structure scales without adding management drag.</p>
+      <h4>A modern, expandable facility</h4>
+      <p>The new Brainbox building carries the current team, has room to grow, offers strong technology infrastructure for dual shifts, and holds sub-leasable space that can offset cost and seed partnerships.</p>
+      <h4>An established reputation in WA</h4>
+      <p>Years of reliable delivery to Western Australian clients give us reference-able credibility — the testimonials and case studies that de-risk entry into new sectors and the US market.</p>
+    </div>
+  </div>
+  <div class="flag"><span class="lbl">Strategic read</span>Our strengths are real but concentrated in one market. The task is to <strong>carry them into new geographies and engagement models</strong> before the reputation that underpins them is diluted by fast growth.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 6 · SWOT — Weaknesses</div>
+  <h2>Weaknesses — what we must close</h2>
+  <p class="section-intro">An honest read of where Brainbox is exposed today. Each weakness maps directly to a strategic objective designed to close it.</p>
+  <div class="grid2">
+    <div>
+      <h4>Heavy reliance on one market</h4>
+      <p>Our clients are almost entirely Australian and concentrated in Western Australia. A downturn, a policy shift or the loss of a few key accounts would hit revenue disproportionately. Geographic and client diversification is the single largest risk-reduction move in this plan.</p>
+      <h4>A small, concentrated client base</h4>
+      <p>Too much revenue sits with too few clients. Until the base broadens, pricing power and negotiating leverage sit with the client, and churn in any one account is material to the whole business.</p>
+      <h4>Limited direct sales capability</h4>
+      <p>Historically we have relied on the Australian Directors and referrals, leaving us without a repeatable, in-house engine for winning new work. Building direct sales capacity in Australia and the Philippines is a core FY25–FY28 initiative.</p>
+    </div>
+    <div>
+      <h4>Margin below target</h4>
+      <p>Profit sat at 15% in FY25 and tightened to 13% in FY26 as the business scaled — below the 20% target. Cost discipline and higher-margin work must move margin back toward plan even as headcount grows.</p>
+      <h4>Accreditation not yet in place</h4>
+      <p>Without ISO 27001 we are shut out of the most valuable regulated work in healthcare, education and technology. It is a weakness today and an unlocked opportunity the moment it is achieved.</p>
+      <h4>Thin capability in new-market compliance</h4>
+      <p>We do not yet hold the legal and compliance depth for US operations (HIPAA, FERPA, state privacy law). This must be built or bought before US delivery can scale safely.</p>
+    </div>
+  </div>
+  <div class="flag"><span class="lbl">Strategic read</span>None of these weaknesses is structural — each has a named objective and owner in this plan. The risk is <strong>sequencing</strong>: growing headcount and revenue faster than we close margin, sales capability and accreditation.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 6 · SWOT — Opportunities</div>
+  <h2>Opportunities — what we can capture</h2>
+  <p class="section-intro">The external tailwinds the strategy is built to catch. AI leads this list — it is the opportunity with the greatest potential to reshape our economics.</p>
+  <div class="grid2">
+    <div>
+      <h4 style="color:var(--bb-pink-700)">Artificial intelligence — the defining opportunity</h4>
+      <p>AI lets a specialised BPO do far more with the same people. Applied to our delivery — drafting, research, summarisation, quality checking, data handling — it raises each billable person’s output and lets us take on work that was previously uneconomic. Applied to our own operations, it automates repetitive internal tasks and sharpens decision-making. Used well, AI lifts margin, widens the range of roles we can offer, and lets us price competitively while protecting profit. It is the single largest lever on the 20% margin target, and it is why an AI Transformation Playbook sits within the suite.</p>
+      <h4>The US market</h4>
+      <p>The world’s largest outsourcing market, mature in its use of offshore partners, with high demand in exactly our niches — healthcare, education, engineering and technology. Dual shifts let us serve it from assets we already own.</p>
+    </div>
+    <div>
+      <h4>Flexible engagement models</h4>
+      <p>Offering part-time and project-based work alongside full-time opens the door to startups, seasonal businesses and cautious first-time buyers — a far wider addressable market, and often at higher margins for short-cycle expertise.</p>
+      <h4>Growing acceptance of offshore work</h4>
+      <p>Remote and offshore delivery is now mainstream, reducing the friction and stigma that once slowed adoption. The market is more willing to buy what we sell than at any point in our history.</p>
+      <h4>Sweating the building</h4>
+      <p>Sub-leasing underutilised space offsets cost, and an innovation hub of complementary tenants can seed partnerships and even acquisition conversations — turning a fixed cost into a strategic asset.</p>
+    </div>
+  </div>
+  <div class="flag"><span class="lbl">Strategic read</span>These opportunities compound: AI raises capacity, dual shifts and flexible models widen the market that capacity can serve, and the building funds the expansion. The window is open now — <strong>the advantage goes to whoever moves first and governs it well</strong>.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 6 · SWOT — Threats</div>
+  <h2>Threats — what we must blunt</h2>
+  <p class="section-intro">The external risks that could derail the plan. AI appears here as well as in opportunities — the same force that lifts us can, left unmanaged, erode our value.</p>
+  <div class="grid2">
+    <div>
+      <h4 style="color:var(--bb-pink-700)">Artificial intelligence — the two-edged threat</h4>
+      <p>The same technology that is our largest opportunity is also a direct threat. As AI automates routine knowledge work, some tasks clients once outsourced to us they may soon do themselves — commoditising the low-complexity end of our offering and compressing price. If competitors adopt AI faster, they undercut us on cost. And AI introduces new operational and compliance risk: data leakage into third-party models, inaccurate output reaching clients, and unclear regulatory treatment of automated handling of sensitive data. The mitigation is deliberate: move our people up the value chain into judgement-led, specialised work AI cannot replace, adopt AI faster than the market rather than slower, and govern its use tightly through the AI Transformation and Governance playbooks.</p>
+      <h4>Economic volatility</h4>
+      <p>Downturns in Australia or the US squeeze client budgets and demand. Our current market concentration makes this especially sharp — another reason diversification is urgent.</p>
+    </div>
+    <div>
+      <h4>Regulatory complexity across geographies</h4>
+      <p>Operating across the Philippines, Australia and the US multiplies compliance obligations — HIPAA, FERPA, the Australian Privacy Act and NDB scheme, and local labour law. A breach or lapse carries legal penalty and reputational damage.</p>
+      <h4>Competition for talent</h4>
+      <p>Scaling to 100 billable staff without diluting quality means winning skilled people in a competitive market. Wage pressure and attrition threaten both margin and delivery standards.</p>
+      <h4>Cyber and reputational risk</h4>
+      <p>As custodians of sensitive client data, a cybersecurity incident would damage trust and revenue at once. ISO 27001, a hardened security posture and a crisis plan are the direct answers.</p>
+    </div>
+  </div>
+  <div class="flag"><span class="lbl">Strategic read</span>The recurring theme is concentration and pace: too reliant on one market, and racing technology and competitors we do not control. <strong>Diversify faster than the threats mature</strong>, and adopt AI on our terms rather than having it done to us.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 7 · The strategy</div>
+  <h2>The four-year growth thesis — six objectives</h2>
+  <p class="section-intro">Six interconnected objectives drive growth, efficiency and market leadership. Each builds on Brainbox’s current strengths while addressing the risks named in the market analysis.</p>
+  <div class="layer"><div class="ln">1</div><div class="lb"><h4>Expand the billable workforce to 120</h4><p>Grow from 41 to 100 billable staff by FY27 and 120 by FY28, through targeted recruitment, employer branding, streamlined onboarding and strong retention — the engine of revenue growth.</p></div></div>
+  <div class="layer"><div class="ln">2</div><div class="lb"><h4>Optimise the new Brainbox building</h4><p>Sub-lease underutilised space to complementary businesses to offset cost, seed partnerships and create an innovation hub — and eventual acquisition conversations.</p></div></div>
+  <div class="layer"><div class="ln">3</div><div class="lb"><h4>Establish direct sales capacity in the Philippines</h4><p>Build an in-house sales team to reduce reliance on external entities, backed by a defined sales process and a CRM as the source of truth.</p></div></div>
+  <div class="layer"><div class="ln">4</div><div class="lb"><h4>Expand into the United States</h4><p>Diversify geography, run dual shifts, and tap the largest outsourcing market — targeting 5% of revenue from the US by FY28.</p></div></div>
+  <div class="layer"><div class="ln">5</div><div class="lb"><h4>Diversify engagement models</h4><p>Offer full-time, part-time and project-based engagements — widening the addressable market and adding higher-margin, short-cycle work.</p></div></div>
+  <div class="layer"><div class="ln">6</div><div class="lb"><h4>Foster partnerships with new sales entities</h4><p>Build a partner network to accelerate market penetration and keep a steady pipeline of opportunities flowing.</p></div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 8 · Initiatives</div>
+  <h2>Strategic initiatives</h2>
+  <p class="section-intro">The objectives are operationalised through a focused set of initiatives, each with clear actions and an accountable Division.</p>
+  <table class="t">
+    <thead><tr><th>Initiative</th><th>What it involves</th><th>Owning Division</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Direct sales capability (PH)</td><td>Recruit and train sales professionals; implement a structured pipeline and CRM; incentives tied to KPIs.</td><td>Revenue</td></tr>
+      <tr><td class="role">US market entry</td><td>Market research and segmentation; compliance frameworks (HIPAA, FERPA); US-focused branding; local partnerships.</td><td>Revenue &amp; Governance</td></tr>
+      <tr><td class="role">Diversifying engagement models</td><td>Transparent pricing per model; operational adaptation; client education; performance monitoring.</td><td>Revenue &amp; Service Delivery</td></tr>
+      <tr><td class="role">Partner development program</td><td>Identify strategic partners; incentive structures; joint marketing; partner relationship management.</td><td>Revenue</td></tr>
+      <tr><td class="role">Optimising the new building</td><td>Sub-leasing, shared facilities, an innovation hub, and dual-shift resource optimisation.</td><td>Facilities</td></tr>
+      <tr><td class="role">ISO 27001 accreditation</td><td>Gap analysis, an ISMS, employee training, internal audits and external certification.</td><td>Governance</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">Why ISO 27001 matters</span>Accreditation is the key that unlocks regulated, high-value work in healthcare, education and technology — the sectors where our specialisation commands premium pricing. It is a growth initiative, not just a compliance one.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 8 · Spotlight — US Expansion</div>
+  <h2>The US Expansion Project</h2>
+  <p class="section-intro">The single largest growth and diversification move in the plan, and the one most dependent on the others landing first. It has its own project structure and is documented in full within the Revenue Playbook.</p>
+  <div class="grid2">
+    <div>
+      <h4>Why the US</h4>
+      <p>The world’s largest, most outsourcing-mature market, with strong demand in our niches — healthcare, education, engineering and technology. The Philippines–US time gap lets us serve it on <strong>dual shifts from the same workstations</strong>, maximising assets we already own.</p>
+      <h4>The target</h4>
+      <p>5% of revenue from the US by FY27 and <strong>10% by FY28</strong>; compliance frameworks in place by FY26; first US clients signed in FY27.</p>
+    </div>
+    <div>
+      <h4>How we enter</h4>
+      <p>Market research and segmentation; a US-focused website, content and referenceable Australian case studies; local sales agents and consulting partners to establish credibility; and a dedicated delivery team as volume builds.</p>
+      <h4>What must be true first</h4>
+      <p>Compliance depth (HIPAA, FERPA, state privacy law), an ISO 27001 posture, dual-shift operations, and enough billable capacity to staff US work without starving Australian delivery.</p>
+    </div>
+  </div>
+  <div class="flag"><span class="lbl">Status &amp; ownership</span>Owned by the Revenue Division with Governance on compliance; run as a cross-functional project reporting to the Directors. As at FY26 the US contributes <strong>0% of revenue</strong> — opening this market is the defining FY27 priority. Full detail lives in the <strong>Revenue Playbook</strong>’s US Expansion section.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 8 · Spotlight — AI Transformation</div>
+  <h2>AI transformation — how it fits</h2>
+  <p class="section-intro">The SWOT names AI as both our largest opportunity and a serious threat. This page sets the strategic stance; the sequenced, tool-by-tool transformation is documented in the AI Transformation Playbook.</p>
+  <div class="grid2">
+    <div class="rolecard"><h3>The opportunity</h3><p>AI lifts each billable person’s output, automates internal work, and lets us take on tasks that were previously uneconomic — the single largest lever on the 20% margin target and on the range of roles we can offer.</p></div>
+    <div class="rolecard"><h3>The threat</h3><p>The same technology can commoditise low-complexity work, let faster competitors undercut us, and introduce data-leakage, accuracy and regulatory risk if adopted carelessly.</p></div>
+  </div>
+  <h4>Our stance</h4>
+  <div class="numlist-wrap"><ol class="numlist">
+    <li><strong>Move up the value chain.</strong> Shift our people toward judgement-led, specialised work AI cannot replace, and let AI carry the routine.</li>
+    <li><strong>Adopt faster than the market.</strong> Treat AI as a capability to build deliberately across every Division, not a tool to bolt on late.</li>
+    <li><strong>Govern it tightly.</strong> Control data handling, model use and output quality through the Governance Division’s framework.</li>
+  </ol></div>
+  <div class="note"><span class="lbl">Where the detail lives</span>Each Division runs its own AI sub-journey. The staged 30/60/90-day rollouts, the tools, and the guardrails are documented in the <strong>AI Transformation Playbook</strong>, a companion to this document within the suite.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 9 · Our people</div>
+  <h2>Organisational development</h2>
+  <p class="section-intro">Scaling to 100 billable staff without losing culture demands deliberate investment in leadership, talent and a performance-driven, kind workplace. This is the Service Delivery Division’s core strategic agenda.</p>
+  <div class="grid2">
+    <div>
+      <h4>Leadership &amp; management capability</h4>
+      <p>Leadership development, mentorship and coaching, succession planning, and clear leadership KPIs to build a resilient pipeline as the business grows.</p>
+      <h4>Talent acquisition &amp; retention</h4>
+      <p>Employer branding around “Always Be Kind,” targeted recruitment, structured retention programs, and genuine diversity and inclusion.</p>
+    </div>
+    <div>
+      <h4>A performance-driven culture</h4>
+      <p>SMART goal alignment, a fair performance-management system, recognition programs, and continuous learning — so every role connects to the strategy.</p>
+      <h4>Communication &amp; engagement</h4>
+      <p>Multiple channels, town halls, anonymous feedback loops, cross-Division collaboration, and work-life-balance and wellbeing initiatives.</p>
+    </div>
+  </div>
+  <div class="note"><span class="lbl">Ethical &amp; inclusive leadership</span>A leadership code of conduct, inclusivity training, transparent decision-making and active employee advocacy keep “Always Be Kind” visible in how leaders actually behave — not just in what the brand says.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 10 · Efficiency</div>
+  <h2>Operational efficiency &amp; resource optimisation</h2>
+  <p class="section-intro">Delivering high quality while scaling and controlling cost depends on disciplined processes, the right technology, and getting the most from every resource.</p>
+  <div class="grid2">
+    <div>
+      <h4>Streamlining processes</h4>
+      <p>Process mapping and SOPs, automation of repetitive tasks (RPA and AI), lean management, and real-time monitoring dashboards.</p>
+      <h4>IT &amp; infrastructure</h4>
+      <p>Infrastructure that carries dual shifts, collaboration tooling, cybersecurity hardening, and applied AI and machine learning.</p>
+    </div>
+    <div>
+      <h4>Dual-geography shift management</h4>
+      <p>Workforce planning, fair scheduling, support programs for non-standard hours, and consistent quality assurance across time zones.</p>
+      <h4>Cost &amp; resource optimisation</h4>
+      <p>Centralised procurement, energy efficiency, cloud-based systems, cross-training, and performance-based resource allocation.</p>
+    </div>
+  </div>
+  <div class="flag"><span class="lbl">Continuous improvement</span>Efficiency is a culture, not a project: process-improvement workshops, employee-led initiatives, regular reviews, and technology adoption keep the business getting better as it grows.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 11 · The money</div>
+  <h2>Financial projections &amp; resource allocation</h2>
+  <p class="section-intro">A financial strategy that funds ambitious growth while protecting profitability. A 20% margin is the target throughout, with revenue growth accelerating as the US market and dual shifts come online.</p>
+  <h3>Revenue growth by year</h3>
+  <table class="t">
+    <thead><tr><th>Year</th><th>Revenue</th><th>Primary driver</th></tr></thead>
+    <tbody>
+      <tr><td class="role">FY25 · Year 1</td><td>$2.4M actual</td><td>More billable staff.</td></tr>
+      <tr><td class="role">FY26 · Year 2</td><td>$3.0M actual</td><td>US market entry and flexible engagement models.</td></tr>
+      <tr><td class="role">FY27 · Year 3</td><td>$3.5M target</td><td>Dual shifts and a broader client base in AU and US.</td></tr>
+      <tr><td class="role">FY28 · Year 4</td><td>$4.0M target</td><td>ISO 27001 unlocking high-value regulated contracts.</td></tr>
+    </tbody>
+  </table>
+  <h3>Investment priorities (share of expansion budget)</h3>
+  <table class="t">
+    <thead><tr><th>Priority</th><th>Share</th><th>Focus</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Sales &amp; marketing</td><td>35%</td><td>Direct sales team, CRM, digital campaigns, events.</td></tr>
+      <tr><td class="role">Technology &amp; infrastructure</td><td>25%</td><td>Servers, cybersecurity, collaboration tools, dual-shift fit-out.</td></tr>
+      <tr><td class="role">US market entry</td><td>20%</td><td>Feasibility, compliance, US website and local partners.</td></tr>
+      <tr><td class="role">Workforce expansion</td><td>10%</td><td>Recruitment, training and retention to reach 100 billable.</td></tr>
+      <tr><td class="role">ISO 27001 accreditation</td><td>10%</td><td>Gap analysis, ISMS, training and certification.</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><span class="lbl">Financial resilience</span>Cost discipline, currency hedging, a cash reserve of at least two months’ operating expenses, and diversified revenue streams protect the plan against downturns and market shocks.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 12 · Risk</div>
+  <h2>Risk management &amp; compliance</h2>
+  <p class="section-intro">Growth and new markets bring new risks. Brainbox categorises them, mitigates them proactively, and embeds compliance as a condition of client trust — the Governance Division’s core mandate.</p>
+  <table class="t">
+    <thead><tr><th>Risk category</th><th>Exposure</th><th>Mitigation</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Strategic</td><td>Missing key objectives (workforce, US entry).</td><td>Monitor against KPIs; adjust initiatives on the data.</td></tr>
+      <tr><td class="role">Operational</td><td>Process, dual-shift or technology failure.</td><td>SOPs, infrastructure investment, contingency plans.</td></tr>
+      <tr><td class="role">Financial</td><td>Revenue volatility, cost overruns, FX.</td><td>Diversify revenue, hold reserves, hedge currency.</td></tr>
+      <tr><td class="role">Compliance</td><td>PH, AU and US regulation; ISO 27001.</td><td>Compliance framework, audits, ongoing training.</td></tr>
+      <tr><td class="role">Reputational</td><td>Service failure or a cyber incident.</td><td>Quality first, cybersecurity investment, crisis plan.</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">Compliance &amp; continuity</span>A compliance framework spanning data privacy (HIPAA, FERPA, the Australian Privacy Act and NDB scheme), labour law and industry standards — underpinned by an ISO 27001 ISMS, a business-continuity plan and a Risk Management Committee reporting to the Directors.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 13 · Delivery</div>
+  <h2>Implementation plan &amp; four-year timeline</h2>
+  <p class="section-intro">A phased roadmap with clear ownership. Each year builds momentum toward the FY28 target state, coordinated across Divisions by a Project Management Office reporting to the Directors.</p>
+  <table class="t">
+    <thead><tr><th>Year</th><th>Milestones</th></tr></thead>
+    <tbody>
+      <tr><td class="role">FY25 · Year 1</td><td>Grow billable staff to 60; launch US branding and digital marketing; ISO 27001 gap analysis and ISMS; renovate and lease underutilised space.</td></tr>
+      <tr><td class="role">FY26 · Year 2</td><td>Reach 80 billable staff; establish US partnerships and pilot projects; complete internal ISO 27001 audits; launch flexible-engagement pilots.</td></tr>
+      <tr><td class="role">FY27 · Year 3</td><td>Reach 100 billable staff; $3.5M revenue; open the US to 5% of revenue with dedicated teams; obtain ISO 27001 certification; scale flexible engagements.</td></tr>
+      <tr><td class="role">FY28 · Year 4</td><td>Achieve 120 billable staff; $4.0M revenue; grow the US client base to 10% of revenue; maximise dual-shift and building utilisation; consolidate market leadership.</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><span class="lbl">Governance &amp; accountability</span>Each initiative has a named owner on the ELT. A Project Management Office coordinates delivery, quarterly reviews track progress against milestones and KPIs, and a financial reserve plus active risk monitoring keep the plan adaptable to change.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 14 · Learning</div>
+  <h2>Performance monitoring &amp; continuous improvement</h2>
+  <p class="section-intro">The plan is only as good as our ability to see how it is tracking and adjust. A monitoring framework and a culture of improvement keep Brainbox on course and adaptable.</p>
+  <div class="grid2">
+    <div>
+      <h4>The monitoring framework</h4>
+      <p>Key result areas and individual KPIs, real-time data collection, and a review cadence that runs monthly, quarterly and annually — with results shared transparently with the Directors and the ELT.</p>
+      <h4>Technology for monitoring</h4>
+      <p>Analytics and business-intelligence tools, project-management systems, CRM integration, and dashboards that put the right metrics in front of the right leaders.</p>
+    </div>
+    <div>
+      <h4>A culture of improvement</h4>
+      <p>Employee empowerment and suggestion programs, ongoing training, feedback loops, benchmarking against best practice, and dedicated innovation initiatives.</p>
+      <h4>Adjusting on the evidence</h4>
+      <p>Gap analysis, scenario planning, iterative refinement, and stakeholder input — so strategy responds to reality rather than assumption.</p>
+    </div>
+  </div>
+  <div class="flag"><span class="lbl">Celebrate &amp; learn</span>Milestones are recognised; setbacks are studied without blame. A knowledge base, annual strategy refreshes and a relentless focus on client-centricity make continuous improvement a permanent commitment, not a campaign.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 15 · Accountability</div>
+  <h2>Managerial accountability — BAU &amp; Business Excellence</h2>
+  <p class="section-intro">Managerial accountability makes leaders responsible for performance and aligns effort with the strategy. Brainbox splits Key Result Areas (KRAs) into two complementary halves.</p>
+  <div class="grid2">
+    <div class="rolecard"><h3>Business As Usual (BAU)</h3><p>Sustaining operations and day-to-day performance — resource allocation, performance monitoring, compliance and routine delivery. These outcomes are largely the <strong>individual</strong> accountability of each ELT member, and a substantial share of KPIs and bonuses derives from delivering them.</p></div>
+    <div class="rolecard"><h3>Business Excellence (BE)</h3><p>Forward-looking improvement — challenging the status quo, adopting new methods and technology, and lifting the organisation’s capability. These outcomes reflect the <strong>joint teamwork</strong> of the ELT toward shared strategic goals.</p></div>
+  </div>
+  <h3>How the KRAs map to the Divisions</h3>
+  <table class="t">
+    <thead><tr><th>Division</th><th>Representative BAU KRAs</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Revenue</td><td>Revenue growth, lead generation, conversion rate, brand awareness, customer retention.</td></tr>
+      <tr><td class="role">Service Delivery</td><td>Employee engagement, performance management, learning &amp; development, workforce planning, wellness.</td></tr>
+      <tr><td class="role">Finance</td><td>Budgeting &amp; forecasting, cash-flow management, financial reporting, accounts payable, tax compliance.</td></tr>
+      <tr><td class="role">Facilities</td><td>Fleet maintenance and fuel efficiency, property maintenance, space optimisation, facilities budget.</td></tr>
+      <tr><td class="role">Governance</td><td>Policy development, regulatory compliance, incident resolution, document control, internal audit.</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><span class="lbl">Set to the SMART standard</span>Every KRA is written as a Specific, Measurable, Achievable, Relevant and Time-bound objective, so accountability is unambiguous and progress is easy to track at each review.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Section 15 · BAU · Executive Leadership</div>
+  <h2>BAU accountabilities — Executive Leadership</h2>
+  <p class="section-intro">The whole-of-business accountabilities carried by the Directors and shared across the ELT. These set the frame within which every Division operates.</p>
+  <table class="t">
+    <thead><tr><th style="width:34%">Accountability</th><th>Measure &amp; timeframe (SMART)</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Strategic Planning</td><td>Maintain a four-year corporate plan with 100% stakeholder approval and 10 key objectives; refreshed.</td></tr>
+      <tr><td class="role">Financial Performance</td><td>Achieve annual revenue increases, tracked monthly via dashboards.</td></tr>
+      <tr><td class="role">Organisational Culture</td><td>Foster an inclusive, values-led culture; achieve a 90% favourable engagement score in staff engagement surveys.</td></tr>
+      <tr><td class="role">Leadership Development</td><td>Run a development program for middle and senior managers.</td></tr>
+      <tr><td class="role">Operational Efficiency</td><td>Streamline five key cross-Division processes for a 20% reduction in process times.</td></tr>
+      <tr><td class="role">Risk Management</td><td>Establish an enterprise risk framework; identify and mitigate 100% of high-priority risks.</td></tr>
+      <tr><td class="role">Stakeholder Engagement</td><td>Hold quarterly meetings with board members and key clients; 100% attendance, all concerns addressed.</td></tr>
+      <tr><td class="role">Innovation &amp; Growth</td><td>Launch two new initiatives generating $100K.</td></tr>
+      <tr><td class="role">Succession Planning</td><td>Identify and groom two successors for key management roles; plans tracked quarterly.</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">How to read these pages</span>Each Division’s BAU accountabilities follow, written to the SMART standard. Delivery of these is largely the <strong>individual</strong> accountability of each ELT member and drives a substantial share of their KPIs and bonus.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 15 · BAU · Finance</div>
+  <h2>BAU accountabilities — Finance</h2>
+  <p class="section-intro">The Finance Division sustains fiscal control, cash discipline and accurate reporting across both geographies.</p>
+  <table class="t">
+    <thead><tr><th style="width:34%">Accountability</th><th>Measure &amp; timeframe (SMART)</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Budgeting &amp; Forecasting</td><td>Annual budget and quarterly forecasts; variance to actuals within 5%; budget finalised.</td></tr>
+      <tr><td class="role">Cash Flow Management</td><td>Maintain a reserve equal to two months’ operating expenses; 100% compliance, rolling monthly.</td></tr>
+      <tr><td class="role">Expense Management</td><td>Reduce missing receipts to under 10% through automated reminders.</td></tr>
+      <tr><td class="role">Accounts Payable</td><td>Make 100% of payments within terms using automated systems.</td></tr>
+      <tr><td class="role">Cost Control</td><td>Reduce operational costs by 5% without compromising quality; savings.</td></tr>
+      <tr><td class="role">Financial Reporting</td><td>Deliver accurate monthly statements within five working days of month-end.</td></tr>
+      <tr><td class="role">Tax Compliance</td><td>100% of tax filings on time (BIR, PAG-IBIG, income tax) with zero penalties, across all periods.</td></tr>
+      <tr><td class="role">Internal Controls</td><td>Implement a control framework; reduce control-weakness audit findings by 90%.</td></tr>
+      <tr><td class="role">Technology Adoption</td><td>Upgrade the financial management system for a 30% reduction in manual processes.</td></tr>
+      <tr><td class="role">Financial Risk Management</td><td>Identify and mitigate credit, market and operational risks; plan covering 100% of risks in place.</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">Division read</span>Finance protects the margin the plan depends on — reserves, control and reporting discipline underwrite every other Division’s growth.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 15 · BAU · Revenue</div>
+  <h2>BAU accountabilities — Revenue</h2>
+  <p class="section-intro">The Revenue Division owns the client-acquisition engine — brand, demand generation and sales — and the systems that run it.</p>
+  <table class="t">
+    <thead><tr><th style="width:34%">Accountability</th><th>Measure &amp; timeframe (SMART)</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Revenue Growth</td><td>Achieve 20% year-over-year growth, lifting monthly revenue from $150K to $180K.</td></tr>
+      <tr><td class="role">Lead Generation</td><td>Generate 500 qualified leads and convert 10% into sales opportunities.</td></tr>
+      <tr><td class="role">Conversion Rate</td><td>Improve the sales conversion rate from 2% to 10%, tracked in the CRM.</td></tr>
+      <tr><td class="role">Customer Retention</td><td>Reach a 95% retention rate via a loyalty program and quarterly check-ins.</td></tr>
+      <tr><td class="role">HubSpot Data Quality</td><td>Keep missing fields on new records under 5% through disciplined entry.</td></tr>
+      <tr><td class="role">Brand Awareness</td><td>Achieve a 50% increase in website traffic and 25% growth in social following.</td></tr>
+      <tr><td class="role">Content Marketing</td><td>Publish 12 blog posts and 4 eBooks; 200 downloads and 500 page views per quarter.</td></tr>
+      <tr><td class="role">Website</td><td>Launch a new, error-free website.</td></tr>
+      <tr><td class="role">Sales Team Productivity</td><td>Increase average sales per salesperson by 15%.</td></tr>
+      <tr><td class="role">Customer Acquisition Cost</td><td>Reduce CAC by 10% through organic traffic, retargeting and optimised spend.</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">Division read</span>Revenue is where the growth thesis is won or lost; its BAU measures are the leading indicators of the whole plan’s revenue targets.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 15 · BAU · Service Delivery</div>
+  <h2>BAU accountabilities — Service Delivery</h2>
+  <p class="section-intro">The Service Delivery Division runs the billable engine and the people &amp; culture agenda that keeps it staffed, capable and engaged.</p>
+  <table class="t">
+    <thead><tr><th style="width:34%">Accountability</th><th>Measure &amp; timeframe (SMART)</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Employee Engagement</td><td>Run an annual survey; achieve an 80% engagement score and reduce turnover 10%.</td></tr>
+      <tr><td class="role">Performance Management</td><td>Complete 100% of annual reviews with 90% of staff on personalised development plans.</td></tr>
+      <tr><td class="role">Learning &amp; Development</td><td>Ensure 75% of employees complete at least one development course annually.</td></tr>
+      <tr><td class="role">Diversity &amp; Inclusion</td><td>Increase diversity in leadership by 10% and reach 100% D&amp;I training participation.</td></tr>
+      <tr><td class="role">Onboarding</td><td>Achieve 90% satisfaction in post-onboarding surveys via a standard checklist.</td></tr>
+      <tr><td class="role">HR Compliance</td><td>100% compliance with labour laws and policy; biannual audits with no major findings.</td></tr>
+      <tr><td class="role">Workforce Planning</td><td>Fill 90% of roles within 60 days and hold a talent pool of 20 candidates.</td></tr>
+      <tr><td class="role">Recognition &amp; Rewards</td><td>Recognise 100% of eligible employees quarterly through a formal program.</td></tr>
+      <tr><td class="role">Employee Wellness</td><td>Launch a wellness program; 70% participation and a 15% reduction in sick leave.</td></tr>
+      <tr><td class="role">Culture Assessment</td><td>Conduct a cultural health check and address 100% of identified gaps.</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">Division read</span>Scaling to 100 billable staff without losing culture is this Division’s defining BAU challenge — every measure here protects quality as headcount grows.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 15 · BAU · Facilities</div>
+  <h2>BAU accountabilities — Facilities</h2>
+  <p class="section-intro">The Facilities Division keeps the environment, fleet and assets running — and turns the building from a fixed cost into a strategic asset.</p>
+  <table class="t">
+    <thead><tr><th style="width:34%">Accountability</th><th>Measure &amp; timeframe (SMART)</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Fleet Maintenance</td><td>Preventive maintenance schedule with 95% on-time completion; operational.</td></tr>
+      <tr><td class="role">Fleet Fuel Efficiency</td><td>Reduce fleet fuel consumption 10% via driver training and optimised routes.</td></tr>
+      <tr><td class="role">Property Maintenance</td><td>Complete 100% of scheduled maintenance tasks on time; plan operational.</td></tr>
+      <tr><td class="role">Facilities Safety Compliance</td><td>100% safety compliance, passing all inspections with no major issues.</td></tr>
+      <tr><td class="role">Energy Efficiency</td><td>Reduce facility energy consumption 15% through behaviour-change initiatives.</td></tr>
+      <tr><td class="role">Space Optimisation</td><td>Optimise office space for sub-lessee arrangements; plans and procedures.</td></tr>
+      <tr><td class="role">Vendor Management</td><td>SLAs with all fleet, property and facilities vendors; 90% adherence, in place.</td></tr>
+      <tr><td class="role">Asset Tracking</td><td>Track 100% of major assets within six months via an asset-tracking system.</td></tr>
+      <tr><td class="role">Facilities Budget</td><td>Manage the facilities budget within 95% of allocation across the fiscal year.</td></tr>
+      <tr><td class="role">Sub-Leases &amp; Acquisitions</td><td>Evaluate three sub-lessee or acquisition targets with at least one agreement finalised.</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">Division read</span>Facilities directly funds part of the growth plan — sub-leasing income and dual-shift utilisation turn the building into a revenue-supporting asset.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 15 · BAU · Governance</div>
+  <h2>BAU accountabilities — Governance</h2>
+  <p class="section-intro">The Governance Division owns quality, risk, policy and compliance — the standards that make regulated, high-value work possible.</p>
+  <table class="t">
+    <thead><tr><th style="width:34%">Accountability</th><th>Measure &amp; timeframe (SMART)</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Policy Development</td><td>Implement 10 key quality and compliance policies with 100% staff trained.</td></tr>
+      <tr><td class="role">Regulatory Compliance Monitoring</td><td>Quarterly audits maintaining a compliance score above 95%.</td></tr>
+      <tr><td class="role">Employee Training</td><td>Deliver compliance training to all FTEs; 100% completion within 60 days of hire and annually.</td></tr>
+      <tr><td class="role">Incident Reporting &amp; Resolution</td><td>Digital incident system; resolve minor issues in under 5 and major in under 10 working days.</td></tr>
+      <tr><td class="role">Document Control</td><td>Centralised repository with 100% document accuracy via semi-annual reviews.</td></tr>
+      <tr><td class="role">Customer Feedback Integration</td><td>Address 90% of complaints within 7 days and act on 80% of recurring issues.</td></tr>
+      <tr><td class="role">Risk Management</td><td>Compliance risk assessment across all operations; mitigate 100% of high-priority risks within 30 days.</td></tr>
+      <tr><td class="role">Continuous Improvement</td><td>Launch three quality-improvement projects delivering a 15% defect reduction.</td></tr>
+      <tr><td class="role">Internal Audit Program</td><td>Quarterly audits covering 100% of business units; resolve 95% of non-compliances within 60 days.</td></tr>
+      <tr><td class="role">Regulatory Certification</td><td>Attain ISO 27001 certification.</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">Division read</span>Governance is the gatekeeper of premium work: ISO 27001 and a disciplined compliance posture unlock the regulated sectors where our specialisation earns the most.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Section 16 · Objectives &amp; key results</div>
+  <h2>Division objectives &amp; key results (OKRs)</h2>
+  <p class="section-intro">The Business-Excellence agenda, expressed as seven objectives with measurable key results. Delivered jointly by the ELT, these are the scoreboard for the four-year plan.</p>
+  <table class="t">
+    <thead><tr><th>Objective</th><th>Key results</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Expand the billable workforce</td><td>100 billable staff by FY27 and 120 by FY28; recruitment time 60→45 days; 85% retention by FY27.</td></tr>
+      <tr><td class="role">Enter the US market</td><td>5% of revenue from US by FY27, 10% by FY28; compliance frameworks by FY26; first US clients signed in FY27.</td></tr>
+      <tr><td class="role">Diversify engagement models</td><td>Part-time &amp; project models launched by FY25; 15% of revenue from non-full-time by FY27; 75% of staff trained by FY26.</td></tr>
+      <tr><td class="role">Optimise the new building</td><td>Sub-lease 50% of underutilised space by FY26; 10% of opex covered by sub-lease income by FY27; 3 collaboration events by FY26.</td></tr>
+      <tr><td class="role">Build direct sales (PH)</td><td>Hire 10 sales professionals by FY28; AUD$2M in new contracts by FY28; CRM at 100% utilisation by FY25.</td></tr>
+      <tr><td class="role">Enhance operational efficiency</td><td>Dual-shift operations by FY26; ISO 27001 by FY26; automate 50% of repetitive tasks by FY27.</td></tr>
+      <tr><td class="role">Drive revenue &amp; sustainability</td><td>$3.5M revenue in FY27 and $4.0M in FY28; margins held at 20%; reliance on top-3 clients reduced to 50% of revenue.</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">The measure of success</span>When these key results are met, Brainbox is a larger, more diversified, better-governed business — less dependent on any single market or client, and demonstrably still kind. That is the destination this playbook exists to reach.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Always Be Kind</div>
+  <h2>A plan delivered together</h2>
+  <p>This Strategic Playbook is the apex of the Brainbox suite. Every Division playbook beneath it — Revenue, Operations, Finance, Facilities and Governance — turns one part of this plan into daily practice. Read together, they connect strategy to the work of every team.</p>
+  <p>The four-year horizon is ambitious, but it is grounded in what Brainbox already does well: specialised people, delivered kindly, for the long haul. If we expand the workforce, open the US, diversify how clients engage us, and govern the business to a higher standard — all while holding our margin and our values — we will have redefined offshore excellence.</p>
+  <div class="handoff"><span class="k">The through-line</span><span class="v">Powerful people, performing — <strong>always be kind</strong>.</span></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Progress · FY25 update</div>
+  <h2>Where we landed — FY25</h2>
+  <p class="section-intro">Actuals at the close of FY25, measured against the plan’s headline targets. The workforce and revenue moved; the US market and ISO 27001 remain ahead of us.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">41</div><div class="l">Billable staff (target: 60)</div></div>
+    <div class="stat"><div class="v">0%</div><div class="l">Of revenue from the US (target: begin entry)</div></div>
+    <div class="stat"><div class="v">$2.4M</div><div class="l">Revenue for the year</div></div>
+    <div class="stat"><div class="v">15%</div><div class="l">Profit margin (target: 20%)</div></div>
+  </div>
+  <table class="t">
+    <thead><tr><th>Measure</th><th>FY25 plan</th><th>FY25 actual</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Billable staff</td><td>60</td><td>41</td><td>Behind</td></tr>
+      <tr><td class="role">US revenue share</td><td>Entry begun</td><td>0%</td><td>Not started</td></tr>
+      <tr><td class="role">Revenue</td><td>—</td><td>$2.4M</td><td>Baseline</td></tr>
+      <tr><td class="role">Profit margin</td><td>20%</td><td>15%</td><td>Below target</td></tr>
+      <tr><td class="role">ISO 27001</td><td>Gap analysis &amp; ISMS</td><td>Not accredited</td><td>In progress</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">Read on FY25</span>The foundation year held revenue steady but did not yet move the workforce or open the US market, and margin sits below the target range. The priorities for FY26 are workforce growth and lifting margin back toward plan.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+<section class="sheet">
+  <div class="part-kicker">Progress · FY26 update</div>
+  <h2>Where we landed — FY26</h2>
+  <p class="section-intro">Actuals at the close of FY26. Workforce grew strongly and revenue rose; the US market and ISO 27001 accreditation remain outstanding, and margin tightened.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">78</div><div class="l">Billable staff (target: 80)</div></div>
+    <div class="stat"><div class="v">0%</div><div class="l">Of revenue from the US (target: 10%)</div></div>
+    <div class="stat"><div class="v">$3.0M</div><div class="l">Revenue for the year</div></div>
+    <div class="stat"><div class="v">13%</div><div class="l">Profit margin (target: 20%)</div></div>
+  </div>
+  <table class="t">
+    <thead><tr><th>Measure</th><th>FY26 plan</th><th>FY26 actual</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Billable staff</td><td>80</td><td>78</td><td>On track</td></tr>
+      <tr><td class="role">US revenue share</td><td>10%</td><td>0%</td><td>Not started</td></tr>
+      <tr><td class="role">Revenue</td><td>—</td><td>$3.0M</td><td>+25% on FY25</td></tr>
+      <tr><td class="role">Profit margin</td><td>20%</td><td>13%</td><td>Below target</td></tr>
+      <tr><td class="role">ISO 27001</td><td>Internal audits complete</td><td>Not accredited</td><td>In progress</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">Read on FY26</span>Workforce growth landed close to target and revenue grew ~25% to $3.0M, but margin fell to 13% as the business scaled, and the US market and accreditation are still to come. Restoring margin and finally opening the US market are the defining priorities for FY27.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Strategic Playbook · Brainbox</span></div>
+</section>
+</main>
+</x-dc>
+</body>
+</html>

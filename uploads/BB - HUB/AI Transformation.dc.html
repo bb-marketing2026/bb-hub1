@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #fff; }
+    .doc { box-sizing: border-box; max-width: 210mm; margin: 0 auto; padding: 40px clamp(20px,5vw,16mm) 80px; font-family: var(--font-body); font-weight: 300; color: var(--bb-grey-800); font-size: 10pt; line-height: 1.5; }
+    .doc h1,.doc h2,.doc h3,.doc h4 { font-family: var(--font-heading); color: var(--bb-grey-700); margin: 0; }
+    .doc h1 { font-weight: 600; }
+    .doc h2 { font-weight: 600; font-size: 16pt; color: var(--bb-pink); letter-spacing: -0.01em; margin: 24px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--bb-pink); }
+    .doc h3 { font-weight: 600; font-size: 11.5pt; color: var(--bb-grey-700); margin: 15px 0 5px; }
+    .doc p { margin: 0 0 9px; text-wrap: pretty; }
+    .doc ul { margin: 0 0 9px; padding-left: 17px; } .doc li { margin: 0 0 4px; }
+    .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; }
+    .cover { background: var(--bb-gradient-brand); border-radius: 18px; padding: 44px 38px; color: #fff; margin-bottom: 8px; }
+    .cover .eyebrow { color: rgba(255,255,255,0.92); }
+    .cover h1 { color: #fff; font-size: 32pt; line-height: 1.04; margin: 14px 0 12px; }
+    .cover .lede { color: rgba(255,255,255,0.95); font-size: 12pt; max-width: 94%; margin: 0; line-height: 1.5; }
+    .cover-meta { display: flex; gap: 26px; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.35); flex-wrap: wrap; }
+    .cover-meta div { font-size: 8.5pt; } .cover-meta span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; opacity: 0.8; margin-bottom: 2px; }
+    .wordmark { font-family: var(--font-logo); font-size: 16pt; letter-spacing: 0.14em; color: #fff; }
+    .part-kicker { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 2px; }
+    .section-intro { color: var(--bb-grey-500); font-size: 10.5pt; margin-bottom: 12px; }
+    .note { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); border-radius: 8px; padding: 10px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 11px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag .lbl,.note .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .jbanner { display: flex; align-items: center; gap: 12px; border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 11px 15px; margin: 8px 0 12px; flex-wrap: wrap; }
+    .jbanner .fn { font-family: var(--font-heading); font-weight: 600; font-size: 13pt; color: var(--bb-grey-700); }
+    .jbanner .jtag { font-family: var(--font-mono); font-size: 7pt; text-transform: uppercase; letter-spacing: 0.08em; background: var(--bb-pink-50); color: var(--bb-pink-700); border: 1px solid var(--bb-pink-200); border-radius: 999px; padding: 3px 10px; }
+    .jbanner .q { font-style: italic; color: var(--bb-grey-500); font-size: 9.3pt; margin-left: auto; }
+    .timeline { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 8px 0 14px; }
+    .tl { border-radius: 10px; padding: 10px 13px; }
+    .tl .d { font-family: var(--font-heading); font-weight: 600; font-size: 12pt; line-height: 1; }
+    .tl .tt { font-size: 8.4pt; margin-top: 4px; color: var(--bb-grey-500); }
+    .tl.p1 { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); } .tl.p1 .d { color: var(--bb-pink); }
+    .tl.p2 { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); } .tl.p2 .d { color: var(--bb-blue-700); }
+    .tl.p3 { background: var(--bb-grey-50); border: 1px solid var(--bb-grey-200); } .tl.p3 .d { color: var(--bb-grey-700); }
+    .phase { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 14px 16px; margin: 0 0 12px; }
+    .phase.p1 { border-left: 4px solid var(--bb-pink); } .phase.p2 { border-left: 4px solid var(--bb-blue-300); } .phase.p3 { border-left: 4px solid var(--bb-grey-400); }
+    .phase .ph { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+    .phase .badge { font-family: var(--font-mono); font-size: 7.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 10px; border-radius: 999px; color: #fff; }
+    .phase.p1 .badge { background: var(--bb-pink); } .phase.p2 .badge { background: var(--bb-blue-300); } .phase.p3 .badge { background: var(--bb-grey-700); }
+    .phase .htag { font-family: var(--font-mono); font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bb-grey-500); }
+    .phase .intro { font-size: 9.3pt; color: var(--bb-grey-800); margin: 0 0 8px; }
+    .phase ul { margin: 0 0 9px; padding-left: 16px; font-size: 9pt; } .phase li { margin-bottom: 4px; }
+    .measure { border-radius: 9px; padding: 9px 12px; font-size: 9pt; }
+    .measure .ml { font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 3px; color: var(--bb-grey-500); }
+    .measure b { font-weight: 600; }
+    .phase.p1 .measure { background: var(--bb-pink-50); } .phase.p1 .measure b { color: var(--bb-pink-700); }
+    .phase.p2 .measure { background: var(--bb-blue-50); } .phase.p2 .measure b { color: var(--bb-blue-700); }
+    .phase.p3 .measure { background: var(--bb-grey-50); } .phase.p3 .measure b { color: var(--bb-grey-700); }
+    .fnrow { display: grid; grid-template-columns: 150px 1fr; gap: 10px 16px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--bb-grey-200); }
+    .fnrow .fnn { font-family: var(--font-heading); font-weight: 600; color: var(--bb-pink); font-size: 11pt; }
+    .fnrow .fnq { font-size: 9.3pt; color: var(--bb-grey-500); font-style: italic; }
+    .sheet { padding-top: 4px; }
+    .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
+    .sheet-ftr { display: none; }
+    
+    .toc { margin: 10px 0 4px; }
+    .toc-row { display: flex; align-items: baseline; gap: 12px; padding: 7px 2px; border-bottom: 1px solid var(--bb-grey-200); }
+    .toc-row .n { font-family: var(--font-mono); font-size: 8pt; color: var(--bb-pink); width: 22px; flex: none; }
+    .toc-row .t { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 10.5pt; }
+
+    .cover .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.22em; font-size: 7.5pt; color: rgba(255,255,255,0.72); margin-bottom: 20px; }
+    .cover .cat { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 10px; }
+    .cover-page { min-height: 900px; display: flex; flex-direction: column; }
+    .cover-page h1 { margin-top: 4px; }
+    .cover-page .cover-meta { margin-top: auto; }
+    @media print { .cover-sheet .cover-page { min-height: 252mm; } .cover-sheet { break-after: page; } }
+
+    .cover-page { position: relative; }
+    .cover-elephant { position: absolute; top: 34px; right: 36px; height: 84px; width: auto; }
+
+    /* ===== Subdued (Boardroom) palette ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .doc h3 { color: var(--bb-grey-700) !important; }
+    .doc h4 { color: var(--bb-grey-500) !important; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root, .handoff { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj { color: var(--bb-grey-700) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; border-left-color: var(--bb-pink) !important; }
+    .flag .lbl { color: var(--bb-grey-500) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+    .stat .v { color: var(--bb-grey-800) !important; }
+    .rolecard h3 { color: var(--bb-grey-800) !important; }
+    .pill { border-color: var(--bb-grey-300) !important; }
+    .script { border-left-color: var(--bb-pink) !important; }
+    .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
+
+    @page { size: A4 portrait; margin: 10mm; }
+    @media print {
+      .sheet + .sheet { margin-top: 8mm !important; border-top: 0 !important; }
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; } html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 !important; }
+      .sheet { break-inside: avoid; display: block; box-sizing: border-box; margin-top: 0 !important; border-top: 0 !important; padding-top: 0 !important; }
+      .sheet:first-of-type { break-before: auto; }
+      .sheet-ftr { display: none !important; justify-content: space-between; margin-top: auto; padding-top: 5mm; border-top: 0.5pt solid var(--bb-grey-200); font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bb-grey-400); }
+      .sheet-ftr .r { color: var(--bb-pink); }
+      h2,h3 { break-after: avoid !important; }
+      .note,.flag,.jbanner,.timeline,.phase,.measure,.cover,.fnrow { break-inside: avoid; }
+      p, li { orphans: 3; widows: 3; }
+    }
+    /* table-font-override */
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, table.rep .tg, .doc table.form .target { font-family: var(--font-body) !important; }
+    /* role-body-override */
+    .doc table.t .role { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+    /* all-table-cells-body */
+    .doc table.t td, .doc table.t td .num, .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, .doc table.t .role, table.rep td, table.rep .tg, .doc table.form td, .doc table.form .target { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+  </style>
+</helmet>
+
+<main class="doc">
+
+<section class="sheet cover-sheet">
+  <div class="cover cover-page">
+    <img class="cover-elephant" src="assets/brainbox-elephant.png" alt="">
+    <div class="conf">Strictly private &amp; confidential</div>
+    <div class="cat">AI Transformation</div>
+    <h1>How Brainbox puts AI to work, function by function</h1>
+    <p class="lede">How Brainbox adopts AI across its functions &mdash; a staged 30/60/90-day journey for each, measured at every gate, with the relationship and the final judgement kept human.</p>
+    <div class="cover-meta">
+      <div><span>Prepared for</span>The Executive Leadership Team</div>
+      <div><span>Issued</span>July 2026 &middot; Ref. BB-AIT-01</div>
+      <div><span>Cadence</span>30 / 60 / 90-day journeys</div>
+      <div style="margin-left:auto;align-self:flex-end"><span class="wordmark">BRAINBOX</span></div>
+    </div>
+  </div>
+</section>
+
+  <section class="sheet">
+  <h2>Purpose</h2>
+  <p>This companion documents Brainbox&rsquo;s AI transformation, function by function. It sits alongside the Revenue Playbook and its subsidiary playbooks, and gives each function a concrete, staged path to adopting AI &mdash; not a slogan, but specific tools, steps and measures.</p>
+  <p>Every function follows the same <strong>30/60/90-day rhythm</strong>: activate and baseline, build and validate, then measure and embed. Each stage has a defined outcome and a measure taken at the gate, so progress is evidenced rather than assumed.</p>
+  <div class="note"><span class="lbl">What stays human</span>AI directs production, research, drafting and admin. The relationship, the judgement, the creative direction and the final send stay with people. The point is capacity and speed, not replacing the humans who close and deliver work.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">AI Transformation · Brainbox</span></div>
+</section>
+
+  <section class="sheet">
+  <h2>Contents</h2>
+  <div class="toc">
+    <div class="toc-row"><span class="n">01</span><span class="t">Purpose</span></div>
+    <div class="toc-row"><span class="n">02</span><span class="t">The functions &amp; the shared rhythm</span></div>
+    <div class="toc-row"><span class="n">03</span><span class="t">Marketing</span></div>
+    <div class="toc-row"><span class="n">04</span><span class="t">Demand Generation</span></div>
+    <div class="toc-row"><span class="n">05</span><span class="t">Sales</span></div>
+    <div class="toc-row"><span class="n">06</span><span class="t">Web Development</span></div>
+  </div>
+</section>
+
+<section class="sheet">
+  <h2>The functions &amp; the shared rhythm</h2>
+  <p class="section-intro">Four functions run the journey. Each asks one guiding question and answers it with evidence at each gate.</p>
+  <div class="fnrow"><div class="fnn">Marketing</div><div class="fnq">&ldquo;Is marketing moving faster and freeing time to take on more fractional client work?&rdquo;</div></div><div class="fnrow"><div class="fnn">Demand Generation</div><div class="fnq">&ldquo;Are we booking more discovery calls? Is outreach more personalised with better reply rates? Is time from lead to first meeting reducing?&rdquo;</div></div><div class="fnrow"><div class="fnn">Sales</div><div class="fnq">&ldquo;Are proposals turned around faster, with the skill used every time?&rdquo;</div></div><div class="fnrow"><div class="fnn">Web Development</div><div class="fnq">&ldquo;Is development faster? Are performance and mobile scores improving? Are SEO and code quality issues caught before they ship?&rdquo;</div></div>
+  <div class="timeline" style="margin-top:16px">
+    <div class="tl p1"><div class="d">30 days</div><div class="tt">Activate, baseline &amp; build</div></div>
+    <div class="tl p2"><div class="d">60 days</div><div class="tt">Build &amp; validate</div></div>
+    <div class="tl p3"><div class="d">90 days</div><div class="tt">Measure &amp; embed</div></div>
+  </div>
+  <div class="flag"><span class="lbl">One rhythm, measured at each gate</span>At day 30 the tool is live and baselined; at day 60 it is validated in the workflow; at day 90 it is embedded and its impact measured against the day-30 baseline. Each function presents its gains at the showcase.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">AI Transformation · Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">AI Transformation &middot; Marketing</div>
+  <h2>Marketing</h2>
+  <div class="jbanner"><span class="fn">Marketing</span><span class="jtag">Claude</span><span class="q">&ldquo;Is marketing moving faster and freeing time to take on more fractional client work?&rdquo;</span></div>
+  <div class="timeline">
+    <div class="tl p1"><div class="d">30 days</div><div class="tt">Activate, baseline &amp; build</div></div>
+    <div class="tl p2"><div class="d">60 days</div><div class="tt">Build &amp; validate</div></div>
+    <div class="tl p3"><div class="d">90 days</div><div class="tt">Measure &amp; embed</div></div>
+  </div>
+  <div class="phase p1"><div class="ph"><span class="badge">30 days</span><span class="htag">Claude Projects · Design System</span></div><p class="intro">The Brainbox Brand Hub anchors all written and social copy, with on-page SEO built into every web-facing piece. The BB and Blue Zoo Design Systems are built and in use. The focus now is creating client design systems, starting with Razor and WE, so the team produces on-brand client work without starting from scratch.</p><ul><li>Brand Hub: brand voice, Australian English, tone guide, and templates for social (LinkedIn/Instagram), blog and articles. SEO enforced on every web-facing piece: search intent, headings, meta, internal links.</li><li>BB Design System: typography, palette, spacing and document templates. Built and shared.</li><li>Blue Zoo Design System: same structure with BZ brand assets. Built and shared.</li><li>Razor and WE: build a design system per client — brand assets, palette, templates, and channel and SEO context. Shared with the account team.</li><li>Map the publishing workflow: HubSpot schedules social in advance. Explore publishing articles direct from Claude via the WordPress connector.</li><li>Decision by day 30: can proposals be produced in Claude Design repeatably? If yes, proposals move to Claude Design and we exit PandaDoc.</li></ul><div class="measure"><span class="ml">Measure</span><b>Brand Hub live. Razor and WE design systems built and shared. First client pieces produced and SEO-checked. Proposals in Claude Design vs PandaDoc decided.</b></div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">AI Transformation · Marketing</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">AI Transformation &middot; Marketing</div>
+  <h2>Marketing &mdash; 60 &amp; 90 days</h2>
+  <div class="phase p2"><div class="ph"><span class="badge">60 days</span><span class="htag">Analysis · Semrush · Time freed</span></div><p class="intro">Work smarter, not just more. Semrush and social data used pragmatically: keep effort on what's working, ease off what isn't, so the team moves faster and frees up time — not optimisation for its own sake. The time freed is what lets the team take on more fractional client work.</p><ul><li>Semrush and social read for what's actually working. Focus the content plan; don't chase rankings for the sake of it.</li><li>Recurring outputs flowing through the Projects: faster turnaround, less rework.</li><li>Hours freed tracked across the team. That capacity is the point.</li><li>Findings shared simply with the team and Sales, no heavy reporting overhead.</li><li>Adoption holds: every team member using the Projects, not just the lead.</li></ul><div class="measure"><span class="ml">Measure</span><b>Hours freed per week across the team. Faster turnaround and lower rework vs baseline. Capacity available for fractional client work.</b></div></div>
+  <div class="phase p3"><div class="ph"><span class="badge">90 days</span><span class="htag">Client Services · Fractional work</span></div><p class="intro">Put the freed time to work. With BB and BZ running fast, set the team up to take on more fractional client work across design, social, SEO and web. Each client gets a dedicated structure so the team delivers compliant work across disciplines without starting from scratch. Can run as a separate client-services build.</p><ul><li>Client-services structure per fractional client: brand, channels, SEO and social context, templates.</li><li>Spans the services delivered: design, social, SEO optimisation, web copy.</li><li>Shared with the account team. More client work absorbed without more headcount.</li><li>Light brand and consistency check across BB, BZ and client work.</li><li>Marketing presents capacity gained and client work taken on at showcase.</li></ul><div class="measure"><span class="ml">Measure</span><b>Fractional client work taken on with the existing team. Client structures live. Turnaround and rework across accounts vs baseline.</b></div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">AI Transformation · Marketing</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">AI Transformation &middot; Demand Generation</div>
+  <h2>Demand Generation</h2>
+  <div class="jbanner"><span class="fn">Demand Generation</span><span class="jtag">Claude or ChatGPT</span><span class="q">&ldquo;Are we booking more discovery calls? Is outreach more personalised with better reply rates? Is time from lead to first meeting reducing?&rdquo;</span></div>
+  <div class="timeline">
+    <div class="tl p1"><div class="d">30 days</div><div class="tt">Activate, baseline &amp; build</div></div>
+    <div class="tl p2"><div class="d">60 days</div><div class="tt">Build &amp; validate</div></div>
+    <div class="tl p3"><div class="d">90 days</div><div class="tt">Measure &amp; embed</div></div>
+  </div>
+  <div class="phase p1"><div class="ph"><span class="badge">30 days</span><span class="htag">Apollo · HubSpot · Audit</span></div><p class="intro">Map the current workflow: Apollo sources and enriches contacts, HubSpot holds the lists and tracks engagement. Identify where AI adds the most value in that chain — research before outreach, personalised copy at scale, and smarter list prioritisation. By day 30, one AI-enhanced sequence is live and being measured against baseline.</p><ul><li>Audit the current workflow: how are Apollo contacts sourced, how do they move into HubSpot lists, and how are sequences managed?</li><li>Document baseline metrics in week 1: reply rate, meeting book rate, leads worked per week, list size and conversion by segment.</li><li>Build a prospect research prompt: contact or company in, context and outreach angle out — before anyone goes into a HubSpot sequence.</li><li>Write first AI-generated outreach copy. Load into a HubSpot sequence. Run alongside the existing sequence for A/B comparison.</li><li>Identify highest-volume HubSpot list segments — these are the first targets for AI personalisation.</li></ul><div class="measure"><span class="ml">Measure</span><b>Baseline reply rate and meeting book rate documented from HubSpot. First AI sequence live. Research prompt tested on at least 10 real prospects.</b></div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">AI Transformation · Demand Generation</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">AI Transformation &middot; Demand Generation</div>
+  <h2>Demand Generation &mdash; 60 &amp; 90 days</h2>
+  <div class="phase p2"><div class="ph"><span class="badge">60 days</span><span class="htag">Research engine · Copy generator</span></div><p class="intro">Any team member can research a prospect from Apollo and generate personalised outreach copy ready for a HubSpot sequence in under five minutes. AI copy A/B tested against previous templates inside HubSpot.</p><ul><li>Prospect brief GPT or skill live: Apollo contact or company URL in; outreach context, likely pain points, Brainbox service angle and a suggested subject line out.</li><li>Outreach copy generator built: brief in, multi-touch sequence out, formatted for direct use in HubSpot sequences.</li><li>A/B test running in HubSpot: AI copy vs previous template. Track open rate, reply rate, positive reply rate.</li><li>Lead scoring prompt built: filters and prioritises HubSpot lists by firmographics (SME, sector, headcount) to surface highest-fit contacts first.</li></ul><div class="measure"><span class="ml">Measure</span><b>Reply rate: AI sequence vs previous template (HubSpot data). Time to research and write outreach per lead (target: under 5 minutes). Positive reply rate vs baseline.</b></div></div>
+  <div class="phase p3"><div class="ph"><span class="badge">90 days</span><span class="htag">Full workflow · HubSpot integration</span></div><p class="intro">End-to-end workflow in use: Apollo source → AI prospect research → AI outreach copy → HubSpot list and sequence. Meeting book rate measurably improved. Assess whether HubSpot list data can feed directly into the AI research step to remove manual input entirely.</p><ul><li>Full workflow in use for all active HubSpot sequences. No outreach going out without an AI research and copy step.</li><li>Meeting book rate vs day 1 baseline reported. Target: meaningful improvement.</li><li>Time from lead identified in Apollo to first meeting booked (tracked via HubSpot) averaged and reported.</li><li>Assess: can HubSpot contact exports or Apollo enrichment data feed directly into the research GPT to remove manual input?</li><li>Demand Gen presents reply rate, meeting rate and time savings at showcase.</li></ul><div class="measure"><span class="ml">Measure</span><b>Meeting book rate vs baseline (HubSpot). Reply rate vs baseline. Time from Apollo source to first meeting. % of HubSpot sequences using AI copy (target: 100%).</b></div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">AI Transformation · Demand Generation</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">AI Transformation &middot; Sales</div>
+  <h2>Sales</h2>
+  <div class="jbanner"><span class="fn">Sales</span><span class="jtag">Claude</span><span class="q">&ldquo;Are proposals turned around faster, with the skill used every time?&rdquo;</span></div>
+  <div class="timeline">
+    <div class="tl p1"><div class="d">30 days</div><div class="tt">Activate, baseline &amp; build</div></div>
+    <div class="tl p2"><div class="d">60 days</div><div class="tt">Build &amp; validate</div></div>
+    <div class="tl p3"><div class="d">90 days</div><div class="tt">Measure &amp; embed</div></div>
+  </div>
+  <div class="phase p1"><div class="ph"><span class="badge">30 days</span><span class="htag">Claude Project · Skill</span></div><p class="intro">Proposal-generation skill live. Input: client name, service type, context. Output: structured proposal content ready for the chosen destination. A day-30 decision (with Marketing) sets whether that’s a tokenised PandaDoc template or a repeatable Claude Design proposal.</p><ul><li>Proposal template and boilerplate sections documented and loaded into the Project.</li><li>Service descriptions, capability statements and case studies loaded.</li><li>Day-30 decision (with Marketing): keep PandaDoc or move proposals to Claude Design. If PandaDoc stays, tokenise the templates so Claude can populate them; if not, this step drops.</li><li>Skill tested on at least three real deals before go-live.</li><li>Baseline documented: current average time from brief received to proposal sent.</li></ul><div class="measure"><span class="ml">Measure</span><b>Time to first draft on test deals. Target: under 30 minutes from brief to draft.</b></div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">AI Transformation · Sales</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">AI Transformation &middot; Sales</div>
+  <h2>Sales &mdash; 60 &amp; 90 days</h2>
+  <div class="phase p2"><div class="ph"><span class="badge">60 days</span><span class="htag">HubSpot · Level alignment</span></div><p class="intro">All proposals in the past 30 days used the skill. HubSpot deal data pre-fills context and turnaround is logged per deal. The skill also calibrates the position description to the level discussed, so what the client pays for matches what the role looks like.</p><ul><li>Review skill-produced proposals: what’s consistently edited? Refine the prompt.</li><li>HubSpot deal data connected to reduce manual briefing input.</li><li>Objection-handling and follow-up templates added to the Project.</li><li>Level-alignment check: the skill tunes the position-description language and years-of-experience to the commercial-model tier agreed with the client, so price, seniority and expectations match before it goes out.</li></ul><div class="measure"><span class="ml">Measure</span><b>Faster average proposal turnaround vs current. % of proposals using the skill (target: 100%). Position descriptions aligned to the agreed commercial level.</b></div></div>
+  <div class="phase p3"><div class="ph"><span class="badge">90 days</span><span class="htag">Proposal chain · Output</span></div><p class="intro">The full chain runs: HubSpot deal data and discovery notes in, Claude builds and level-aligns the proposal, then outputs to the chosen destination — the tokenised PandaDoc template, or a repeatable Claude Design proposal if PandaDoc was retired. A person does QA and sends, every time.</p><ul><li>Output skill live: Claude populates the tokenised PandaDoc template, or builds the proposal in Claude Design if PandaDoc was retired.</li><li>Post-discovery-call skill feeds the chain: notes in, proposal brief out, into Claude’s draft.</li><li>Human step kept: QA and send stay with a person — no auto-send.</li><li>Report volume, turnaround and win rate for AI-assisted vs the prior period; Sales presents at the showcase.</li></ul><div class="measure"><span class="ml">Measure</span><b>Faster turnaround. Proposal volume. Win rate. Hours saved per deal. % built through the HubSpot → Claude → proposal-output chain.</b></div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">AI Transformation · Sales</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">AI Transformation &middot; Web Development</div>
+  <h2>Web Development</h2>
+  <div class="jbanner"><span class="fn">Web Development</span><span class="jtag">Claude</span><span class="q">&ldquo;Is development faster? Are performance and mobile scores improving? Are SEO and code quality issues caught before they ship?&rdquo;</span></div>
+  <div class="timeline">
+    <div class="tl p1"><div class="d">30 days</div><div class="tt">Activate, baseline &amp; build</div></div>
+    <div class="tl p2"><div class="d">60 days</div><div class="tt">Build &amp; validate</div></div>
+    <div class="tl p3"><div class="d">90 days</div><div class="tt">Measure &amp; embed</div></div>
+  </div>
+  <div class="phase p1"><div class="ph"><span class="badge">30 days</span><span class="htag">Explore · Mockup · Review</span></div><p class="intro">Thirty days of structured exploration across four use cases: AI-assisted WordPress development, UI/UX mockup generation, code review and optimisation, and performance/SEO/mobile auditing. By day 30, each has been tested on a real piece of work — not just theorised.</p><ul><li>WordPress development: use Claude to generate custom page templates, plugin integration code and theme modifications. Test on one real build task.</li><li>UI/UX mockups: generate HTML/CSS prototypes via Claude artifacts before writing production code. Test on one new page or component.</li><li>Code review: submit one existing page or template to Claude for a full review — performance bottlenecks, render-blocking assets, unused CSS/JS, accessibility.</li><li>Performance, SEO and mobile: use Claude to audit one page for loading speed, Core Web Vitals, mobile responsiveness and on-page SEO. Document what it catches vs a manual review.</li><li>Log baseline PageSpeed Insights and Lighthouse scores (mobile and desktop) on three representative pages before any AI-assisted optimisation.</li></ul><div class="measure"><span class="ml">Measure</span><b>All four use cases tested on real work. Baseline Lighthouse scores documented. First code review completed. Issues caught listed and prioritised.</b></div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">AI Transformation · Web Development</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">AI Transformation &middot; Web Development</div>
+  <h2>Web Development &mdash; 60 &amp; 90 days</h2>
+  <div class="phase p2"><div class="ph"><span class="badge">60 days</span><span class="htag">AI in the workflow</span></div><p class="intro">AI is a standard step in the development process — not an occasional experiment. Every new build starts with a Claude-generated mockup. Every deployment goes through a Claude code review. Performance and mobile checks are automated into the sign-off process.</p><ul><li>UI/UX mockup in a Claude artifact required before any new page goes into production.</li><li>Code review via Claude required before every deployment — checklist covers loading speed, mobile responsiveness, render-blocking assets, SEO meta, image optimisation.</li><li>AI-assisted WordPress component library started: reusable blocks generated and stored in a shared Claude Project.</li><li>PageSpeed scores re-run on all pages reviewed in month 1. Document improvement vs baseline.</li></ul><div class="measure"><span class="ml">Measure</span><b>% of deployments going through AI code review (target: 100%). PageSpeed score improvement on reviewed pages vs day 30 baseline. Development time per new page vs manual baseline.</b></div></div>
+  <div class="phase p3"><div class="ph"><span class="badge">90 days</span><span class="htag">Performance gains · Shared library</span></div><p class="intro">Measurable improvement in site performance and mobile scores. A shared Claude Project containing reusable WordPress components, review checklists and optimisation prompts — so any team member can maintain quality standards without always needing a senior developer.</p><ul><li>Lighthouse mobile and desktop scores across client sites compared to day 30 baseline. Target: meaningful improvement on at least 50% of reviewed pages.</li><li>Shared “Web Dev” Claude Project live: WordPress component templates, code-review checklist prompt, SEO audit prompt, performance checklist.</li><li>Development time per page/feature tracked and reported vs pre-adoption baseline.</li><li>Web Dev team presents performance-score improvements and time savings at showcase.</li></ul><div class="measure"><span class="ml">Measure</span><b>Lighthouse score improvements (mobile and desktop, all reviewed pages). Dev time per page vs baseline. Code issues caught pre-deployment vs post. Shared Project live and in use.</b></div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">AI Transformation · Web Development</span></div>
+</section>
+
+</main>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,59 @@
+/* ===========================================================================
+   Brainbox — Base element defaults + small utility set
+   Opt-in: applies to standard elements; products can override freely.
+   =========================================================================== */
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-body);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-heading);
+  line-height: var(--leading-snug);
+  margin: 0 0 0.5em;
+  text-wrap: balance;
+}
+h1 { font-size: var(--text-3xl); font-weight: var(--weight-semibold); line-height: var(--leading-tight); }
+h2 { font-size: var(--text-2xl); font-weight: var(--weight-regular); }
+h3 { font-size: var(--text-xl);  font-weight: var(--weight-semibold); }
+h4 { font-size: var(--text-lg);  font-weight: var(--weight-semibold); }
+
+p { margin: 0 0 1em; text-wrap: pretty; }
+
+a { color: var(--text-link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+code, kbd, pre, samp { font-family: var(--font-mono); font-size: 0.9em; }
+
+::selection { background: var(--bb-pink-200); color: var(--bb-grey-800); }
+
+:focus-visible { outline: none; box-shadow: var(--shadow-focus); border-radius: var(--radius-xs); }
+
+/* ---- Brand helpers ------------------------------------------------------ */
+.bb-gradient-text {
+  background: var(--bb-gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.bb-eyebrow {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--bb-pink);
+}

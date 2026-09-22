@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<base target="_top">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <style>
+    body { margin:0; background:#ffffff; font-family:var(--font-body); color:var(--bb-grey-800); }
+    .wrap { width:1700px; margin:0 auto; padding:34px 30px 46px; }
+    .hd { margin:0 0 6px 30px; }
+    .hd .k { font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.2em; font-size:10px; color:var(--bb-pink); font-weight:600; }
+    .hd h1 { font-family:var(--font-heading); font-weight:600; color:var(--bb-grey-800); font-size:30px; margin:6px 0 4px; letter-spacing:-0.01em; }
+    .hd p { color:var(--bb-grey-500); font-size:13px; margin:0; max-width:720px; }
+    .stage { position:relative; width:1620px; height:1930px; margin:18px auto 0; }
+    .lvl { position:absolute; left:0; width:96px; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.13em; font-size:10px; color:var(--bb-grey-500); }
+    .lvl .lvl-sub { display:block; margin-top:4px; margin-left:15px; font-family:var(--font-heading); text-transform:none; letter-spacing:-0.005em; font-size:12px; font-weight:600; color:var(--bb-grey-800); line-height:1.15; }
+    .lvl::before { content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--bb-pink); margin-right:7px; vertical-align:middle; opacity:.55; }
+    .ln { position:absolute; background:var(--bb-grey-400); border-radius:2px; }
+    .cvr { position:absolute; border-radius:12px; padding:13px 13px 11px; color:#fff; overflow:hidden; display:flex; flex-direction:column;
+           background:linear-gradient(105deg,#3f3f3f 26%, #ff0080 125%); box-shadow:0 7px 20px rgba(40,40,45,.20); border:1px solid rgba(255,255,255,.12); }
+    .cvr .ele { position:absolute; top:9px; right:9px; height:24px; width:auto; opacity:.92; }
+    .cvr .c-conf { font-family:var(--font-mono); font-size:5px; letter-spacing:0.13em; text-transform:uppercase; color:rgba(255,255,255,.58); }
+    .cvr .c-cat { font-family:var(--font-mono); font-size:7px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,.85); margin-top:auto; margin-bottom:3px; }
+    .cvr .c-name { font-family:var(--font-heading); font-weight:600; font-size:14.5px; line-height:1.12; letter-spacing:-0.01em; }
+    .cvr .c-sub { font-family:var(--font-mono); font-size:5.5px; letter-spacing:0.09em; text-transform:uppercase; color:rgba(255,255,255,.72); margin-top:5px; }
+    .cvr .c-mark { font-family:var(--font-logo); font-size:8px; letter-spacing:0.17em; color:rgba(255,255,255,.85); margin-top:8px; }
+    a.cvr { text-decoration:none; cursor:pointer; transition:transform .16s ease-out, box-shadow .16s ease-out; }
+    a.cvr:hover { transform:translateY(-4px); box-shadow:0 14px 30px rgba(255,0,128,.32); }
+    a.cvr.spine:hover { box-shadow:0 0 0 2.5px var(--bb-pink), 0 14px 32px rgba(255,0,128,.40); }
+    a.cvr::after { content:"Open"; position:absolute; bottom:9px; right:11px; font-family:var(--font-mono); font-size:6px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,.0); transition:color .16s ease-out; }
+    a.cvr:hover::after { color:rgba(255,255,255,.9); }
+    .cvr.planned { opacity:.42; filter:grayscale(.35); }
+    .cvr.spine { border:0; }
+    .cvr.strat { background:linear-gradient(120deg,#2b2b2b 18%, #66002e 68%, #ff0080 132%); }
+    .cvr.strat .c-name { font-size:17px; }
+    .cvr.strat .c-cat { color:rgba(255,255,255,.92); }
+    .cvr.stack { overflow:visible; }
+    .cvr.stack::before, .cvr.stack::after { content:""; position:absolute; inset:0; border-radius:12px; background:linear-gradient(105deg,#4a4a4a 26%, #d1006b 125%); z-index:-1; }
+    .cvr.stack::before { transform:translate(7px,8px); opacity:.55; }
+    .cvr.stack::after { transform:translate(14px,16px); opacity:.3; }
+    .foot { width:1400px; margin:26px auto 0; display:flex; gap:26px; align-items:center; font-family:var(--font-mono); font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--bb-grey-500); }
+    .foot .sw { display:inline-flex; align-items:center; gap:7px; }
+    .foot .sw i { width:24px; height:15px; border-radius:3px; display:inline-block; background:linear-gradient(105deg,#3f3f3f 26%, #ff0080 125%); }
+    .foot .sw i.ring { box-shadow:0 0 0 2px var(--bb-pink); }
+    .ministack { position:absolute; display:flex; flex-direction:column; gap:8px; width:182px; }
+    .mini { box-sizing:border-box; display:flex; align-items:center; gap:12px; text-decoration:none; background:#fff;
+             border:1px solid var(--bb-grey-200); border-left:4px solid var(--bb-pink); border-radius:10px;
+             padding:9px 12px; width:100%; box-shadow:0 2px 6px rgba(40,40,45,.06);
+             transition:background .14s ease-out, transform .14s ease-out, border-left-color .14s ease-out; }
+    a.mini:hover { background:var(--bb-pink-50); transform:translateY(-1px); border-left-color:var(--bb-pink-700); }
+    .mini .mn { font-family:var(--font-mono); font-size:9px; letter-spacing:0.12em; color:var(--bb-grey-400); }
+    .mini b { display:block; font-family:var(--font-heading); font-weight:600; font-size:13px; color:var(--bb-grey-800); line-height:1.15; letter-spacing:-0.005em; }
+    .mini .mc { display:block; font-family:var(--font-mono); font-size:7.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--bb-grey-500); margin-top:3px; }
+    .mini.planned { opacity:.45; }
+    .artlink { display:flex; align-items:center; gap:8px; text-decoration:none; margin:-3px 0 1px 16px; padding:5px 10px;
+               border-left:2px solid var(--bb-blue); border-radius:0 7px 7px 0; background:var(--bb-grey-50);
+               transition:background .14s ease-out, transform .14s ease-out; }
+    a.artlink:hover { background:var(--bb-pink-50); transform:translateX(1px); }
+    .artlink .ak { font-family:var(--font-mono); font-size:7px; letter-spacing:0.12em; text-transform:uppercase; color:var(--bb-grey-500); }
+    .artlink em { font-style:normal; font-family:var(--font-heading); font-weight:600; font-size:11px; color:var(--bb-grey-700); line-height:1.15; }
+    .more { width:1560px; margin:30px auto 0; border-top:1px solid var(--bb-grey-200); padding-top:16px; }
+    .more h2 { font-family:var(--font-heading); font-weight:600; font-size:15px; color:var(--bb-grey-800); margin:0 0 3px; letter-spacing:-0.01em; }
+    .more p { color:var(--bb-grey-500); font-size:11px; margin:0 0 12px; }
+    .more .grp { font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.13em; font-size:9px; color:var(--bb-pink); font-weight:600; margin:14px 0 8px; }
+    .more .row { display:flex; flex-wrap:wrap; gap:8px; }
+    .more a { display:flex; align-items:center; gap:8px; text-decoration:none; border:1px solid var(--bb-grey-200); border-left:3px solid var(--bb-pink); border-radius:8px; padding:8px 12px; min-width:210px; transition:background .14s ease-out, border-color .14s ease-out, transform .14s ease-out; background:#fff; }
+    .more a:hover { background:var(--bb-pink-50); transform:translateY(-1px); border-left-color:var(--bb-pink-700); }
+    .more a .ic { font-family:var(--font-mono); font-size:8px; letter-spacing:0.1em; text-transform:uppercase; color:var(--bb-grey-500); }
+    .more a b { font-family:var(--font-heading); font-weight:600; font-size:12px; color:var(--bb-grey-800); line-height:1.15; letter-spacing:-0.005em; }
+    .more a .cat { display:block; font-family:var(--font-mono); font-size:7px; letter-spacing:0.1em; text-transform:uppercase; color:var(--bb-grey-500); margin-top:2px; }
+    @media print {
+      @page { size: A4 landscape; margin: 14mm 16mm; }
+      html, body { background:#fff !important; }
+      .wrap { zoom: 0.62; padding: 6px 0 0; margin:0 auto; }
+      .foot, .more a { break-inside: avoid; }
+      .more { width:auto; }
+    }
+  </style>
+</helmet>
+
+<div class="wrap">
+  <div class="hd">
+    <div class="k">Brainbox &middot; Document Hub</div>
+    <h1>The Playbook Hub</h1>
+    <p>Every document in the suite, in one place. Click any highlighted cover to open it &mdash; dimmed covers are planned. Documents that sit outside the tree are listed below.</p>
+  </div>
+  <div class="stage">
+  <div class="lvl" style="top:109px">Level 1<span class="lvl-sub">Board Governance</span></div>
+  <div class="lvl" style="top:296px">Level 2<span class="lvl-sub">Core Governance</span></div>
+  <div class="lvl" style="top:502px">Level 3<span class="lvl-sub">Functional Governance</span></div>
+  <div class="lvl" style="top:708px">Level 4<span class="lvl-sub">Execution Guidance</span></div>
+  <div class="lvl" style="top:914px">Level 5<span class="lvl-sub">Execution Support</span></div>
+  <div class="lvl" style="top:1080px">Level 6<span class="lvl-sub">Campaign Templates</span></div>
+
+  <div class="ln" style="left:830px;top:175px;width:2px;height:37px"></div>
+  <div class="ln" style="left:206px;top:212px;width:1272px;height:2px"></div>
+  <div class="ln" style="left:206px;top:212px;width:2px;height:38px"></div>
+  <div class="ln" style="left:524px;top:212px;width:2px;height:38px"></div>
+  <div class="ln" style="left:842px;top:212px;width:2px;height:38px"></div>
+  <div class="ln" style="left:1160px;top:212px;width:2px;height:38px"></div>
+  <div class="ln" style="left:1478px;top:212px;width:2px;height:38px"></div>
+  <div class="ln" style="left:206px;top:356px;width:2px;height:62px"></div>
+  <div class="ln" style="left:206px;top:418px;width:588px;height:2px"></div>
+  <div class="ln" style="left:206px;top:418px;width:2px;height:38px"></div>
+  <div class="ln" style="left:402px;top:418px;width:2px;height:38px"></div>
+  <div class="ln" style="left:598px;top:418px;width:2px;height:38px"></div>
+  <div class="ln" style="left:794px;top:418px;width:2px;height:38px"></div>
+  <div class="ln" style="left:1160px;top:356px;width:2px;height:62px"></div>
+  <div class="ln" style="left:1038px;top:418px;width:196px;height:2px"></div>
+  <div class="ln" style="left:1038px;top:418px;width:2px;height:38px"></div>
+  <div class="ln" style="left:1234px;top:418px;width:2px;height:38px"></div>
+  <div class="ln" style="left:1478px;top:356px;width:2px;height:100px"></div>
+  <div class="ln" style="left:402px;top:562px;width:2px;height:62px"></div>
+  <div class="ln" style="left:206px;top:624px;width:636px;height:2px"></div>
+  <div class="ln" style="left:206px;top:624px;width:2px;height:38px"></div>
+  <div class="ln" style="left:842px;top:624px;width:2px;height:38px"></div>
+  <div class="ln" style="left:1478px;top:562px;width:2px;height:100px"></div>
+  <div class="ln" style="left:206px;top:768px;width:2px;height:100px"></div>
+  <div class="ln" style="left:842px;top:768px;width:2px;height:62px"></div>
+  <div class="ln" style="left:744px;top:830px;width:196px;height:2px"></div>
+  <div class="ln" style="left:744px;top:830px;width:2px;height:38px"></div>
+  <div class="ln" style="left:940px;top:830px;width:2px;height:38px"></div>
+  <div class="ln" style="left:744px;top:974px;width:2px;height:40px"></div>
+  <div class="ln" style="left:940px;top:974px;width:2px;height:40px"></div>
+
+  <a class="cvr strat spine hublink" style="left:754px;top:56px;width:176px;height:119px" href="Strategic%20Playbook.dc.html">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Strategic Playbook</div>
+    <div class="c-name">Brainbox Strategic Playbook</div>
+    <div class="c-mark">BRAINBOX</div></a>
+  <a class="cvr spine hublink" style="left:130px;top:250px;width:152px;height:106px" href="Revenue%20Playbook.dc.html">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Playbook</div>
+    <div class="c-name">Revenue</div>
+    <div class="c-mark">BRAINBOX</div></a>
+  <div class="cvr planned" style="left:448px;top:250px;width:152px;height:106px">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Playbook</div>
+    <div class="c-name">Operations</div>
+    <div class="c-mark">BRAINBOX</div></div>
+  <a class="cvr hublink" style="left:1084px;top:250px;width:152px;height:106px" href="Fleet%20and%20Facilities%20Playbook.dc.html">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Playbook</div>
+    <div class="c-name">Facilities</div>
+    <div class="c-mark">BRAINBOX</div></a>
+  <a class="cvr hublink" style="left:766px;top:250px;width:152px;height:106px" href="Finance%20Playbook.dc.html">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Playbook</div>
+    <div class="c-name">Finance</div>
+    <div class="c-mark">BRAINBOX</div></a>
+  <div class="cvr planned" style="left:1402px;top:250px;width:152px;height:106px">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Playbook</div>
+    <div class="c-name">Governance</div>
+    <div class="c-mark">BRAINBOX</div></div>
+  <a class="cvr hublink" style="left:130px;top:456px;width:152px;height:106px" href="Marketing%20Playbook.dc.html">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Playbook</div>
+    <div class="c-name">Marketing</div>
+    <div class="c-sub">Subsidiary to Revenue</div>
+    <div class="c-mark">BRAINBOX</div></a>
+  <a class="cvr spine hublink" style="left:326px;top:456px;width:152px;height:106px" href="Demand%20Generation%20Playbook.dc.html">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Playbook</div>
+    <div class="c-name">Demand Generation</div>
+    <div class="c-sub">Subsidiary to Revenue</div>
+    <div class="c-mark">BRAINBOX</div></a>
+  <a class="cvr hublink" style="left:522px;top:456px;width:152px;height:106px" href="Sales%20Playbook.dc.html">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Playbook</div>
+    <div class="c-name">Sales</div>
+    <div class="c-sub">Subsidiary to Revenue</div>
+    <div class="c-mark">BRAINBOX</div></a>
+  <a class="cvr hublink" style="left:718px;top:456px;width:152px;height:106px" href="AI%20Transformation.dc.html">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Playbook</div>
+    <div class="c-name">AI Transformation</div>
+    <div class="c-sub">Subsidiary to Revenue</div>
+    <div class="c-mark">BRAINBOX</div></a>
+  <a class="cvr hublink" style="left:962px;top:456px;width:152px;height:106px" href="Accommodation%20Playbook.dc.html">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Playbook</div>
+    <div class="c-name">Accommodation</div>
+    <div class="c-sub">Under Facilities</div>
+    <div class="c-mark">BRAINBOX</div></a>
+  <a class="cvr hublink" style="left:1158px;top:456px;width:152px;height:106px" href="Client%20Travel%20Playbook.dc.html">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Playbook</div>
+    <div class="c-name">Client Travel</div>
+    <div class="c-sub">Under Facilities</div>
+    <div class="c-mark">BRAINBOX</div></a>
+  <div class="cvr planned" style="left:1402px;top:456px;width:152px;height:106px">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Playbook</div>
+    <div class="c-name">Policies</div>
+    <div class="c-sub">Under Governance</div>
+    <div class="c-mark">BRAINBOX</div></div>
+  <a class="cvr hublink" style="left:130px;top:662px;width:152px;height:106px" href="FY27%20Campaign%20Planning%20Overview.dc.html">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Overview</div>
+    <div class="c-name">FY27 Campaign Overview</div>
+    <div class="c-sub">Under Demand Generation</div>
+    <div class="c-mark">BRAINBOX</div></a>
+  <div class="cvr stack" style="left:766px;top:662px;width:152px;height:106px">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">11 Campaign Packs</div>
+    <div class="c-name">Campaigns</div>
+    <div class="c-sub">Under Demand Generation</div>
+    <div class="c-mark">BRAINBOX</div></div>
+  <div class="cvr planned" style="left:1402px;top:662px;width:152px;height:106px">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Playbook</div>
+    <div class="c-name">Critical Procedures</div>
+    <div class="c-sub">Under Policies</div>
+    <div class="c-mark">BRAINBOX</div></div>
+  <a class="cvr hublink" style="left:130px;top:868px;width:152px;height:106px" href="Demand%20Generation%20Readiness%20Plan.dc.html">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Plan</div>
+    <div class="c-name">FY27 Readiness Plan</div>
+    <div class="c-sub">Under FY27 Overview</div>
+    <div class="c-mark">BRAINBOX</div></a>
+  <div class="cvr planned" style="left:668px;top:868px;width:152px;height:106px">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">Template set</div>
+    <div class="c-name">Templates</div>
+    <div class="c-sub">Under Campaigns</div>
+    <div class="c-mark">BRAINBOX</div></div>
+  <div class="cvr stack" style="left:864px;top:868px;width:152px;height:106px">
+    <img class="ele" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="c-conf">Strictly private &amp; confidential</div>
+    <div class="c-cat">11 Campaign Packs</div>
+    <div class="c-name">Individual Campaigns</div>
+    <div class="c-sub">Under Campaigns</div>
+    <div class="c-mark">BRAINBOX</div></div>
+  <div class="ministack" style="left:637px;top:1014px">
+  <span class="mini planned"><span class="mn">01</span><span><b>Campaign Plan</b><span class="mc">Template</span></span></span>
+  <a class="mini" href="Insight%20Article%20-%20Offshoring%20for%20PE%20and%20VC.dc.html"><span class="mn">02</span><span><b>Insight Article</b><span class="mc">Content</span></span></a>
+  <a class="mini" href="LinkedIn%20Posts%20-%20Building%20-%20Trades.dc.html"><span class="mn">03</span><span><b>Socials</b><span class="mc">Content</span></span></a>
+  <span class="mini planned"><span class="mn">04</span><span><b>Landing Page</b><span class="mc">Web</span></span></span>
+  <span class="mini planned"><span class="mn">05</span><span><b>Blogs</b><span class="mc">Content</span></span></span>
+  </div>
+  <div class="ministack" style="left:833px;top:1014px">
+  <a class="mini" href="Campaign%2001%20-%20Residential%20Building%20-%20Trades.dc.html"><span class="mn">01</span><span><b>Residential Building &amp; Trades</b><span class="mc">Campaign pack</span></span></a>
+  <a class="mini" href="Campaign%2002%20-%20Allied%20Health%20-%20NDIS.dc.html"><span class="mn">02</span><span><b>Allied Health &amp; NDIS</b><span class="mc">Campaign pack</span></span></a>
+  <a class="artlink" href="Insight%20Article%20-%20Care%20Done%20Differently.html"><span class="ak">Insight article</span><em>Care, done differently</em></a>
+  <a class="mini" href="Campaign%2003%20-%20Mining%20Services%20-%20METS.dc.html"><span class="mn">03</span><span><b>Mining Services &amp; METS</b><span class="mc">Campaign pack</span></span></a>
+  <a class="artlink" href="Insight%20Article%20-%20Mining%20Done%20Differently.html"><span class="ak">Insight article</span><em>Mining, done differently</em></a>
+  <a class="mini" href="Campaign%2004%20-%20Engineering%20-%20Consultancies.dc.html"><span class="mn">04</span><span><b>Engineering Consultancies</b><span class="mc">Campaign pack</span></span></a>
+  <a class="artlink" href="Insight%20Article%20-%20Cleared%20For%20Growth.html"><span class="ak">Insight article &middot; aerospace</span><em>Cleared for growth</em></a>
+  <a class="mini" href="Campaign%2005%20-%20Transport%20-%20Logistics.dc.html"><span class="mn">05</span><span><b>Transport &amp; Logistics</b><span class="mc">Campaign pack</span></span></a>
+  <a class="mini" href="Campaign%2006%20-%20Insurance%20Broking.dc.html"><span class="mn">06</span><span><b>Insurance Broking</b><span class="mc">Campaign pack</span></span></a>
+  <a class="mini" href="Campaign%2007%20-%20Training%20-%20RTOs.dc.html"><span class="mn">07</span><span><b>Training &amp; RTOs</b><span class="mc">Campaign pack</span></span></a>
+  <a class="mini" href="Campaign%2008%20-%20Strata%20-%20Property.dc.html"><span class="mn">08</span><span><b>Strata &amp; Property</b><span class="mc">Campaign pack</span></span></a>
+  <a class="mini" href="Campaign%2009%20-%20IT%20-%20Cybersecurity%20-MSPs-.dc.html"><span class="mn">09</span><span><b>IT, Cybersecurity &amp; MSPs</b><span class="mc">Campaign pack</span></span></a>
+  <a class="artlink" href="Insight%20Article%20-%20Built%20Done%20Differently.html"><span class="ak">Insight article</span><em>Built, done differently</em></a>
+  <a class="mini" href="Campaign%2010%20-%20Agribusiness%20-%20Food.dc.html"><span class="mn">10</span><span><b>Agribusiness &amp; Food</b><span class="mc">Campaign pack</span></span></a>
+  <a class="mini" href="Campaign%2011%20-%20Arizona%20-%20PE-VC%20Firms.dc.html"><span class="mn">11</span><span><b>Arizona PE &amp; VC Firms</b><span class="mc">Campaign pack &middot; US</span></span></a>
+  <a class="artlink" href="Insight%20Article%20-%20Offshoring%20for%20PE%20and%20VC.dc.html"><span class="ak">Insight article</span><em>Offshoring for PE &amp; VC</em></a>
+  </div>
+  </div>
+
+  <div class="more">
+    <h2>Also in this project</h2>
+    <p>Documents and packs that support the suite but sit outside the governance tree.</p>
+    <div class="grp">Campaign 11 &middot; Arizona PE &amp; VC</div>
+    <div class="row">
+      <a href="Campaign%2011%20-%20Arizona%20-%20PE-VC%20Firms.dc.html"><span class="ic">Campaign pack</span><b>Arizona PE &amp; VC Firms</b></a>
+      <a href="Insight%20Article%20-%20Offshoring%20for%20PE%20and%20VC.dc.html"><span class="ic">Insight article</span><b>Offshoring for PE &amp; VC</b></a>
+      <a href="Social%20Ads%20-%20Campaign%2011.dc.html"><span class="ic">Artwork</span><b>Social Ads — Campaign 11</b></a>
+    </div>
+    <div class="grp">Insight articles</div>
+    <div class="row">
+      <a href="Insight%20Article%20-%20Growth%20Done%20Differently.html"><span class="ic">Insight article</span><b>Growth, done differently</b></a>
+    </div>
+    <div class="grp">Department &amp; reporting</div>
+    <div class="row">
+      <a href="Executive%20Assistant%20Playbook.dc.html"><span class="ic">Playbook</span><b>Executive Assistant</b></a>
+      <a href="Report%20-%20Monthly%20Finance.dc.html"><span class="ic">Report</span><b>Monthly Finance Report</b></a>
+      <a href="Playbook%20Hierarchy.dc.html"><span class="ic">Reference</span><b>Playbook Hierarchy</b></a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script type="application/json" data-props='{"$preview":{"width":1780,"height":1200}}'></script>
+</body>
+</html>

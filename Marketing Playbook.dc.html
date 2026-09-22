@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script src="./hub-nav.js" defer></script>
+<link rel="stylesheet" href="./hub-paper.css">
 </head>
 <body>
 <x-dc>
@@ -100,7 +102,7 @@
     table.rep td { padding: 4px 8px; border: 1px solid var(--bb-grey-300); height: 14px; vertical-align: top; }
     table.rep .grp { background: var(--bb-grey-100); font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 8.4pt; }
     table.rep .m { color: var(--bb-grey-700); } table.rep .tg { font-family: var(--font-mono); color: var(--bb-grey-500); font-size: 8pt; white-space: nowrap; }
-    @page { size: A4 portrait; margin: 10mm; }
+    @page { size: A4 portrait; }
     @media print {
       html { -webkit-print-color-adjust: exact; print-color-adjust: exact; } html, body { margin: 0; padding: 0; }
       .doc { max-width: none !important; margin: 0 !important; padding: 0 !important; }

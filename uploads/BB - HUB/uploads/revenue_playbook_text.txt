@@ -1,0 +1,142 @@
+Revenue Playbook
+Brainbox | Prepared for the Managing Director | July 2026
+Purpose
+This Revenue Playbook guides how Brainbox generates revenue. It brings the marketing, demand-generation, and sales functions into one document, so the people who win work operate from a shared plan. It is the parent of a set of playbooks that hold the operational detail: a Sales Playbook and a Marketing Playbook, each with its own subsets. It also carries a dedicated section for the US Expansion Project. Its immediate purpose is to guide the transformation of the marketing team. This version completes the marketing function, documents the Australian sales channels, and scaffolds both the sales function and the US expansion for the work ahead. The sales and US content will be built with the Managing Director over successive iterations, so it rests on decisions rather than assumptions.
+How the revenue function is built
+Brainbox wins work through three connected layers. A marketing capability layer builds the brand, the collateral, and the systems. A demand-generation layer turns that groundwork into qualified, named opportunities. A sales layer converts those opportunities into signed engagements. Two people carry the sales layer: an Australian Business Development Manager for the local market, and a US Sales Agent for the general-agency market. The engine works when the three layers connect. It stalls when any one of them runs on its own.
+The playbook hierarchy
+The Revenue Playbook is the parent. Beneath it sit two playbooks, each with its own subsets. The Sales Playbook holds the selling motion, split into an Australian section and a United States section. The Marketing Playbook holds the marketing function, with two operational subsets: the Social Media Playbook and the Lead Generation Playbook. Each child playbook carries the operational detail for its area. This document holds the model, the strategy, and the plan for change, and every playbook beneath it stays consistent with it.
+Revenue Playbook
+Sales Playbook
+Australia
+United States
+Marketing Playbook
+Social Media Playbook
+Lead Generation Playbook
+The Lead Generation Playbook already operates as the manual for the demand-generation layer. The other playbooks are built and maintained as their areas mature.
+The revenue model at Brainbox
+Brainbox sells consultative offshoring and HR advisory to Australian SMEs and US general agencies. Buyers in these markets arrive through relationships, referrals, partnerships, and direct conversations with people they trust. They rarely arrive through a blog post or a search result. The model concentrates effort on the human motions that produce work. Marketing supports those motions rather than leading them, and the function is measured against signed engagements rather than raw enquiry counts.
+Part One — The Marketing Function
+The case for change
+Brainbox built its marketing function around inbound lead generation. Eight people develop the brand, prepare sales collateral, run the HubSpot CRM, and work to drive inbound enquiries. The inbound channel no longer produces enough qualified leads to justify the cost of the team that serves it. The shortfall is not a temporary dip. It reflects a mismatch between how the function was built and how Brainbox actually wins work.
+Inbound is a slow, minor channel for consultative offshoring and HR advisory. It was never going to carry the pipeline on its own. Pointing a full marketing apparatus at it concentrated effort in the wrong place and measured the team against the wrong target.
+The function carries four responsibilities today: develop and maintain the brand, prepare sales collateral, optimise the HubSpot CRM, and drive inbound leads. Three of the four remain valuable. The brand compounds. Collateral closes work. A clean CRM proves what marketing contributes. The fourth, inbound lead generation as a standalone goal, is the one that no longer earns the investment behind it. The restructure keeps the three that matter and rebuilds the fourth around the sellers.
+Capable AI tooling has made the mismatch impossible to ignore. Work that once needed a dedicated specialist now takes a fraction of the time. Drafting, design, page building, and copy production no longer absorb whole roles. A function structured around manual production carries cost that the technology has already stripped out of the work itself. The question is no longer whether to change. The question is what the function should become.
+What the diagnosis is not
+A weak lead count can mislead. It can point to a marketing failure when the real problem sits elsewhere. Three causes deserve testing before we accept that marketing has underperformed. The first is attribution. Brainbox may win work that marketing influenced without the CRM recording the link. The second is the offer. A pipeline stays quiet when the proposition or the target client profile is unclear, regardless of marketing effort. The third is the sales motion itself. Leads that arrive and stall point to a conversion problem, not a generation problem.
+We will instrument attribution before we judge the function on its numbers. The restructure rests on evidence, not on a single metric read in isolation. A transformation built on a misread number repeats the original error in a new shape.
+The transformation thesis
+Two shifts define the new function.
+The first collapses production silos. The old structure assigned one person to each craft: one designer, one social specialist, one developer, one writer. AI now does most routine making across all of these. The logic of one person per craft no longer holds. Fewer people who direct AI systems will outperform more people who operate tools by hand. The function moves from production to direction.
+The second reorients the function toward the people who sell. Brainbox runs a clear revenue motion through named sellers. An Australian Business Development Manager carries the local market. A US Sales Agent carries the general-agency market. Marketing exists to make those two people effective. The aim is not an abstract lead volume. The aim is to put qualified, named opportunities in front of the sellers and to arm them with collateral that closes work.
+What the function stops doing
+A transformation defined only by what it adds drifts back to its old shape. This one is defined as much by what it stops. The function stops treating inbound lead volume as its primary measure of success. It stops assigning one person to each production craft. It stops producing content on a calendar for its own sake, disconnected from what the sellers need in front of a named account. It stops carrying a full-time developer for a marketing site that AI-assisted build can maintain. Each of these is a deliberate stop, agreed up front, so the saved capacity moves to enablement, technology, and demand generation rather than refilling the old roles under new names.
+Desired outcomes
+The transformation succeeds when the function delivers five things.
+A senior brand and positioning capability that compounds over time. The Brainbox point of view on offshoring and HR should be visible, credible, and carried into every sales conversation. This asset grows in value the longer it runs. We will not trade it for short-term lead counts.
+A sales enablement engine close to revenue. Proposals, capability annexes, case studies, and decks should be current, sharp, and ready the moment a seller needs them. This is the work that most directly turns interest into signed engagements, and it becomes the centre of gravity for the function.
+A measurement and technology layer that proves what works. HubSpot, the website, attribution, and automation should run as one connected system. The function should be able to show, with evidence, which activity produces pipeline and which does not.
+A demand-generation layer tied to the sellers. Research and outbound should feed the Business Development Manager and the Sales Agent specific accounts, sequenced and qualified. Demand generation should answer to revenue, not to a volume target set inside marketing.
+A function that demonstrates the Brainbox service. Brainbox already runs its marketing from the Philippines delivery centre. The transformed function becomes a working proof of the offshoring proposition. A prospect who doubts the model can be shown it operating inside the firm that sells it.
+The target operating model
+The function splits into two parts. A marketing capability pod holds brand, enablement, and technology. A demand-generation layer holds research and outbound, and reports through the sellers. The two parts meet at HubSpot and at the collateral the pod produces. Capability rises across both parts while the total seat count falls, which is what transformation looks like when cost is not the driver.
+The current function runs eight seats: a Marketing Manager, a social media person, an SEO specialist, a web developer, a graphic designer, and three Associates. The target runs three seats in the marketing pod, the Manager, the Technologist, and the Producer, and three in the demand-generation layer reporting to the sellers, with the web developer redeployed to billable client delivery. The headline is not a smaller team. It is a function pointed at the people who close work, running on AI rather than on manual production.
+The marketing capability pod
+Three roles sit in the pod, all based in the Philippines delivery centre.
+Marketing Manager. The role directs the pod and owns brand, positioning, and the direction of enablement. The shift is from supervising six specialists to deciding what the AI systems produce and holding the standard of the output. The Manager runs founder-led thought leadership in support of the Managing Director and the sellers. The Manager coordinates with the Business Development Manager and the Sales Agent as an equal, and does not report to either.
+Marketing Technologist. This is the pivotal role, built from the current SEO specialist with web development and AI aptitude. It owns the website and the HubSpot CRM end to end. It owns attribution, so the function can prove its contribution. It builds and maintains the AI automation layer that the pod and the demand-generation team rely on. It leads answer-engine optimisation as search shifts from ranked links toward cited sources. The whole function is built around this seat.
+Content and Brand Producer. One AI-augmented role, built from the current social media person and graphic designer. It produces campaign copy, social content, and sales collateral under the Manager&apos;s direction. It runs founder-led LinkedIn as the main organic channel. It handles routine design and video using AI tooling. The social channels this role runs are governed by the Social Media Playbook, a subset of the Marketing Playbook. The social and design crafts compress into this single role as the technology absorbs manual production.
+The demand-generation layer
+Three Associates make up this layer, reporting through the sellers rather than through marketing. This is the structural change that corrects the original mismatch. The layer exists to feed the two sellers named, qualified accounts.
+Lead Associate. Abi holds this role. She supervises the Associates and floats between the Australian Business Development Manager and the US Sales Agent, holding consistency across both markets and covering gaps as they appear.
+Australian Associate. Paired with the Australian Business Development Manager. The role runs local-market research, list-building, and outbound sequencing for the Australian pipeline.
+Philippines Associate. Paired with the US Sales Agent. The role runs account-based research and outbound for the US general-agency pipeline. It works US hours, which the delivery centre already runs, so the arrangement is business as usual rather than a new shift to stand up.
+The pairing carries a second benefit. A Philippines-based Associate feeding a US-based seller is the Brainbox proposition running on the firm&apos;s own revenue engine. The structure sells itself to anyone who asks how the model works.
+The operational layer: the Lead Generation Playbook
+The Associates execute the Lead Generation Playbook. It sits beneath this document as the operational manual for the demand-generation layer, the how beneath the what. It defines the cadence, standards, targets, and systems that turn target accounts into qualified conversations. The concrete deliverable is a booked, in-person sales appointment with a suitable decision maker, recorded in HubSpot with a clear business reason, contact history, and a recommended sales angle. The weekly baseline is at least six in-person appointments for the Business Development Manager, measured on appointments held rather than booked.
+The playbook runs on five tools, with HubSpot as the single source of truth: LinkedIn and Sales Navigator for discovery, Apollo for enrichment, Claude for research and drafting, HubSpot for the record, and Outlook for outreach and booking. The Australian Associate runs this motion with the Business Development Manager against WA SMEs of 10 to 100 staff. The Philippines Associate applies the same disciplines to the US general-agency market with the Sales Agent, following a US-adapted version of the same playbook. The Lead Associate holds the standard across both markets.
+Reporting lines
+The marketing pod reports to the Marketing Manager. The Manager owns brand, enablement, and technology, and coordinates with the sellers as an equal rather than as a subordinate. The demand-generation layer reports through the sellers, with the Lead Associate as the supervisory line. A dotted line runs from the demand-generation layer to the Marketing Manager for content support and CRM standards. Brand, enablement, and technology stay with marketing. Lead conversion sits with revenue. The two functions connect at HubSpot, where the pod maintains the system and the sellers work the pipeline.
+The web developer leaves the marketing pod. A full-time developer inside marketing cannot be justified once the Technologist and AI-assisted build cover the marketing site. The role moves to billable client delivery. That converts a marketing cost into client revenue and fits a transformation built on capability rather than headcount reduction.
+The AI tooling layer
+Capability transformation depends on this layer more than on any title change. The Technologist owns the automation and answer-engine work. The Producer works inside AI-assisted production across copy, image, and video. The Manager directs AI outputs rather than a queue of human production. Strip out the AI layer and the new role names mean nothing. The function would carry the same costs under different labels and deliver the same result.
+The layer has three parts. A production stack lets the Producer generate and refine copy, design, and video at speed. An automation stack lets the Technologist run repetitive CRM, reporting, and nurture tasks without manual handling. A measurement stack connects website, CRM, and campaign data into attribution the function can act on. The three stacks together are the difference between a relabelled org chart and a function that does more with fewer people.
+Part Two — The Sales Function
+The sales function converts qualified opportunities into signed engagements. Two people carry it today. This part will be built with the Managing Director over successive iterations. The scaffold below sets the topics each iteration develops. The detail is deliberately left undrafted, so the function is built on decisions rather than assumptions.
+The sellers
+An Australian Business Development Manager owns the local market. A US Sales Agent owns the US general-agency market. The demand-generation layer feeds both, paired one Associate to each seller, with the Lead Associate holding the standard across both. The Business Development Manager works face to face across Western Australia. The Sales Agent works the general-agency network in the United States. The two motions differ enough that the Sales Playbook holds a common core and two market-specific sections, one for Australia and one for the United States.
+Australian sales channels
+Australian sales run on relationships. Networking and LinkedIn introductions carry the load. The other channels play supporting or emerging roles.
+Channel
+Current role
+Networking
+Major
+LinkedIn introductions and meeting requests
+Major
+Referrals
+Minor, growing
+Additional roles within existing customers
+Works, unstructured
+Social media outreach
+Minor
+Website
+Minor
+Webinars
+Untested
+Partner program
+Untested
+Networking runs across several organisations: WA Leaders, Superior Business Networks across multiple groups, the Western Suburbs Business Association, the Perth Networking Institute, the Chambers of Commerce and Industry across multiple groups, and Rotary International across multiple groups.
+Two things in this list deserve early attention from the sales iterations. Additional roles within existing customers already produce work, but without structure, so a defined account-expansion motion is a near-term opportunity. Webinars and the partner program are untested, so each needs a small, measured trial before it earns further investment. These channels describe the Australian motion. The US market runs on a different set of channels, developed in Part Three.
+The seam: from appointment to opportunity
+The demand-generation layer hands the sales function a booked, in-person appointment with a qualified decision maker, recorded in HubSpot with a business reason, contact history, and a recommended angle. The definition of a qualified appointment, the handover note, and the recommended opening question all live in the Lead Generation Playbook. The sales function takes it from there and defines what happens after the meeting. This seam is where marketing effort becomes sales pipeline. It is the first thing the sales iterations will formalise, because a clean handover is what makes the whole engine measurable end to end.
+What the sales iterations will build
+Each iteration develops one part of the function with the Managing Director. The order is indicative and will follow the greatest need.
+The sales process and stages. The pipeline from qualified appointment to signed engagement, with clear entry and exit criteria at each stage.
+Discovery and qualification. How the seller confirms fit, need, authority, and timing in the first meeting, building on the business drivers the Associates already capture.
+Proposal and pricing. How Brainbox scopes an offshore engagement, prices it against the client&apos;s loaded local cost, and presents the comparison.
+Sales enablement assets. The collateral the marketing pod produces for each stage: case studies, capability annexes, cost comparisons, and decks.
+The US motion, developed separately as the US Expansion Project in Part Three.
+Pipeline management and forecasting. How the sellers manage HubSpot, forecast, and report, so the revenue engine is measurable from first touch to closed work.
+Sales targets and cadence. The weekly and monthly rhythm for each seller, aligned to the demand-generation baseline of qualified appointments.
+Part Three — The US Expansion Project
+The US Expansion Project takes Brainbox into the United States market. It runs as a distinct initiative with its own section, built with the Managing Director over successive iterations. It produces the United States section of the Sales Playbook and the US adaptation of the Lead Generation Playbook, among other outcomes. The scaffold below records what is settled and sets the topics each iteration develops.
+What is settled
+A US Sales Agent owns the US general-agency market. The Philippines Associate is paired to the Sales Agent and runs account-based research and outbound for the US pipeline on US hours. The Associate follows a US-adapted version of the Lead Generation Playbook. The US motion sells to general agencies rather than to the WA SMEs that anchor the Australian market, so the ideal customer profile, the channels, and the message all differ from the Australian model.
+What the US iterations will build
+Each iteration develops one part of the project with the Managing Director. The order is indicative and will follow the greatest need.
+The US market and ideal customer profile. Who Brainbox sells to in the United States, and how that profile differs from the Australian SME model.
+The general-agency and master-agent structure. The commercial model for reaching US clients, including the general-agency relationship and any master-agent arrangement.
+Regulatory and compliance requirements. The licensing, data, and contractual obligations that apply to operating in the US market.
+The US demand-generation adaptation. The US version of the Lead Generation Playbook, covering channels, ICP, personas, and cadence for the general-agency market.
+US sales enablement. The collateral the marketing pod produces for the US motion, adapted from the Australian assets.
+Expansion measures and milestones. How the project tracks progress, from first US appointments through to signed engagements.
+Part Four — Delivering the Transformation
+The near-term work is the marketing transformation. This part sets out how to deliver it: the sequence, the people moves, the retraining, the risks, and the measures. The sales iterations will extend these mechanics as that function is built.
+The mechanics of the change
+The transformation runs in four stages.
+Stage one is to instrument and baseline. We fix attribution in HubSpot before we touch the team. We establish what the current function actually produces in pipeline terms. We record the baseline so the transformation can be measured against it. This stage protects the restructure from acting on a misleading number, and it gives the function the evidence it has lacked.
+Stage two is to redefine the roles. We rewrite the position descriptions for the three pod roles and the three Associate roles. We confirm the reporting lines and the dotted line between demand generation and the Marketing Manager. We document the AI tooling each role will use. The new roles are precise about what each person directs, not what each person produces by hand.
+Stage three is to redeploy and reskill. We move the web developer to client delivery. We build AI capability in the Technologist and Producer roles, since their upskilling is the transformation itself. We confirm where the surplus producer-layer person lands, whether in client delivery or in content support to demand generation. We favour redeployment over redundancy wherever the skills transfer.
+Stage four is to operate and prove. We run the new model. We track pipeline contribution against the stage-one baseline. We build the Brainbox marketing engine into a case study the sellers can use in the room. We review the model at ninety days and adjust where the evidence points.
+People transitions
+The transformation changes roles. It does not default to redundancy. The objective is capability, not cost. Where a person&apos;s skills transfer to billable client work, redeployment is the better answer. It keeps capability inside the firm and turns a cost into revenue. It also reflects the Brainbox value of always being kind, applied to the firm&apos;s own people during a change that affects them directly.
+The web developer redeploys to client delivery, where a competent developer is billable from day one. The social media person and the graphic designer merge into the single Producer role. During the transition the firm may carry both people while AI fluency builds, settling to one seat as the capability matures. The second person becomes a redeployment candidate, considered for client delivery or for content support within demand generation. No role is cut on the strength of the technology alone without first testing whether the person can be redeployed.
+Transitions touch two labour regimes. Roles in the delivery centre sit under Philippine labour law. Any onshore change sits under the Fair Work framework. Each carries its own notice, consultation, and cost obligations. We take advice on both before we act, and we favour redeployment where the skills transfer.
+Retraining
+Retraining will be funded as demand requires. That is a defensible position for a transformation driven by capability rather than cost. It carries one risk. Demand-driven funding tends to lag the capability build, and two roles cannot afford to lag. The Technologist and the Producer are the transformation. Their skills are the point of the change, not a support to it.
+We will ring-fence a small baseline for those two roles now. The Technologist needs prompt engineering, AI workflow design, and answer-engine optimisation. The Producer needs AI-assisted production fluency across copy, image, and video. The rest of the retraining budget stays demand-driven. This protects the critical path without committing to a full programme before the need is proven, and it keeps the cost in step with the objective.
+Risks and controls
+Four risks need active management.
+The function strips brand and search assets while cutting production. These assets compound over time. Cut them and the firm saves money now and starves the pipeline within eighteen months. The control is to protect brand, positioning, and search through the transition, owned senior in the pod and never traded for a short-term lead count.
+The restructure acts on a misleading metric. A weak lead count may reflect attribution gaps, a weak offer, or a sales problem rather than a marketing failure. The control is stage one, which instruments attribution and sets a baseline before any role changes.
+The retraining lags the role changes. New titles arrive before the skills that justify them. The control is ring-fenced baseline funding for the Technologist and Producer from the start, with the rest demand-driven.
+The transition mishandles the labour obligations. Two regimes carry different rules. The control is advice on both Philippine and Fair Work obligations before any transition, with redeployment favoured over redundancy.
+Measuring success
+The transformation is not measured by headcount. It is measured by capability and contribution.
+Pipeline contribution. The demand-generation layer should deliver a rising count of qualified, named accounts to the two sellers, tracked against the stage-one baseline.
+Enablement readiness. Sellers should report that collateral is current and useful at the point of need, not produced late or off the mark.
+Technology and attribution. The function should show which activity produces pipeline, with evidence drawn from a connected CRM and website.
+Brand strength. Founder-led thought leadership should grow in reach and engagement among Australian SMEs and US general agencies, the two markets that matter.
+Proof value. The marketing engine should be usable as a live case study in sales conversations, and the sellers should use it.
+The proof point
+Brainbox runs an AI-augmented marketing function from its own delivery centre, feeding sellers across two countries. Few competitors can show a prospect their own offshore marketing engine working. The transformed function is not only cheaper to run or sharper in output. It is evidence. A prospect who questions whether offshoring works for skilled, judgement-heavy work can be shown the firm running exactly that, on itself, every day. We build this proof into the restructure from the start, rather than bolt it on at the end.

@@ -1,0 +1,93 @@
+/* ===========================================================================
+   Brainbox — Colour tokens
+   Source: BB Brand Guide [2025] · "BB - Colour Palette.png"
+   Pink is the hero. Blue, greys + white are supporting. The pink→blue
+   gradient is the brand's signature device.
+   =========================================================================== */
+
+:root {
+  /* ---- Brand raw palette (exact brand-guide hex) ------------------------- */
+  --bb-pink:        #FF0080;  /* PANTONE 213C · hero magenta-pink           */
+  --bb-pink-light:  #FE5EAA;  /* PANTONE 2038C · soft secondary pink        */
+  --bb-blue:        #96B3D2;  /* PANTONE 644C · calm supporting blue        */
+  --bb-grey:        #585858;  /* PANTONE 425C · dark neutral / ink          */
+  --bb-grey-light:  #AFAFAF;  /* light neutral / muted                      */
+  --bb-white:       #FEFFFE;  /* near-white paper                           */
+
+  /* ---- Extended pink ramp (derived, for tints & states) ----------------- */
+  --bb-pink-950: #2e0019;
+  --bb-pink-900: #66002e;
+  --bb-pink-700: #b3005a;
+  --bb-pink-600: #e60074;
+  --bb-pink-500: #ff0080;  /* = --bb-pink */
+  --bb-pink-400: #fe5eaa;  /* = --bb-pink-light */
+  --bb-pink-300: #ff8cc4;
+  --bb-pink-200: #ffbcdd;
+  --bb-pink-100: #ffe0ef;
+  --bb-pink-50:  #fff2f8;
+
+  /* ---- Extended blue ramp ----------------------------------------------- */
+  --bb-blue-900: #3a567a;
+  --bb-blue-700: #5a7da8;
+  --bb-blue-600: #7596bd;
+  --bb-blue-500: #96b3d2;  /* = --bb-blue */
+  --bb-blue-300: #bcd0e5;
+  --bb-blue-100: #e6eef6;
+  --bb-blue-50:  #f4f8fc;
+
+  /* ---- Neutral ramp ------------------------------------------------------ */
+  --bb-ink:      #2b2b2b;
+  --bb-grey-800: #3f3f3f;
+  --bb-grey-700: #585858;  /* = --bb-grey */
+  --bb-grey-500: #7d7d7d;
+  --bb-grey-400: #afafaf;  /* = --bb-grey-light */
+  --bb-grey-300: #d2d2d2;
+  --bb-grey-200: #e6e6e6;
+  --bb-grey-100: #f2f2f2;
+  --bb-grey-50:  #fafafa;
+
+  /* ---- Signature gradients ---------------------------------------------- */
+  /* Logo gradient — pink→blue, ~6.7° as specified in the brand guide */
+  --bb-gradient-brand: linear-gradient(96.7deg, #ff0080 0%, #96b3d2 100%); /* @kind color */
+  /* Vivid duotone used over photography (hot-pink → indigo-blue)          */
+  --bb-gradient-duotone: linear-gradient(150deg, #ff0080 0%, #c0257f 45%, #5b4f97 100%); /* @kind color */
+  /* Soft tint wash for panels                                              */
+  --bb-gradient-wash: linear-gradient(150deg, #fff2f8 0%, #f4f8fc 100%); /* @kind color */
+
+  /* ======================================================================
+     SEMANTIC ALIASES — reference these in product, not the raw tokens
+     ====================================================================== */
+  --color-bg:            var(--bb-white);
+  --color-bg-subtle:     var(--bb-grey-50);
+  --color-bg-muted:      var(--bb-grey-100);
+  --surface-card:        #ffffff;
+  --surface-raised:      #ffffff;
+  --surface-inverse:     var(--bb-grey-700);
+  --surface-brand:       var(--bb-pink);
+  --surface-brand-soft:  var(--bb-pink-50);
+
+  --text-heading:        var(--bb-grey-700);
+  --text-body:           var(--bb-grey-800);
+  --text-muted:          var(--bb-grey-500);
+  --text-on-brand:       var(--bb-white);
+  --text-on-dark:        var(--bb-white);
+  --text-link:           var(--bb-pink);
+
+  --border-subtle:       var(--bb-grey-200);
+  --border-default:      var(--bb-grey-300);
+  --border-strong:       var(--bb-grey-400);
+  --border-brand:        var(--bb-pink);
+
+  --color-primary:       var(--bb-pink);
+  --color-primary-hover: var(--bb-pink-600);
+  --color-primary-press: var(--bb-pink-700);
+  --color-accent:        var(--bb-blue);
+
+  /* Status — kept on-brand: pink-leaning, restrained */
+  --color-success:       #1f8a5b;
+  --color-warning:       #d98a00;
+  --color-danger:        #d32f5a;
+  --color-info:          var(--bb-blue-700);
+
+  --focus-ring:          var(--bb-pink);
+}

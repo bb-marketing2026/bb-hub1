@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="omelette-owns-print" content="true">
 <script src="./support.js"></script>
+<script src="./hub-nav.js" defer></script>
+<link rel="stylesheet" href="./hub-paper.css">
 </head>
 <body>
 <x-dc>
@@ -122,7 +124,7 @@
     .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
 
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    @page { size: A4 portrait; margin: 10mm; }
+    @page { size: A4 portrait; }
     @media print {
       html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       html, body { margin: 0; padding: 0; }

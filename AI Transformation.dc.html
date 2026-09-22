@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script src="./hub-nav.js" defer></script>
+<link rel="stylesheet" href="./hub-paper.css">
 </head>
 <body>
 <x-dc>
@@ -105,7 +107,7 @@
     .script { border-left-color: var(--bb-pink) !important; }
     .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
 
-    @page { size: A4 portrait; margin: 10mm; }
+    @page { size: A4 portrait; }
     @media print {
       .sheet + .sheet { margin-top: 8mm !important; border-top: 0 !important; }
       html { -webkit-print-color-adjust: exact; print-color-adjust: exact; } html, body { margin: 0; padding: 0; }

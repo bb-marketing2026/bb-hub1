@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <style>
+    @page { size: A4 portrait; margin: 1cm; }
+    body { margin:0; background:var(--bb-grey-100); font-family:var(--font-body); }
+    .sheet { width:19cm; min-height:27.7cm; margin:22px auto; background:#fff; box-sizing:border-box;
+             padding:0 0 22px; box-shadow:0 6px 26px rgba(40,40,45,.14); display:flex; flex-direction:column;
+             font-size:10pt; line-height:1.5; color:var(--bb-grey-800); }
+    .band { background:linear-gradient(105deg,#3f3f3f 20%, #ff0080 128%); color:#fff; padding:15px 2cm 13px; position:relative; }
+    .band img { position:absolute; top:18px; right:1cm; height:40px; }
+    .band .k { font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.2em; font-size:7.5pt; color:rgba(255,255,255,.72); }
+    .band h1 { font-family:var(--font-heading); font-weight:600; font-size:20pt; margin:6px 0 0; letter-spacing:-0.01em; }
+    .band .wm { font-family:var(--font-mono); letter-spacing:0.28em; font-size:8pt; color:rgba(255,255,255,.9); margin-top:8px; }
+    .body { padding:17px 2cm 0; flex:1; }
+    .meta { display:flex; gap:26px; border-bottom:1px solid var(--bb-grey-200); padding-bottom:11px; margin-bottom:14px; }
+    .meta div span { display:block; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.12em;
+                     font-size:7pt; color:var(--bb-grey-500); margin-bottom:3px; }
+    .meta div b { font-family:var(--font-heading); font-weight:600; font-size:10pt; color:var(--bb-grey-800); }
+    p { margin:0 0 8px; text-wrap:pretty; }
+    h2 { font-family:var(--font-heading); font-weight:600; font-size:11.5pt; color:var(--bb-grey-800);
+         margin:13px 0 6px; letter-spacing:-0.005em; }
+    table.t { width:100%; border-collapse:collapse; margin:3px 0 11px; font-size:10pt; }
+    table.t th { text-align:left; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.1em;
+                 font-size:7.5pt; color:var(--bb-grey-500); background:var(--bb-grey-100);
+                 padding:7px 10px; border-bottom:1.5px solid var(--bb-grey-400); }
+    table.t td { padding:6px 10px; border-bottom:1px solid var(--bb-grey-200); vertical-align:top; }
+    .flag { border:1px solid var(--bb-grey-200); border-left:4px solid var(--bb-pink); border-radius:8px;
+            padding:10px 14px; margin:10px 0 3px; font-size:9.5pt; background:#fff; }
+    .flag .lbl { display:block; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.12em;
+                 font-size:7pt; color:var(--bb-pink); font-weight:600; margin-bottom:4px; }
+    .sign { display:flex; gap:40px; margin-top:18px; }
+    .sign > div { flex:1; }
+    .sign .line { border-bottom:1px solid var(--bb-grey-400); height:30px; }
+    .sign .cap { font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.12em;
+                 font-size:7pt; color:var(--bb-grey-500); margin-top:6px; }
+    .ftr { display:flex; justify-content:space-between; border-top:1px solid var(--bb-grey-200);
+           margin:16px 2cm 0; padding-top:8px; font-family:var(--font-mono); text-transform:uppercase;
+           letter-spacing:0.12em; font-size:7pt; color:var(--bb-grey-500); }
+    a { color:var(--bb-pink); }
+    a:hover { color:var(--bb-pink-700); }
+    @media print {
+      body { background:#fff; }
+      .sheet { width:auto; min-height:0; margin:0; box-shadow:none; }
+    }
+  </style>
+</helmet>
+
+<div class="sheet">
+  <div class="band">
+    <img src="assets/brainbox-elephant-white.png" alt="">
+    <div class="k">Contract variation</div>
+    <h1>Addition of one role to your managed team</h1>
+    <div class="wm">BRAINBOX</div>
+  </div>
+
+  <div class="body">
+    <div class="meta">
+      <div><span>Client</span><b style="font-size: 10px">APPLIED EDUCATION</b></div>
+      <div><span>Attention</span><b style="font-size: 10px">DEBBIE TONUS</b></div>
+      <div><span>Prepared by</span><b style="font-size: 10px">ALEXIS GUILLOT</b></div>
+      <div><span>Date</span><b style="font-size: 10px">28 JULY 2026</b></div>
+    </div>
+
+    <p style="font-size: 12px">Dear Debbie</p>
+
+    <p style="font-size: 12px">At your request, we are pleased to confirm the addition of <strong>one further role</strong> to your managed offshore team, on the terms set out below.</p>
+
+    <h2 style="font-size: 12px">The variation</h2>
+    <table class="t">
+      <thead><tr><th style="width: 34%; font-size: 12px">Item</th><th style="font-size: 12px">Detail</th></tr></thead>
+      <tbody>
+        <tr><td style="font-size: 12px">Role added</td><td style="font-size: 12px">{{ roleTitle }}</td></tr>
+        <tr><td style="font-size: 12px">Number of roles</td><td style="font-size: 12px">One (1) additional full-time role</td></tr>
+        <tr><td style="font-size: 12px">Monthly fee</td><td style="font-size: 12px">{{ priceLine }}</td></tr>
+        <tr><td style="font-size: 12px">Commencement</td><td style="font-size: 12px">{{ startDate }}</td></tr>
+        <tr><td style="font-size: 12px">Minimum term</td><td style="font-size: 12px">{{ minTerm }}</td></tr>
+        <tr><td style="font-size: 12px">Invoicing</td><td style="font-size: 12px">Monthly in advance</td></tr>
+      </tbody>
+    </table>
+
+    <p style="font-size: 12px">The fee above is additional to the fees already payable under the Agreement, and applies from the commencement date shown. Recruitment, onboarding and ongoing management of the role are delivered under the same service standards that apply to your existing team.</p>
+
+    <p style="font-size: 12px">Except as expressly varied by this letter, all other terms and conditions of the Master Agreement remain in full force and effect and continue to apply, unamended, to the role added above.</p>
+
+    <h2 style="font-size: 12px">Acceptance</h2>
+    <p style="font-size: 12px">Please confirm your acceptance of this variation by signing below and returning a copy to us. If anything here does not reflect our discussion, tell us and we will gladly amend it.</p>
+
+    <div class="sign">
+      <div>
+        <div class="line"></div>
+        <div class="cap">Signed for and on behalf of · Name, position &amp; date</div>
+      </div>
+      <div>
+        <div class="line"></div>
+        <div class="cap">Signed for Brainbox · Date</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ftr"><span>Always Be Kind</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:760,&quot;height&quot;:1120},&quot;clientName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[Client name]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Client&quot;},&quot;clientContact&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[Contact name]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Client&quot;},&quot;agreementDate&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[date of Master Agreement]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Client&quot;},&quot;roleTitle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Assessor&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;The role&quot;},&quot;monthlyPrice&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3500,&quot;min&quot;:0,&quot;max&quot;:50000,&quot;step&quot;:100,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;The role&quot;},&quot;currency&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;AUD&quot;,&quot;USD&quot;,&quot;PHP&quot;],&quot;default&quot;:&quot;AUD&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;The role&quot;},&quot;gstNote&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;plus GST&quot;,&quot;inclusive of GST&quot;,&quot;GST free&quot;],&quot;default&quot;:&quot;plus GST&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;The role&quot;},&quot;startDate&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;From first date of active service as directed by Debbie Tonus, currently planned for 29 July 2026.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;The role&quot;},&quot;minTerm&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Ongoing, minimum 3 month cancellation period&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;The role&quot;},&quot;variationRef&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;VAR-001&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Letter&quot;},&quot;letterDate&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;28 July 2026&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Letter&quot;},&quot;signatoryName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Tony Friday&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Letter&quot;},&quot;signatoryRole&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Director&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Letter&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const price = p.monthlyPrice ?? 3500;
+    const cur = p.currency ?? 'AUD';
+    const gst = p.gstNote ?? 'plus GST';
+    const fmt = Number(price).toLocaleString('en-AU', { minimumFractionDigits: 0 });
+    return {
+      clientName: p.clientName ?? 'Applied Education',
+      clientContact: p.clientContact ?? 'Debbie Tonus',
+      variationRef: p.variationRef ?? 'VAR-01',
+      letterDate: p.letterDate ?? '28 July 2026',
+      agreementDate: p.agreementDate ?? '[date of Master Agreement]',
+      roleTitle: p.roleTitle ?? 'Assessor',
+      startDate: p.startDate ?? 'From first date of active service as directed by Debbie Tonus, currently planned for 29 July 2026.',
+      minTerm: p.minTerm ?? 'Ongoing, minimum 3 month cancellation period',
+      priceLine: `${cur} $${fmt} per month, ${gst}`,
+      signatoryName: p.signatoryName ?? 'Alexis Guillot',
+      signatoryRole: p.signatoryRole ?? 'Director',
+    };
+  }
+}
+</script>
+</body>
+</html>

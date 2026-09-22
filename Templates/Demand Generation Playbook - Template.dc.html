@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script src="../hub-nav.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -126,7 +127,7 @@
     .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
     .sheet > h2:first-child { margin-top: 4px; }
 
-    @page { size: A4 portrait; margin: 0; }
+    @page { size: A4 portrait; margin: 18mm 16mm; }
     @media print {
       .sheet { break-before: page; min-height: 244mm; display: flex; flex-direction: column;
                box-sizing: border-box; margin-top: 0 !important; border-top: 0 !important;

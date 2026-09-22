@@ -1,0 +1,1670 @@
+Playbook
+F L E E T & F A C I L I T I E S D E P A R T M E N T
+How the Facilities Department runs — every
+environment, role, rhythm and rule, in one place.
+BBT & BBN commercial buildings Residential & short-stay accommodation Fleet operations
+Brainbox Group Edition 2 · 2026 Internal — controlled document
+
+-- 1 of 52 --
+
+C O N T E N T S
+What’s in this manual
+Four parts: how the department runs, what each person owns, the working checklists, and the
+reference standards that keep it all consistent.
+P A R T O N E — T H E O P E R A T I N G M A N U A L
+1.1 Purpose of this manual
+1.2 Assets & functions we manage
+1.3 Systems of record
+1.4 Operating philosophy & escalation
+1.5 Roles & working arrangements
+1.6 Accommodation cleaning framework
+1.7 Daily operating rhythm
+1.8 Weekend operations
+1.9 Weekly rhythm
+1.10 Monthly rhythm
+1.11 Reporting & assurance
+1.12 Asset register & renewal
+1.13 Non-negotiable rules
+1.14 Operating outcome
+P A R T T W O — D U T Y S T A T E M E N T S
+2.1 May — Facilities Manager
+2.2 Jho — Facilities Assistant (part-time)
+2.3 Arvin — Maintenance Lead
+2.4 Jong — Driver & Front-of-House
+2.5 Venus & Ivy — Cleaning team
+2.6 Training & competency matrix
+P A R T T H R E E — C H E C K L I S T S
+3.1 Studio apartment cleaning & consumables
+3.2 Monthly building safety & compliance
+3.3 Weekly fleet vehicle maintenance
+P A R T F O U R — R E F E R E N C E
+4.1 Response & resolution SLAs
+4.2 Asana conventions
+4.3 Vehicle accident & incident
+4.4 Keys, codes & access register
+4.5 Document control
+4.6 Monthly report
+H O W T O U S E T H I S M A N U A L
+Read part one once, together, so the whole team
+shares the same picture. Keep part two close — it is the
+day-to-day reference for what you own, what you may
+decide, and when to escalate.
+C O N T R O L L E D D O C U M E N T
+This is the authority for how Facilities work is done.
+Where it differs from habit or memory, the manual
+wins. Changes are made deliberately and re-issued,
+not made on the run.
+
+-- 2 of 52 --
+
+How the department runs
+Purpose, assets & the functions we manage
+Systems of record, philosophy & escalation
+Roles, working arrangements & cleaning framework
+Daily, weekly & monthly rhythms, reporting & rules
+P A R T O N E
+01
+The shared picture — what we look after, the systems that govern
+every decision, and the daily, weekly and monthly rhythms that keep it
+all predictable.
+1.1–1.2
+1.3–1.4
+1.5–1.6
+1.7–1.14
+Brainbox Group · Fleet & Facilities
+
+-- 3 of 52 --
+
+1.1 T H E O P E R A T I N G M A N U A L
+Purpose of this manual
+This manual exists to provide certainty. It removes ambiguity from daily operations, defines how work
+flows through the Fleet & Facilities Department, and establishes who does what, when, and why.
+Facilities work often fails when it relies on memory, goodwill, or constant verbal instruction. This manual replaces
+those habits with structure. It creates a rhythm that is predictable, auditable and repeatable — so good outcomes
+don’t depend on any one person remembering the right thing at the right moment.
+W H O I T A P P L I E S T O
+All Fleet & Facilities staff — during normal operations,
+peak demand and weekends, and regardless
+of individual availability, workload pressure or
+competing priorities.
+W H E N Y O U M AY D E V I AT E
+Only where safety, legal compliance or guest welfare
+requires it. Every deviation is recorded and reviewed —
+never made quietly.
+
+-- 4 of 52 --
+
+1.2 T H E O P E R A T I N G M A N U A L
+Assets & functions we manage
+The department operates across four environments. Each has a different demand profile and a different tolerance for
+delay — but all are managed through the same functions and the same systems.
+BBT & BBN commercial buildings
+Two buildings, both operating 24×7. Shared spaces are
+heavily used at lunch and shift changes, and small lapses
+are noticed quickly. Work here is preventative — the
+goal is to avoid complaints, not respond to them. Only
+BBT has parking, and the company vehicle fleet is
+stored there.
+Residential & short-stay
+Ten residential properties, five run as short-stay
+accommodation. Guest expectations are high and
+tolerance for defects is low. Work here is time-bound:
+check-in readiness is not flexible and cleaning windows
+are fixed.
+Vehicle fleet
+Vehicles support staff transport and operations, and their
+condition reflects organisational discipline. Stored and
+managed at BBT, with Facilities responsible for
+protection, presentation, availability and safety. Repairs
+are escalated, not improvised.
+One standard, everywhere
+However different the environments feel, they share one
+safety standard, one set of systems, and one chain of
+accountability through the Facilities Manager.
+
+-- 5 of 52 --
+
+The functions we deliver
+Every task belongs to one of these functions. Naming them this way keeps responsibility clear and makes it obvious
+what is covered — and what is missing.
+B U I L D I N G F U N C T I O N S
+Maintenance 	Utilities
+Safety 	Access
+Cleaning 	Consumables
+Asset renewal
+F L E E T F U N C T I O N S
+Driver
+management
+Route
+management
+Driver rostering 	Maintenance
+Safety 	Cleaning
+Repairs 	Asset renewal
+Each function on a cycle
+Most functions repeat on a predictable cycle. This is the map the rest of part one builds on — daily work removes risk,
+weekly work prevents backlog, monthly work keeps assets safe and compliant, and triggered work responds to
+bookings and faults.
+Function 	Daily 	Weekly 	Monthly 	Triggered
+Building cleaning (BBT & BBN)
+Accommodation cleaning
+Access, security & traffic
+Maintenance & repairs
+Utilities & safety checks
+Consumables & pantry stock
+Fleet readiness & cleaning
+Asset renewal & capacity planning
+Reporting & assurance
+Primary cycle for this function · Not on this cycle
+
+-- 6 of 52 --
+
+1.3 T H E O P E R A T I N G M A N U A L
+Systems of record
+Two systems govern every decision. Discipline in how we use them is what makes the whole operation visible and
+auditable. If a system is wrong, the system is corrected before work proceeds — personal judgement does not
+override it.
+Uplisting
+The authoritative source for accommodation activity. No
+alternative source is accepted. It governs:
+Cleaning schedules are derived from Uplisting data alone.
+Asana
+The authoritative system for work control — the single
+work register. Everything is logged here:
+Work is not actioned unless it is logged. Verbal requests
+become tasks before work begins.
+The work-control workflow
+Every issue, complaint and service request — whoever raises it — follows the same path. It all routes through Jho,
+who coordinates the Asana queue under May’s direction. The task is the single source of truth from intake to closure.
+T H E R U L E
+If it isn’t in Asana, it isn’t happening. A task gives every piece of work an owner, a history and a finish line — that’s what
+makes the department accountable rather than busy.
+Arrival dates and times
+Length of stay
+Same-day turnovers (check-out and check-in)
+Third-day cleaning triggers, recurring for long stays
+Maintenance issues & asset defects
+Cleaning observations
+Guest & internal staff requests
+Security & access concerns
+STEP 1 ·
+INTAKE
+Raised &
+routed to Jho
+Staff, cleaner,
+driver, guest or
+contractor raises
+an issue. All
+requests funnel
+to Jho — the
+single point of
+contact.
+STEP 2 · LOG
+Logged
+in Asana
+Jho creates a
+clear, categorised
+task with
+description and
+photos. No
+duplicates;
+verbal requests
+are converted
+to tasks.
+STEP 3 ·
+TRIAGE
+Prioritised
+by May
+May sets priority
+and direction. Jho
+coordinates the
+queue under that
+direction — never
+prioritising or
+approving alone.
+STEP 4 ·
+ACTION
+Actioned or
+escalated
+Assigned and
+resolved within
+authority, or
+stabilised and
+escalated to a
+contractor where
+it exceeds
+internal
+capability.
+STEP 5 · CLOSE
+Closed &
+reviewed
+Closed only on
+confirmation. Patterns
+are reviewed so
+recurring faults are
+designed out, not just
+repaired.
+
+-- 7 of 52 --
+
+1.4 T H E O P E R A T I N G M A N U A L
+Operating philosophy & escalation
+A few principles sit underneath every decision. They explain why the rhythms in the rest of this manual are shaped the
+way they are.
+Readiness first
+Short-stay readiness takes priority
+over all other work. Fixed time
+windows are protected. The daily
+plan is locked once — replanning is
+the exception, not the norm.
+Use the hours well
+Early hours reduce risk before
+buildings get busy. Later
+hours manage outcomes.
+Noise is avoided; visibility is
+maintained throughout.
+Log once, track to close
+Problems are logged once, tracked
+until closed, and reviewed for
+patterns. Reporting exists to drive
+change — never produced for its
+own sake.
+How a problem moves
+Escalation is deliberate, not a reflex. Everyone can see a problem; the question is always the same — resolve, stabilise,
+or escalate.
+Observed
+Anyone notices an issue during cleaning, transport, inspection or daily work — and reports it to Jho rather than fixing
+it quietly.
+Logged in Asana
+Jho captures it as a task with a clear description and photos, so it is visible and traceable from the first moment.
+Triaged by May
+May assesses urgency against guest readiness, safety and business continuity, then chooses the path:
+Resolve
+Fixed within authority & skill by
+Arvin or the team.
+Stabilise
+Made safe now; contractor
+engaged for full repair.
+Escalate
+Contractor or expenditure
+approved by May.
+Closed on confirmation
+The task is closed only when completion is confirmed — never assumed. Critical safety items are confirmed personally.
+Reviewed for patterns
+Recurring faults are surfaced in weekly and monthly reviews so the root cause is addressed, not just the symptom.
+1
+2
+3
+4
+5
+
+-- 8 of 52 --
+
+1.5 T H E O P E R A T I N G M A N U A L
+Roles & working arrangements
+Six people, one chain of accountability. All roles are full-time except the Facilities Assistant, who is allocated part-time
+to Facilities support. Full duty statements are in part two — this is the team at a glance.
+Person 	Role 	Pattern 	Owns
+May 	Facilities Manager 	Full-time · on
+call weekends
+Accountability for the whole environment —
+staff, budget, priorities, risk, fleet compliance,
+capacity planning.
+Jho 	Facilities Assistant 	Part-time ·
+Mon–Fri
+Single intake point for all requests; coordinates
+the Asana queue under May’s direction;
+reporting.
+Arvin 	Maintenance Lead 	Full-time · Mon–
+Fri
+Maintenance, inspections, presentation,
+access & logistics — plus traffic management &
+concierge cover.
+Jong 	Driver & Front-of-House 	Full-time · Mon–
+Fri
+Staff transport, fleet readiness & protection —
+plus traffic management & concierge cover.
+Venus & Ivy 	Cleaning team 	Full-time ·
+weekend on call
+Accommodation & building cleaning, laundry,
+pantry & cleaning inventory, defect observation.
+
+-- 9 of 52 --
+
+Coverage across the day
+Duty windows are staggered so risk is covered early and outcomes are managed late. The fixed task windows (cleaning,
+transport) sit inside these.
+6am 	9am 	12pm 	3pm 	6pm
+Arvin
+Maintenance Lead
+Jong
+Driver & FOH
+May
+Manager
+Venus & Ivy
+Cleaning team
+Jho
+Assistant (PT)
+C O N C I E R G E D E S K — N E V E R U N AT T E N D E D I N T H E D AY
+Only BBT has parking, and the fleet is stored there. Arvin and Jong both hold traffic-management duties, and at least
+one of them must be at the BBT concierge desk through the day — managing the parking forecourt and vehicle
+ingress and egress. They coordinate cover between transport runs, inspections and breaks so the desk is never left
+empty without the Manager’s approval.
+6:00 – 18:00
+6:00 – 18:00 · on-site 8:30–4:00
+from 9:00 · 2–6 on check-in days
+accommodation 11:00–1:40 · buildings 2:00–3:00
+short structured blocks
+
+-- 10 of 52 --
+
+1.6 T H E O P E R A T I N G M A N U A L
+Accommodation cleaning framework
+Accommodation cleaning follows strict rules that prevent scope creep and overload. With two cleaners, properties can
+be turned around in parallel — but only the properties the rules authorise, and only within the fixed window.
+The cleaning cycle
+Every clean follows the same path, driven entirely by Uplisting. Judgement does not add properties to the list.
+Cleaning triggers
+No other cleaning is permitted unless guest-paid and
+approved by May. This keeps capacity aligned with demand.
+The fixed window
+All accommodation cleaning happens strictly between
+11:00am and 1:40pm. Travel time is planned and
+protected. The window is not compressed or extended —
+attempts to do so create downstream failure.
+Laundry & linen
+Laundry volume varies with occupancy and is managed as required. Linen is handled by property, washed, dried,
+folded and stored to a consistent standard. Damaged or stained items are removed from circulation, and shortages are
+reported promptly. Quality is maintained; improvisation is avoided.
+TRIGGER
+Uplisting
+flags it
+A same-day
+turnover, or a
+long-stay guest
+(over 3 days)
+reaching the next
+third-day clean.
+CONFIRM
+Jho extracts
+the list
+The day’s
+authorised
+properties are
+confirmed from
+Uplisting and put
+to May for lock-in.
+CLEAN
+Venus & Ivy,
+11:00–1:40
+The team departs
+BBT on time and
+cleans only
+authorised
+properties, in
+parallel.
+RETURN
+Back by
+1:40pm
+Cleaning ceases
+in time to return
+for building
+cleaning — the
+window is never
+extended.
+REPORT
+Observations
+to Jho
+Any defects seen
+during cleaning are
+reported and logged
+in Asana — reported,
+not fixed.
+On turnover — same-day check-out and check-in
+Long-stay guests (over 3 days) — cleaned every third
+day for the duration of the stay
+
+-- 11 of 52 --
+
+1.7 R E G U L A R T A S K C Y C L E · D A I L Y
+Daily operating rhythm
+The day runs to a known shape. Each step has a purpose: remove risk early, lock the plan once, protect the fixed
+windows, and close cleanly. The concierge desk stays covered throughout.
+6:00am
+6:30–
+8:00am
+8:30am
+9:00am
+9:20am
+11:00am–
+1:40pm
+2:00–
+3:00pm
+2:00–
+6:00pm
+End of day
+Early operations & vehicle readiness
+Arvin and Jong commence. Jong uncovers and safety-checks the fleet at BBT; Arvin runs early inspections across
+BBT and BBN. Focus is limited to safety, access and urgent defects. Anything unresolved is escalated to May
+by message.
+Morning staff transport
+Jong runs the approved transport routes on time. Arvin covers early access, urgent defects and opens up the
+concierge desk so the forecourt is managed as vehicles begin arriving.
+Pre-start control
+On-site presence is established at the BBT concierge desk. Jho reviews Uplisting — arrivals, stay lengths and
+cleaning triggers — and prepares a concise summary for May. Surprises are removed before the day builds.
+Manager triage & lock-in
+May commences and works through the summary with Jho. Decisions are made once: which properties clean,
+whether a check-in needs attendance, cleaner timing, May’s 2–6 availability, and priority maintenance. Asana
+tasks are created or updated and the plan is locked.
+Stand-up
+A short stand-up for confirmation, not debate. Each person confirms understanding; no new work is introduced.
+Shared clarity for the day.
+Accommodation cleaning
+Venus and Ivy depart BBT and clean only authorised properties, in parallel, returning by 1:40. Jho monitors guest
+messages and escalates readiness risks only. The concierge desk stays covered by whichever of Arvin or Jong is
+on site.
+Building cleaning — BBT & BBN
+The cleaning team restores Levels 2–5 across both buildings, clearing lunch-period residue. This protects two
+24×7 environments where hygiene and presentation are highly visible.
+Check-in control window
+Focus shifts to arrivals. May attends residential check-ins and check-outs and handles guest liaison for visiting
+Brainbox clients. Jho manages guest messaging. Arvin and Jong hold the forecourt and concierge. Internal
+meetings are avoided on check-in days.
+Clean close
+Jho prepares the daily report; May reviews exceptions only. Open issues roll forward visibly in Asana. The day
+closes without loose ends.
+
+-- 12 of 52 --
+
+1.8 R E G U L A R T A S K C Y C L E · W E E K E N D
+Weekend operations
+Weekend work is controlled and exception-based. This protects the team from burnout and preserves
+weekday capacity.
+Cleaning
+Venus and Ivy work only when
+triggered by the cleaning rules —
+same-day turnover or a third-day
+stay. No discretionary cleaning.
+Management
+May is on call for guest messaging
+and check-ins, and for guest
+liaison where Brainbox clients
+are staying.
+Everything else
+No discretionary tasks are
+introduced. All issues are logged in
+Asana for review on the next
+business day.
+
+-- 13 of 52 --
+
+1.9 R E G U L A R T A S K C Y C L E · W E E K L Y
+Weekly rhythm
+Each week follows a pattern that distributes effort evenly and prevents backlog. The daily rhythm runs underneath
+every day; this is where the week’s focus shifts.
+Monday
+Plan
+Establish the week’s
+plan. Confirm
+bookings, priorities and
+any check-ins ahead.
+Tuesday
+Buildings
+Focus on BBT & BBN
+— presentation,
+common areas and
+preventive checks.
+Wednesday
+Residential
+Residential
+maintenance and
+property inspections
+between cleans.
+Thursday
+Fleet
+Fleet and compliance
+— vehicle cleaning,
+checks, licensing and
+servicing status.
+Friday
+Assure
+Confirm quality and
+weekend readiness.
+End-of-week review;
+note trends.
+E N D O F W E E K
+An end-of-week review notes trends and makes adjustments deliberately. Jho prepares the weekly report — tasks
+opened and closed, recurring issues, cleaning volume, and check-ins attended — so May sees the picture without
+reviewing raw data.
+
+-- 14 of 52 --
+
+1.10 R E G U L A R T A S K C Y C L E · M O N T H L Y
+Monthly rhythm
+Each month provides a higher-level view, so the department evolves rather than reacts. These four stages repeat
+every month.
+01
+Safety & maintenance
+inspection
+A structured inspection
+across both buildings,
+residential and short-stay
+properties, and the fleet
+— conducted by May,
+Betina and Arvin, with
+findings logged.
+02
+Preventive
+maintenance
+Corrective and preventive
+actions are planned and
+prioritised from the
+inspection findings,
+with critical items
+confirmed closed.
+03
+Review & assess
+Guest satisfaction is
+reviewed and capacity
+assessed across premises
+and fleet — identifying
+constraints before they bite.
+04
+Refine systems
+Processes and priorities are
+refined from the evidence,
+then carried into the next
+month’s plan.
+M A N D AT O R Y
+The monthly full safety and maintenance inspection covers fire, electrical, water and access safety items across every
+asset, including fleet. It uses a standard checklist, all findings are logged, and critical items are confirmed closed. This
+cadence makes risk systematic rather than incident-driven.
+
+-- 15 of 52 --
+
+1.11 T H E O P E R A T I N G M A N U A L
+Reporting & assurance
+Reporting is structured and factual — neutral language, emotion excluded. It exists to drive change, not to be produced
+for its own sake.
+Cadence 	Report 	Owner 	Purpose
+Daily 	Verbal execution report 	Jho → May 	Confirm execution; surface exceptions for
+May to review.
+Weekly 	Facilities report 	Jho 	Tasks opened/closed, recurring issues,
+cleaning volume, check-ins attended.
+Monthly 	Fleet & Facilities meeting 	Minuted by Jho 	Trends, persistent fault categories and
+decisions across the function.
+Monthly 	Property financial report 	May → Director 	Financial position across the property
+portfolio.
+
+-- 16 of 52 --
+
+1.12 T H E O P E R A T I N G M A N U A L
+Asset register & renewal
+Every major Fleet & Facilities asset is recorded, reviewed on a fixed cycle, and carried on a renewal plan
+— so replacement is budgeted and deliberate, never a surprise.
+The asset register is the single source of truth for what we own, its condition, and when it is due for renewal. It
+underpins capacity planning, the monthly safety inspection and the property financial report. Assets are purchased,
+replaced or written off only in line with policy and the approved budget.
+May
+Lead
+Jho
+Support
+Maintains the register day to day —
+updates records, attaches documents,
+and flags renewals coming due.
+What the register holds
+Asset ID & description 	Location / property 	Purchase date & cost 	Expected life 	Condition rating
+Service / inspection due 	Renewal year 	Estimated replacement cost 	Status
+The bi-annual asset review
+Twice a year, May and Jho review the full register against policy and budget. The review confirms condition, records
+anything purchased, replaced or written off, and refreshes the renewal plan for every major asset.
+P O L I C Y
+No major asset is purchased, replaced or written off outside the approved budget and policy. Write-offs are documented
+with reason and authorisation; every active major asset carries a current renewal year.
+Example — simple asset renewal plan
+A renewal plan is just the register sorted by the year each asset falls due, with an estimated cost. This is illustrative — figures and
+dates are examples only.
+Owns the asset register and renewal plan
+— approves purchase, replacement and
+write-off within policy and budget.
+STEP 1
+Verify
+Walk the register against
+the assets — confirm
+each exists, its location
+and condition rating.
+STEP 2
+Record movements
+Log assets purchased,
+replaced or written off
+since the last review,
+in line with policy
+and budget.
+STEP 3
+Re-rate & forecast
+Update expected life and
+condition; reset the
+renewal year and
+replacement estimate.
+STEP 4
+Plan & budget
+Refresh the renewal plan and
+feed forecast spend into the
+budget cycle.
+
+-- 17 of 52 --
+
+Asset 	Location 	In service 	Life 	Condition 	Renewal due 	Est. cost
+Toyota HiAce — staff van 	BBT fleet 	2019 	8 yrs 	Fair 	2027 	₱1,850,000
+Backup generator (genset) 	BBT 	2018 	10 yrs Good 	2028 	₱950,000
+Passenger lift — modernisation 	BBN 	2015 	15 yrs Fair 	2030 	₱1,200,000
+Split-system aircon × 8 	BBT L2–5 	2021 	7 yrs 	Good 	2028 	₱640,000
+Short-stay whitegoods (fridge/WM) 	Properties 	2022 	6 yrs 	Good 	2028 	₱420,000
+CCTV & access-control system 	BBT & BBN 2020 	6 yrs 	Fair 	2026 	₱380,000
+Commercial water pump 	BBN 	2017 	10 yrs Monitor 	2027 	₱180,000
+R E A D I N G T H E P L A N
+Items due in the current or next year (highlighted) move into the budget cycle for approval; later years are indicative and
+refined at each bi-annual review. Sorting by renewal due shows the spend profile at a glance and prevents several major
+assets falling due in the same year unnoticed.
+
+-- 18 of 52 --
+
+1.13 T H E O P E R A T I N G M A N U A L
+Non-negotiable rules
+Everything above reduces to a short list that does not bend. When in doubt, these win.
+1 	Uplisting governs accommodation cleaning — the only booking source.
+2 	Asana governs all work control — the only work register. If it isn’t logged, it isn’t actioned.
+3 	All issues, complaints and requests route through Jho.
+4 	Cleaning windows are fixed; building cleaning across BBT & BBN is mandatory.
+5 	The concierge desk is never unattended during the day without the Manager’s approval.
+6 	Manager availability is protected on check-in days.
+7 	Vehicle licensing and maintenance never lapse; unsafe vehicles are not operated.
+8 	Weekend work is exception-based; the monthly safety inspection is mandatory.
+
+-- 19 of 52 --
+
+1.14 T H E O P E R A T I N G M A N U A L
+Operating outcome
+This manual exists to create calm. It reduces noise, protects people’s time, and improves reliability.
+When it is followed, the Fleet & Facilities Department becomes predictable. Predictability builds trust, and trust
+reduces escalation. This is the authority for how the work is done — and it works best when the whole team holds to
+it together.
+A L W AY S B E K I N D
+Structure is what lets us be kind under pressure — to guests, to colleagues, and to ourselves. Calm systems make room
+for it.
+
+-- 20 of 52 --
+
+Duty statements
+May — Facilities Manager
+Jho — Facilities Assistant (part-time)
+Arvin — Maintenance Lead
+Jong — Driver & Front-of-House
+Venus & Ivy — Cleaning team
+P A R T T W O
+02
+What each person owns, day to day — their purpose, responsibilities,
+the decisions they may make, and when to escalate. One chain of
+accountability, five clear roles.
+2.1
+2.2
+2.3
+2.4
+2.5
+Brainbox Group · Fleet & Facilities
+
+-- 21 of 52 --
+
+M
+D U T Y S T A T E M E N T 2 .1
+Facilities Manager
+R E P O R T I N G L I N E
+Reports to senior management as
+designated
+PAT T E R N
+Full-time · from ~9:00am · on call
+weekends
+S C O P E
+Buildings, accommodation & fleet
+The Facilities Manager provides firm operational control across buildings, accommodation and fleet, ensuring
+everything runs safely, legally and predictably while staying scalable as demand grows. The role is accountable for
+outcomes, not volume of activity — control, anticipation and early intervention are the core expectations, and the
+role sets the behavioural standard for the whole function.
+W H AT G R E AT L O O K S L I K E
+The whole operation runs quietly — problems are anticipated and handled before anyone feels them. The team
+is clear, capable and calm, the budget is in control, and nothing about safety, fleet or guest readiness is ever
+a surprise.
+Overall accountabilities
+Staff management 	Training & development 	Budget oversight 	Service reliability
+Guest readiness & experience 	Safety & compliance 	Fleet licensing & maintenance 	Capacity planning
+Systems & reporting discipline 	Sustainable workload
+Core responsibilities
+Staff management, training & delegation
+Lead the team without micromanagement. Set clear
+expectations at stand-up, delegate tasks, monitor
+workload balance, and arrange training and development
+so the team stays capable as demand grows. Intervene
+early where drift or overload appears.
+GREAT The team knows what’s expected, feels supported and
+grows — overload and turnover are rare.
+Daily operational control
+Review Uplisting, confirm check-in attendance, approve
+the cleaning list, protect the fixed windows, and lock the
+daily plan once.
+GREAT The plan is locked by mid-morning and rarely
+needs reopening.
+May · the central control & forward-planning authority
+
+-- 22 of 52 --
+
+Check-in/out & client liaison
+Attend residential check-ins and check-outs, and act as
+guest liaison when Brainbox clients visit the facilities or
+stay in company accommodation — a controlled,
+confident arrival every time.
+GREAT Guests and clients feel expected and well looked after on
+every arrival.
+Financial & budget oversight
+Oversee the Facilities budget, approve expenditure within
+authority, keep external work cost-aware, and produce the
+monthly property financial report for the Director.
+GREAT Spend is predictable, justified and reported on time — no
+surprises for the Director.
+Risk & escalation management
+Act as the escalation point. Assess issues, decide
+whether to resolve, stabilise or escalate, and document
+decisions where exceptions occur.
+GREAT The right call is made quickly, and the reasoning is
+on record.
+Accommodation standards
+Hold third-day and same-day turnover rules, run
+periodic spot checks, and address recurring quality or
+readiness failures.
+GREAT Standards hold without re-cleans, and recurring issues get
+designed out.
+BBT & BBN oversight
+Ensure daily post-lunch cleaning happens in both
+buildings and that hygiene, presentation and access
+standards hold across two 24×7 environments.
+GREAT Both buildings stay fresh and presentable through
+every peak.
+Vehicle fleet accountability
+Maintain the vehicle register, keep licensing and
+registration current, track servicing and inspections, and
+approve servicing, repairs and replacements. No unsafe
+vehicle operates.
+GREAT Licensing and servicing never lapse; no unsafe vehicle
+ever moves.
+Monthly safety inspection
+Conduct the structured monthly inspection across
+buildings, properties and fleet with Betina and Arvin; log
+findings, prioritise corrective actions and confirm critical
+items closed.
+GREAT Every inspection is completed on time with critical
+items closed.
+Capacity planning
+Maintain forward visibility on premises and fleet demand,
+identify constraints early, and prepare recommendations
+so capacity scales ahead of need.
+GREAT Constraints are seen and acted on well before they bite.
+
+-- 23 of 52 --
+
+Contractor management
+Approve contractor engagement where work exceeds
+internal capability, define scope and urgency, and confirm
+quality and completion in Asana.
+GREAT Contractors deliver to scope and budget, confirmed
+in Asana.
+Systems governance & reporting
+Keep Uplisting the sole booking source and Asana
+the sole work register, reject work that bypasses
+them, and use daily, weekly and monthly reporting to
+drive improvement.
+GREAT Uplisting and Asana are trusted because nothing
+bypasses them.
+MAY MAY 	MAY MAY NOT
+Performance is measured by
+Stability, foresight and control — predictable operations, no lapses in vehicle licensing or servicing, completed
+monthly inspections, early identification of capacity constraints, minimal last-minute escalation, and high internal and
+guest confidence.
+N O N - N E G O T I A B L E
+Short-stay readiness overrides all other work · cleaning windows are protected · monthly safety inspections are
+mandatory · vehicle licensing and maintenance never lapse · capacity planning is proactive · Asana remains the single
+source of truth.
+Set priorities and approve exceptions
+Manage staff and delegate work
+Engage contractors
+Approve fleet servicing and replacement
+Approve Facilities expenditure within authority
+Ignore system data
+Permit unlicensed vehicle operation
+Allow fixed windows to be eroded without cause
+
+-- 24 of 52 --
+
+J
+D U T Y S T A T E M E N T 2 . 2
+Facilities Assistant
+R E P O R T I N G L I N E
+Reports to the Facilities Manager
+PAT T E R N
+Part-time · Mon–Fri · no weekends
+E F F O R T
+Short structured blocks; capped &
+protected
+The Facilities Assistant provides administrative control, visibility and reporting discipline across the function without
+absorbing operational decision-making. The role is the single system interface between bookings, requests, issues
+and reports — reducing interruption to the Manager. It does not direct staff or approve work; it ensures information is
+accurate, timely and traceable.
+W H AT G R E AT L O O K S L I K E
+Nothing falls through the cracks. Every request is captured the moment it arrives, the Asana queue is clean and
+current, and May starts each day with a clear picture — without ever being interrupted to assemble it.
+S I N G L E P O I N T O F C O N TA C T
+All Fleet & Facilities issues, complaints and service requests route through Jho. Jho coordinates the Asana task queue
+under direction from May — logging and ordering work, never prioritising or approving it alone.
+Core responsibilities
+Request intake & routing
+Receive every issue, complaint and request from staff,
+cleaners, driver, guests or the Manager. Acknowledge
+promptly and convert each into a clear, categorised
+Asana task — nothing actioned without visibility.
+GREAT Every request is acknowledged fast and turned into a clear
+task — nothing is lost.
+Asana queue coordination
+Maintain Asana as the single register under May’s
+direction: clear descriptions, photos attached, no
+duplicates, statuses kept current. Order the queue as
+directed; do not self-prioritise or assign.
+GREAT The queue is clean, current and duplicate-free at
+any moment.
+Jho · the system interface — intake, control & reporting
+
+-- 25 of 52 --
+
+Uplisting monitoring
+Each weekday morning, review arrivals, departures and
+in-stay guests; identify same-day turnovers and third-day
+triggers; extract a simple daily summary.
+GREAT Triggers are spotted early and never missed.
+Daily control summary
+Prepare a short, factual summary for the Manager —
+cleaning triggers, check-in days and any high-risk issues
+— so the daily plan can be locked without searching.
+GREAT May can lock the plan from the summary alone.
+Task status tracking
+Check status each weekday, flag stale or unclear tasks,
+prompt follow-up, and close only when confirmation is
+received. Nothing ages unseen.
+GREAT No task ages unseen; stale items are chased before
+they slip.
+Guest messaging
+Handle routine guest messaging in business hours using
+approved templates. Acknowledge and log; escalate
+readiness or access risks immediately. No commitments
+or negotiation.
+GREAT Guests get prompt, accurate replies; risks reach May
+at once.
+Observation capture
+Receive defect reports from Venus, Ivy or Arvin and ensure
+they are logged correctly with supporting detail —
+captured once, acted on systematically.
+GREAT Every defect lands in Asana with the detail needed to act.
+Weekly & monthly reporting
+Produce the concise weekly report and support monthly
+reporting and the Fleet & Facilities meeting minutes —
+factual, trend-focused, within the time envelope.
+GREAT Reports are factual, on time, and show the trends
+that matter.
+JHO MAY 	JHO MAY NOT
+Performance is measured by
+Control, clarity and restraint — clean, accurate Asana records, no unlogged work, timely daily summaries, low
+administrative interruption to the Manager, and adherence to the capped weekly effort.
+N O N - N E G O T I A B L E
+Asana is the only work register · Uplisting is the only booking source · no work is actioned without visibility · effort is
+capped and protected · scope creep is escalated, not absorbed.
+Access Uplisting and Asana
+Log, order and update tasks as directed
+Communicate factual information to guests
+Approve work or change priorities alone
+Allocate tasks to staff
+Commit to timelines or outcomes
+
+-- 26 of 52 --
+
+A
+D U T Y S T A T E M E N T 2 . 3
+Maintenance Lead
+R E P O R T I N G L I N E
+Reports to the Facilities Manager
+PAT T E R N
+Full-time · Mon–Fri · 6:00am–6:00pm
+window
+F O C U S
+Maintenance, prevention & access
+The Maintenance Lead maintains operational continuity across BBT, BBN, residential and short-stay properties and
+supporting assets. The role focuses on early detection, rapid response to defects, and preventing downstream failures
+that would disrupt cleaning, guest readiness or safety. It is execution-focused — planning and approval sit with the
+Manager — and now also carries shared traffic-management and concierge cover.
+W H AT G R E AT L O O K S L I K E
+Issues are caught before they become faults, and faults before they become complaints. Check-in windows pass
+without drama, the forecourt stays controlled, and recurring problems quietly disappear.
+Core responsibilities
+Early-morning risk reduction
+Start at 6:00am with inspections before peak activity —
+access points, lighting, doors, gates and overnight issues
+across both buildings. Risks reduced before staff and
+guests arrive.
+GREAT Hazards are found and cleared before staff and
+guests arrive.
+Reactive maintenance
+Work assigned Asana tasks promptly within priority, carry
+out minor repairs within authority, and stabilise issues
+that need a contractor with clear fault notes.
+GREAT Tasks are actioned in priority and stabilised cleanly when a
+contractor is needed.
+Preventive inspections
+Routine checks across BBT, BBN and residential
+properties — fittings, fixtures, appliances and finishes —
+identifying emerging issues before failure.
+GREAT Emerging faults are caught before they fail.
+Accommodation readiness support
+Resolve defects that threaten same-day check-in
+readiness when directed, coordinating with the Manager
+and avoiding non-essential work during critical windows.
+GREAT Check-in defects are resolved without disrupting
+the window.
+Arvin · early detection, rapid response & prevention
+
+-- 27 of 52 --
+
+Traffic management & concierge
+Share concierge-desk cover with Jong so the BBT
+forecourt is always managed — guiding vehicle ingress
+and egress, preventing unsafe parking, and keeping the
+desk staffed through the day.
+GREAT The forecourt stays orderly and the desk is
+always covered.
+Access & logistics
+Provide access for cleaners, drivers and contractors, and
+assist with safe movement of items so operational flow is
+never held up.
+GREAT Cleaners, drivers and contractors are never held up
+for access.
+Presentation & fleet support
+Address minor presentation defects, reset fixtures, and
+provide minor fleet assistance — identifying and reporting
+visible vehicle defects for logging.
+GREAT Small defects are fixed or logged before anyone
+notices them.
+Afternoon coverage
+Stay available across the full window, supporting check-in
+issues if escalated and stabilising late-day issues to avoid
+after-hours escalation.
+GREAT Late-day issues are stabilised, avoiding after-
+hours escalation.
+ARVIN MAY 	ARVIN MAY NOT
+Performance is measured by
+Reliability, judgement and follow-through — low repeat faults, few urgent escalations during check-in periods, early
+identification of issues, accurate task updates, and reliable coverage across the full window.
+N O N - N E G O T I A B L E
+Follow the daily plan · respect fixed cleaning windows · keep the concierge desk covered · do not self-prioritise · log
+issues accurately · escalate early rather than late.
+Carry out minor repairs within skill and safety limits
+Stabilise faults to prevent escalation
+Recommend contractor involvement
+Approve expenditure or engage contractors
+independently
+Change priorities without direction
+Undertake discretionary work not logged or approved
+
+-- 28 of 52 --
+
+J
+D U T Y S T A T E M E N T 2 . 4
+Driver & Front-of-House
+R E P O R T I N G L I N E
+Reports to the Facilities Manager
+PAT T E R N
+Full-time · Mon–Fri · on-site BBT
+8:30–4:00
+F O C U S
+Transport, fleet & front-of-house
+The Driver & Front-of-House role ensures reliable staff transport, protects and presents the vehicle fleet, and maintains
+a controlled, safe and orderly entry environment at BBT — the only site with parking. The role provides visible
+operational discipline: reducing risk, preventing congestion, protecting assets and reinforcing security through
+presence, and shares traffic-management and concierge cover with Arvin.
+W H AT G R E AT L O O K S L I K E
+Staff always arrive on time and safely, vehicles are protected and ready, and the BBT forecourt runs smoothly —
+no congestion, no incidents, and a visibly secure, welcoming entrance.
+Core responsibilities
+Early-day vehicle readiness
+From 6:00am, uncover and prepare vehicles, run visual
+safety checks on tyres, lights, mirrors and fuel, and
+escalate any defect immediately for logging.
+GREAT Vehicles are checked, safe and ready before the first run.
+Morning staff transport
+Run the approved route and timetable, collect staff
+punctually, drive defensively, and confirm all scheduled
+drop-offs so staff arrive on time and safely.
+GREAT Staff arrive on time, every time, driven safely.
+Post-transport vehicle control
+Return vehicles to allocated bays at BBT, cover those not
+in immediate use, secure keys in designated locations,
+and report anything noticed in transit.
+GREAT Vehicles return covered, secured and accounted for.
+Traffic management & concierge
+Hold the BBT concierge desk and forecourt — guiding
+vehicle ingress and egress, preventing unsafe or
+unauthorised parking, and intervening early to
+avoid congestion. Shared with Arvin so the desk is
+never unattended.
+GREAT The forecourt flows with no congestion and the desk
+stays manned.
+Jong · transport, fleet protection & a controlled forecourt
+
+-- 29 of 52 --
+
+Entry-area security
+Observe entry points, challenge unknown persons
+politely, ensure doors, gates and barriers function, and
+escalate security concerns immediately.
+GREAT Entries are watched and concerns are raised at once.
+Entry-area presentation
+Keep the entry neat and professional — remove litter,
+clean glass, keep signage visible, and report damage
+or deterioration.
+GREAT The entrance always looks clean, professional
+and welcoming.
+Fleet protection
+Cover vehicles when parked, uncover promptly when
+needed, park correctly and securely, and prevent
+unauthorised access or misuse.
+GREAT No preventable damage; vehicles are always protected.
+Weekly vehicle cleaning & support
+Wash exteriors and clean interiors on the nominated day,
+inspecting for wear during cleaning; provide additional
+facilities support when directed during peak periods.
+GREAT Vehicles are presentable and wear is caught
+during cleaning.
+JONG MAY 	JONG MAY NOT
+Performance is measured by
+Reliability, visibility and discipline — on-time transport runs, no preventable vehicle damage, orderly parking areas,
+early detection of security or access issues, and accurate reporting.
+N O N - N E G O T I A B L E
+Staff transport is the first priority · vehicles are covered when not in use · the concierge desk and forecourt are not left
+unattended without approval · security concerns are escalated immediately · all issues are logged.
+Operate vehicles as scheduled
+Control parking and access within assigned areas
+Report defects and security concerns
+Authorise repairs or expenditure, or engage contractors
+Change transport routes without approval
+Allocate work to others
+
+-- 30 of 52 --
+
+V·I
+D U T Y S T A T E M E N T 2 . 5
+Cleaning team
+R E P O R T I N G L I N E
+Report to the Facilities Manager
+PAT T E R N
+Full-time · fixed windows · weekend
+on call
+F O C U S
+Accommodation & building cleaning
+The cleaning team ensures accommodation readiness, hygiene and presentation across the short-stay properties and
+the BBT and BBN commercial buildings. The work is time-critical and sequence-dependent — cleaning must happen
+within fixed windows to support guest check-ins and two 24×7 environments. With two cleaners, properties and
+buildings can be covered in parallel. Planning and scheduling sit with the Manager and the Assistant.
+W H AT G R E AT L O O K S L I K E
+Every authorised property is guest-ready on time, every time, to a standard a guest would photograph. Buildings
+feel fresh after lunch, linen is always in supply, and defects are reported the moment they’re spotted.
+W O R K I N G A S A PA I R
+Venus and Ivy split the authorised property list to turn rooms around within the window, then regroup for building
+cleaning. Scope is defined centrally — the team executes and reports, and never adds properties or tasks itself.
+Core responsibilities
+Accommodation cleaning
+Clean and sanitise bathrooms and kitchenettes, vacuum
+and mop, remake beds, empty bins and wipe high-touch
+surfaces — only when triggered by the approved rules.
+GREAT Every triggered unit is spotless and guest-ready on time.
+Fixed window, 11:00–1:40
+Depart BBT on time, travel without delay, complete all
+authorised cleans, and prepare to return by 1:40pm — no
+overruns that affect building duties or check-in readiness.
+GREAT All authorised cleans finish inside the window, every day.
+Laundry & linen
+Strip, bag and separate linen by property; wash, dry,
+fold and store to standard; remove stained or damaged
+items; and report shortages so complete sets are
+always available.
+GREAT Clean, complete linen sets are always available.
+Building cleaning — BBT & BBN
+Clean Levels 2–5 daily, 2:00–3:00pm — kitchens,
+pantries, shared surfaces, bins, floors and high-touch
+areas — restoring hygiene after lunch use.
+GREAT Both buildings feel fresh again within the hour after lunch.
+Venus & Ivy · readiness, hygiene & presentation
+
+-- 31 of 52 --
+
+Weekly inventory checks
+Once a week, check pantry consumables and cleaning
+supplies, paper goods, PPE and equipment condition;
+report low stock or faults early to the Assistant.
+GREAT Stock and equipment issues are flagged before they
+run out.
+Observe & report
+Spot leaks, electrical faults, appliance failure, loose
+fittings, mould or odours during cleaning. Photograph,
+report urgent items immediately, and ensure they reach
+Asana — reported, not fixed.
+GREAT Defects reach Asana the moment they’re spotted.
+THE TEAM MAY 	THE TEAM MAY NOT
+Performance is measured by
+Consistency, hygiene standards and adherence to process — cleaning completed within fixed windows, low
+cleanliness complaints, early reporting of defects and shortages, and reliable weekend response when triggered.
+N O N - N E G O T I A B L E
+Accommodation cleaning happens only within the fixed window · building cleaning is mandatory · no tasks are added
+after daily lock-in · maintenance issues are reported, not fixed · all instructions flow through the Facilities Manager.
+Carry out all authorised cleaning tasks
+Handle laundry and linen
+Report defects and shortages
+Change schedules or add properties to the list
+Approve additional work
+Undertake repairs
+
+-- 32 of 52 --
+
+S E C T I O N 2 . 6
+Training & competency matrix
+May owns training and development for the team. This matrix sets the expected competency level for each role — use
+it to plan induction, refreshers and certification, and to spot gaps before they affect safety or service. Reassess at least
+annually and whenever a role or asset changes.
+Lead — accountable / expert · Practitioner — performs routinely · Awareness · – not required
+Safety & compliance
+Competency 	May 	Jho 	Arvin 	Jong 	Venus & Ivy
+WHS & safe work practices
+Manual handling
+Chemical handling & SDS 	–
+Fire & emergency response
+First aid
+Systems & reporting
+Competency 	May 	Jho 	Arvin 	Jong 	Venus & Ivy
+Asana — work control
+Uplisting — bookings 	– 	– 	–
+Reporting & records
+Asset register & renewal planning 	–
+The capability each role is expected to hold, and where to invest in training
+
+-- 33 of 52 --
+
+Operational skills
+Competency 	May 	Jho 	Arvin 	Jong 	Venus & Ivy
+Cleaning & presentation standards 	–
+Laundry & linen management 	– 	– 	–
+Maintenance & minor repairs 	– 	–
+Defensive driving & licence 	– 	– 	–
+Traffic management & concierge 	– 	–
+Vehicle inspection 	– 	–
+Leadership & stakeholders
+Competency 	May 	Jho 	Arvin 	Jong 	Venus & Ivy
+Staff leadership & delegation 	– 	– 	– 	–
+Budget & financial oversight 	– 	– 	–
+Guest & client liaison
+Contractor management 	– 	–
+P U T T I N G I T T O W O R K
+Every Lead and Practitioner cell should be backed by current training or certification — first aid, fire response, chemical
+handling and driver licensing in particular. May reviews the matrix at induction and at least annually, and books
+refreshers before competencies lapse.
+
+-- 34 of 52 --
+
+Checklists
+Studio apartment — cleaning & consumables routine
+Multi-level building — monthly safety & compliance inspection
+Fleet vehicle — weekly maintenance inspection (driver)
+P A R T T H R E E
+03
+Print, tick and sign. These are the working checklists behind the routines
+in part one — carried out on the ground, then logged in Asana.
+3.1
+3.2
+3.3
+Brainbox Group · Fleet & Facilities
+
+-- 35 of 52 --
+
+3.1 C H E C K L I S T · P E R P R O P E R T Y
+Studio apartment — cleaning & consumables
+Work top to bottom, back to front, so finished areas stay clean. Complete every clean within the fixed window. Report — never fix —
+any maintenance issue you find.
+1 Arrival & setup 	2 Bathroom
+3 Kitchenette 	4 Living & sleeping area
+5 Floors & finish 	6 Consumables restock
+Confirm the property is on today’s authorised list
+(Uplisting)
+Knock, confirm vacant, enter with correct key/code
+Put on PPE; set out caddy, cloths and chemicals
+Open curtains; check lights, aircon and hot water work
+Note any damage or items left behind before starting
+Strip all used linen and towels into the laundry bag
+Apply cleaner to toilet, shower and basin; let it dwell
+Scrub and flush toilet — bowl, seat, lid, base
+Clean shower walls, screen, taps and drain; clear hair
+Clean basin, vanity and taps; polish mirror streak-free
+Wipe tiles, skirting and switch plates
+Empty bin, sanitise and reline
+Mop floor; replace bath mat
+Clear and wipe benches and splashback
+Clean sink and taps; clear and deodorise drain
+Microwave inside and out; kettle descaled and emptied
+Cooktop and rangehood degreased
+Fridge wiped inside, old items removed, set to temp
+Wipe cupboard fronts and handles; check crockery clean
+Empty bin, sanitise and reline
+Dust all surfaces, shelves, sills and skirting
+Wipe high-touch points — switches, handles, remotes
+Clean mirrors and glass; check windows
+Make bed with fresh linen; check mattress protector
+Fold/arrange spare towels and blankets
+Wipe TV, bedside and desk surfaces
+Vacuum carpets, rugs and edges
+Vacuum then mop hard floors, working to the door
+Check the unit smells fresh — ventilate if needed
+Stage the room to standard (curtains, cushions, lights off)
+Bathroom: hand soap, shower gel, shampoo, conditioner
+Bathroom: 2 toilet rolls (1 spare), tissues
+Kitchen: tea, coffee, sugar, milk sachets
+Kitchen: dishwashing liquid, sponge, paper towel
+Laundry: detergent, spare bin liners
+Replace any used welcome/information items
+
+-- 36 of 52 --
+
+7 Handover & reporting
+CLEANER 	PROPERTY 	DATE / TIME 	SIGNATURE
+Final walk-through against this checklist
+Photograph the finished room
+Report any defect (leak, fault, damage) to Jho for Asana
+Remove all cleaning equipment and rubbish
+Lock up; confirm key/code secured
+Confirm completion so the property is marked ready
+
+-- 37 of 52 --
+
+3.2 C H E C K L I S T · M O N T H L Y
+Monthly safety & compliance inspection
+For a multi-level commercial building in Angeles City, Philippines. Inspect every level. Log all findings in Asana, prioritise corrective
+actions, and confirm critical items closed. Tick Pass mentally only when the item is fully compliant — otherwise raise a task.
+1 Fire safety & emergency 	2 Electrical & power
+3 Vertical transport & access 	4 Water, sanitation & HVAC
+5 Structural & general 	6 Health, pest & documents
+Fire extinguishers present, charged, tagged & in date (each
+level)
+Fire alarm panel normal; no faults; test as scheduled
+Smoke/heat detectors clean and functional
+Emergency & exit lighting illuminate on test
+Exit signage lit, visible and correct
+Fire exits, stairwells & corridors clear and unlocked
+Fire doors close and self-latch; not propped open
+Hose reels / sprinklers unobstructed; valves open
+Evacuation plan posted on each level; assembly area clear
+Valid FSIC (Fire Safety Inspection Certificate) on file
+Main & distribution panels closed, labelled, accessible
+No exposed wiring, scorching or overheating smell
+Breakers/RCD tested; no persistent tripping
+Outlets & switches secure; no overloaded boards
+Generator/genset starts & carries load on test
+Automatic transfer switch operates; fuel level adequate
+Emergency & common-area lighting fully operational
+Lift inspection certificate current & displayed
+Lift emergency phone/alarm works; levels accurate
+Stairwell handrails secure; treads even & non-slip
+Common areas & car park well lit
+Access control / CCTV operational at entries
+Water pumps & pressure normal; tanks clean & secure
+No leaks, damp or water staining (check after rain)
+Drainage & downpipes clear; no pooling
+Comfort rooms clean, stocked & fully functional
+Aircon & ventilation serviced; filters clean
+Walls, ceilings & floors free of new cracks or damage
+Waterproofing & roof sound (rainy-season check)
+Glazing, balustrades & railings secure on upper levels
+Signage, fixtures & finishes intact
+Car park markings, barriers & bollards in order
+Pest control current; no signs of infestation
+Garbage area clean, segregated & collected
+First-aid kits stocked & in date
+Occupancy & business permits current & displayed
+Sanitary permit & insurance current
+Previous inspection actions closed out
+
+-- 38 of 52 --
+
+C R I T I C A L I T E M S
+Any fire-safety, electrical or structural failure is logged immediately, prioritised, and confirmed closed before the
+inspection is signed off. Inspection conducted by May, Betina and Arvin.
+INSPECTOR(S) 	BUILDING / LEVEL 	DATE 	SIGNATURE
+
+-- 39 of 52 --
+
+3.3 C H E C K L I S T · W E E K L Y · D R I V E R
+Fleet vehicle — weekly maintenance check
+Completed by the driver each week with the engine cold. Walk around the vehicle first, then check from the cab. Report any defect
+to Jho for logging in Asana — do not operate an unsafe or unroadworthy vehicle.
+1 Exterior & body 	2 Tyres & wheels
+3 Under bonnet 	4 Cab & controls
+5 Operation & brakes 	6 Safety equipment
+DRIVER 	VEHICLE / REGO 	ODOMETER 	DATE / SIGNATURE
+Bodywork free of new dents, scratches or damage
+Headlights, tail, brake & reverse lights all work
+Indicators & hazard lights work front and rear
+Number plates secure, clean & legible
+Mirrors intact, clean & correctly adjusted
+Windscreen free of cracks/chips; wipers & washers work
+Tread depth legal on all tyres; even wear
+Pressures correct (incl. spare) — check when cold
+No cuts, bulges or embedded objects
+Wheel nuts secure; no missing nuts/caps
+Engine oil at correct level & clean
+Coolant between min/max
+Brake & clutch fluid at level
+Windscreen washer fluid topped up
+Battery secure; terminals clean; no corrosion
+Belts & hoses intact; no visible leaks under vehicle
+All seatbelts latch & retract
+Horn works; dashboard warning lights all clear
+Air-conditioning & demister work
+Interior clean; no rubbish or loose items
+Registration & insurance documents in vehicle
+Fuel card present; fuel level adequate for the day
+Foot brake firm; vehicle pulls up straight
+Handbrake holds on an incline
+Steering responsive; no pull or vibration
+Gear selection / transmission smooth
+First-aid kit present & stocked
+Warning triangle / hazard kit present
+Fire extinguisher present, charged & in date
+Jack, wheel brace & tools present
+Spare tyre serviceable & inflated
+
+-- 40 of 52 --
+
+Reference
+Response & resolution SLAs by Asana priority
+Asana conventions
+Vehicle accident & incident procedure
+Keys, codes & access register
+Document control
+Monthly report
+P A R T F O U R
+04
+The standards and records that keep the system consistent — service
+levels, system conventions, incident response, access control and
+document governance.
+4.1
+4.2
+4.3
+4.4
+4.5
+4.6
+Brainbox Group · Fleet & Facilities
+
+-- 41 of 52 --
+
+4.1 R E F E R E N C E · S E R V I C E L E V E L S
+Response & resolution SLAs
+Every Asana task carries a priority, and each priority carries a clear expectation — how fast it is acknowledged, and
+how fast it is resolved or made safe. This removes argument about what “urgent” means. SLA clocks run in business
+hours unless the item is a safety or guest-readiness risk, which runs around the clock.
+Priority 	What it means 	Acknowledge Resolve / make
+safe Examples
+P1 Critical 	Danger to people, security breach,
+or a property unable to receive a
+guest now.
+15 min 	Make safe < 1 hr Fire/electrical hazard,
+flood, no access for an
+arriving guest, vehicle
+accident.
+P2 Urgent 	Affects guest readiness, safety
+margin or fleet availability today.
+1 hr 	Same day 	Aircon failure in an
+occupied unit, blocked
+drain, vehicle
+unserviceable for a run.
+P3 Routine 	Should be fixed soon but does not
+stop operations.
+Same day 	2–3 business
+days
+Minor leak, worn fitting,
+presentation defect, light
+out in common area.
+P4
+Scheduled
+Planned or preventive work with a
+target date.
+1 business day 	By planned date Preventive maintenance,
+asset renewal, batch jobs
+from the monthly
+inspection.
+I F I N D O U B T, R A I S E I T H I G H E R
+Anything affecting safety or a guest arriving today is treated as P1/P2 until May confirms otherwise. Re-prioritising down
+is a decision; leaving something too low is a failure. A task that will breach its SLA is escalated before the deadline,
+not after.
+
+-- 42 of 52 --
+
+4.2 R E F E R E N C E · S Y S T E M S
+Asana conventions
+A consistent queue is a readable queue. These conventions keep tasks findable, sortable and free of duplicates — so
+the work register stays the single source of truth.
+Task naming
+Every task name follows the same shape, so the list scans cleanly:
+[Site] · [Category] — short description
+BBT · Electrical
+L3 kitchen power point sparking
+Unit 5 · Plumbing
+Shower draining slowly
+Fleet · Vehicle
+HiAce — front tyre wear
+Categories
+Maintenance 	Electrical 	Plumbing 	Cleaning 	Consumables 	Safety 	Access & security
+Traffic / concierge 	Vehicle 	Guest request 	Asset renewal 	Admin
+Every task carries
+The essentials 	Housekeeping rules
+P R I O R I T Y D E F I N I T I O N S
+P1 Critical · P2 Urgent · P3 Routine · P4 Scheduled — as defined in 4.1. Priority is set by May (or proposed by Jho and
+confirmed by May); it is never left blank.
+Name in the standard format
+Category & priority (P1–P4) set
+Assignee and due date
+Clear description — what, where, since when
+Photo where it helps
+Search before creating — never duplicate
+Update status as work progresses
+Comment, don’t reopen, for follow-ups
+Close only on confirmed completion
+Verbal requests become tasks before work starts
+
+-- 43 of 52 --
+
+4.3 R E F E R E N C E · P R O C E D U R E
+Vehicle accident & incident
+If a fleet vehicle is involved in an accident or incident, follow these steps in order. Safety first, then secure the scene,
+then record everything. Do not admit fault or agree to private settlement.
+Make safe & check for injuries
+Stop immediately. Check yourself and others for injury. If anyone is hurt, call emergency services first. Switch on hazard
+lights and set out the warning triangle.
+Call for help
+Where there is injury, danger or a crime, call emergency services. Then notify May immediately — do not wait until
+you return.
+Do not admit fault
+Stay calm and polite. Do not accept blame, sign anything, or agree to a private cash settlement. Exchange details only.
+Exchange & gather details
+Record the other driver’s name, contact, licence, plate, vehicle and insurer; note any witnesses and the attending officer.
+Photograph everything
+Photograph all vehicles, damage, plates, the wider scene, road conditions and any injuries. More is better.
+Report & log
+Complete the report form below, give it to May, and log a P1 task in Asana so insurance and repair follow-up is tracked
+to closure.
+1
+2
+3
+4
+5
+6
+
+-- 44 of 52 --
+
+Incident report form
+DRIVER 	VEHICLE / REGO 	DATE & TIME
+LOCATION 	WEATHER / ROAD CONDITIONS
+INJURIES (Y/N & DETAIL) 	POLICE AT TENDED (Y/N) 	OFFICER / REF NO.
+OTHER PARTY — NAME & CONTACT 	OTHER PARTY — PLATE & INSURER
+WHAT HAPPENED (SEQUENCE OF EVENTS)
+PHOTOS TAKEN (Y/N) 	ASANA TASK NO. 	REPORTED TO MAY (TIME)
+DRIVER SIGNATURE 	RECEIVED BY (MAY) 	DATE
+
+-- 45 of 52 --
+
+4.4 R E F E R E N C E · S E C U R I T Y
+Keys, codes & access register
+Access is granted on a need-to-use basis and recorded. Keys are signed out and back; codes are changed on staff
+change or after any suspected compromise. May owns the register; Jho keeps it current.
+Access levels
+Level 	Holder 	Covers
+Full 	May (Facilities Manager) 	All buildings, all properties, fleet, plant/comms rooms,
+master keys and all codes.
+Operational 	Arvin (Maintenance Lead) 	BBT & BBN common and plant areas, all properties for
+maintenance, fleet keys.
+Fleet & forecourt 	Jong (Driver / FOH) 	Fleet keys, BBT forecourt, concierge and entry areas, key
+cabinet.
+Property 	Venus & Ivy (Cleaning) 	Authorised properties on the day’s list and the
+laundry/store; issued and returned daily.
+Admin 	Jho (Assistant) 	Systems (Uplisting, Asana), the register itself and office
+areas. No master keys.
+Temporary 	Contractors / guests 	Time-limited, single-area access, issued and recovered by
+May or Arvin and logged.
+Register — what is recorded
+Key / code ID 	Location or door 	Access level 	Issued to 	Date issued 	Date returned
+Code last changed 	Notes
+KEY / CODE ID 	LOCATION / DOOR 	ACCESS LEVEL
+ISSUED TO 	DATE ISSUED 	DATE RETURNED
+
+-- 46 of 52 --
+
+C O N T R O L R U L E S
+Keys are never copied without May’s approval · codes are changed when a staff member leaves or a compromise is
+suspected · lost keys or exposed codes are reported and logged in Asana immediately · contractor and guest access is
+time-limited and recovered.
+
+-- 47 of 52 --
+
+4.5 R E F E R E N C E · G O V E R N A N C E
+Document control
+This is a controlled document. It is the authority for how Fleet & Facilities work is done; where it differs from habit or
+memory, the document wins. Changes are made deliberately, versioned, and re-issued — never edited on the run.
+D O C UM E N T O W N E R
+May Engreso · Facilities Manager
+C U R R E N T V E R S I O N
+20260628
+N E X T R E V I E W
+June 2027
+Version numbers use the date format YYYYMMDD — the date the version was issued.
+Version history
+Version 	Date 	Owner 	Summary of change
+20260628 	28 Jun 2026 	May Engreso 	Edition 2 reissue — added BBN; Asana as work register;
+team and traffic/concierge changes; asset register &
+renewal; checklists; competency matrix; reference
+section.
+20250000 	2025 	Facilities Manager 	Edition 1 — original Fleet & Facilities Operating Manual.
+C H A N G E C O N T R O L
+Proposed changes go to the document owner. Approved changes are made to the master, the version (YYYYMMDD) is
+updated, and the new version is re-issued to the team. Superseded versions are archived, not deleted. The document is
+reviewed at least at the next review date above, and whenever roles, assets or systems change materially.
+
+-- 48 of 52 --
+
+4.6 R E F E R E N C E · R E P O R T I N G
+Monthly report
+Compiled by Jho and reviewed by May at the monthly Fleet & Facilities meeting. Each metric is recorded this month
+against last month and a target, so direction matters as much as the number. Figures are drawn from Asana,
+Uplisting and the asset register — not from memory.
+Work control (Asana)
+Metric 	This month 	Last month 	Target
+Tasks raised 	—
+Tasks closed 	≈ raised
+Tasks open at month-end 	Trending down
+Recurring / repeat faults (same issue, same asset) 	Trending down
+Backlog — tasks open > 7 days 	Minimise
+Backlog — tasks open > 30 days 	0
+Accommodation & cleaning
+Metric 	This month 	Last month 	Target
+Cleans completed vs. triggered (turnover + third-day) 	100%
+Cleaning defects / re-cleans 	Minimise
+Guest-reported cleanliness issues 	0
+Buildings (BBT & BBN)
+Metric 	This month 	Last month 	Target
+Common-area / hygiene complaints 	0
+Utilities incidents (power, water, aircon downtime) 	Minimise
+
+-- 49 of 52 --
+
+Fleet
+Metric 	This month 	Last month 	Target
+Vehicle availability / uptime 	≥ 95%
+Weekly inspections completed on time 	100%
+Accidents / incidents (and at-fault rate) 	0
+Servicing & registration currency (due / overdue) 	0 overdue
+Fuel spend 	vs. budget
+Access, security & traffic
+Metric 	This month 	Last month 	Target
+Security incidents & access / key issues logged 	Minimise
+Lost keys / codes changed 	Track
+Safety & compliance
+Metric 	This month 	Last month 	Target
+Monthly safety inspection completed (Y/N) 	Yes
+Inspection findings raised 	—
+Critical items closed vs. open 	All closed
+Asset & financial
+Metric 	This month 	Last month 	Target
+Assets purchased / replaced / written off 	Per policy
+Renewals due next month (forecast spend) 	Planned
+Budget vs. actual 	Within budget
+
+-- 50 of 52 --
+
+People
+Metric 	This month 	Last month 	Target
+Workload balance / overtime & weekend call-outs 	Sustainable
+Training / certifications overdue 	0
+Residential accommodation — occupancy
+Night-stays totalled across every unit for the month, from Uplisting. The total is the headline occupancy figure for the portfolio.
+Unit 	Type 	Nights available 	Nights occupied 	Occupancy %
+Property 01 	Short-stay
+Property 02 	Short-stay
+Property 03 	Short-stay
+Property 04 	Short-stay
+Property 05 	Short-stay
+Property 06 	Residential
+Property 07 	Residential
+Property 08 	Residential
+Property 09 	Residential
+Property 10 	Residential
+Total night-stays (all units)
+R E A D I N G T H E R E P O R T
+The report exists to drive change, not to be filed. Anything off-target is tied to an Asana task or a decision in the monthly
+meeting — recurring faults, overdue compliance and ageing backlog are the first things reviewed.
+
+-- 51 of 52 --
+
+Structure creates calm. Calm
+protects people’s time.
+When this manual is followed, the Facilities Department
+becomes predictable — and predictability builds trust.
+Fleet & Facilities Operating Manual · Edition 2 · 2026 · Internal use only
+
+-- 52 of 52 --
+

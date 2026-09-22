@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #fff; }
+    .doc { box-sizing: border-box; max-width: 210mm; margin: 0 auto; background: inherit; padding: 40px clamp(20px,5vw,16mm) 80px; font-family: var(--font-body); font-weight: 300; color: var(--bb-grey-800); font-size: 10pt; line-height: 1.5; }
+    .doc h1,.doc h2,.doc h3,.doc h4 { font-family: var(--font-heading); color: var(--bb-grey-700); margin: 0; }
+    .doc h1 { font-weight: 600; }
+    .doc h2 { font-weight: 600; font-size: 16pt; color: var(--bb-pink); letter-spacing: -0.01em; margin: 24px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--bb-pink); text-wrap: balance; }
+    .doc h3 { font-weight: 600; font-size: 11.5pt; color: var(--bb-grey-700); margin: 15px 0 5px; text-wrap: balance; }
+    .doc h4 { font-weight: 600; font-size: 9.5pt; color: var(--bb-pink-700); margin: 12px 0 3px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .doc p { margin: 0 0 9px; text-wrap: pretty; }
+    .doc ul,.doc ol { margin: 0 0 9px; padding-left: 17px; }
+    .doc li { margin: 0 0 4px; text-wrap: pretty; } .doc li::marker { color: var(--bb-pink-400); }
+    .doc strong { font-weight: 600; color: var(--bb-grey-800); }
+    .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; }
+    .cover { background: var(--bb-gradient-brand); border-radius: 18px; padding: 44px 38px; color: #fff; margin-bottom: 8px; }
+    .cover .eyebrow { color: rgba(255,255,255,0.92); }
+    .cover h1 { color: #fff; font-size: 32pt; line-height: 1.04; margin: 14px 0 12px; letter-spacing: -0.015em; }
+    .cover .lede { color: rgba(255,255,255,0.95); font-size: 12pt; max-width: 94%; margin: 0; font-weight: 300; line-height: 1.5; }
+    .cover-meta { display: flex; gap: 26px; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.35); flex-wrap: wrap; }
+    .cover-meta div { font-size: 8.5pt; } .cover-meta span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; opacity: 0.8; margin-bottom: 2px; }
+    .wordmark { font-family: var(--font-logo); font-size: 16pt; letter-spacing: 0.14em; color: #fff; }
+    .doc table.t { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 9.4pt; }
+    .doc table.t th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 7px 10px; border-bottom: 1.5px solid var(--bb-pink-200); font-size: 8.7pt; }
+    .doc table.t td { padding: 7px 10px; border-bottom: 1px solid var(--bb-grey-200); vertical-align: top; }
+    .doc table.t tr:nth-child(even) td { background: var(--bb-grey-50); }
+    .doc table.t .role { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); white-space: nowrap; }
+    .doc table.t .maj { font-family: var(--font-mono); color: var(--bb-pink-700); font-weight: 600; font-size: 8.5pt; }
+    .doc table.t .min { font-family: var(--font-mono); color: var(--bb-grey-500); font-size: 8.5pt; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .note { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); border-radius: 8px; padding: 10px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 11px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag .lbl,.note .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .section-intro { color: var(--bb-grey-500); font-size: 10.5pt; margin-bottom: 12px; }
+    .part-kicker { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 2px; }
+    .rolecard { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 15px; margin-bottom: 11px; }
+    .rolecard h3 { margin: 0 0 3px; color: var(--bb-pink); font-size: 11pt; }
+    .rolecard .from { font-family: var(--font-mono); font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bb-grey-500); margin-bottom: 6px; }
+    .rolecard p { margin: 0; font-size: 9.4pt; }
+    .numlist { counter-reset: n; padding: 0; margin: 6px 0 10px; list-style: none; }
+    .numlist > li { position: relative; padding-left: 34px; margin-bottom: 10px; }
+    .numlist > li::before { counter-increment: n; content: counter(n); position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--bb-pink); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 10pt; display: flex; align-items: center; justify-content: center; }
+    .numlist > li strong { color: var(--bb-pink-700); }
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin: 6px 0 14px; }
+    .stat { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 14px; }
+    .stat .v { font-family: var(--font-heading); font-weight: 600; font-size: 17pt; color: var(--bb-pink); line-height: 1; }
+    .stat .l { font-size: 8pt; color: var(--bb-grey-500); margin-top: 6px; line-height: 1.3; }
+    .layer { display: flex; align-items: stretch; gap: 12px; margin-bottom: 9px; }
+    .layer .ln { flex: none; width: 30px; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 600; font-size: 14pt; color: #fff; background: var(--bb-pink); border-radius: 10px; }
+    .layer .lb { flex: 1; border: 1px solid var(--bb-grey-200); border-left: 3px solid var(--bb-pink-300); border-radius: 10px; padding: 9px 14px; }
+    .layer .lb h4 { margin: 0 0 2px; color: var(--bb-grey-700); } .layer .lb p { margin: 0; font-size: 9.2pt; }
+    .tree { margin: 14px 0; }
+    .tree .root { background: var(--bb-gradient-brand); color: #fff; border-radius: 12px; padding: 12px 16px; text-align: center; font-family: var(--font-heading); font-weight: 600; font-size: 12pt; }
+    .tree .branchrow { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 14px; align-items: start; }
+    .tree .branch { border: 1px solid var(--bb-pink-200); border-radius: 12px; padding: 12px; }
+    .tree .branch > .bh { background: var(--bb-pink-50); border-radius: 8px; padding: 8px 12px; text-align: center; font-family: var(--font-heading); font-weight: 600; color: var(--bb-pink-700); font-size: 10.5pt; margin-bottom: 10px; }
+    .tree .leaves { display: flex; flex-direction: column; gap: 8px; }
+    .tree .leaf { border: 1px solid var(--bb-grey-200); border-radius: 8px; padding: 8px 12px; font-size: 9.3pt; }
+    .tree .leaf b { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); display: block; }
+    .tree .leaf span { color: var(--bb-grey-500); font-size: 8.3pt; }
+    .tree .leaf.live { border-color: var(--bb-pink-300); border-left: 3px solid var(--bb-pink); }
+    .relay { margin: 14px 0 10px; }
+    .relay-node { display: flex; align-items: center; gap: 13px; border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 11px 15px; background: #fff; }
+    .relay-node .rn { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--bb-pink); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 12pt; display: flex; align-items: center; justify-content: center; }
+    .relay-node .rt { flex: 1; } .relay-node .rt b { font-family: var(--font-heading); font-weight: 600; font-size: 11pt; color: var(--bb-grey-700); }
+    .relay-node .rt span { display: block; font-size: 8.6pt; color: var(--bb-grey-500); margin-top: 1px; }
+    .relay-node .own { flex: none; font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 999px; }
+    .relay-node.mk { border-left: 4px solid var(--bb-blue-300); } .relay-node.mk .own { background: var(--bb-blue-50); color: var(--bb-blue-700); }
+    .relay-node.rev { border-left: 4px solid var(--bb-pink); } .relay-node.rev .own { background: var(--bb-pink-50); color: var(--bb-pink-700); }
+    .handover { display: flex; align-items: center; gap: 9px; margin: 5px 0 5px 44px; }
+    .handover .ar { color: var(--bb-pink); font-size: 13pt; line-height: 1; }
+    .handover .hb { font-family: var(--font-mono); font-size: 7.4pt; letter-spacing: 0.04em; color: var(--bb-grey-500); background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-radius: 999px; padding: 3px 11px; }
+    .handover.seam { margin-left: 0; justify-content: center; }
+    .handover.seam .hb { background: var(--bb-gradient-brand); color: #fff; border: 0; font-weight: 600; font-size: 8.2pt; padding: 6px 16px; letter-spacing: 0.06em; }
+    .feedback { display: flex; align-items: center; gap: 9px; margin: 7px 0 2px; justify-content: center; }
+    .feedback .hb { font-family: var(--font-mono); font-size: 7.4pt; letter-spacing: 0.04em; color: var(--bb-blue-700); background: #fff; border: 1px dashed var(--bb-blue-300); border-radius: 999px; padding: 4px 13px; }
+    .feedback .ar { color: var(--bb-blue-300); font-size: 12pt; }
+    .iface { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0 12px; }
+    .iface .box { border: 1px solid var(--bb-grey-200); border-radius: 10px; padding: 10px 13px; }
+    .iface .box.give { border-left: 3px solid var(--bb-blue-300); } .iface .box.give h4 { color: var(--bb-blue-700); }
+    .iface .box.get { border-left: 3px solid var(--bb-pink); }
+    .iface .box p { font-size: 9pt; margin: 0; }
+    .ldiv { background: var(--bb-gradient-brand); color: #fff; border-radius: 16px; padding: 30px 32px; margin-bottom: 16px; }
+    .ldiv .lk { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8.5pt; opacity: 0.92; }
+    .ldiv h1 { color: #fff; font-size: 27pt; margin: 8px 0 10px; letter-spacing: -0.015em; line-height: 1.05; }
+    .ldiv .role { font-size: 11.5pt; color: rgba(255,255,255,0.96); max-width: 94%; line-height: 1.5; margin: 0; }
+    .ldiv .io { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.32); }
+    .ldiv .io span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 6.8pt; opacity: 0.82; margin-bottom: 3px; }
+    .ldiv .io div { font-size: 8.9pt; line-height: 1.4; }
+    .ldiv .own-pill { display: inline-block; margin-top: 14px; font-family: var(--font-mono); font-size: 7.2pt; text-transform: uppercase; letter-spacing: 0.09em; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); padding: 4px 12px; border-radius: 999px; }
+    .handoff { background: var(--bb-gradient-brand); color: #fff; border-radius: 12px; padding: 13px 17px; margin: 14px 0 4px; }
+    .handoff .k { display: block; font-family: var(--font-mono); font-size: 7pt; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.9; margin-bottom: 4px; }
+    .handoff .v { font-size: 10pt; line-height: 1.45; } .handoff strong { color: #fff; }
+    /* AI transformation sub-journey */
+    .aij { border: 1px solid var(--bb-blue-100); background: var(--bb-blue-50); border-radius: 12px; padding: 12px 15px; margin: 10px 0 12px; }
+    .aij .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; color: var(--bb-blue-700); display: block; margin-bottom: 8px; }
+    .aij .ft { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 8px; align-items: stretch; }
+    .aij .c { background: #fff; border: 1px solid var(--bb-grey-200); border-radius: 9px; padding: 8px 11px; font-size: 9pt; }
+    .aij .c.to { border-left: 3px solid var(--bb-blue-300); }
+    .aij .c b { display: block; font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bb-grey-500); margin-bottom: 3px; }
+    .aij .c.to b { color: var(--bb-blue-700); }
+    .aij .arw { display: flex; align-items: center; justify-content: center; color: var(--bb-pink); font-size: 15pt; }
+    .aij .tools { font-size: 8.4pt; color: var(--bb-grey-500); margin-top: 8px; }
+    .aij .tools strong { color: var(--bb-grey-700); }
+    .sheet { padding-top: 4px; }
+    .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
+    .sheet > h2:first-child,.sheet > .part-kicker:first-child { margin-top: 4px; }
+    .sheet-ftr { display: none; }
+    
+    .toc { margin: 10px 0 4px; }
+    .toc-row { display: flex; align-items: baseline; gap: 12px; padding: 7px 2px; border-bottom: 1px solid var(--bb-grey-200); }
+    .toc-row .n { font-family: var(--font-mono); font-size: 8pt; color: var(--bb-pink); width: 22px; flex: none; }
+    .toc-row .t { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 10.5pt; }
+
+    .cover-page { min-height: 900px; display: flex; flex-direction: column; }
+    .cover-page .cat { margin-bottom: auto; } .cover-page h1 { margin-top: 0; }
+    .cover-page .cover-meta { margin-top: auto; }
+    @media print { .cover-sheet .cover-page { min-height: 252mm; } .cover-sheet { break-after: page; } }
+
+    .cover-page { position: relative; }
+    .cover-elephant { position: absolute; top: 34px; right: 36px; height: 84px; width: auto; }
+
+    .cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 32%, var(--bb-pink) 118%) !important; }
+    .cover-grad .cat { color: #fff !important; }
+    .sub-note { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.12em; font-size: 7.5pt; color: rgba(255,255,255,0.85); margin-top: 10px; }
+
+    /* ===== Subdued (Boardroom) palette ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .doc h3 { color: var(--bb-grey-700) !important; }
+    .doc h4 { color: var(--bb-grey-500) !important; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root, .handoff { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj { color: var(--bb-grey-700) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; border-left-color: var(--bb-pink) !important; }
+    .flag .lbl { color: var(--bb-grey-500) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+    .stat .v { color: var(--bb-grey-800) !important; }
+    .rolecard h3 { color: var(--bb-grey-800) !important; }
+    .pill { border-color: var(--bb-grey-300) !important; }
+    .script { border-left-color: var(--bb-pink) !important; }
+    .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
+
+    @page { size: A4 portrait; margin: 10mm; }
+    @media print {
+      .sheet + .sheet { margin-top: 8mm !important; border-top: 0 !important; }
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
+      #dc-root, .sc-host { height: auto !important; }
+      .sheet { break-inside: avoid; display: block; box-sizing: border-box; margin-top: 0 !important; border-top: 0 !important; padding-top: 0 !important; }
+      .sheet:first-of-type { break-before: auto; }
+      .sheet > h2:first-child,.sheet > .cover:first-child,.sheet > .part-kicker:first-child,.sheet > .ldiv:first-child { margin-top: 0 !important; }
+      .sheet-ftr { display: none !important; justify-content: space-between; align-items: baseline; margin-top: auto; padding-top: 5mm; border-top: 0.5pt solid var(--bb-grey-200); font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bb-grey-400); }
+      .sheet-ftr .r { color: var(--bb-pink); }
+      h2,h3,h4 { break-after: avoid !important; }
+      h2 + *, h3 + *, h4 + * { break-before: avoid; }
+      .rolecard,.note,.flag,.stat,.stats,.layer,.grid3,.tree,.cover,tr,.relay-node,.handover,.feedback,.iface,.ldiv,.handoff,.aij { break-inside: avoid; }
+      table.t { break-inside: avoid; } table.t thead { display: table-header-group; }
+      p, li { orphans: 3; widows: 3; }
+    }
+
+    /* ===== Boardroom palette (subdued) ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .cover .wordmark { color: var(--bb-pink); }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .handoff { background: var(--bb-grey-800) !important; }
+    .handover.seam .hb { background: var(--bb-pink) !important; box-shadow: none !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+
+    .cover .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.22em; font-size: 7.5pt; color: rgba(255,255,255,0.72); margin-bottom: 20px; }
+    .cover .cat { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 10px; }
+    .cover h1 { margin-top: 0; }
+    /* cover-final-override */
+    .cover.cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 30%, var(--bb-pink) 120%) !important; }
+    .cover-page { min-height: 900px !important; display: flex !important; flex-direction: column !important; }
+    .cover-page .cat { margin-bottom: auto !important; }
+    .cover-page h1 { margin-top: 0 !important; }
+    .cover-page .cover-meta { margin-top: auto !important; }
+    /* table-font-override */
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, table.rep .tg, .doc table.form .target { font-family: var(--font-body) !important; }
+    /* role-body-override */
+    .doc table.t .role { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+    /* all-table-cells-body */
+    .doc table.t td, .doc table.t td .num, .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, .doc table.t .role, table.rep td, table.rep .tg, .doc table.form td, .doc table.form .target { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+
+    .form-field { border: 1px solid var(--bb-grey-300); border-radius: 6px; height: 22px; margin-bottom: 6px; }
+    .form-label { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.07em; color: var(--bb-grey-500); font-family: var(--font-mono); display: block; margin-bottom: 3px; }
+    .doc table.form { width: 100%; border-collapse: collapse; margin: 4px 0 10px; font-size: 8.5pt; }
+    .doc table.form th { background: var(--bb-grey-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 5px 7px; border: 1px solid var(--bb-grey-300); font-size: 7.5pt; }
+    .doc table.form td { padding: 5px 7px; border: 1px solid var(--bb-grey-300); height: 20px; vertical-align: top; }
+    .doc table.form .target { color: var(--bb-grey-500); font-size: 8pt; white-space: nowrap; }
+    .doc table.form .grp td { background: #eceef1; font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 7.6pt; text-transform: uppercase; letter-spacing: 0.05em; }
+    .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 7.5pt; color: rgba(255,255,255,0.9); }
+
+    .kv{display:grid;grid-template-columns:160px 1fr;gap:5px 16px;margin:8px 0 12px;font-size:9.6pt}
+    .kv dt{font-family:var(--font-mono);font-size:7.4pt;text-transform:uppercase;letter-spacing:0.06em;color:var(--bb-grey-500);padding-top:2px}
+    .kv dd{margin:0;color:var(--bb-grey-800)}
+    .checklist{columns:2;column-gap:22px;margin:6px 0 10px}
+    .checklist .grp{break-inside:avoid;margin-bottom:10px;-webkit-column-break-inside:avoid}
+    .checklist h4{margin:0 0 5px}
+    .checklist ul{list-style:none;padding:0;margin:0}
+    .checklist li{position:relative;padding-left:19px;margin-bottom:4px;font-size:9.4pt;color:var(--bb-grey-700)}
+    .checklist li::before{content:"";position:absolute;left:0;top:2px;width:10px;height:10px;border:1.5px solid var(--bb-grey-400);border-radius:3px}
+    .ladder{display:flex;flex-direction:column;gap:6px;margin:8px 0 12px}
+    .rung{border:1px solid var(--bb-grey-200);border-left:3px solid var(--bb-grey-300);border-radius:9px;padding:8px 12px}
+    .rung.cur{border-left-color:var(--bb-pink);background:var(--bb-grey-50)}
+    .rung .lv{font-family:var(--font-heading);font-weight:600;color:var(--bb-grey-800);font-size:9.6pt}
+    .rung .lv .n{display:inline-flex;width:17px;height:17px;align-items:center;justify-content:center;background:var(--bb-grey-700);color:#fff;border-radius:50%;font-size:7.6pt;margin-right:7px;vertical-align:middle}
+    .rung.cur .lv .n{background:var(--bb-pink)}
+    .rung .cur-tag{float:right;font-family:var(--font-mono);font-size:6.4pt;text-transform:uppercase;letter-spacing:0.08em;color:var(--bb-pink);border:1px solid var(--bb-pink-200);border-radius:999px;padding:2px 7px}
+    .rung p{margin:2px 0 0;font-size:9.4pt;color:var(--bb-grey-500)}
+    .maymay{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 12px}
+    .maymay .box{border:1px solid var(--bb-grey-200);border-radius:10px;padding:10px 13px}
+    .maymay .box.may{border-left:3px solid var(--bb-pink)}
+    .maymay .box.mayn{border-left:3px solid var(--bb-grey-400)}
+    .maymay h4{margin:0 0 5px}
+    .maymay ul{margin:0;padding-left:15px;font-size:9.4pt;color:var(--bb-grey-700)}.maymay li{margin-bottom:3px}
+    .stepflow{display:flex;gap:8px;margin:8px 0 12px}
+    .stepflow .st{flex:1;border:1px solid var(--bb-grey-200);border-top:3px solid var(--bb-pink);border-radius:9px;padding:9px 11px}
+    .stepflow .st .sn{font-family:var(--font-mono);font-size:7pt;color:var(--bb-pink);font-weight:600}
+    .stepflow .st b{display:block;font-family:var(--font-heading);font-size:9pt;color:var(--bb-grey-800);margin:2px 0 3px}
+    .stepflow .st p{margin:0;font-size:9pt;color:var(--bb-grey-500)}
+    .catbadge{float:right;font-family:var(--font-mono);font-size:6.8pt;text-transform:uppercase;letter-spacing:0.08em;color:var(--bb-grey-500);background:var(--bb-grey-100);border-radius:999px;padding:3px 10px;font-weight:600}
+
+    .doc table.t .role{font-family:var(--font-body);font-weight:300;color:var(--bb-grey-800);}
+  </style>
+</helmet>
+
+<main class="doc">
+
+<section class="sheet cover-sheet"><div class="cover cover-page cover-grad"><img class="cover-elephant" src="assets/brainbox-elephant-white.png" alt=""><div class="conf">Strictly private &amp; confidential</div><div class="cat">Executive Assistant Playbook</div><h1>How the role runs, at every level of trust</h1><p class="lede">What the Executive Assistant owns, the standard each task is held to, and how the role grows as trust deepens &mdash; in one place. Supporting Tony &amp; Alexis.</p><div class="cover-meta"><div><span>Document owner</span>The directors &mdash; Tony &amp; Alexis</div><div><span>Issue date</span>Edition 1 &middot; 2026</div><div style="margin-left:auto;align-self:flex-end"><span class="wordmark">BRAINBOX</span></div></div></div></section>
+
+<section class="sheet">
+<h2>Contents</h2>
+  <div class="toc" style="columns:2;column-gap:30px">
+    <div class="toc-row" style="break-inside:avoid"><span class="n">01</span><span class="t">1.1 &middot; Purpose of this playbook</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">02</span><span class="t">1.2 &middot; The role at a glance</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">03</span><span class="t">1.3 &middot; Systems of record</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">04</span><span class="t">1.4 &middot; The five levels of trust</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">05</span><span class="t">1.5 &middot; Standards of conduct</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">06</span><span class="t">1.6 &middot; Confidentiality &amp; information security</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">07</span><span class="t">1.7 &middot; Operating philosophy &amp; escalation</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">08</span><span class="t">1.8 &middot; Daily, weekly &amp; monthly rhythm</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">09</span><span class="t">1.9 &middot; Reporting &amp; cadence</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">10</span><span class="t">1.10 &middot; Non-negotiable rules &amp; outcome</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">11</span><span class="t">2.1 &middot; Executive Assistant &mdash; duty statement</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">12</span><span class="t">2.2 &middot; Calendaring &amp; meeting management</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">13</span><span class="t">2.3 &middot; Email management</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">14</span><span class="t">2.4 &middot; Travel management</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">15</span><span class="t">2.5 &middot; Expense management</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">16</span><span class="t">2.6 &middot; Social media management</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">17</span><span class="t">2.7 &middot; Stakeholder management</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">18</span><span class="t">2.8 &middot; Project management</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">19</span><span class="t">2.9 &middot; Research &amp; briefings</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">20</span><span class="t">2.10 &middot; Event management</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">21</span><span class="t">2.11 &middot; Internal coordination &amp; liaison</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">22</span><span class="t">2.12 &middot; Knowledge &amp; information management</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">23</span><span class="t">2.13 &middot; Minor procurement</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">24</span><span class="t">2.14 &middot; Personal director support</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">25</span><span class="t">2.15 &middot; Health &amp; wellbeing</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">26</span><span class="t">2.16 &middot; Gifting &amp; gestures</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">27</span><span class="t">2.17 &middot; Errands &amp; day-to-day</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">28</span><span class="t">2.18 &middot; Client liaison</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">29</span><span class="t">2.19 &middot; Facilities support</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">30</span><span class="t">3.1 &middot; Daily operating checklist</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">31</span><span class="t">3.2 &middot; Meeting preparation &amp; follow-up</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">32</span><span class="t">3.3 &middot; Travel booking &amp; itinerary</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">33</span><span class="t">3.4 &middot; Weekly close &amp; look-ahead</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">34</span><span class="t">4.1 &middot; Service standards &mdash; what great looks like</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">35</span><span class="t">4.2 &middot; Asana conventions</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">36</span><span class="t">4.3 &middot; Escalation matrix</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">37</span><span class="t">4.4 &middot; Trust levels in full</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">38</span><span class="t">4.5 &middot; Reporting lines &amp; boundaries</span></div>
+    <div class="toc-row" style="break-inside:avoid"><span class="n">39</span><span class="t">4.6 &middot; Document control</span></div>
+  </div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.1 &middot; Purpose of this playbook</h2><p class="section-intro">The shared picture &mdash; the purpose of the role, the systems that govern every decision, the conduct and confidentiality it demands, and the rhythms that keep it predictable.</p>
+<p>This playbook exists to provide certainty. It removes ambiguity from the day, defines how work flows through the Executive Assistant role, and establishes what is owned, to what standard, and when to escalate.</p>
+<p>Executive support fails when it relies on memory, goodwill or constant verbal instruction. This playbook replaces those habits with structure &mdash; a rhythm that is predictable, traceable and repeatable, so good outcomes don&rsquo;t depend on anyone remembering the right thing at the right moment. It is written for one role, today filled by Jho, supporting both directors.</p>
+<div class="grid3"><div class="rolecard"><h3>Who it applies to</h3><p>The Executive Assistant role in all its work &mdash; normal weeks, peak demand and the directors&rsquo; travel, regardless of workload pressure or competing priorities.</p></div><div class="rolecard"><h3>When you may deviate</h3><p>Only where a director instructs it, or where confidentiality, safety or a genuine emergency requires it. Every deviation is noted and reviewed &mdash; never made quietly.</p></div><div class="rolecard"><h3>What it is not</h3><p>Not a list of everything that could ever be asked. It sets how the role works and the standard it holds &mdash; the specific tasks grow and shift as trust deepens.</p></div></div>
+<div class="flag"><span class="lbl">The aim</span>Give the directors back the one thing they can&rsquo;t make more of &mdash; their attention &mdash; by handling everything else reliably, kindly, and without being asked twice.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.2 &middot; The role at a glance</h2>
+<p class="section-intro">One role, two principals. The Executive Assistant supports both directors as a single, shared resource &mdash; protecting their time, carrying their intent, and keeping the office running so they can focus on the work only they can do.</p>
+<dl class="kv"><dt>Role holder</dt><dd>Jho &mdash; Executive Assistant</dd><dt>Reports to</dt><dd>Both directors &mdash; Tony and Alexis</dd><dt>Pattern</dt><dd>Full-time &middot; Monday&ndash;Friday</dd><dt>Operating level</dt><dd>Gatekeeper (Level 3) by default &middot; see 1.4</dd><dt>Also</dt><dd>Facilities Assistant (minor, part-time) &mdash; see 2.19</dd></dl>
+<div class="grid2"><div class="rolecard"><h3>What the role is</h3><p>A trusted partner who learns how each director works, anticipates what&rsquo;s coming, filters what reaches them, and quietly removes friction &mdash; at work and, where invited, in their personal world.</p></div><div class="rolecard"><h3>What the role is not</h3><p>Not a message-taker who waits to be told, and not a decision-maker beyond agreed guardrails. The role represents the directors; it does not replace their judgement on matters reserved to them.</p></div></div>
+<div class="flag"><span class="lbl">Serving two principals</span>Where Tony&rsquo;s and Alexis&rsquo;s needs compete, surface the clash early rather than choosing silently. Each director&rsquo;s confidences are held separately and never used to brief the other.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.3 &middot; Systems of record</h2>
+<p class="section-intro">A handful of systems govern every decision. Discipline in how we use them is what makes the role visible and auditable. If a system is wrong, it is corrected before work proceeds &mdash; personal memory never overrides it.</p>
+<table class="t"><thead><tr><th style="width:20%">System</th><th style="width:22%">Role</th><th>What it governs</th></tr></thead><tbody>
+<tr><td class="role">Asana</td><td>Work register</td><td>The single source of truth for work. Every task, request and commitment is logged, owned and tracked to close. If it isn&rsquo;t in Asana, it isn&rsquo;t happening.</td></tr>
+<tr><td class="role">Outlook</td><td>Calendar &amp; email</td><td>The authoritative diary and inbox for both directors. Time is committed nowhere else; the calendar is kept accurate in real time and is the basis of every look-ahead.</td></tr>
+<tr><td class="role">HubSpot</td><td>CRM &amp; deals</td><td>The customer and deal record. The role assists with deal tracking and keeping contact and pipeline information current and reliable.</td></tr>
+<tr><td class="role">Dext</td><td>Expenses &amp; receipts</td><td>Where receipts and invoices are captured, coded and routed. Spend is reconciled here before it reaches finance &mdash; nothing claimed without a record.</td></tr>
+<tr><td class="role">Uplisting</td><td>Bookings (shared)</td><td>The authoritative source for accommodation activity, used alongside Facilities &mdash; relevant to the minor facilities role and to hosting visiting clients.</td></tr>
+<tr><td class="role">Claude &amp; ChatGPT</td><td>AI assistants</td><td>Used to draft, summarise and research faster. Output is always reviewed before it goes out, and no confidential or personal director information is ever entered (see 1.6).</td></tr>
+</tbody></table>
+<div class="flag"><span class="lbl">The rule</span>Verbal requests become tasks before work begins. The system is the source of truth from intake to closure &mdash; that is what makes the role accountable rather than just busy. Occasional systems: Governance Manager (Blue Zoo), Test Gorilla and Survey Monkey, used from time to time on direction.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.4 &middot; The five levels of trust</h2>
+<p class="section-intro">Delegation isn&rsquo;t all-or-nothing &mdash; it grows as trust does. Every work category in part two climbs the same five levels. The role operates at Gatekeeper (Level 3) by default; individual categories may sit higher or lower by agreement with the directors.</p>
+<div class="ladder">
+<div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Works from instructions on everyday, low-stakes tasks. Output stays visible; nothing needs the keys to anything sensitive.</p></div>
+<div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Recurring access to calendar, inbox and systems, applying light judgement to keep the routine moving without being asked twice.</p></div>
+<div class="rung cur"><div class="lv"><span class="n">3</span>Gatekeeper<span class="cur-tag">Current default</span></div><p>Represents and filters on the director&rsquo;s behalf. Decides what reaches them, speaks for the office in day-to-day matters, and protects their time and focus.</p></div>
+<div class="rung"><div class="lv"><span class="n">4</span>Delegated authority</div><p>Makes decisions within agreed guardrails and handles sensitive, financial and confidential matters with discretion. The directors set the boundaries; the role owns what&rsquo;s inside them.</p></div>
+<div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Acts on the director&rsquo;s behalf on confidential, strategic and fiduciary matters &mdash; a genuine extension of them, trusted to commit in their name.</p></div>
+</div>
+<div class="note"><span class="lbl">From capacity to capability</span>At the first levels the role unlocks capacity &mdash; handing back hours lost to admin. As trust deepens it extends capability: work done in the directors&rsquo; name reaches further than they could alone. The value isn&rsquo;t the tasks ticked off &mdash; it&rsquo;s the leverage the role creates.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.5 &middot; Standards of conduct</h2>
+<p class="section-intro">The Executive Assistant represents the directors&rsquo; office in everything they do. The level of communication and professionalism must be exemplary at all times &mdash; people form an impression of Tony, Alexis and Brainbox through every exchange with this role.</p>
+<div class="grid2"><div class="rolecard"><h3>Written &amp; spoken English</h3><p>Clear, correct and warm in every register &mdash; email, message, phone and in person. Grammar, spelling and tone checked before anything goes out. Australian English; no slang when representing the office.</p></div><div class="rolecard"><h3>Professionalism</h3><p>Punctual, reliable and composed &mdash; especially under pressure. Commitments met or renegotiated early, never dropped silently. Discretion, courtesy and good judgement in every interaction.</p></div><div class="rolecard"><h3>Presentation &amp; dress</h3><p>Professional and well-presented at all times, appropriate to representing the directors &mdash; lifted further for client-facing days, events and meetings where the role is the face of the office.</p></div><div class="rolecard"><h3>Always Be Kind</h3><p>Brainbox&rsquo;s core value upheld in every exchange &mdash; with directors, colleagues, clients and suppliers alike. Firm when needed, always kind.</p></div></div>
+<div class="flag"><span class="lbl">Being kind is not being soft</span>It means representing the office with warmth and respect, protecting people&rsquo;s time, raising hard things gently and honestly, and never letting pressure make us careless with how we treat others.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.6 &middot; Confidentiality &amp; information security</h2>
+<p class="section-intro">This role is regularly in receipt of sensitive information. Protecting it is not a courtesy &mdash; it is the foundation of the trust the role rests on. Read this section as binding.</p>
+<div class="flag"><span class="lbl">The absolute rule</span>All personal data relating to the directors is considered highly sensitive and is not to be shared with any other party &mdash; including those who claim a &ldquo;right to know&rdquo;.</div>
+<div class="grid2"><div class="rolecard"><h3>Gossip is prohibited</h3><p>Speculating about, repeating or trading in information about the directors, staff or clients is strictly prohibited &mdash; in the office, online, or socially. What is learned through the role stays within the role.</p></div><div class="rolecard"><h3>Screen &amp; casual observance</h3><p>Position screens away from passers-by; lock the device when stepping away; use a privacy filter in shared spaces. Sensitive matters are not discussed where they can be overheard.</p></div><div class="rolecard"><h3>Document handling &amp; storage</h3><p>Sensitive documents are stored only in approved, access-controlled locations &mdash; never on personal devices. Printing avoided; paper filed securely or shredded. Clean desk, always.</p></div><div class="rolecard"><h3>Access points &amp; tools</h3><p>Strong, unique passwords and MFA; credentials never shared. No confidential or personal director data is entered into AI tools or any unapproved third-party service.</p></div></div>
+<div class="note"><span class="lbl">Serious misconduct</span>Unauthorised disclosure will be treated as Serious Misconduct. If anyone &mdash; staff, family, supplier, caller or colleague &mdash; presses for the directors&rsquo; personal information, the answer is a polite decline and an escalation to the director. If ever unsure whether something may be shared, say nothing and ask the relevant director first.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.7 &middot; Operating philosophy &amp; escalation</h2>
+<p class="section-intro">A few principles sit underneath every decision. They explain why the role is shaped the way it is &mdash; and how a request should move from the moment it arrives.</p>
+<div class="grid3"><div class="rolecard"><h3>Protect their attention</h3><p>The directors&rsquo; focus is the scarcest resource. Default to handling, not forwarding. Only what genuinely needs them reaches them.</p></div><div class="rolecard"><h3>Log once, track to close</h3><p>Requests are captured once in Asana, tracked until closed, and reviewed for patterns. Nothing lives only in memory or an inbox.</p></div><div class="rolecard"><h3>Anticipate, don&rsquo;t react</h3><p>Look ahead and remove problems before they land. The best work is the friction the directors never feel in the first place.</p></div></div>
+<h4>How a request moves</h4>
+<div class="stepflow"><div class="st"><div class="sn">Step 1 &middot; Intake</div><b>Routed to Jho</b><p>Requests funnel to one point of contact &mdash; nothing handled off the books.</p></div><div class="st"><div class="sn">Step 2 &middot; Log</div><b>Logged in Asana</b><p>A clear, categorised task with context &mdash; verbal becomes written.</p></div><div class="st"><div class="sn">Step 3 &middot; Decide</div><b>Handle, refer or escalate</b><p>Judged against the agreed level and guardrails.</p></div><div class="st"><div class="sn">Step 4 &middot; Act</div><b>Actioned or raised</b><p>Resolved within authority, or put to the right director with options.</p></div><div class="st"><div class="sn">Step 5 &middot; Close</div><b>Closed &amp; confirmed</b><p>Closed only on confirmation; patterns reviewed so it doesn&rsquo;t recur.</p></div></div>
+<div class="note"><span class="lbl">Handle &middot; refer &middot; escalate</span><strong>Handle</strong> within the agreed level, then note by exception. <strong>Refer</strong> what&rsquo;s better owned elsewhere, tracked to close. <strong>Escalate</strong> what needs a director&rsquo;s call &mdash; early, with context and options, not just a question.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.8 &middot; Daily, weekly &amp; monthly rhythm</h2>
+<p class="section-intro">The role runs to a known shape: clear risk early, lock the day once, protect focus, and close cleanly &mdash; with the week and month layered on top.</p>
+<table class="t"><thead><tr><th style="width:22%">The day</th><th>What runs</th></tr></thead><tbody>
+<tr><td class="role">Start of day</td><td>Scan both directors&rsquo; inboxes and calendars; flag anything urgent. Prepare a short morning brief for each.</td></tr>
+<tr><td class="role">Morning</td><td>Clear the inbox to plan; action and log requests in Asana; confirm the day&rsquo;s meetings, prep and travel. Protect focus blocks.</td></tr>
+<tr><td class="role">Through the day</td><td>Filter what reaches the directors; run meeting prep and follow-ups; handle correspondence in their voice; keep tasks moving to close.</td></tr>
+<tr><td class="role">End of day</td><td>Tidy the queue, roll open items forward visibly, and prepare tomorrow&rsquo;s look-ahead so the day closes without loose ends.</td></tr>
+</tbody></table>
+<div class="grid2"><div class="rolecard"><h3>The week</h3><p><strong>Mon</strong> plan the week; confirm meetings, travel and priorities. <strong>Tue&ndash;Thu</strong> execute &mdash; meetings, follow-ups, projects, research, correspondence. <strong>Fri</strong> close out, reconcile, and prepare next week&rsquo;s look-ahead for each director.</p></div><div class="rolecard"><h3>The month</h3><p>Reconcile expenses in Dext and close the month&rsquo;s spend; look ahead a month &mdash; travel, events, deadlines, key dates; refresh stakeholder, gifting and wellbeing touches due; review what recurred and refine systems.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.9 &middot; Reporting &amp; cadence</h2>
+<p class="section-intro">Reporting is light, factual and by exception &mdash; it exists to keep the directors informed without taking their time. The default is silence on what&rsquo;s handled and a clear flag on what isn&rsquo;t.</p>
+<table class="t"><thead><tr><th style="width:16%">Cadence</th><th style="width:30%">Report</th><th>Purpose</th></tr></thead><tbody>
+<tr><td class="role">Daily</td><td>Morning brief &amp; day-end note</td><td>The day ahead for each director; anything needing their input flagged.</td></tr>
+<tr><td class="role">Weekly</td><td>Look-ahead &amp; exceptions</td><td>Next week&rsquo;s shape, open items, decisions awaited, things worth knowing.</td></tr>
+<tr><td class="role">Monthly</td><td>Expenses &amp; commitments</td><td>Reconciled spend (Dext), upcoming travel and events, recurring issues.</td></tr>
+<tr><td class="role">Ad hoc</td><td>Immediate escalation</td><td>Anything urgent, sensitive or beyond authority &mdash; raised the moment it lands.</td></tr>
+</tbody></table>
+<div class="grid2"><div class="note"><span class="lbl">Report by exception</span>Don&rsquo;t narrate everything done &mdash; that just adds to the load. Surface what changed, what&rsquo;s at risk, and what needs a decision. Confidence comes from things quietly working.</div><div class="flag"><span class="lbl">Tailored per director</span>Tony and Alexis may want different formats, depth and timing. Learn each one&rsquo;s preference and report to it &mdash; never blur their two pictures into one.</div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part One &middot; The operating manual</div>
+<h2>1.10 &middot; Non-negotiable rules &amp; outcome</h2>
+<ol class="numlist"><li>All Director personal data is highly sensitive &mdash; never disclosed, even to those claiming a right to know. Unauthorised disclosure is Serious Misconduct.</li><li>Communication, professionalism and presentation are exemplary at all times &mdash; Always Be Kind in every exchange.</li><li>Asana is the only work register &mdash; if it isn&rsquo;t logged, it isn&rsquo;t actioned. Outlook is the only calendar authority.</li><li>The role acts within its agreed trust level &mdash; never committing in a director&rsquo;s name beyond it without approval.</li><li>Spend follows the Procurement Policy and the directors&rsquo; limits; expenses are captured in Dext, never improvised.</li><li>Where the two directors&rsquo; needs compete, the clash is surfaced &mdash; never resolved silently in favour of one.</li></ol>
+<div class="flag"><span class="lbl">Operating outcome</span>When it is followed, the role becomes predictable. Predictability builds trust, and trust is what lets the role grow &mdash; from reliable hands to a genuine extension of the directors. Structure is what lets us be kind under pressure, and calm systems make room for it.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Duty statement</div>
+<h2>2.1 &middot; Executive Assistant &mdash; duty statement</h2><p class="section-intro">What the role owns, day to day &mdash; its purpose, the decisions it may make, and when to escalate &mdash; followed by eighteen work categories, each with a task ladder from reliable hands to full trust.</p>
+<p class="section-intro">Jho &middot; the trusted partner to the directors. Reports to both directors &middot; full-time, Mon&ndash;Fri &middot; operating level: Gatekeeper (Level 3).</p>
+<p>The Executive Assistant is the single, trusted interface between the directors and the demands on their time. The role protects their attention, carries their intent into rooms and exchanges, and keeps the office running &mdash; filtering what reaches them, anticipating what&rsquo;s coming, and handling the rest reliably and discreetly. It represents the directors; it does not replace their judgement on matters reserved to them.</p>
+<div class="grid2"><div class="rolecard"><h3>Protect &amp; steward time</h3><p>Own both calendars, filter requests, and keep each director ahead of their commitments.</p></div><div class="rolecard"><h3>Be the trusted voice</h3><p>Handle correspondence and front-line contact in each director&rsquo;s voice; only what matters reaches them.</p></div><div class="rolecard"><h3>Run the operation</h3><p>Drive meetings, follow-ups, projects, travel and events to close in Asana.</p></div><div class="rolecard"><h3>Hold confidence</h3><p>Protect all sensitive and personal director information absolutely. Nothing leaks, ever.</p></div></div>
+<div class="maymay"><div class="box may"><h4>May</h4><ul><li>Access both directors&rsquo; calendars, inboxes &amp; systems</li><li>Filter, decline and defer on their behalf, kindly</li><li>Speak for the office in day-to-day matters</li><li>Commit routine time &amp; spend within agreed limits</li><li>Engage routine suppliers per the Procurement Policy</li></ul></div><div class="box mayn"><h4>May not</h4><ul><li>Disclose any personal director information</li><li>Commit in a director&rsquo;s name beyond the agreed level</li><li>Approve spend above delegated limits</li><li>Make decisions reserved to the directors</li><li>Resolve a clash between the two of them alone</li></ul></div></div>
+<div class="grid2"><div class="note"><span class="lbl">Performance is measured by</span>Control, foresight and discretion &mdash; smooth days the directors didn&rsquo;t have to assemble, low last-minute escalation, clean Asana records, accurate spend, and total confidentiality. Confidence, not activity, is the measure.</div><div class="flag"><span class="lbl">Non-negotiable</span>Confidentiality is absolute &middot; conduct is exemplary &middot; Asana is the work register &middot; the role acts within its trust level &middot; Always Be Kind.</div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Delegated authority &middot; L4</span><h2>2.2 &middot; Calendaring &amp; meeting management</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>Runs both directors&rsquo; calendars autonomously to agreed principles &mdash; committing time to strategic priorities, deciding between competing high-value requests, prioritising client and prospective-client meetings, and protecting focus without needing to ask.</div>
+<div class="grid2"><div class="rolecard"><p>Own both Outlook calendars and keep them accurate in real time</p></div><div class="rolecard"><p>Triage every meeting request &mdash; decline, defer or delegate kindly</p></div><div class="rolecard"><p>Protect daily focus blocks and buffer travel &amp; prep time</p></div><div class="rolecard"><p>Prioritise client &amp; prospective-client meetings; reprioritise around disruption</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Maintain calendars, send invites, chase RSVPs, confirm appointments, set up rooms.</p></div><div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Own the calendar in real time; protect focus blocks; build in travel &amp; prep time; run the full meeting cycle.</p></div><div class="rung"><div class="lv"><span class="n">3</span>Gatekeeper</div><p>Single point of contact for requests; prioritise client meetings; theme the week; brief each morning.</p></div><div class="rung cur"><div class="lv"><span class="n">4</span>Delegated authority<span class="cur-tag">Current</span></div><p>Run both calendars autonomously to agreed principles; commit time to strategic priorities; decide between competing high-value requests.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Own their time as a strategic asset; commit them without checking first; design the annual rhythm of work, travel and renewal.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Gatekeeper &middot; L3</span><h2>2.3 &middot; Email management</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>First line for all incoming mail in Outlook &mdash; replying to what doesn&rsquo;t need the directors, filtering so only what matters lands, and representing each of them warmly and correctly in writing.</div>
+<div class="grid2"><div class="rolecard"><p>Monitor and triage both inboxes; surface only what needs them</p></div><div class="rolecard"><p>Reply to routine &amp; scheduling mail in each director&rsquo;s voice</p></div><div class="rolecard"><p>Draft considered responses to substantive mail for sign-off</p></div><div class="rolecard"><p>Manage persistent senders diplomatically; hold the inbox during travel</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Monitor &amp; flag urgent mail; sort &amp; label; unsubscribe clutter; draft simple replies; capture action items.</p></div><div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Inbox to zero to an agreed system; reply to routine queries; draft in their voice; morning mail summary.</p></div><div class="rung cur"><div class="lv"><span class="n">3</span>Gatekeeper<span class="cur-tag">Current</span></div><p>First line for all incoming mail; respond to anything that doesn&rsquo;t need them; represent them warmly; manage persistent senders; run mail during travel.</p></div><div class="rung"><div class="lv"><span class="n">4</span>Delegated authority</div><p>Manage all mail to agreed principles; reply on substantive matters within guardrails; handle confidential matters; manage escalations.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Be their trusted voice in all written communication; decide entirely what they see; carry their intent so faithfully no one can tell the difference.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Delegated authority &middot; L4</span><h2>2.4 &middot; Travel management</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>Runs the travel programme autonomously within budget &mdash; committing to bookings and changes on their behalf, coordinating confidential or sensitive travel, and resolving crises in transit with delegated authority.</div>
+<div class="grid2"><div class="rolecard"><p>Plan &amp; book complete trips to standing preferences</p></div><div class="rolecard"><p>Build one reliable mobile itinerary per trip</p></div><div class="rolecard"><p>Arrange visas, insurance &amp; health requirements ahead</p></div><div class="rolecard"><p>Liaise with airlines, hotels &amp; hosts; rebook on disruption; track spend</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Research options; book once approved; build a day-by-day itinerary; arrange transfers; check passport &amp; visa validity.</p></div><div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Book complete trips to standing preferences; manage loyalty programmes; one reliable mobile itinerary; track against budget.</p></div><div class="rung"><div class="lv"><span class="n">3</span>Gatekeeper</div><p>Own travel end to end &amp; present a finished plan; rebook instantly on disruption; brief on each destination; on call to fix anything in transit.</p></div><div class="rung cur"><div class="lv"><span class="n">4</span>Delegated authority<span class="cur-tag">Current</span></div><p>Run the travel programme autonomously within budget; commit to bookings &amp; changes; coordinate confidential travel; resolve crises in transit.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Steward travel as part of their strategy &amp; wellbeing; commit them to any arrangement; design how they move through the world across the year.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Gatekeeper &middot; L3</span><h2>2.5 &middot; Expense management</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>Works with Finance to track and lodge all outstanding receipts from the directors, and manages minor expenditures directly &mdash; both personal and professional &mdash; on their behalf, all within the Procurement Policy and delegated limits.</div>
+<div class="grid2"><div class="rolecard"><p>Capture all receipts &amp; invoices in Dext, coded &amp; reconciled</p></div><div class="rolecard"><p>Chase and lodge outstanding director receipts with Finance</p></div><div class="rolecard"><p>Make &amp; track minor personal and professional purchases</p></div><div class="rolecard"><p>Reconcile corporate cards; prepare the monthly spend summary</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Collect &amp; file receipts in Dext; prepare expense claims; reconcile card statements; keep records tidy for tax time.</p></div><div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Manage the expense process end to end; reconcile &amp; flag discrepancies; track budget vs actuals; liaise with Finance.</p></div><div class="rung cur"><div class="lv"><span class="n">3</span>Gatekeeper<span class="cur-tag">Current</span></div><p>Track &amp; lodge outstanding receipts with Finance; manage minor expenditures directly; pre-empt budget overruns; handle confidential financial information discreetly.</p></div><div class="rung"><div class="lv"><span class="n">4</span>Delegated authority</div><p>Manage finances within full delegated limits; approve significant spend within authority; handle sensitive financial matters; authorise payments within authority.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Steward financial affairs with fiduciary care; authorise significant payments in their name; coordinate advisers; protect their financial interests.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Gatekeeper &middot; L3</span><h2>2.6 &middot; Social media management</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>Monitors the directors&rsquo; accounts and works with them to publish well-aligned content once a week, true to each personal brand &mdash; growing their presence thoughtfully and handling interactions with care. For Tony: 2 hrs/week LinkedIn outreach, building connections and arranging introductory meetings after a weekly review.</div>
+<div class="grid2"><div class="rolecard"><p>Monitor both directors&rsquo; accounts and engagement</p></div><div class="rolecard"><p>Draft &amp; publish ~weekly content aligned to each brand</p></div><div class="rolecard"><p>For Tony: 2 hrs/week LinkedIn outreach &amp; introductions</p></div><div class="rolecard"><p>Engage their network and reply to comments in voice</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Maintain profiles; schedule &amp; post approved content; monitor mentions; keep bios current; respond to routine comments.</p></div><div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Manage presence day to day; draft posts in their voice; build a content calendar; engage their network; keep the brand consistent.</p></div><div class="rung cur"><div class="lv"><span class="n">3</span>Gatekeeper<span class="cur-tag">Current</span></div><p>Publish weekly content aligned to each personal brand; shape voice &amp; presence; draft thought-leadership for review; decide what to post; handle sensitive interactions.</p></div><div class="rung"><div class="lv"><span class="n">4</span>Delegated authority</div><p>Manage the personal brand with delegated authority; publish &amp; engage in their name; shape public narrative; manage reputation issues proactively.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Be the trusted steward of their public voice; speak as them online with full authority; shape how the world sees them; protect reputation across every platform.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Delegated authority &middot; L4</span><h2>2.7 &middot; Stakeholder management</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>Manages relationships with delegated authority &mdash; representing their interests to senior stakeholders, smoothing relationships in their name, deciding who gets access and when, and repairing and protecting relationships proactively.</div>
+<div class="grid2"><div class="rolecard"><p>Maintain an organised, searchable contacts record</p></div><div class="rolecard"><p>Keep key relationships warm with timely touches</p></div><div class="rolecard"><p>Coordinate senior introductions and connections</p></div><div class="rolecard"><p>Prepare relationship briefs; brief each director on who matters and the ask</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Maintain a contacts database; log interactions; send greetings &amp; thanks; track birthdays &amp; milestones; note preferences.</p></div><div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Manage relationships actively; keep key contacts warm; coordinate introductions; prepare relationship briefs; flag who needs attention.</p></div><div class="rung"><div class="lv"><span class="n">3</span>Gatekeeper</div><p>Steward key relationships on their behalf; represent them warmly to the network; decide which need investment; brief on who matters and why.</p></div><div class="rung cur"><div class="lv"><span class="n">4</span>Delegated authority<span class="cur-tag">Current</span></div><p>Manage relationships with delegated authority; represent their interests to senior stakeholders; smooth relationships in their name; decide who gets access, and when.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Be the trusted steward of their whole network; represent them at any level; steward their reputation as if it were your own.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Gatekeeper &middot; L3</span><h2>2.8 &middot; Project management</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>Manages minor projects on the directors&rsquo; behalf and reports by exception, and participates as a reliable team member in major projects &mdash; for example the company Christmas function &mdash; holding contributors accountable for delivery.</div>
+<div class="grid2"><div class="rolecard"><p>Run minor projects end to end; report by exception</p></div><div class="rolecard"><p>Maintain plans, milestones &amp; trackers in Asana</p></div><div class="rolecard"><p>Sit on major project teams (e.g. the Christmas function)</p></div><div class="rolecard"><p>Chase contributors until items are closed; remove small inefficiencies</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Maintain task &amp; to-do lists; track deadlines; keep project files organised; format &amp; proofread; maintain simple trackers.</p></div><div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Coordinate small projects start to finish; keep plans &amp; milestones current; chase contributors; prepare status reports; remove small inefficiencies.</p></div><div class="rung cur"><div class="lv"><span class="n">3</span>Gatekeeper<span class="cur-tag">Current</span></div><p>Run minor projects &amp; report by exception; participate in major projects as a team member; hold contributors accountable; own the detail so they hold the big picture.</p></div><div class="rung"><div class="lv"><span class="n">4</span>Delegated authority</div><p>Run operations with real autonomy; make operational decisions within guardrails; commit to contracts within authority; drive initiatives in their name.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Be the operational mind behind everything they do; make significant operational decisions for them; the single point of trust for how things get done.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Delegated authority &middot; L4</span><h2>2.9 &middot; Research &amp; briefings</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>Runs research with real autonomy &mdash; forming views and making recommendations the directors can trust, handling confidential research, and profiling counterparts ahead of negotiations. AI tools assist; no sensitive data is entered (see 1.6).</div>
+<div class="grid2"><div class="rolecard"><p>Produce decision-ready briefs with a recommendation</p></div><div class="rolecard"><p>Build profiles of people &amp; organisations before meetings</p></div><div class="rolecard"><p>Monitor news and trends relevant to each director</p></div><div class="rolecard"><p>Synthesise complex material into clear judgements; curate their information diet</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Gather information asked for; compile background on people they&rsquo;re meeting; summarise articles; fact-check; build one-page profiles.</p></div><div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Research topics in depth &amp; summarise clearly; prepare briefing notes; build profiles; monitor relevant news &amp; trends.</p></div><div class="rung"><div class="lv"><span class="n">3</span>Gatekeeper</div><p>Own research &amp; brief by exception; produce decision-ready briefs with recommendations; anticipate what they&rsquo;ll need; curate the information diet.</p></div><div class="rung cur"><div class="lv"><span class="n">4</span>Delegated authority<span class="cur-tag">Current</span></div><p>Run research with real autonomy; form views &amp; make recommendations they can trust; handle confidential research; profile counterparts ahead of negotiations.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Be the trusted intelligence behind their decisions; advise at the level of a trusted counsellor; protect them from blind spots.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Gatekeeper &middot; L3</span><h2>2.10 &middot; Event management</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>Owns small events end to end and reports by exception &mdash; deciding format, venue and guest list to brief, negotiating with suppliers, pre-empting problems on the day &mdash; and supports the team on larger events under their lead.</div>
+<div class="grid2"><div class="rolecard"><p>Own small events end to end; support larger ones</p></div><div class="rolecard"><p>Decide format, venue and guest list to brief</p></div><div class="rolecard"><p>Negotiate with venues, caterers &amp; suppliers</p></div><div class="rolecard"><p>Build run-sheets; manage RSVPs, dietaries, budgets and last-minute changes</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Book restaurants &amp; tables; send &amp; track invitations; order catering; manage RSVPs &amp; headcounts; coordinate dietaries.</p></div><div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Plan &amp; run small events end to end; manage guest lists; coordinate venues, catering &amp; suppliers; build run-sheets; manage budgets.</p></div><div class="rung cur"><div class="lv"><span class="n">3</span>Gatekeeper<span class="cur-tag">Current</span></div><p>Own small events end to end &amp; report by exception; support larger events under direction; negotiate with suppliers; curate guest lists; pre-empt problems on the day.</p></div><div class="rung"><div class="lv"><span class="n">4</span>Delegated authority</div><p>Run events with delegated authority; commit to venues, budgets &amp; suppliers; host &amp; represent them when they can&rsquo;t attend; approve event spend within authority.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Be the trusted host &amp; steward of every occasion; plan &amp; commit to events in their name; curate the most sensitive gatherings; protect their privacy &amp; image.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Gatekeeper &middot; L3</span><h2>2.11 &middot; Internal coordination &amp; liaison</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>The trusted point of contact between the directors and the team &mdash; coordinating across the business, pre-empting issues, handling sensitive matters discreetly, and briefing the directors only on what needs a decision.</div>
+<div class="grid2"><div class="rolecard"><p>Be the trusted contact between directors and team</p></div><div class="rolecard"><p>Coordinate logistics, onboarding &amp; team events</p></div><div class="rolecard"><p>Pre-empt issues; handle sensitive matters discreetly</p></div><div class="rolecard"><p>Relay decisions accurately; chase actions to close</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Maintain team contact &amp; org details; help onboard joiners with logistics; coordinate team events; track key dates; relay messages accurately.</p></div><div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Coordinate across teams day to day; support the team&rsquo;s needs; keep things running smoothly between directors and business; track timelines.</p></div><div class="rung cur"><div class="lv"><span class="n">3</span>Gatekeeper<span class="cur-tag">Current</span></div><p>Trusted point of contact for the team; coordinate across the business on their behalf; pre-empt issues; handle sensitive matters discreetly; brief only on what needs a decision.</p></div><div class="rung"><div class="lv"><span class="n">4</span>Delegated authority</div><p>Coordinate with delegated authority; handle confidential people matters; represent the directors to the team on routine matters; coordinate sensitive conversations.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Be the trusted custodian of internal matters; represent the directors to the team with full trust; steward the team&rsquo;s experience &amp; culture on their behalf.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Gatekeeper &middot; L3</span><h2>2.12 &middot; Knowledge &amp; information management</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>Owns the information architecture on their behalf &mdash; deciding what to keep, archive and discard, maintaining confidential records discreetly, surfacing the right information at the right moment, and keeping institutional memory so nothing is lost.</div>
+<div class="grid2"><div class="rolecard"><p>Own the filing &amp; information architecture</p></div><div class="rolecard"><p>Make anything findable in seconds</p></div><div class="rolecard"><p>Decide what to keep, archive and discard</p></div><div class="rolecard"><p>Maintain confidential records securely; keep institutional memory</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Organise files &amp; folders logically; maintain naming conventions; file so anything is found in seconds; back up records; tag incoming information.</p></div><div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Design &amp; run the filing &amp; knowledge systems; maintain a knowledge base on priorities; capture meeting notes; manage retention; build quick-reference guides.</p></div><div class="rung cur"><div class="lv"><span class="n">3</span>Gatekeeper<span class="cur-tag">Current</span></div><p>Own the information architecture; decide what to keep, archive &amp; discard; maintain confidential records discreetly; surface the right information at the right moment.</p></div><div class="rung"><div class="lv"><span class="n">4</span>Delegated authority</div><p>Manage knowledge systems with delegated authority; handle confidential records securely; decide access &amp; permissions in their name; steward data governance &amp; retention.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Be the trusted keeper of everything they know; steward information as a strategic asset; be the single source of truth they rely on.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Gatekeeper &middot; L3</span><h2>2.13 &middot; Minor procurement</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>Owns minor procurement on the directors&rsquo; behalf within Procurement Policy limits &mdash; deciding what to source and from whom, negotiating routine terms, pre-empting supply problems, and stewarding quality and value across suppliers.</div>
+<div class="grid2"><div class="rolecard"><p>Source, compare &amp; order within Policy limits</p></div><div class="rolecard"><p>Negotiate routine terms with suppliers</p></div><div class="rolecard"><p>Manage day-to-day vendor relationships</p></div><div class="rolecard"><p>Reconcile orders against budget; escalate anything above the minor threshold</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Source &amp; compare suppliers &amp; quotes; place orders &amp; track deliveries; maintain a vendor directory; process supplier paperwork.</p></div><div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Manage routine procurement end to end; negotiate basic terms; manage vendor relationships; reconcile orders against budget; onboard &amp; vet suppliers.</p></div><div class="rung cur"><div class="lv"><span class="n">3</span>Gatekeeper<span class="cur-tag">Current</span></div><p>Own minor procurement within Policy limits; negotiate routine terms; decide what to source and from whom; pre-empt supply problems; steward quality &amp; value.</p></div><div class="rung"><div class="lv"><span class="n">4</span>Delegated authority</div><p>Manage procurement with delegated authority; negotiate &amp; commit to contracts in their name; approve spend within authority; manage strategic supplier relationships.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Be the trusted steward of procurement; negotiate &amp; commit on significant contracts; hold confidential commercial information absolutely.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Delegated authority &middot; L4</span><h2>2.14 &middot; Personal director support</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>Manages each director&rsquo;s personal affairs with delegated authority &mdash; making personal decisions within agreed guardrails, handling highly sensitive matters discreetly, and coordinating their whole life as one trusted whole. For Tony: also manages personal investment properties (tenants, agents, maintenance, paperwork) and keeps his personal vehicle licensing, registration and servicing current.</div>
+<div class="grid2"><div class="rolecard"><p>Run personal admin and the personal calendar</p></div><div class="rolecard"><p>Coordinate household appointments &amp; services</p></div><div class="rolecard"><p>Handle sensitive personal matters with discretion</p></div><div class="rolecard"><p>Anticipate and pre-empt needs; protect personal time and space fiercely</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Book personal appointments; order household essentials; arrange deliveries &amp; returns; manage a personal to-do list; book personal travel.</p></div><div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Manage personal admin end to end; coordinate household appointments &amp; services; manage the personal calendar alongside work; anticipate needs.</p></div><div class="rung"><div class="lv"><span class="n">3</span>Gatekeeper</div><p>Run the personal side on their behalf; manage personal priorities; handle sensitive personal matters discreetly; anticipate &amp; pre-empt needs; protect their time.</p></div><div class="rung cur"><div class="lv"><span class="n">4</span>Delegated authority<span class="cur-tag">Current</span></div><p>Manage personal affairs with delegated authority; make personal decisions within guardrails; handle highly sensitive matters discreetly; coordinate their whole life as one.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Steward their personal life as a trusted equal; hold their deepest confidences absolutely; protect their privacy, time &amp; wellbeing fiercely.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Standing access &middot; L2</span><h2>2.15 &middot; Health &amp; wellbeing</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>Manages each director&rsquo;s health appointments end to end &mdash; coordinating fitness and self-care routines, liaising with providers, planning downtime and recovery into the week, and anticipating wellbeing needs before they&rsquo;re voiced. Health information is highly sensitive (see 1.6).</div>
+<div class="grid2"><div class="rolecard"><p>Coordinate care &amp; appointments across providers</p></div><div class="rolecard"><p>Protect diary time for rest and exercise</p></div><div class="rolecard"><p>Track reminders, prescriptions &amp; renewals</p></div><div class="rolecard"><p>Plan downtime &amp; recovery; keep wellbeing a standing, quiet priority</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Book medical, dental &amp; wellness appointments; track reminders; order prescriptions; coordinate fitness bookings; keep routines on the calendar.</p></div><div class="rung cur"><div class="lv"><span class="n">2</span>Standing access<span class="cur-tag">Current</span></div><p>Manage health appointments end to end; coordinate fitness &amp; self-care routines; liaise with providers; plan downtime &amp; recovery into the week; anticipate needs.</p></div><div class="rung"><div class="lv"><span class="n">3</span>Gatekeeper</div><p>Steward wellbeing on their behalf; coordinate care across providers; protect time for rest &amp; exercise; handle sensitive health matters discreetly.</p></div><div class="rung"><div class="lv"><span class="n">4</span>Delegated authority</div><p>Manage wellbeing with delegated authority; coordinate sensitive medical matters discreetly; liaise with specialists in their name; protect health against the schedule.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Be the trusted guardian of their health &amp; wellbeing; hold their most sensitive health confidences; protect their wellbeing as fiercely as their work.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Delegated authority &middot; L4</span><h2>2.16 &middot; Gifting &amp; gestures</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>Manages gifting with delegated authority &mdash; committing to significant gifts on the directors&rsquo; behalf, curating gestures for key relationships in their name, and handling confidential and sensitive gifting with discretion. A natural expression of Always Be Kind.</div>
+<div class="grid2"><div class="rolecard"><p>Maintain the gifting calendar, preferences &amp; budget</p></div><div class="rolecard"><p>Choose gifts that reflect each relationship</p></div><div class="rolecard"><p>Manage corporate, client &amp; VIP gifting</p></div><div class="rolecard"><p>Arrange wrapping, delivery &amp; a timely thank-you; keep thoughtfulness consistent</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Order gifts, cards &amp; flowers on request; track birthdays &amp; occasions; maintain a gift list &amp; budget; arrange delivery; record gifts given.</p></div><div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Manage the gifting calendar end to end; source thoughtful gifts; coordinate corporate &amp; client gifting; maintain preferences; anticipate occasions.</p></div><div class="rung"><div class="lv"><span class="n">3</span>Gatekeeper</div><p>Steward gifting on their behalf; choose gifts that reflect each relationship; decide what&rsquo;s appropriate for whom; manage VIP &amp; client gifting.</p></div><div class="rung cur"><div class="lv"><span class="n">4</span>Delegated authority<span class="cur-tag">Current</span></div><p>Manage gifting with delegated authority; commit to significant gifts; curate gestures for key relationships in their name; handle confidential &amp; sensitive gifting.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Be the trusted steward of their generosity; make significant gifting decisions in their name; strengthen relationships through thoughtfulness; give as they would.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Gatekeeper &middot; L3</span><h2>2.17 &middot; Errands &amp; day-to-day</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>Owns day-to-day logistics on the directors&rsquo; behalf &mdash; deciding and prioritising what gets done, coordinating a network of trusted services, pre-empting the errands they&rsquo;d forget, and keeping their daily life frictionless.</div>
+<div class="grid2"><div class="rolecard"><p>Own day-to-day logistics; decide what gets done</p></div><div class="rolecard"><p>Coordinate trusted local services &amp; couriers</p></div><div class="rolecard"><p>Pre-empt recurring errands they&rsquo;d forget</p></div><div class="rolecard"><p>Handle sensitive errands discreetly; keep the trivial away from the directors</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Run errands &amp; pick-ups as needed; arrange deliveries, collections &amp; returns; handle post &amp; courier needs; restock essentials.</p></div><div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Manage errands end to end; coordinate couriers &amp; delivery services; anticipate routine errands; manage recurring supplies.</p></div><div class="rung cur"><div class="lv"><span class="n">3</span>Gatekeeper<span class="cur-tag">Current</span></div><p>Own day-to-day logistics on their behalf; decide &amp; prioritise what gets done; coordinate a network of trusted services; pre-empt the errands they&rsquo;d forget.</p></div><div class="rung"><div class="lv"><span class="n">4</span>Delegated authority</div><p>Manage daily logistics with delegated authority; commit to services &amp; spend on their behalf; coordinate sensitive errands discreetly; manage trusted local relationships.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Be the trusted hand behind their daily life; run their day-to-day entirely; protect their time from the trivial absolutely.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Gatekeeper &middot; L3</span><h2>2.18 &middot; Client liaison</h2>
+<div class="note"><span class="lbl">What great looks like &mdash; at the current level</span>A warm, reliable point of contact for clients on the directors&rsquo; behalf &mdash; representing them with care, coordinating client meetings and hospitality, handling sensitive client matters discreetly, and making sure every client feels expected and well looked after.</div>
+<div class="grid2"><div class="rolecard"><p>Be a warm, reliable contact for the directors&rsquo; clients</p></div><div class="rolecard"><p>Coordinate client meetings, visits &amp; hospitality</p></div><div class="rolecard"><p>Handle routine client correspondence in voice</p></div><div class="rolecard"><p>Keep client records warm; flag sensitive client matters to the director</p></div></div>
+<h4>The trust ladder for this category</h4>
+<div class="ladder"><div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Schedule client meetings &amp; calls; send confirmations &amp; reminders; log client details &amp; preferences; arrange hospitality; relay messages accurately.</p></div><div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Handle routine client correspondence in their voice; coordinate client visits &amp; stays; keep client records warm &amp; current; prepare client briefs.</p></div><div class="rung cur"><div class="lv"><span class="n">3</span>Gatekeeper<span class="cur-tag">Current</span></div><p>Be a warm, trusted point of contact for clients; represent the directors with care; coordinate client meetings &amp; hospitality; handle sensitive matters discreetly.</p></div><div class="rung"><div class="lv"><span class="n">4</span>Delegated authority</div><p>Manage client relationships with delegated authority; represent the directors&rsquo; interests to clients; handle sensitive client matters; smooth &amp; repair relationships.</p></div><div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Be the trusted face of the directors&rsquo; office to clients; represent them to any client at any level; hold every client confidence absolutely.</p></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Two &middot; Work categories</div>
+<span class="catbadge">Minor &middot; cross-functional</span><h2>2.19 &middot; Facilities support</h2>
+<p class="section-intro">Alongside the Executive Assistant role, Jho holds a minor, part-time role as Facilities Assistant. This is a supporting function carried out under the direction of the Fleet &amp; Facilities Manager &mdash; it is not directed from this playbook.</p>
+<div class="grid2"><div class="rolecard"><h3>In short, the facilities role</h3><p>Is the single intake point for facilities requests, coordinates the Asana queue under the Manager&rsquo;s direction, monitors Uplisting and prepares reporting &mdash; logging and ordering work, never prioritising or approving it alone.</p></div><div class="rolecard"><h3>How it sits with this role</h3><p>Effort is capped and protected so it never crowds out the Executive Assistant duties. When the two compete, the clash is surfaced to the directors and the Facilities Manager &mdash; not resolved silently.</p></div></div>
+<div class="flag"><span class="lbl">The authority for this part of the role</span>See the Fleet &amp; Facilities Playbook &mdash; Duty Statement 2.2, Facilities Assistant (part-time). That document defines the duties, decision rights, effort cap and escalation in full. Where the two playbooks ever differ on facilities work, the Fleet &amp; Facilities Playbook wins.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Three &middot; Checklists</div>
+<h2>3.1 &middot; Daily operating checklist</h2><p class="section-intro">Print, tick and sign. The working checklists behind the rhythms in part one &mdash; carried out day to day, then logged in Asana.</p>
+<p class="section-intro">Clear risk early, lock the day, protect focus, close cleanly. Everything actioned is logged in Asana with detail, a due date, status and next step.</p>
+<div class="checklist"><div class="grp"><h4>Start of day</h4><ul><li>Scan both directors&rsquo; inboxes; flag anything urgent</li><li>Review both calendars; confirm the day&rsquo;s meetings</li><li>Check agendas &amp; prep are ready for each meeting</li><li>Review the Asana queue; reprioritise for today</li></ul></div><div class="grp"><h4>Through the day</h4><ul><li>Triage inboxes; reply to what doesn&rsquo;t need them</li><li>Convert every new request into an Asana task</li><li>Handle running-late &amp; reschedule messages</li><li>Take meeting notes; capture actions &amp; owners</li><li>Keep tasks moving; chase what&rsquo;s due</li></ul></div><div class="grp"><h4>End of day</h4><ul><li>Update Asana statuses &amp; next steps</li><li>Roll open items forward visibly</li><li>Prepare tomorrow&rsquo;s look-ahead</li><li>Flag anything for a director&rsquo;s decision</li><li>Secure sensitive documents; clear desk &amp; lock screen</li></ul></div><div class="grp"><h4>Always</h4><ul><li>Communication exemplary; Always Be Kind</li><li>Nothing actioned that isn&rsquo;t logged in Asana</li><li>Confidentiality absolute; escalate if unsure</li></ul></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Three &middot; Checklists</div>
+<h2>3.2 &middot; Meeting preparation &amp; follow-up</h2>
+<p class="section-intro">A meeting is only as good as what happens after it. Turn conversations into commitments, and commitments into delivery &mdash; all tracked in Asana.</p>
+<div class="checklist"><div class="grp"><h4>Before</h4><ul><li>Confirm purpose, attendees and the right slot</li><li>Request or draft an agenda; circulate ahead</li><li>Prepare a briefing pack &amp; profiles of attendees</li><li>Confirm room/link, tech and any catering</li><li>Send reminders; reconfirm the day before</li><li>Prepare talking points or questions</li></ul></div><div class="grp"><h4>During</h4><ul><li>Take clear, accurate notes</li><li>Capture every action, owner and due date</li><li>Note decisions and any commitments made</li><li>Hold sensitive content in confidence</li></ul></div><div class="grp"><h4>After</h4><ul><li>Distribute notes promptly</li><li>Log every action in Asana with owner &amp; date</li><li>Chase action owners until items close</li><li>Summarise outcomes for those who missed it</li></ul></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Three &middot; Checklists</div>
+<h2>3.3 &middot; Travel booking &amp; itinerary</h2>
+<p class="section-intro">For the directors, clients and occasionally managers. Work it through in order so nothing is missed and the traveller has one reliable plan.</p>
+<div class="checklist"><div class="grp"><h4>Plan &amp; approve</h4><ul><li>Confirm purpose, dates &amp; who is travelling</li><li>Check passport/visa validity well ahead</li><li>Research options against preferences &amp; budget</li><li>Confirm the plan / get approval as needed</li></ul></div><div class="grp"><h4>Book</h4><ul><li>Book flights, accommodation &amp; transfers</li><li>Apply seat, room &amp; meal preferences; loyalty</li><li>Arrange insurance &amp; any health requirements</li><li>Capture all costs in Dext against the trip</li></ul></div><div class="grp"><h4>Pre-departure</h4><ul><li>Build one day-by-day mobile itinerary</li><li>Brief on destination logistics &amp; etiquette</li><li>Reconfirm all bookings 24&ndash;48 hrs before</li></ul></div><div class="grp"><h4>In transit &amp; after</h4><ul><li>Be on call; rebook &amp; reroute on disruption</li><li>Keep the itinerary updated in real time</li><li>Reconcile travel spend on return</li></ul></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Three &middot; Checklists</div>
+<h2>3.4 &middot; Weekly close &amp; look-ahead</h2>
+<p class="section-intro">End each week deliberately so the next one starts clean. Close out, reconcile, and prepare a clear picture for each director.</p>
+<div class="checklist"><div class="grp"><h4>Close the week</h4><ul><li>Review the Asana queue; close completed tasks</li><li>Chase stale or unclear items; update statuses</li><li>Reconcile the week&rsquo;s expenses in Dext</li><li>Note recurring issues &amp; trends to refine</li></ul></div><div class="grp"><h4>Look ahead</h4><ul><li>Build next week&rsquo;s shape for each director</li><li>Confirm meetings, prep, travel &amp; deadlines</li><li>Surface clashes between the two directors early</li><li>Check stakeholder, gifting &amp; wellbeing touches due</li></ul></div><div class="grp"><h4>Report</h4><ul><li>Prepare the weekly look-ahead &amp; exceptions note</li><li>List decisions awaited from each director</li><li>For Tony: confirm LinkedIn outreach &amp; intros</li></ul></div><div class="grp"><h4>Tidy &amp; secure</h4><ul><li>File &amp; archive the week&rsquo;s documents correctly</li><li>Confirm sensitive material is stored securely</li><li>Update contacts &amp; records touched this week</li></ul></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.1 &middot; Service standards &mdash; what great looks like</h2><p class="section-intro">The standards that keep it all consistent &mdash; what great looks like, how Asana is kept, how things escalate, the trust levels in full, reporting lines, and how this document is controlled.</p>
+<p class="section-intro">Qualitative standards across every work category &mdash; how the role should feel to the directors and everyone it touches, not targets to hit.</p>
+<div class="grid3">
+<div class="rolecard"><h3>Responsive</h3><p>Acknowledge promptly, even when the answer takes longer. Urgent and risk items reach the right director at once.</p></div>
+<div class="rolecard"><h3>Anticipatory</h3><p>The need is met before it&rsquo;s voiced. Problems removed before the directors feel them; they walk into every room prepared.</p></div>
+<div class="rolecard"><h3>Accurate</h3><p>Details are right the first time &mdash; names, times, numbers, bookings. Work is checked before it goes out.</p></div>
+<div class="rolecard"><h3>Discreet</h3><p>Confidence is absolute and security instinctive. Sensitive matters handled quietly (see 1.6).</p></div>
+<div class="rolecard"><h3>Polished</h3><p>Communication, presentation and dress are exemplary. Everything carrying the directors&rsquo; name is well-made and on-brand.</p></div>
+<div class="rolecard"><h3>Kind</h3><p>Warm and respectful with everyone &mdash; directors, colleagues, clients and suppliers. Firm when needed, kind always.</p></div>
+</div>
+<div class="flag"><span class="lbl">The single measure</span>The directors feel ahead of their commitments, never behind &mdash; their days run smoothly without them assembling them, and they never have to wonder whether something was handled. Confidence, not activity, is the measure.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.2 &middot; Asana conventions</h2>
+<p class="section-intro">Asana is the primary work platform of the role. All activities are recorded and tracked here &mdash; it is what makes the role visible, accountable and safe to hand more to over time.</p>
+<div class="grid2"><div class="rolecard"><h3>Every task carries</h3><p>Granular detail (anyone could pick it up) &middot; a due date (realistic, kept current, never blank) &middot; accurate status (reflects reality at any moment) &middot; a next step (what happens next).</p></div><div class="rolecard"><h3>The rule</h3><p>If it isn&rsquo;t in Asana, it isn&rsquo;t happening. A task gives every piece of work an owner, a history and a finish line &mdash; that&rsquo;s what makes the role accountable rather than just busy.</p></div></div>
+<div class="checklist"><div class="grp"><h4>Good practice</h4><ul><li>Log verbal requests as tasks before acting</li><li>One task per piece of work &mdash; no duplicates</li><li>Attach context, files and photos where useful</li><li>Update status &amp; next step as things move</li><li>Close only on confirmation, not assumption</li></ul></div><div class="grp"><h4>Avoid</h4><ul><li>Work held only in your head or an inbox</li><li>Tasks with no owner, date or detail</li><li>Stale statuses that no longer reflect reality</li><li>Duplicate or vague &ldquo;catch-all&rdquo; tasks</li><li>Confidential detail where it shouldn&rsquo;t sit</li></ul></div></div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.3 &middot; Escalation matrix</h2>
+<p class="section-intro">For every request, the question is the same: handle, refer, or escalate? This is the quick guide &mdash; when unsure, escalate.</p>
+<div class="grid3">
+<div class="rolecard"><h3>Handle &mdash; within level</h3><p><strong>When:</strong> routine, within the agreed Gatekeeper level and any spend limits. <strong>Examples:</strong> scheduling, routine replies, bookings, minor purchases, briefs, standard supplier orders.</p></div>
+<div class="rolecard"><h3>Refer &mdash; right owner</h3><p><strong>When:</strong> better owned by someone else &mdash; Finance, Facilities Manager, IT, an adviser. <strong>Examples:</strong> facilities work, payroll/finance queries, IT issues, legal questions.</p></div>
+<div class="rolecard"><h3>Escalate &mdash; director&rsquo;s call</h3><p><strong>When:</strong> beyond the agreed level, sensitive, above spend limits, or a clash between the two directors. <strong>Examples:</strong> disclosure requests, significant spend, commitments in a director&rsquo;s name.</p></div>
+</div>
+<div class="flag"><span class="lbl">How to escalate well</span>Raise it early, to the right director, with context and options &mdash; not just a question. For anything touching confidentiality, the default is to say nothing and ask first.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.4 &middot; Trust levels in full</h2>
+<p class="section-intro">The role operates at Gatekeeper (Level 3) by default. This is the ladder each work category climbs &mdash; lift a category by agreement with the directors as the partnership proves itself.</p>
+<div class="ladder">
+<div class="rung"><div class="lv"><span class="n">1</span>Reliable hands</div><p>Works from instructions on everyday, low-stakes tasks. Output stays visible; no access to anything sensitive.</p></div>
+<div class="rung"><div class="lv"><span class="n">2</span>Standing access</div><p>Recurring access to calendar, inbox and systems, applying light judgement to keep the routine moving unprompted.</p></div>
+<div class="rung cur"><div class="lv"><span class="n">3</span>Gatekeeper<span class="cur-tag">Current default</span></div><p>Represents and filters on the director&rsquo;s behalf &mdash; decides what reaches them, speaks for the office day to day, protects their time.</p></div>
+<div class="rung"><div class="lv"><span class="n">4</span>Delegated authority</div><p>Decides within agreed guardrails and handles sensitive, financial and confidential matters. The directors set the boundaries; the role owns what&rsquo;s inside.</p></div>
+<div class="rung"><div class="lv"><span class="n">5</span>Full trust</div><p>Acts on the director&rsquo;s behalf on confidential, strategic and fiduciary matters &mdash; a genuine extension of them, trusted to commit in their name.</p></div>
+</div>
+<div class="note"><span class="lbl">From capacity to capability</span>Begin focused; widen the categories, hand over more, and lift the level as trust grows &mdash; until the role is a genuine extension of the directors.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.5 &middot; Reporting lines &amp; boundaries</h2>
+<p class="section-intro">Because the role straddles so many functions, its reporting line and boundaries need to be unusually clear &mdash; and gently protected day to day.</p>
+<div class="flag"><span class="lbl">Reports to the directors only</span>This role reports to the directors &mdash; Tony and Alexis &mdash; and not to local managers or any other personnel. Any attempt to circumvent this line, or to introduce any form of local reporting or accountability, is politely referred to the directors. The role takes direction on tasks from many people; it answers to only two.</div>
+<div class="grid2"><div class="rolecard"><h3>Respect for leadership</h3><p>Representing the directors&rsquo; interests does not make this a manager-level role. Engage in every manager-level interaction respectfully and mindful of their leadership positions &mdash; influence comes through service and courtesy, never status.</p></div><div class="rolecard"><h3>Friendships &amp; boundaries</h3><p>The directors encourage workplace friendships &mdash; and they&rsquo;re welcome. This role stays particularly vigilant about actual and perceived boundaries and confidentiality: warmth with colleagues never softens what is held in confidence.</p></div></div>
+<div class="note"><span class="lbl">In short</span>Take tasks from many; report to two. Be warm with everyone and careful with all. When a line is tested, refer it kindly to the directors rather than resolving it in the moment.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Part Four &middot; Reference</div>
+<h2>4.6 &middot; Document control</h2>
+<p class="section-intro">This is a controlled document and a living one &mdash; it will be revised over successive iterations as the role and the trust within it grow.</p>
+<dl class="kv"><dt>Document</dt><dd>Executive Assistant Playbook</dd><dt>Edition</dt><dd>Edition 1 &middot; 2026 &mdash; first iteration</dd><dt>Role holder</dt><dd>Jho &mdash; Executive Assistant</dd><dt>Owners</dt><dd>The directors &mdash; Tony &amp; Alexis</dd><dt>Classification</dt><dd>Internal &mdash; controlled document</dd><dt>Review</dt><dd>Reviewed and re-issued by agreement; not edited on the run</dd></dl>
+<div class="flag"><span class="lbl">A living document</span>Refined each iteration &mdash; sharpening duties, lifting trust levels by agreement, and folding in what works. Suggestions are welcome; changes are confirmed by the directors and re-issued. This is the authority for how the role is done: where it differs from habit or memory, the playbook wins.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+<div class="part-kicker">Always Be Kind</div>
+<h2>Structure is what lets us be kind under pressure.</h2>
+<p class="section-intro">Calm systems make room for it &mdash; for the directors, for colleagues and clients, and for the person who holds this role. Keep this playbook close, and let it grow as the trust does.</p>
+<div class="note"><span class="lbl">Powerful People Performance</span>Executive Assistant Playbook &middot; Edition 1 &middot; 2026 &middot; brain-box.com.au &middot; Perth, Western Australia &middot; Internal &mdash; controlled document.</div><div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Executive Assistant Playbook &middot; Brainbox</span></div>
+</section>
+
+</main>
+</x-dc>
+</body>
+</html>

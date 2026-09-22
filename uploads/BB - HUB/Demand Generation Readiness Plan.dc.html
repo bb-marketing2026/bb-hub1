@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #fff; }
+    .doc { box-sizing: border-box; max-width: 210mm; margin: 0 auto; background: inherit; padding: 40px clamp(20px,5vw,16mm) 80px; font-family: var(--font-body); font-weight: 300; color: var(--bb-grey-800); font-size: 10pt; line-height: 1.5; }
+    .doc h1,.doc h2,.doc h3,.doc h4 { font-family: var(--font-heading); color: var(--bb-grey-700); margin: 0; }
+    .doc h1 { font-weight: 600; }
+    .doc h2 { font-weight: 600; font-size: 16pt; color: var(--bb-pink); letter-spacing: -0.01em; margin: 24px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--bb-pink); text-wrap: balance; }
+    .doc h3 { font-weight: 600; font-size: 11.5pt; color: var(--bb-grey-700); margin: 15px 0 5px; text-wrap: balance; }
+    .doc h4 { font-weight: 600; font-size: 9.5pt; color: var(--bb-pink-700); margin: 12px 0 3px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .doc p { margin: 0 0 9px; text-wrap: pretty; }
+    .doc ul,.doc ol { margin: 0 0 9px; padding-left: 17px; }
+    .doc li { margin: 0 0 4px; text-wrap: pretty; } .doc li::marker { color: var(--bb-pink-400); }
+    .doc strong { font-weight: 600; color: var(--bb-grey-800); }
+    .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; }
+    .cover { background: var(--bb-gradient-brand); border-radius: 18px; padding: 44px 38px; color: #fff; margin-bottom: 8px; }
+    .cover .eyebrow { color: rgba(255,255,255,0.92); }
+    .cover h1 { color: #fff; font-size: 32pt; line-height: 1.04; margin: 14px 0 12px; letter-spacing: -0.015em; }
+    .cover .lede { color: rgba(255,255,255,0.95); font-size: 12pt; max-width: 94%; margin: 0; font-weight: 300; line-height: 1.5; }
+    .cover-meta { display: flex; gap: 26px; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.35); flex-wrap: wrap; }
+    .cover-meta div { font-size: 8.5pt; } .cover-meta span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; opacity: 0.8; margin-bottom: 2px; }
+    .wordmark { font-family: var(--font-logo); font-size: 16pt; letter-spacing: 0.14em; color: #fff; }
+    .doc table.t { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 9.3pt; }
+    .doc table.t th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 7px 10px; border-bottom: 1.5px solid var(--bb-pink-200); font-size: 8.6pt; }
+    .doc table.t td { padding: 7px 10px; border-bottom: 1px solid var(--bb-grey-200); vertical-align: top; }
+    .doc table.t tr:nth-child(even) td { background: var(--bb-grey-50); }
+    .doc table.t .role { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); }
+    .doc table.t .num { font-family: var(--font-mono); color: var(--bb-pink-700); font-weight: 600; white-space: nowrap; font-size: 8.6pt; }
+    .doc table.t .stg { font-family: var(--font-mono); color: var(--bb-pink-700); font-weight: 600; font-size: 8.4pt; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .note { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); border-radius: 8px; padding: 10px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 11px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag .lbl,.note .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .section-intro { color: var(--bb-grey-500); font-size: 10.5pt; margin-bottom: 12px; }
+    .part-kicker { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 2px; }
+    .rolecard { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 15px; margin-bottom: 11px; }
+    .rolecard h3 { margin: 0 0 3px; color: var(--bb-pink); font-size: 11pt; }
+    .rolecard .from { font-family: var(--font-mono); font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bb-grey-500); margin-bottom: 6px; }
+    .rolecard p { margin: 0; font-size: 9.4pt; }
+    .numlist { counter-reset: n; padding: 0; margin: 6px 0 10px; list-style: none; }
+    .numlist > li { position: relative; padding-left: 34px; margin-bottom: 10px; }
+    .numlist > li::before { counter-increment: n; content: counter(n); position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--bb-pink); color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: 10pt; display: flex; align-items: center; justify-content: center; }
+    .numlist > li strong { color: var(--bb-pink-700); }
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin: 6px 0 14px; }
+    .stat { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 14px; }
+    .stat .v { font-family: var(--font-heading); font-weight: 600; font-size: 16pt; color: var(--bb-pink); line-height: 1; }
+    .stat .l { font-size: 8pt; color: var(--bb-grey-500); margin-top: 6px; line-height: 1.3; }
+    .aij { border: 1px solid var(--bb-blue-100); background: var(--bb-blue-50); border-radius: 12px; padding: 12px 15px; margin: 10px 0 12px; }
+    .aij .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; color: var(--bb-blue-700); display: block; margin-bottom: 8px; }
+    .aij .ft { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 8px; align-items: stretch; }
+    .aij .c { background: #fff; border: 1px solid var(--bb-grey-200); border-radius: 9px; padding: 8px 11px; font-size: 9pt; }
+    .aij .c.to { border-left: 3px solid var(--bb-blue-300); }
+    .aij .c b { display: block; font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bb-grey-500); margin-bottom: 3px; }
+    .aij .c.to b { color: var(--bb-blue-700); }
+    .aij .arw { display: flex; align-items: center; justify-content: center; color: var(--bb-pink); font-size: 15pt; }
+    .aij .tools { font-size: 8.4pt; color: var(--bb-grey-500); margin-top: 8px; } .aij .tools strong { color: var(--bb-grey-700); }
+    .kv { display: grid; grid-template-columns: 130px 1fr; gap: 4px 14px; margin: 6px 0 12px; font-size: 9.4pt; }
+    .kv dt { font-family: var(--font-mono); font-size: 7.6pt; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bb-pink-700); padding-top: 2px; }
+    .kv dd { margin: 0; }
+    .sheet { padding-top: 4px; }
+    .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
+    .sheet > h2:first-child,.sheet > .part-kicker:first-child,.sheet > .cover:first-child { margin-top: 4px; }
+    .sheet-ftr { display: none; }
+    
+    .toc { margin: 10px 0 4px; }
+    .toc-row { display: flex; align-items: baseline; gap: 12px; padding: 7px 2px; border-bottom: 1px solid var(--bb-grey-200); }
+    .toc-row .n { font-family: var(--font-mono); font-size: 8pt; color: var(--bb-pink); width: 22px; flex: none; }
+    .toc-row .t { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 10.5pt; }
+
+    .cover .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.22em; font-size: 7.5pt; color: rgba(255,255,255,0.72); margin-bottom: 20px; }
+    .cover .cat { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 10px; }
+    .cover-page { min-height: 900px; display: flex; flex-direction: column; }
+    .cover-page .cat { margin-bottom: auto; } .cover-page h1 { margin-top: 0; }
+    .cover-page .cover-meta { margin-top: auto; }
+    @media print { .cover-sheet .cover-page { min-height: 252mm; } .cover-sheet { break-after: page; } }
+
+    .cover-page { position: relative; }
+    .cover-elephant { position: absolute; top: 34px; right: 36px; height: 84px; width: auto; }
+
+    .cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 32%, var(--bb-pink) 118%) !important; }
+    .cover-grad .cat { color: #fff !important; }
+    .sub-note { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8.5pt; font-weight: 600; color: #fff; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.28); display: inline-block; }
+
+    /* ===== Subdued (Boardroom) palette ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .doc h3 { color: var(--bb-grey-700) !important; }
+    .doc h4 { color: var(--bb-grey-500) !important; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root, .handoff { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj { color: var(--bb-grey-700) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; border-left-color: var(--bb-pink) !important; }
+    .flag .lbl { color: var(--bb-grey-500) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+    .stat .v { color: var(--bb-grey-800) !important; }
+    .rolecard h3 { color: var(--bb-grey-800) !important; }
+    .pill { border-color: var(--bb-grey-300) !important; }
+    .script { border-left-color: var(--bb-pink) !important; }
+    .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
+
+    @page { size: A4 portrait; margin: 10mm; }
+    @media print {
+      .sheet + .sheet { margin-top: 8mm !important; border-top: 0 !important; }
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
+      #dc-root, .sc-host { height: auto !important; }
+      .sheet { break-inside: avoid; display: block; box-sizing: border-box; margin-top: 0 !important; border-top: 0 !important; padding-top: 0 !important; }
+      .sheet:first-of-type { break-before: auto; }
+      .sheet > h2:first-child,.sheet > .cover:first-child,.sheet > .part-kicker:first-child { margin-top: 0 !important; }
+      .sheet-ftr { display: none !important; justify-content: space-between; align-items: baseline; margin-top: auto; padding-top: 5mm; border-top: 0.5pt solid var(--bb-grey-200); font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bb-grey-400); }
+      .sheet-ftr .r { color: var(--bb-pink); }
+      h2,h3,h4 { break-after: avoid !important; } h2 + *, h3 + *, h4 + * { break-before: avoid; }
+      .rolecard,.note,.flag,.stat,.stats,.grid3,.cover,tr,.aij,.kv { break-inside: avoid; }
+      table.t { break-inside: avoid; } table.t thead { display: table-header-group; }
+      .doc table.form, .doc table.form tr { break-inside: avoid; }
+      p, li { orphans: 3; widows: 3; }
+    }
+
+    .jbanner { display: flex; align-items: center; gap: 12px; border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 11px 15px; margin: 8px 0 12px; flex-wrap: wrap; }
+    .jbanner .fn { font-family: var(--font-heading); font-weight: 600; font-size: 12pt; color: var(--bb-grey-700); }
+    .jbanner .jtag { font-family: var(--font-mono); font-size: 7pt; text-transform: uppercase; letter-spacing: 0.08em; background: var(--bb-pink-50); color: var(--bb-pink-700); border: 1px solid var(--bb-pink-200); border-radius: 999px; padding: 3px 10px; }
+    .jbanner .q { font-style: italic; color: var(--bb-grey-500); font-size: 9.5pt; margin-left: auto; }
+    .timeline { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 8px 0 14px; }
+    .tl { border-radius: 10px; padding: 10px 13px; }
+    .tl .d { font-family: var(--font-heading); font-weight: 600; font-size: 12pt; line-height: 1; }
+    .tl .tt { font-size: 8.4pt; margin-top: 4px; color: var(--bb-grey-500); }
+    .tl.p1 { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); } .tl.p1 .d { color: var(--bb-pink); }
+    .tl.p2 { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); } .tl.p2 .d { color: var(--bb-blue-700); }
+    .tl.p3 { background: var(--bb-grey-50); border: 1px solid var(--bb-grey-200); } .tl.p3 .d { color: var(--bb-grey-700); }
+    .phase { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 14px 16px; margin: 0 0 12px; }
+    .phase.p1 { border-left: 4px solid var(--bb-pink); }
+    .phase.p2 { border-left: 4px solid var(--bb-blue-300); }
+    .phase.p3 { border-left: 4px solid var(--bb-grey-400); }
+    .phase .ph { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+    .phase .badge { font-family: var(--font-mono); font-size: 7.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 10px; border-radius: 999px; color: #fff; }
+    .phase.p1 .badge { background: var(--bb-pink); } .phase.p2 .badge { background: var(--bb-blue-300); } .phase.p3 .badge { background: var(--bb-grey-700); }
+    .phase .htag { font-family: var(--font-mono); font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bb-grey-500); }
+    .phase .intro { font-size: 9.3pt; color: var(--bb-grey-800); margin: 0 0 8px; }
+    .phase ul { margin: 0 0 9px; padding-left: 16px; font-size: 9pt; }
+    .phase li { margin-bottom: 4px; }
+    .measure { border-radius: 9px; padding: 9px 12px; font-size: 9pt; }
+    .measure .ml { font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 3px; color: var(--bb-grey-500); }
+    .measure b { font-weight: 600; }
+    .phase.p1 .measure { background: var(--bb-pink-50); } .phase.p1 .measure b { color: var(--bb-pink-700); }
+    .phase.p2 .measure { background: var(--bb-blue-50); } .phase.p2 .measure b { color: var(--bb-blue-700); }
+    .phase.p3 .measure { background: var(--bb-grey-50); } .phase.p3 .measure b { color: var(--bb-grey-700); }
+
+    .levels { display: grid; grid-template-columns: repeat(5,1fr); gap: 8px; margin: 8px 0 12px; }
+    .lvl { border: 1px solid var(--bb-grey-200); border-radius: 10px; padding: 10px 9px; }
+    .lvl .ln { font-family: var(--font-heading); font-weight: 600; font-size: 14pt; color: var(--bb-pink); line-height: 1; }
+    .lvl .lt { font-family: var(--font-heading); font-weight: 600; font-size: 8.7pt; color: var(--bb-grey-700); margin: 5px 0 2px; line-height: 1.15; }
+    .lvl .ls { font-size: 7.5pt; color: var(--bb-grey-500); line-height: 1.28; }
+    .levels .growth { grid-column: 1 / -1; font-family: var(--font-mono); font-size: 7pt; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bb-pink-700); }
+    /* cover-final-override */
+    .cover.cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 30%, var(--bb-pink) 120%) !important; }
+    .cover-page { min-height: 900px !important; display: flex !important; flex-direction: column !important; }
+    .cover-page .cat { margin-bottom: auto !important; }
+    .cover-page h1 { margin-top: 0 !important; }
+    .cover-page .cover-meta { margin-top: auto !important; }
+    /* table-font-override */
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, table.rep .tg, .doc table.form .target { font-family: var(--font-body) !important; }
+    /* role-body-override */
+    .doc table.t .role { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+    /* all-table-cells-body */
+    .doc table.t td, .doc table.t td .num, .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, .doc table.t .role, table.rep td, table.rep .tg, .doc table.form td, .doc table.form .target { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+
+    .form-field { border: 1px solid var(--bb-grey-300); border-radius: 6px; height: 22px; margin-bottom: 6px; }
+    .form-label { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.07em; color: var(--bb-grey-500); font-family: var(--font-mono); display: block; margin-bottom: 3px; }
+    .doc table.form { width: 100%; border-collapse: collapse; margin: 4px 0 10px; font-size: 8.5pt; }
+    .doc table.form th { background: var(--bb-grey-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 5px 7px; border: 1px solid var(--bb-grey-300); font-size: 7.5pt; }
+    .doc table.form td { padding: 5px 7px; border: 1px solid var(--bb-grey-300); height: 20px; vertical-align: top; }
+    .doc table.form .target { color: var(--bb-grey-500); font-size: 8pt; white-space: nowrap; }
+    .doc table.form .grp td { background: var(--bb-grey-100, #eceef1); font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 7.6pt; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* ===== readiness: legend + landscape detailed timetable ===== */
+    .legend { display:flex; gap:18px; flex-wrap:wrap; margin:6px 0 10px; font-size:8pt; color:var(--bb-grey-500); }
+    .legend .lg { display:flex; align-items:center; gap:7px; }
+    .legend .sw { width:16px; height:14px; border-radius:3px; border:1px solid var(--bb-grey-200); }
+    .legend .sw.bb { background:var(--bb-pink-50); border-left:3px solid var(--bb-pink); }
+    .legend .sw.off { background:var(--bb-blue-50); border-left:3px solid var(--bb-blue-300); }
+    .legend .sw.role { border-left:3px solid var(--bb-grey-300); }
+    .ttl { width:100%; border-collapse:collapse; margin:6px 0 10px; table-layout:fixed; }
+    .ttl th { background:var(--bb-grey-50); color:var(--bb-grey-700); font-family:var(--font-heading); font-weight:600; text-align:left; padding:6px 8px; border:1px solid var(--bb-grey-300); font-size:8.6pt; }
+    .ttl td { padding:7px 9px; border:1px solid var(--bb-grey-200); vertical-align:top; }
+    .ttl .tcol { font-family:var(--font-mono); font-size:7pt; color:var(--bb-grey-500); white-space:nowrap; width:8%; vertical-align:top; }
+    .ttl .brk td { background:var(--bb-grey-100,#eceef1); font-family:var(--font-mono); font-size:7pt; letter-spacing:0.06em; text-transform:uppercase; color:var(--bb-grey-500); text-align:center; padding:3px; }
+    .ttl .s-bb { border-left:3px solid var(--bb-pink); background:var(--bb-pink-50); }
+    .ttl .s-off { border-left:3px solid var(--bb-blue-300); background:var(--bb-blue-50); }
+    .ttl .s-role { border-left:3px solid var(--bb-grey-300); }
+    .ttl .bt { font-family:var(--font-heading); font-weight:600; font-size:8.7pt; color:var(--bb-grey-700); margin-bottom:3px; line-height:1.2; }
+    .ttl .bd { font-size:8pt; color:var(--bb-grey-500); line-height:1.34; }
+    @page landscape-page { size: A4 landscape; margin: 10mm; }
+    @media screen { .sheet.land { width:277mm; margin-left:calc((210mm - 277mm)/2); } }
+    @media print {
+      .ttl { break-inside: auto; }
+      .ttl tr { break-inside: avoid; }
+      .ttl thead { display: table-header-group; }
+      .sheet.land { page: landscape-page; min-height: 190mm; }
+    }
+  </style>
+</helmet>
+
+<main class="doc">
+
+<section class="sheet cover-sheet">
+  <div class="cover cover-page cover-grad">
+    <img class="cover-elephant" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="conf">Strictly private &amp; confidential</div>
+    <div class="cat">Demand Generation &middot; Readiness Plan</div>
+    <h1>Getting the team ready for 01 August</h1>
+    <p class="lede">A day-by-day, hour-by-hour plan to build the Demand Generation team&rsquo;s capacity before the playbook comes into effect &mdash; four working weeks from Monday 6 July, balanced across role competencies, Brainbox familiarity and offshoring familiarity, with Abi leading and two new Associates ramping to independent delivery.</p>
+    <div class="sub-note">Supports the Demand Generation Playbook</div>
+    <div class="cover-meta">
+      <div><span>Document owner</span>Corporate Services Director</div>
+      <div><span>Issue date</span>July 2026</div>
+      <div><span>Runs</span>6&ndash;31 July 2026</div>
+      <div style="margin-left:auto;align-self:flex-end"><span class="wordmark">BRAINBOX</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet">
+  <h2>Purpose</h2>
+  <p>The Demand Generation Playbook comes into effect on <strong>Friday 1 August 2026</strong> &mdash; with the first full operating week beginning <strong>Monday 4 August</strong>. This plan gets the team ready to deliver from that first week, rather than learning on the job once the clock is running.</p>
+  <p>The starting point is uneven. <strong>Abi</strong> is a senior, experienced Associate who already knows the motions, the tools and the market &mdash; she leads the ramp and carries delivery. The <strong>two other Associates are brand new</strong> and start from first principles. The plan runs two tracks in parallel: Abi sets up the function and coaches, while the new Associates move deliberately from reading the playbook, to practising, to supervised live work, to independent delivery.</p>
+  <p>Every day follows the standard working shape &mdash; <strong>8:30 to 5:00, Monday to Friday</strong>, with an hour for lunch and fifteen-minute breaks mid-morning and mid-afternoon. Time is balanced across three streams: <strong>role competencies (80%)</strong>, <strong>Brainbox familiarity (10%)</strong> and <strong>offshoring familiarity (10%)</strong>, with the two familiarity streams front-loaded into the first week.</p>
+  <div class="note"><span class="lbl">How this plan is organised</span>A readiness overview, roles and the working-day shape, then each week laid out in detail across two landscape pages &mdash; every block built out with what it covers and its output &mdash; closing with a go/no-go readiness checklist for the Corporate Services Director.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <h2>Contents</h2>
+  <div class="toc">
+    <div class="toc-row"><span class="n">01</span><span class="t">Purpose</span></div>
+    <div class="toc-row"><span class="n">02</span><span class="t">Readiness overview &mdash; the four-week arc</span></div>
+    <div class="toc-row"><span class="n">03</span><span class="t">Roles during the ramp</span></div>
+    <div class="toc-row"><span class="n">04</span><span class="t">The working day &amp; activity balance</span></div>
+    <div class="toc-row"><span class="n">05</span><span class="t">Week 1 &middot; Foundations (6&ndash;10 Jul)</span></div>
+    <div class="toc-row"><span class="n">06</span><span class="t">Week 2 &middot; Skills build (13&ndash;17 Jul)</span></div>
+    <div class="toc-row"><span class="n">07</span><span class="t">Week 3 &middot; Supervised live practice (20&ndash;24 Jul)</span></div>
+    <div class="toc-row"><span class="n">08</span><span class="t">Week 4 &middot; Dress rehearsal &amp; go-live prep (27&ndash;31 Jul)</span></div>
+    <div class="toc-row"><span class="n">09</span><span class="t">Readiness checklist &mdash; go / no-go</span></div>
+    <div class="toc-row"><span class="n">10</span><span class="t">Go-live &amp; first week</span></div>
+  </div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <h2>Readiness overview &mdash; the four-week arc</h2>
+  <p class="section-intro">Each week has a single job, and each builds on the last. The new Associates move from knowing, to doing under guidance, to doing alone; Abi moves from teaching, to supervising, to trusting.</p>
+  <table class="t">
+    <thead><tr><th style="width:20%">Week</th><th style="width:34%">Focus</th><th>Outcome by Friday</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Week 1 &middot; 6&ndash;10 Jul<br>Foundations</td><td>Brainbox &amp; offshoring immersion, then the ICP, the tools (incl. an Abi-led HubSpot half-day), role capability maps, the weekly rhythm and standards.</td><td>New Associates understand the company, the model and the role, have every tool set up, and pass a first knowledge check.</td></tr>
+      <tr><td class="role">Week 2 &middot; 13&ndash;17 Jul<br>Skills build</td><td>Research to standard, a standard-campaign walkthrough, messaging and the Insight Article, call and objection practice, shadowing Abi live.</td><td>Each Associate has a qualified, enriched starter list and can draft and role-play to standard.</td></tr>
+      <tr><td class="role">Week 3 &middot; 20&ndash;24 Jul<br>Supervised live</td><td>First real outreach, first live calls, first booked appointments &mdash; every action reviewed before it goes out.</td><td>Each Associate has run live outreach and booked at least one real, attended appointment.</td></tr>
+      <tr><td class="role">Week 4 &middot; 27&ndash;31 Jul<br>Dress rehearsal</td><td>Full weekly cadence run as if live, HubSpot hygiene, August campaign loaded, go/no-go review.</td><td>Team signed off as ready; the August campaign is loaded and calendars are clear for Monday 4 Aug.</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">The target they are ramping toward</span>From go-live, the function delivers <strong>at least six in-person appointments for the Business Development Manager every week</strong>, measured as booked and attended. Week 4 confirms each Associate can contribute to that baseline before it becomes the standard.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <h2>Roles during the ramp</h2>
+  <p class="section-intro">One experienced lead, two new starters, and a clear oversight line. The ramp is deliberately front-loaded onto Abi so the new Associates never practise a bad habit unobserved.</p>
+  <div class="rolecard"><h3>Abi &mdash; Lead Associate</h3><div class="from">Sets up &middot; trains &middot; supervises &middot; carries delivery</div><p>Provisions systems, runs all training, models every motion, reviews the new Associates&rsquo; work before it goes live, and keeps the Australian pipeline warm herself throughout &mdash; so the function is already moving when the new Associates join it. Owns the readiness call with the CSD.</p></div>
+  <div class="rolecard"><h3>The two new Associates</h3><div class="from">Brand new &middot; onboarding to independent delivery</div><p>Start from first principles. Learn the company and the offshoring model, then the ICP, personas and tools; practise research, messaging and calls; then move to supervised live work. By week 4 each runs the full weekly rhythm under light supervision and is signed off to deliver.</p></div>
+  <div class="note"><span class="lbl">Oversight</span>The <strong>Corporate Services Director</strong> holds a short check-in at the end of weeks 1 and 3, and chairs the go/no-go readiness review at the end of week 4. Abi reports progress against this plan at each.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <h2>The working day &amp; activity balance</h2>
+  <p class="section-intro">Every day runs the same shape. Seven productive hours a day, thirty-five a week, one hundred and forty across the ramp &mdash; balanced deliberately across three streams.</p>
+  <div class="grid2">
+    <div>
+      <h4>The standard day</h4>
+      <table class="t"><tbody>
+        <tr><td class="role">08:30&ndash;10:00</td><td>Work block 1 &middot; 1h 30m</td></tr>
+        <tr><td class="role">10:00&ndash;10:15</td><td>Morning break</td></tr>
+        <tr><td class="role">10:15&ndash;12:00</td><td>Work block 2 &middot; 1h 45m</td></tr>
+        <tr><td class="role">12:00&ndash;13:00</td><td>Lunch</td></tr>
+        <tr><td class="role">13:00&ndash;14:45</td><td>Work block 3 &middot; 1h 45m</td></tr>
+        <tr><td class="role">14:45&ndash;15:00</td><td>Afternoon break</td></tr>
+        <tr><td class="role">15:00&ndash;17:00</td><td>Work block 4 &middot; 2h 00m</td></tr>
+      </tbody></table>
+    </div>
+    <div>
+      <h4>The activity balance</h4>
+      <table class="t">
+        <thead><tr><th>Stream</th><th>Share</th><th>Hours</th></tr></thead>
+        <tbody>
+          <tr><td class="role">Role competencies</td><td>80%</td><td>~112h</td></tr>
+          <tr><td class="role">Brainbox familiarity</td><td>10%</td><td>~14h</td></tr>
+          <tr><td class="role">Offshoring familiarity</td><td>10%</td><td>~14h</td></tr>
+          <tr><td class="role">Total</td><td>100%</td><td>140h</td></tr>
+        </tbody>
+      </table>
+      <div class="legend"><div class="lg"><span class="sw role"></span>Role competencies &middot; 80%</div><div class="lg"><span class="sw bb"></span>Brainbox familiarity &middot; 10%</div><div class="lg"><span class="sw off"></span>Offshoring familiarity &middot; 10%</div></div>
+    </div>
+  </div>
+  <div class="note"><span class="lbl">Front-loaded familiarity</span>Because the two Associates are brand new, the Brainbox and offshoring streams are concentrated in <strong>week 1</strong> &mdash; a full company-immersion day and a full offshoring-model day &mdash; then taper to short end-of-day reinforcement as live practice takes over. Weeks 3 and 4 are almost entirely role competency.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet land">
+  <div class="part-kicker">Week 1 &middot; 6&ndash;10 July</div>
+  <h2>Week 1 &mdash; Foundations &middot; Monday &amp; Tuesday</h2>
+  <div class="legend"><div class="lg"><span class="sw role"></span>Role competencies &middot; 80%</div><div class="lg"><span class="sw bb"></span>Brainbox familiarity &middot; 10%</div><div class="lg"><span class="sw off"></span>Offshoring familiarity &middot; 10%</div></div>
+  <table class="ttl"><thead><tr><th class="tcol">Time</th><th>Monday 6 Jul</th><th>Tuesday 7 Jul</th></tr></thead><tbody><tr><td class="tcol">08:30&ndash;10:00</td><td class="s-bb"><div class="bt">Welcome & the company</div><div class="bd">Introductions to the wider team and the people the Associates will work alongside. Abi covers who Brainbox is, the group and its brands, the mission, and what the &ldquo;Always Be Kind&rdquo; ethos means in daily decisions &mdash; not just as a slogan. Output: a clear, confident picture of the company they have joined.</div></td><td class="s-off"><div class="bt">The offshoring model</div><div class="bd">What offshoring actually is, how Brainbox&rsquo;s managed model works, and why Australian SMEs turn to it &mdash; cost, capacity and access to skills. Abi introduces the Philippines delivery centre and how it is run. Output: Associates can explain the model plainly and accurately.</div></td></tr><tr class="brk"><td class="tcol">10:00</td><td colspan="2">Morning break</td></tr><tr><td class="tcol">10:15&ndash;12:00</td><td class="s-bb"><div class="bt">Structure, values & context</div><div class="bd">Abi walks the group structure and reporting lines, where the Revenue Playbook sits and how Demand Generation feeds Sales, and the values that govern conduct and escalation. Associates map their own role into the whole. Output: they understand where they fit and who does what around them.</div></td><td class="s-off"><div class="bt">The service & delivery centre</div><div class="bd">The roles Brainbox places and how recruitment, training, supervision and quality are managed day to day; what &ldquo;managed service&rdquo; means versus a freelance marketplace. Output: Associates understand exactly what is being sold and how it is delivered.</div></td></tr><tr class="brk"><td class="tcol">12:00</td><td colspan="2">Lunch</td></tr><tr><td class="tcol">13:00&ndash;14:45</td><td class="s-bb"><div class="bt">Read the Demand Generation Playbook</div><div class="bd">A guided, section-by-section read-through with Abi &mdash; the purpose of the role, the weekly appointment baseline, the qualified-appointment definition and the seam with Sales. Associates annotate their own copy and capture questions as they go. Output: a marked-up playbook and a list of questions.</div></td><td class="s-off"><div class="bt">The proof story</div><div class="bd">Brainbox runs its own marketing and demand engine offshore &mdash; so the firm is its own best proof. Abi walks the loaded local-cost comparison and the outcomes it produces. Output: Associates can tell a credible, first-hand proof story.</div></td></tr><tr class="brk"><td class="tcol">14:45</td><td colspan="2">Afternoon break</td></tr><tr><td class="tcol">15:00&ndash;17:00</td><td class="s-bb"><div class="bt">Playbook cont&rsquo;d & Q&A</div><div class="bd">Finish the playbook and hold an open Q&amp;A with Abi on anything unclear, plus expectations and ways of working for the four weeks. Associates talk the role back in their own words to check understanding. Output: a shared, tested picture of the role and the ramp.</div></td><td class="s-off"><div class="bt">Offshoring Q&A with Abi</div><div class="bd">The common myths, fears and objections about offshoring, and the honest, respectful answers to each; how offshoring is framed in outreach without overselling. Output: Associates are comfortable and confident discussing it.</div></td></tr></tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet land">
+  <div class="part-kicker">Week 1 &middot; 6&ndash;10 July</div>
+  <h2>Week 1 &mdash; Foundations &middot; Wednesday &amp; Thursday</h2>
+  <div class="legend"><div class="lg"><span class="sw role"></span>Role competencies &middot; 80%</div><div class="lg"><span class="sw bb"></span>Brainbox familiarity &middot; 10%</div><div class="lg"><span class="sw off"></span>Offshoring familiarity &middot; 10%</div></div>
+  <table class="ttl"><thead><tr><th class="tcol">Time</th><th>Wednesday 8 Jul</th><th>Thursday 9 Jul</th></tr></thead><tbody><tr><td class="tcol">08:30&ndash;10:00</td><td class="s-role"><div class="bt">ICP — Australian SMEs, 10–100</div><div class="bd">The ideal customer profile in detail: firmographics, target sectors, and the signals that mark a strong fit versus a poor one. Abi shows worked examples of fit and non-fit accounts. Output: Associates can spot and defend a fit account.</div></td><td class="s-role"><div class="bt">Outlook setup & scheduling</div><div class="bd">Email, calendar and meeting scheduling, connected to HubSpot so every touch is captured automatically. Abi confirms each Associate&rsquo;s <strong>HubSpot meeting/calendar links work end to end</strong> (a live test booking), and that they have <strong>access to the BDM&rsquo;s and sales execs&rsquo; calendars</strong> to place appointments. Output: scheduling configured, links tested, calendars shared.</div></td></tr><tr class="brk"><td class="tcol">10:00</td><td colspan="2">Morning break</td></tr><tr><td class="tcol">10:15&ndash;12:00</td><td class="s-role"><div class="bt">Personas, sectors & FY27 calendar</div><div class="bd">The priority buyer personas, their goals and pressures, and the language that resonates with each; the sector campaigns and how the FY27 calendar sequences them across the year. Output: Associates know who they are speaking to, and when.</div></td><td class="s-role"><div class="bt">LinkedIn & Sales Navigator search</div><div class="bd">Building and saving searches to find fit accounts and the right decision-makers, reading a profile for signals, and the basics of the connection motion. Output: Associates can generate a qualified target list from Sales Navigator.</div></td></tr><tr class="brk"><td class="tcol">12:00</td><td colspan="2">Lunch</td></tr><tr><td class="tcol">13:00&ndash;14:45</td><td class="s-role"><div class="bt">HubSpot training with Abi — records & stages</div><div class="bd">Abi walks contact and company records, properties, and the deal pipeline &mdash; what each stage means and the entry and exit criteria. Each Associate creates test records and moves a practice deal through the stages. Output: can navigate and use HubSpot unaided.</div></td><td class="s-role"><div class="bt">Apollo enrichment</div><div class="bd">Enriching contacts, finding and verifying business emails and direct numbers, and keeping data clean and compliant. Abi covers what is and is not acceptable to use. Output: Associates can enrich a contact record to a usable standard.</div></td></tr><tr class="brk"><td class="tcol">14:45</td><td colspan="2">Afternoon break</td></tr><tr><td class="tcol">15:00&ndash;17:00</td><td class="s-role"><div class="bt">HubSpot training with Abi — logging & handover</div><div class="bd">Logging every activity, setting the next step and close date, and writing the handover note to the standard Sales expects; what makes a deal record complete and audit-ready. Output: Associates can log work and hand a deal over correctly.</div></td><td class="s-role"><div class="bt">Claude for research & drafting</div><div class="bd">Using Claude to build account-research briefs and first-draft outreach quickly, then where human judgement takes over for accuracy and tone. Abi also shows <strong>where the endorsed Sales Enablement collateral lives</strong> &mdash; the Insight Article, case studies, one-pagers and decks &mdash; and which versions are approved to use. Output: Associates can produce a brief and a first draft, drawing only on endorsed collateral.</div></td></tr></tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet land">
+  <div class="part-kicker">Week 1 &middot; 6&ndash;10 July</div>
+  <h2>Week 1 &mdash; Foundations &middot; Friday</h2>
+  <div class="legend"><div class="lg"><span class="sw role"></span>Role competencies &middot; 80%</div><div class="lg"><span class="sw bb"></span>Brainbox familiarity &middot; 10%</div><div class="lg"><span class="sw off"></span>Offshoring familiarity &middot; 10%</div></div>
+  <table class="ttl"><thead><tr><th class="tcol">Time</th><th>Friday 10 Jul</th></tr></thead><tbody><tr><td class="tcol">08:30&ndash;10:00</td><td class="s-role"><div class="bt">The weekly rhythm</div><div class="bd">The day-by-day cadence of the role &mdash; how a week is planned, worked and reviewed &mdash; and how it all rolls up to the baseline of at least six in-person appointments a week. Output: Associates know the shape of a working week.</div></td></tr><tr class="brk"><td class="tcol">10:00</td><td colspan="1">Morning break</td></tr><tr><td class="tcol">10:15&ndash;12:00</td><td class="s-role"><div class="bt">Lead scoring & compliance</div><div class="bd">Prioritising effort by fit and intent; handling opt-outs, do-not-contact and privacy obligations; what respectful, compliant outreach looks like in practice. Output: Associates can score a lead and stay on the right side of the rules.</div></td></tr><tr class="brk"><td class="tcol">12:00</td><td colspan="1">Lunch</td></tr><tr><td class="tcol">13:00&ndash;14:45</td><td class="s-role"><div class="bt">Role capability maps with Abi (1h) + qualified appointment</div><div class="bd">Abi steps the team through using role capability maps to guide a buyer toward an accurate view of their real need &mdash; required for every role-scoping conversation &mdash; then the qualified-appointment definition. Output: can run a capability map and knows what &ldquo;qualified&rdquo; means.</div></td></tr><tr class="brk"><td class="tcol">14:45</td><td colspan="1">Afternoon break</td></tr><tr><td class="tcol">15:00&ndash;17:00</td><td class="s-role"><div class="bt">Knowledge check & tools test</div><div class="bd">A short knowledge check across the company, the offshoring model, the ICP and the tools, plus an end-to-end test that every system works for each Associate. Output: the week-1 gate is cleared or gaps are flagged.</div></td></tr></tbody></table>
+  <div class="note"><span class="lbl">Gate &middot; end of week 1</span>Every account provisioned and tested; new Associates pass the knowledge check on the company, the offshoring model, the ICP, the tools and the qualified-appointment definition. Calendars shared and HubSpot meeting links tested; endorsed Sales Enablement collateral located. CSD check-in.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet land">
+  <div class="part-kicker">Week 2 &middot; 13&ndash;17 July</div>
+  <h2>Week 2 &mdash; Skills build &middot; Monday &amp; Tuesday</h2>
+  <div class="legend"><div class="lg"><span class="sw role"></span>Role competencies &middot; 80%</div><div class="lg"><span class="sw bb"></span>Brainbox familiarity &middot; 10%</div><div class="lg"><span class="sw off"></span>Offshoring familiarity &middot; 10%</div></div>
+  <table class="ttl"><thead><tr><th class="tcol">Time</th><th>Monday 13 Jul</th><th>Tuesday 14 Jul</th></tr></thead><tbody><tr><td class="tcol">08:30&ndash;10:00</td><td class="s-role"><div class="bt">Research to standard</div><div class="bd">Abi sets the quality bar for a researched, enriched account &mdash; what to find, where to find it, and how much is enough &mdash; and works a live example end to end. Output: Associates know precisely what &ldquo;good&rdquo; research looks like.</div></td><td class="s-role"><div class="bt">Messaging & the Insight Article</div><div class="bd">The anatomy of the first-touch email built around the Insight Article &mdash; the hook, the relevance, the ask &mdash; and how to personalise it to the account and persona without losing the structure. Output: Associates understand the first touch.</div></td></tr><tr class="brk"><td class="tcol">10:00</td><td colspan="2">Morning break</td></tr><tr><td class="tcol">10:15&ndash;12:00</td><td class="s-role"><div class="bt">Research real accounts; Abi reviews</div><div class="bd">Associates research real target accounts against that bar while Abi reviews and corrects in real time, catching gaps before they become habits. Output: 20&ndash;30 accounts researched and checked.</div></td><td class="s-role"><div class="bt">Draft first-touch with Claude</div><div class="bd">Associates draft real first-touch messages for their researched accounts using Claude, then Abi edits and explains every change so the reasoning sticks. Output: drafts revised to standard.</div></td></tr><tr class="brk"><td class="tcol">12:00</td><td colspan="2">Lunch</td></tr><tr><td class="tcol">13:00&ndash;14:45</td><td class="s-role"><div class="bt">Standard campaign walkthrough with Abi (2h)</div><div class="bd">Abi steps the team through a standard campaign end to end &mdash; the target list, the Insight Article, the email and LinkedIn sequence, the landing page, the daily cadence and the hand-off to Sales &mdash; using a live example from the FY27 calendar. Output: Associates understand how a whole campaign runs.</div></td><td class="s-role"><div class="bt">The LinkedIn connection motion</div><div class="bd">Sending connection requests, the sales-exec connection approach, and how to warm a prospect on LinkedIn before any direct outreach. Output: Associates can run the connection motion.</div></td></tr><tr class="brk"><td class="tcol">14:45</td><td colspan="2">Afternoon break</td></tr><tr><td class="tcol">15:00&ndash;17:00</td><td class="s-bb"><div class="bt">Brand voice & Always Be Kind in writing</div><div class="bd">How the Brainbox voice shows up in written outreach &mdash; warm, human and helpful, never a hard pitch &mdash; with before-and-after examples. Output: Associates can write on-brand.</div></td><td class="s-off"><div class="bt">Articulating the offshoring value</div><div class="bd">Turning the offshoring model into clear, buyer-facing language for calls and writing &mdash; leading with the outcome, not the mechanism. Output: Associates can frame the value in a sentence.</div></td></tr></tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet land">
+  <div class="part-kicker">Week 2 &middot; 13&ndash;17 July</div>
+  <h2>Week 2 &mdash; Skills build &middot; Wednesday &amp; Thursday</h2>
+  <div class="legend"><div class="lg"><span class="sw role"></span>Role competencies &middot; 80%</div><div class="lg"><span class="sw bb"></span>Brainbox familiarity &middot; 10%</div><div class="lg"><span class="sw off"></span>Offshoring familiarity &middot; 10%</div></div>
+  <table class="ttl"><thead><tr><th class="tcol">Time</th><th>Wednesday 15 Jul</th><th>Thursday 16 Jul</th></tr></thead><tbody><tr><td class="tcol">08:30&ndash;10:00</td><td class="s-role"><div class="bt">Discovery call structure</div><div class="bd">The shape of a discovery call &mdash; opening, questions, listening and next step &mdash; and SPIN-style questioning basics; the discipline of listening far more than talking. Output: Associates know the call structure cold.</div></td><td class="s-role"><div class="bt">Shadow Abi&rsquo;s live calls</div><div class="bd">Associates observe Abi&rsquo;s real discovery calls, watching how she opens, questions, handles objections and secures the next step. They note technique against what they practised. Output: they see the standard performed live.</div></td></tr><tr class="brk"><td class="tcol">10:00</td><td colspan="2">Morning break</td></tr><tr><td class="tcol">10:15&ndash;12:00</td><td class="s-role"><div class="bt">Objection-handling practice</div><div class="bd">The common objections and the honest, confident responses to each, including the sector-specific ones; how to acknowledge before answering. Output: Associates can handle the objections they will actually hear.</div></td><td class="s-role"><div class="bt">Shadow LinkedIn outreach</div><div class="bd">Associates watch Abi work LinkedIn and connection requests live &mdash; how she personalises, times and follows up. Output: they see the motion in real practice, not just in theory.</div></td></tr><tr class="brk"><td class="tcol">12:00</td><td colspan="2">Lunch</td></tr><tr><td class="tcol">13:00&ndash;14:45</td><td class="s-role"><div class="bt">Call role-plays</div><div class="bd">Live role-plays with Abi playing the prospect, with immediate feedback after each and a second attempt to lock in the improvement. Output: Associates are noticeably more natural on calls.</div></td><td class="s-role"><div class="bt">Observe a real booking & handover</div><div class="bd">Associates watch a real appointment get booked and the handover note written to standard, closing the loop from first touch to Sales-ready. Output: they understand the end state they are working toward.</div></td></tr><tr class="brk"><td class="tcol">14:45</td><td colspan="2">Afternoon break</td></tr><tr><td class="tcol">15:00&ndash;17:00</td><td class="s-off"><div class="bt">Offshoring objections — honest answers</div><div class="bd">Why SMEs hesitate on offshoring &mdash; quality, security, control, ethics &mdash; and how to respond with integrity rather than spin. Output: Associates are ready for the hard questions.</div></td><td class="s-bb"><div class="bt">The Brainbox proof story</div><div class="bd">Using the firm-as-its-own-proof story credibly in conversation &mdash; when to reach for it and how to keep it honest. Output: Associates can tell the proof story naturally.</div></td></tr></tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet land">
+  <div class="part-kicker">Week 2 &middot; 13&ndash;17 July</div>
+  <h2>Week 2 &mdash; Skills build &middot; Friday</h2>
+  <div class="legend"><div class="lg"><span class="sw role"></span>Role competencies &middot; 80%</div><div class="lg"><span class="sw bb"></span>Brainbox familiarity &middot; 10%</div><div class="lg"><span class="sw off"></span>Offshoring familiarity &middot; 10%</div></div>
+  <table class="ttl"><thead><tr><th class="tcol">Time</th><th>Friday 17 Jul</th></tr></thead><tbody><tr><td class="tcol">08:30&ndash;10:00</td><td class="s-role"><div class="bt">Build go-live starter list</div><div class="bd">Each Associate assembles a qualified starter list of fit accounts and decision-makers, ready to work under supervision in week 3. Output: a real list, started.</div></td></tr><tr class="brk"><td class="tcol">10:00</td><td colspan="1">Morning break</td></tr><tr><td class="tcol">10:15&ndash;12:00</td><td class="s-role"><div class="bt">Enrich & sequence the list</div><div class="bd">Enrich the contacts, verify details, and load a first outreach sequence so it is ready to send on Monday. Output: an enriched, sequenced list ready to go live.</div></td></tr><tr class="brk"><td class="tcol">12:00</td><td colspan="1">Lunch</td></tr><tr><td class="tcol">13:00&ndash;14:45</td><td class="s-role"><div class="bt">Abi reviews lists</div><div class="bd">Abi checks each Associate&rsquo;s list for fit, data quality and sequencing, and signs it off or sends it back with specific fixes. Output: an approved list for week 3.</div></td></tr><tr class="brk"><td class="tcol">14:45</td><td colspan="1">Afternoon break</td></tr><tr><td class="tcol">15:00&ndash;17:00</td><td class="s-role"><div class="bt">Second knowledge check</div><div class="bd">A knowledge check across research, messaging and calls to confirm the skills have landed before live work begins. Output: the week-2 gate is cleared or gaps flagged.</div></td></tr></tbody></table>
+  <div class="note"><span class="lbl">Gate &middot; end of week 2</span>Each Associate can research, draft and role-play to standard, and holds a qualified, enriched starter list ready for supervised live outreach.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet land">
+  <div class="part-kicker">Week 3 &middot; 20&ndash;24 July</div>
+  <h2>Week 3 &mdash; Supervised live practice &middot; Monday &amp; Tuesday</h2>
+  <div class="legend"><div class="lg"><span class="sw role"></span>Role competencies &middot; 80%</div><div class="lg"><span class="sw bb"></span>Brainbox familiarity &middot; 10%</div><div class="lg"><span class="sw off"></span>Offshoring familiarity &middot; 10%</div></div>
+  <table class="ttl"><thead><tr><th class="tcol">Time</th><th>Monday 20 Jul</th><th>Tuesday 21 Jul</th></tr></thead><tbody><tr><td class="tcol">08:30&ndash;10:00</td><td class="s-off"><div class="bt">Refresher — offshoring value on a call</div><div class="bd">A short refresher on framing the offshoring value in a live conversation, right before the first real outreach goes out. Output: the framing is fresh in mind.</div></td><td class="s-role"><div class="bt">First live calls</div><div class="bd">Associates make their first real calls with Abi listening in, ready to support if needed. Output: first live calls made.</div></td></tr><tr class="brk"><td class="tcol">10:00</td><td colspan="2">Morning break</td></tr><tr><td class="tcol">10:15&ndash;12:00</td><td class="s-role"><div class="bt">First supervised outreach</div><div class="bd">Associates send their first real sequences and connection requests, with Abi reviewing every message before it goes out and giving immediate feedback. Output: first outreach live, safely.</div></td><td class="s-role"><div class="bt">Live calls cont&rsquo;d</div><div class="bd">More calls through the block to build rhythm, comfort and pace under Abi&rsquo;s ear. Output: growing confidence on the phone.</div></td></tr><tr class="brk"><td class="tcol">12:00</td><td colspan="2">Lunch</td></tr><tr><td class="tcol">13:00&ndash;14:45</td><td class="s-role"><div class="bt">Supervised outreach cont&rsquo;d</div><div class="bd">Continue sending under review, building volume while Abi keeps checking quality and personalisation on each. Output: outreach volume building on correct habits.</div></td><td class="s-role"><div class="bt">Debrief after each call</div><div class="bd">Immediate, specific coaching after each call while it is fresh, with one thing to change on the next. Output: technique improving in real time.</div></td></tr><tr class="brk"><td class="tcol">14:45</td><td colspan="2">Afternoon break</td></tr><tr><td class="tcol">15:00&ndash;17:00</td><td class="s-role"><div class="bt">Feedback & corrections</div><div class="bd">Debrief the day&rsquo;s outreach together, spot patterns and agree specific corrections for tomorrow. Output: corrections logged and understood.</div></td><td class="s-role"><div class="bt">Log outcomes in HubSpot</div><div class="bd">Log every call outcome, next step and note so the record is complete and the pipeline is trustworthy. Output: pipeline kept current.</div></td></tr></tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet land">
+  <div class="part-kicker">Week 3 &middot; 20&ndash;24 July</div>
+  <h2>Week 3 &mdash; Supervised live practice &middot; Wednesday &amp; Thursday</h2>
+  <div class="legend"><div class="lg"><span class="sw role"></span>Role competencies &middot; 80%</div><div class="lg"><span class="sw bb"></span>Brainbox familiarity &middot; 10%</div><div class="lg"><span class="sw off"></span>Offshoring familiarity &middot; 10%</div></div>
+  <table class="ttl"><thead><tr><th class="tcol">Time</th><th>Wednesday 22 Jul</th><th>Thursday 23 Jul</th></tr></thead><tbody><tr><td class="tcol">08:30&ndash;10:00</td><td class="s-role"><div class="bt">First appointments push</div><div class="bd">The day&rsquo;s focus turns to converting conversations into booked appointments, applying everything practised so far. Output: first real bookings.</div></td><td class="s-role"><div class="bt">Full daily cadence</div><div class="bd">Associates run a near-full day of the real rhythm across research, outreach and calls, sequencing their own time. Output: the cadence sustained across a day.</div></td></tr><tr class="brk"><td class="tcol">10:00</td><td colspan="2">Morning break</td></tr><tr><td class="tcol">10:15&ndash;12:00</td><td class="s-role"><div class="bt">Book real appointments</div><div class="bd">Continue booking, holding firmly to the qualified-appointment definition so only real opportunities go through. Output: qualified appointments in the calendar.</div></td><td class="s-role"><div class="bt">Full daily cadence cont&rsquo;d</div><div class="bd">Keep the full flow going through the afternoon, balancing new outreach with follow-up and calls. Output: a full working day run largely unaided.</div></td></tr><tr class="brk"><td class="tcol">12:00</td><td colspan="2">Lunch</td></tr><tr><td class="tcol">13:00&ndash;14:45</td><td class="s-role"><div class="bt">Write & QA handover notes</div><div class="bd">Associates write the handover note for each booking; Abi QAs every one against the standard before it reaches Sales. Output: compliant, Sales-ready handovers.</div></td><td class="s-role"><div class="bt">Abi spot-checks & coaches</div><div class="bd">Abi spot-checks quality across the day and coaches on pace, prioritisation and the things that slip under volume. Output: the standard held as volume rises.</div></td></tr><tr class="brk"><td class="tcol">14:45</td><td colspan="2">Afternoon break</td></tr><tr><td class="tcol">15:00&ndash;17:00</td><td class="s-role"><div class="bt">Confirm appointments & next steps</div><div class="bd">Confirm the details of each appointment and set clear next steps so nothing slips. Output: appointments locked in.</div></td><td class="s-role"><div class="bt">Review numbers with Abi</div><div class="bd">Review the day&rsquo;s activity against the expected numbers and identify where the gaps are. Output: a clear read on where each Associate stands.</div></td></tr></tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet land">
+  <div class="part-kicker">Week 3 &middot; 20&ndash;24 July</div>
+  <h2>Week 3 &mdash; Supervised live practice &middot; Friday</h2>
+  <div class="legend"><div class="lg"><span class="sw role"></span>Role competencies &middot; 80%</div><div class="lg"><span class="sw bb"></span>Brainbox familiarity &middot; 10%</div><div class="lg"><span class="sw off"></span>Offshoring familiarity &middot; 10%</div></div>
+  <table class="ttl"><thead><tr><th class="tcol">Time</th><th>Friday 24 Jul</th></tr></thead><tbody><tr><td class="tcol">08:30&ndash;10:00</td><td class="s-role"><div class="bt">Near-full daily cadence</div><div class="bd">Another full-rhythm day to build the consistency that the baseline depends on. Output: consistency, not just capability.</div></td></tr><tr class="brk"><td class="tcol">10:00</td><td colspan="1">Morning break</td></tr><tr><td class="tcol">10:15&ndash;12:00</td><td class="s-role"><div class="bt">Cadence cont&rsquo;d</div><div class="bd">Sustain the volume through the day so the rhythm becomes second nature. Output: the rhythm embedded.</div></td></tr><tr class="brk"><td class="tcol">12:00</td><td colspan="1">Lunch</td></tr><tr><td class="tcol">13:00&ndash;14:45</td><td class="s-role"><div class="bt">Third knowledge check</div><div class="bd">A knowledge check across the live motions &mdash; outreach, calls, booking and handover &mdash; to measure readiness objectively. Output: readiness measured.</div></td></tr><tr class="brk"><td class="tcol">14:45</td><td colspan="1">Afternoon break</td></tr><tr><td class="tcol">15:00&ndash;17:00</td><td class="s-role"><div class="bt">Mid-ramp review & coaching plan</div><div class="bd">Review each Associate against the standard and agree a targeted coaching plan for week 4; the CSD joins for the check-in. Output: a plan to close the last gaps.</div></td></tr></tbody></table>
+  <div class="note"><span class="lbl">Gate &middot; end of week 3</span>Each Associate has run live outreach, made live calls and booked at least one real, attended appointment with a compliant handover note. CSD check-in.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet land">
+  <div class="part-kicker">Week 4 &middot; 27&ndash;31 July</div>
+  <h2>Week 4 &mdash; Dress rehearsal & go-live prep &middot; Monday &amp; Tuesday</h2>
+  <div class="legend"><div class="lg"><span class="sw role"></span>Role competencies &middot; 80%</div><div class="lg"><span class="sw bb"></span>Brainbox familiarity &middot; 10%</div><div class="lg"><span class="sw off"></span>Offshoring familiarity &middot; 10%</div></div>
+  <table class="ttl"><thead><tr><th class="tcol">Time</th><th>Monday 27 Jul</th><th>Tuesday 28 Jul</th></tr></thead><tbody><tr><td class="tcol">08:30&ndash;10:00</td><td class="s-role"><div class="bt">Dress rehearsal begins</div><div class="bd">Associates run the complete weekly rhythm as if it were live, with Abi supervising lightly and stepping in only where needed. Output: the rehearsal underway.</div></td><td class="s-bb"><div class="bt">Brand & tone — final template polish</div><div class="bd">A final polish of each Associate&rsquo;s outreach templates for on-brand voice, tone and warmth before go-live. Output: templates clean and consistent.</div></td></tr><tr class="brk"><td class="tcol">10:00</td><td colspan="2">Morning break</td></tr><tr><td class="tcol">10:15&ndash;12:00</td><td class="s-role"><div class="bt">Run the full weekly rhythm</div><div class="bd">The full research &rarr; outreach &rarr; calls flow, owned and sequenced by each Associate. Output: the full rhythm sustained without prompting.</div></td><td class="s-role"><div class="bt">HubSpot hygiene & attribution</div><div class="bd">Clean the records, fix any gaps, and verify source attribution so the first month&rsquo;s reporting will be trustworthy. Output: data that can be reported on with confidence.</div></td></tr><tr class="brk"><td class="tcol">12:00</td><td colspan="2">Lunch</td></tr><tr><td class="tcol">13:00&ndash;14:45</td><td class="s-role"><div class="bt">Research & outreach block</div><div class="bd">Keep feeding the top of the pipeline with fresh researched accounts and new outreach. Output: the pipeline fed for the days ahead.</div></td><td class="s-role"><div class="bt">Verify handover notes</div><div class="bd">Confirm every handover note written to date meets the standard Sales expects. Output: handovers verified.</div></td></tr><tr class="brk"><td class="tcol">14:45</td><td colspan="2">Afternoon break</td></tr><tr><td class="tcol">15:00&ndash;17:00</td><td class="s-role"><div class="bt">Calls & bookings</div><div class="bd">A live afternoon of calls and bookings against the real list. Output: appointments booked in the rehearsal.</div></td><td class="s-role"><div class="bt">Every open item has a next step</div><div class="bd">Ensure no deal sits without a next step and a date, so nothing is dropped at go-live. Output: a disciplined, current pipeline.</div></td></tr></tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet land">
+  <div class="part-kicker">Week 4 &middot; 27&ndash;31 July</div>
+  <h2>Week 4 &mdash; Dress rehearsal & go-live prep &middot; Wednesday &amp; Thursday</h2>
+  <div class="legend"><div class="lg"><span class="sw role"></span>Role competencies &middot; 80%</div><div class="lg"><span class="sw bb"></span>Brainbox familiarity &middot; 10%</div><div class="lg"><span class="sw off"></span>Offshoring familiarity &middot; 10%</div></div>
+  <table class="ttl"><thead><tr><th class="tcol">Time</th><th>Wednesday 29 Jul</th><th>Thursday 30 Jul</th></tr></thead><tbody><tr><td class="tcol">08:30&ndash;10:00</td><td class="s-off"><div class="bt">Offshoring proof points in campaign messaging</div><div class="bd">Load the strongest offshoring proof points into the August campaign messaging so the value is concrete, not abstract. Output: sharper, more credible messaging.</div></td><td class="s-role"><div class="bt">Go/no-go prep</div><div class="bd">Each Associate prepares the evidence for the readiness review &mdash; their numbers, their live work, their handover notes. Output: ready to present against the checklist.</div></td></tr><tr class="brk"><td class="tcol">10:00</td><td colspan="2">Morning break</td></tr><tr><td class="tcol">10:15&ndash;12:00</td><td class="s-role"><div class="bt">Load the August campaign list</div><div class="bd">Load the target list for the August campaign per the FY27 calendar, split across the team. Output: the campaign list loaded.</div></td><td class="s-role"><div class="bt">Go/no-go review with the CSD</div><div class="bd">Abi chairs the readiness review with the Corporate Services Director, running the checklist item by item for each Associate. Output: a documented go or no-go per Associate.</div></td></tr><tr class="brk"><td class="tcol">12:00</td><td colspan="2">Lunch</td></tr><tr><td class="tcol">13:00&ndash;14:45</td><td class="s-role"><div class="bt">Load sequences & landing page</div><div class="bd">Load the email and LinkedIn sequences and confirm the campaign landing page is live and correct. Output: the campaign ready to run.</div></td><td class="s-role"><div class="bt">Demonstrate the baseline motions</div><div class="bd">Each Associate demonstrates they can run the baseline motions independently &mdash; research, outreach, call, book, hand over. Output: capability shown, not assumed.</div></td></tr><tr class="brk"><td class="tcol">14:45</td><td colspan="2">Afternoon break</td></tr><tr><td class="tcol">15:00&ndash;17:00</td><td class="s-role"><div class="bt">Check campaign readiness</div><div class="bd">An end-to-end check of the August campaign &mdash; list, messaging, sequences, landing page and tracking. Output: the campaign QA&rsquo;d and signed off.</div></td><td class="s-role"><div class="bt">Readiness sign-off</div><div class="bd">Sign off each Associate to deliver, or assign Abi cover for any motion not yet met, protecting the weekly baseline. Output: a clear go-live plan.</div></td></tr></tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet land">
+  <div class="part-kicker">Week 4 &middot; 27&ndash;31 July</div>
+  <h2>Week 4 &mdash; Dress rehearsal & go-live prep &middot; Friday</h2>
+  <div class="legend"><div class="lg"><span class="sw role"></span>Role competencies &middot; 80%</div><div class="lg"><span class="sw bb"></span>Brainbox familiarity &middot; 10%</div><div class="lg"><span class="sw off"></span>Offshoring familiarity &middot; 10%</div></div>
+  <table class="ttl"><thead><tr><th class="tcol">Time</th><th>Friday 31 Jul</th></tr></thead><tbody><tr><td class="tcol">08:30&ndash;10:00</td><td class="s-role"><div class="bt">Final prep & reset</div><div class="bd">Confirm calendars are clear and lists loaded so Monday starts clean rather than catching up. Output: a clean start ready.</div></td></tr><tr class="brk"><td class="tcol">10:00</td><td colspan="1">Morning break</td></tr><tr><td class="tcol">10:15&ndash;12:00</td><td class="s-role"><div class="bt">Stage lists & sequences</div><div class="bd">Stage every list and sequence so the first touches can go out first thing Monday. Output: everything staged and ready.</div></td></tr><tr class="brk"><td class="tcol">12:00</td><td colspan="1">Lunch</td></tr><tr><td class="tcol">13:00&ndash;14:45</td><td class="s-role"><div class="bt">Confirm all tools ready</div><div class="bd">A final check that HubSpot, LinkedIn, Apollo, Claude and Outlook are all green for every Associate. Output: tools confirmed ready.</div></td></tr><tr class="brk"><td class="tcol">14:45</td><td colspan="1">Afternoon break</td></tr><tr><td class="tcol">15:00&ndash;17:00</td><td class="s-role"><div class="bt">Team briefed for Monday 4 Aug</div><div class="bd">Brief the team for the first full operating week &mdash; targets, focus and support. Output: a team ready to deliver from day one.</div></td></tr></tbody></table>
+  <div class="note"><span class="lbl">Gate &middot; end of week 4</span>Team signed off as ready by the CSD; the August campaign is loaded and calendars are clear for the first full week on Monday 4 August.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <h2>Readiness checklist &mdash; go / no-go</h2>
+  <p class="section-intro">Run at the week-4 review. Each new Associate must clear every item to go live independently; where an item is not met, Abi carries that portion of delivery until it is.</p>
+  <table class="t">
+    <thead><tr><th style="width:64%">Readiness item</th><th>Ready?</th></tr></thead>
+    <tbody>
+      <tr><td class="role">Brainbox &amp; offshoring &mdash; can speak credibly about the company and the offshoring model</td><td>&#9744;</td></tr>
+      <tr><td class="role">Systems &mdash; HubSpot, LinkedIn &amp; Sales Navigator, Apollo, Claude and Outlook all set up and working</td><td>&#9744;</td></tr>
+      <tr><td class="role">Calendars &amp; collateral &mdash; HubSpot meeting links tested, the BDM&rsquo;s and sales execs&rsquo; calendars accessible, and endorsed Sales Enablement collateral located</td><td>&#9744;</td></tr>
+      <tr><td class="role">ICP &amp; personas &mdash; can identify and qualify a fit account unaided</td><td>&#9744;</td></tr>
+      <tr><td class="role">Research &mdash; can build a researched, enriched account to standard</td><td>&#9744;</td></tr>
+      <tr><td class="role">Messaging &mdash; can draft a compliant, personalised first touch with the Insight Article</td><td>&#9744;</td></tr>
+      <tr><td class="role">Calls &amp; objections &mdash; can hold a discovery call and handle common objections</td><td>&#9744;</td></tr>
+      <tr><td class="role">Appointment &amp; handover &mdash; has booked a real, attended appointment with a compliant handover note</td><td>&#9744;</td></tr>
+      <tr><td class="role">Cadence &mdash; can run the full weekly rhythm and keep HubSpot current</td><td>&#9744;</td></tr>
+      <tr><td class="role">Campaign &mdash; August campaign list and sequences loaded and checked</td><td>&#9744;</td></tr>
+    </tbody>
+  </table>
+  <div class="flag"><span class="lbl">The decision</span>Go means the Associate delivers independently from Monday 4 August. No-go on any item is not a failure &mdash; Abi covers that motion and the Associate keeps building until the item clears, protecting the weekly baseline throughout.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Go-live</div>
+  <h2>Go-live &amp; first week</h2>
+  <p>The Demand Generation Playbook takes effect on <strong>Friday 1 August</strong>; the first full operating week begins <strong>Monday 4 August</strong>. From that week the standards in the playbook apply in full &mdash; the weekly rhythm, the lead scoring and compliance, and the baseline of at least six in-person appointments for the Business Development Manager each week, measured as booked and attended.</p>
+  <p>Abi continues to carry Australian delivery and holds the standard across the team; the two Associates join the baseline at the level the go/no-go review confirmed, growing into full independent delivery over the following weeks. The first monthly outcomes report at the end of August is the first true read on the team&rsquo;s combined capacity.</p>
+  <div class="flag"><span class="lbl">The point of the ramp</span>Four weeks of deliberate preparation means the team spends August <em>delivering</em>, not learning &mdash; and does it kindly, to standard, from the first week.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Demand Generation Readiness Plan &middot; Brainbox</span></div>
+</section>
+
+</main>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #fff; }
+    .doc { box-sizing: border-box; max-width: 210mm; margin: 0 auto; background: inherit;
+           padding: 40px clamp(20px, 5vw, 16mm) 80px;
+           font-family: var(--font-body); font-weight: 300; color: var(--bb-grey-800);
+           font-size: 10pt; line-height: 1.5; }
+    .doc h1, .doc h2, .doc h3, .doc h4 { font-family: var(--font-heading); color: var(--bb-grey-700); margin: 0; }
+    .doc h1 { font-weight: 600; }
+    .doc h2 { font-weight: 600; font-size: 16pt; color: var(--bb-pink); letter-spacing: -0.01em;
+              margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--bb-pink); text-wrap: balance; }
+    .doc h3 { font-weight: 600; font-size: 11.5pt; color: var(--bb-grey-700); margin: 16px 0 5px; text-wrap: balance; }
+    .doc h4 { font-weight: 600; font-size: 9.5pt; color: var(--bb-pink-700); margin: 12px 0 3px;
+              text-transform: uppercase; letter-spacing: 0.06em; }
+    .doc p { margin: 0 0 8px; text-wrap: pretty; }
+    .doc ul, .doc ol { margin: 0 0 8px; padding-left: 17px; }
+    .doc li { margin: 0 0 3px; text-wrap: pretty; }
+    .doc li::marker { color: var(--bb-pink-400); }
+    .doc strong { font-weight: 600; color: var(--bb-grey-800); }
+    .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em;
+               font-size: 8pt; color: var(--bb-pink); font-weight: 600; }
+    .cover { background: var(--bb-gradient-brand); border-radius: 18px; padding: 40px 36px; color: #fff; margin-bottom: 8px; }
+    .cover .eyebrow { color: rgba(255,255,255,0.92); }
+    .cover h1 { color: #fff; font-size: 30pt; line-height: 1.05; margin: 14px 0 10px; letter-spacing: -0.015em; }
+    .cover .lede { color: rgba(255,255,255,0.95); font-size: 11.5pt; max-width: 92%; margin: 0; font-weight: 300; }
+    .cover-meta { display: flex; gap: 26px; margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.35); flex-wrap: wrap; }
+    .cover-meta div { font-size: 8.5pt; }
+    .cover-meta span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; opacity: 0.8; margin-bottom: 2px; }
+    .wordmark { font-family: var(--font-logo); font-size: 16pt; letter-spacing: 0.14em; color: #fff; }
+    .doc table.t { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 9pt; }
+    .doc table.t th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading);
+                      font-weight: 600; text-align: left; padding: 6px 9px; border-bottom: 1.5px solid var(--bb-pink-200); font-size: 8.5pt; }
+    .doc table.t td { padding: 6px 9px; border-bottom: 1px solid var(--bb-grey-200); vertical-align: top; }
+    .doc table.t tr:nth-child(even) td { background: var(--bb-grey-50); }
+    .doc table.t.compact td { padding: 4px 9px; }
+    .doc table.t .num { font-family: var(--font-mono); color: var(--bb-pink-700); white-space: nowrap; font-weight: 600; }
+    .cols2 { columns: 2; column-gap: 28px; } .cols2 ul { margin-top: 0; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .script { background: var(--bb-pink-50); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 9px 13px; margin: 6px 0 12px; font-size: 9pt; color: var(--bb-grey-800); }
+    .script .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .script em { font-style: italic; color: var(--bb-grey-700); }
+    .note { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); border-radius: 8px; padding: 9px 13px; margin: 6px 0 12px; font-size: 9pt; }
+    .flag { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 10px 13px; margin: 6px 0 12px; font-size: 9pt; }
+    .flag .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 6px 0 14px; }
+    .stat { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 12px 13px; }
+    .stat .v { font-family: var(--font-heading); font-weight: 600; font-size: 16pt; color: var(--bb-pink); line-height: 1; }
+    .stat .l { font-size: 8pt; color: var(--bb-grey-500); margin-top: 5px; line-height: 1.3; }
+    .days { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0 12px; }
+    .day { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 11px 12px; }
+    .day .d { font-family: var(--font-heading); font-weight: 600; font-size: 10pt; color: var(--bb-pink); }
+    .day .s { font-size: 8pt; color: var(--bb-grey-500); margin-top: 4px; line-height: 1.35; }
+    .dodont { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 6px 0 12px; }
+    .dodont .box { border-radius: 10px; padding: 10px 13px; font-size: 9pt; }
+    .dodont .do { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-300); }
+    .dodont .dont { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); }
+    .dodont h4 { margin-top: 0; } .dodont .do h4 { color: var(--bb-blue-700); } .dodont .dont h4 { color: var(--bb-pink-700); }
+    .dodont ul { padding-left: 16px; margin-bottom: 0; }
+    .lead-statuses { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 12px; }
+    .pill { background: #fff; border: 1px solid var(--bb-pink-200); color: var(--bb-grey-700); border-radius: 999px; padding: 3px 11px; font-size: 8pt; font-family: var(--font-heading); }
+    .section-intro { color: var(--bb-grey-500); font-size: 10pt; margin-bottom: 10px; }
+    .form-field { border: 1px solid var(--bb-grey-300); border-radius: 6px; height: 22px; margin-bottom: 6px; }
+    .form-label { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.07em; color: var(--bb-grey-500); font-family: var(--font-mono); display: block; margin-bottom: 3px; }
+    .doc table.form { width: 100%; border-collapse: collapse; margin: 4px 0 10px; font-size: 8.5pt; }
+    .doc table.form th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 5px 7px; border: 1px solid var(--bb-grey-300); font-size: 7.5pt; }
+    .doc table.form td { padding: 5px 7px; border: 1px solid var(--bb-grey-300); height: 20px; vertical-align: top; }
+    .doc table.form .target { font-family: var(--font-mono); color: var(--bb-pink-700); font-size: 8pt; white-space: nowrap; }
+    .ie-body { font-size: 9.6pt; }
+    .sheet { padding-top: 4px; }
+    .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
+    .sheet > h2:first-child { margin-top: 4px; }
+    .sheet-ftr { display: none; }
+
+
+    .cover .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.22em; font-size: 7.5pt; color: rgba(255,255,255,0.72); margin-bottom: 20px; }
+    .cover .cat { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 10px; }
+    .cover-page { min-height: 900px; display: flex; flex-direction: column; }
+    .cover-page h1 { margin-top: 4px; }
+    .cover-page .cover-meta { margin-top: auto; }
+    @media print { .cover-sheet .cover-page { min-height: 252mm; } .cover-sheet { break-after: page; } }
+
+    .cover-page { position: relative; }
+    .cover-elephant { position: absolute; top: 34px; right: 36px; height: 84px; width: auto; }
+
+    /* ===== Subdued (Boardroom) palette ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .doc h3 { color: var(--bb-grey-700) !important; }
+    .doc h4 { color: var(--bb-grey-500) !important; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root, .handoff { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj { color: var(--bb-grey-700) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; border-left-color: var(--bb-pink) !important; }
+    .flag .lbl { color: var(--bb-grey-500) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+    .stat .v { color: var(--bb-grey-800) !important; }
+    .rolecard h3 { color: var(--bb-grey-800) !important; }
+    .pill { border-color: var(--bb-grey-300) !important; }
+    .script { border-left-color: var(--bb-pink) !important; }
+    .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
+
+    @page { size: A4 portrait; margin: 10mm; }
+    @media print {
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
+      #dc-root, .sc-host { height: auto !important; }
+      .sheet { break-before: page; min-height: 274mm; display: flex; flex-direction: column;
+               box-sizing: border-box; margin-top: 0 !important; border-top: 0 !important; padding-top: 0 !important; }
+      .sheet:first-of-type { break-before: auto; }
+      .sheet > h2:first-child, .sheet > .cover:first-child { margin-top: 0 !important; }
+      .sheet-ftr { display: flex !important; justify-content: space-between; align-items: baseline;
+             margin-top: auto; padding-top: 5mm; border-top: 0.5pt solid var(--bb-grey-200);
+             font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bb-grey-400); }
+      .sheet-ftr .r { color: var(--bb-pink); }
+      h2, h3, h4 { break-after: avoid !important; }
+      h2 + *, h3 + *, h4 + * { break-before: avoid; }
+      figure, pre, blockquote, img, svg, tr, .stat, .day, .script, .note, .flag, .box,
+      .stats, .days, .dodont, .lead-statuses, .grid3, .cover { break-inside: avoid; }
+      table.t, table.form { break-inside: avoid; }
+      table.t thead, table.form thead { display: table-header-group; }
+      table.t tr, table.form tr { break-inside: avoid; }
+      p, li { orphans: 3; widows: 3; }
+    }
+    /* table-font-override */
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, table.rep .tg, .doc table.form .target { font-family: var(--font-body) !important; }
+    /* role-body-override */
+    .doc table.t .role { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+    /* all-table-cells-body */
+    .doc table.t td, .doc table.t td .num, .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, .doc table.t .role, table.rep td, table.rep .tg, .doc table.form td, .doc table.form .target { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+  </style>
+</helmet>
+
+<main class="doc">
+
+<section class="sheet cover-sheet">
+  <div class="cover cover-page">
+    <img class="cover-elephant" src="assets/brainbox-elephant.png" alt="">
+    <div class="conf">Strictly private &amp; confidential</div>
+    <div class="cat">Demand Generation Campaign &middot; 11 of 11 &middot; United States</div>
+    <h1>Arizona private equity &amp; venture capital</h1>
+    <p class="lede">A one-month prospecting campaign for a Brainbox Associate &mdash; targeting Phoenix, Scottsdale and Tucson investment firms with a two-sided offshoring proposition: leaner fund operations, and a repeatable margin lever across every portfolio company they own.</p>
+    <div class="cover-meta">
+      <div><span>Campaign owner</span>Associate: ____________________</div>
+      <div><span>Issued</span>July 2026 &middot; Ref. BB-DGC-11</div>
+      <div><span>Entry product</span>Portfolio value-creation pilot / investment &amp; fund-ops analyst</div>
+      <div style="margin-left:auto;align-self:flex-end"><span class="wordmark">BRAINBOX</span></div>
+    </div>
+  </div>
+</section>
+  <section class="sheet">
+  <h3>Campaign at a glance</h3>
+        <p class="section-intro">The Associate carries this campaign for one month and reports achievements at month-end against the targets below. This is a <strong>United States</strong> campaign: appointments are booked for the Brainbox <strong>Agent &mdash; Arizona</strong>, under the relevant Master Agent territory.</p>
+        <div class="stats">
+          <div class="stat"><div class="v">15</div><div class="l">Priority firms supplied (verify contact before outreach)</div></div>
+          <div class="stat"><div class="v">20&ndash;30</div><div class="l">Additional firms the Associate researches &amp; adds</div></div>
+          <div class="stat"><div class="v">5&ndash;8</div><div class="l">Qualified appointments for the Agent this month</div></div>
+          <div class="stat"><div class="v">1</div><div class="l">Industry Insight Article attached to every first touch</div></div>
+        </div>
+        <div class="note"><strong>How the campaign runs.</strong> Work the 15 supplied firms first, add your own researched targets to reach ~35&ndash;45 firms, and run the four-week cadence in this pack. Every appointment is booked for the Brainbox <strong>Agent &mdash; Arizona</strong>, recorded in HubSpot, and tagged <em>Campaign 11 &middot; Arizona PE &amp; VC</em>.</div>
+        <div class="flag"><span class="lbl">Why this campaign is different</span>Every other campaign sells one role into one business. This one sells a <strong>portfolio-wide capability</strong>: land one fund and you gain access to every company it owns. Treat each firm as a channel, not a single account.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>The market narrative &mdash; Arizona 2035</h2>
+        <p class="section-intro">The context every conversation in this campaign sits inside. Lead with the state&rsquo;s ambition, then make it personal to the firm&rsquo;s own portfolio.</p>
+        <p>Arizona has set itself the goal of becoming the <strong>largest technology hub in the United States by 2035</strong>. It is not a single-agency initiative. It is a coordinated, statewide ecosystem effort, and that breadth is the part investors respond to &mdash; the depth of institutional support materially increases the odds that companies backed in Arizona succeed.</p>
+        <div class="grid2">
+          <div><h4>Who is driving it</h4><ul style="font-size:9pt"><li>The Arizona Commerce Authority</li><li>City governments across the state</li><li>Local CEOs and business leaders</li><li>Universities and research institutions</li><li>Venture capital and private equity firms</li><li>Small business organisations and support groups</li><li>Talent recruiters and workforce development partners</li></ul></div>
+          <div><h4>Priority sectors being recruited</h4><div class="lead-statuses"><span class="pill">Technology</span><span class="pill">Manufacturing</span><span class="pill">Semiconductors</span><span class="pill">Aerospace</span><span class="pill">Healthcare</span><span class="pill">Mining</span><span class="pill">Energy</span></div><p style="font-size:9pt">The state is deliberately recruiting more companies, startups and technology investment into these sectors &mdash; which is where the deal flow, and the hiring pressure, will concentrate.</p></div>
+        </div>
+        <h3>Why this matters to VCs and PEs</h3>
+        <p>The scale and coordination of the push translates directly into opportunity for investors. This is not a matter of easy picks. It is that state agencies, cities, universities and talent pipelines are all working toward the same goal, so the companies a firm backs in Arizona are more likely to succeed &mdash; and when an ecosystem is engineered to help businesses succeed, the investors behind them succeed alongside them. Arizona&rsquo;s momentum is a tailwind for their portfolios, and the room for VC and PE activity in the state is growing.</p>
+        <div class="flag"><span class="lbl">Key talking points</span>
+          <ul style="margin-bottom:0"><li>Arizona is executing a coordinated, statewide push to become the largest US tech hub by 2035, backed by government, academia and industry.</li><li>Priority sectors driving growth: technology, manufacturing, semiconductors, aerospace, healthcare, mining and energy.</li><li>That ecosystem support increases the likelihood of portfolio company success, which directly benefits VC and PE returns.</li><li>Brainbox helps on two fronts: staffing the firm&rsquo;s own critical roles, and accelerating portfolio company growth through hiring support.</li><li>Faster portfolio company growth means firms can invest in more companies and move toward exits with a clearer understanding of their ROI.</li></ul>
+        </div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>Where Brainbox fits</h2>
+        <p class="section-intro">Two angles, and both should show up in outreach. The firm itself is the easier opening; the portfolio is worth more.</p>
+        <div class="grid2">
+          <div><h4>Supporting the firms directly</h4><p style="font-size:9pt">As VC and PE firms expand their own presence and activity in Arizona, they need to fill the roles critical to that growth &mdash; analysts, deal sourcing, diligence support, fund operations, reporting. Brainbox helps them hire for those positions, without every hire being charged against a fixed management fee.</p></div>
+          <div><h4>Supporting their portfolio companies</h4><p style="font-size:9pt">Brainbox helps portfolio companies grow faster by solving their hiring needs. Faster-growing portfolio companies let a firm deploy capital into more companies and move toward exits with a clearer, stronger understanding of its ROI.</p></div>
+        </div>
+        <div class="note"><strong>The one-sentence version.</strong> Brainbox helps the ecosystem&rsquo;s growth translate into results for the investor &mdash; by staffing the firm itself, and by accelerating the companies it backs.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>Why this industry</h2>
+        <div class="grid2">
+          <div><h4>The pressure</h4><p style="font-size:9pt">Arizona&rsquo;s investment community has grown fast but stayed lean. Small teams run deal sourcing, screening, diligence, modelling, LP reporting, fund administration and portfolio monitoring on the same handful of people. Every hour a principal spends building a data book or chasing portfolio KPIs is an hour not spent originating or working with founders &mdash; and hiring another analyst in Phoenix or Scottsdale is slow, expensive and hard to justify between fundraises.</p></div>
+          <div><h4>The opportunity</h4><p style="font-size:9pt">Offshore capability lands twice. First inside the firm: dedicated analyst and fund-operations support that widens the funnel and tightens reporting without adding US headcount. Second, and far bigger, across the <strong>portfolio</strong>: a repeatable labour-arbitrage playbook the fund can deploy into every company it owns, lifting EBITDA and improving the exit multiple.</p></div>
+        </div>
+        <div class="flag"><span class="lbl">Market shape</span>Arizona is a fast-growing but still relationship-driven investment market centred on <strong>Phoenix, Scottsdale and Tucson</strong>. Target <strong>lower-middle-market PE, growth equity, search funds, family offices and early-stage VC</strong> &mdash; firms small enough that the partners feel the operating load, and hands-on enough to push a value-creation lever into their portfolio. Avoid mega-funds with established shared-service centres.</div>
+        <h3>Offshore-suitable roles to lead with</h3>
+        <div class="lead-statuses"><span class="pill">Investment analyst support</span><span class="pill">Deal sourcing &amp; market mapping</span><span class="pill">Financial modelling support</span><span class="pill">Due diligence coordination</span><span class="pill">CIM &amp; data-book preparation</span><span class="pill">Portfolio KPI reporting</span><span class="pill">Fund administration support</span><span class="pill">LP &amp; investor reporting</span><span class="pill">CRM &amp; deal-flow hygiene</span><span class="pill">Portfolio company back office</span></div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>Instant Expert</h2>
+        <p class="section-intro">A five-minute brief so you can talk to an Arizona investor like someone who understands their economics &mdash; not a caller reading a script.</p>
+        <div class="ie-body">
+        <h4>How these firms actually make money</h4><p>A private equity fund earns a management fee on committed capital (commonly around 2%) and carried interest on gains above a hurdle (commonly 20%). That structure has two consequences you can use. The management fee is a <strong>fixed budget</strong> &mdash; every US hire eats into it, so headcount is genuinely constrained. And carry is where partners get wealthy, so anything that lifts portfolio EBITDA or shortens time to exit gets attention immediately. Venture funds are the same shape with a smaller cheque and a longer horizon.</p>
+        <h4>The value-creation lever</h4><p>Modern PE does not make money on financial engineering alone; it makes money on operational improvement. A lower-middle-market company bought at a multiple of EBITDA is sold on the same maths &mdash; so every dollar of sustainable cost removed from a portfolio company is multiplied at exit. Shifting repeatable back-office work offshore is one of the cleanest, fastest levers available, and it works across almost any portfolio company regardless of sector.</p>
+        <h4>The Arizona picture</h4><p>Phoenix and Scottsdale have grown into a genuine investment hub &mdash; strong in-migration from California, a broad services and healthcare economy, and an expanding technology and manufacturing base. Tucson adds a deep angel and university-linked early-stage community. But talent costs have risen with the population, and finance and back-office roles now compete with better-funded coastal employers. Lean teams are the norm and hiring is a real friction.</p>
+        
+        <h4>Where offshore support fits &mdash; and where it does not</h4><p>Investment judgement, LP relationships, negotiation and board work stay with the partners, always. What travels well is the repeatable analytical and administrative work behind it: screening and market maps, comps, data-room organisation, KPI packs, reporting cycles and portfolio-company back office. Frame it as capacity and margin, never as replacing the investment team.</p>
+        </div>
+<div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+
+<section class="sheet">
+        <h2>Speaking their language</h2>
+        <p class="section-intro">The terms an Arizona investor will use without explaining them. Getting these right marks you as someone worth 20 minutes.</p>
+        <div class="ie-body">
+        <h4>The language to use</h4><p>Use their vocabulary accurately &mdash; getting a term wrong marks you as an outsider faster than anything else. Say &ldquo;operating partner&rdquo; not &ldquo;consultant&rdquo;, and &ldquo;portfolio company&rdquo; not &ldquo;client&rdquo;.</p>
+        <table class="t compact"><thead><tr><th style="width:27%">Term</th><th>What it means</th></tr></thead><tbody>
+        <tr><td>Deal flow</td><td>The stream of investment opportunities a firm sees. More deal flow means more choice &mdash; which is why screening capacity matters.</td></tr>
+        <tr><td>LOI &mdash; Letter of Intent</td><td>A non-binding offer setting out price and key terms, signed before detailed diligence begins.</td></tr>
+        <tr><td>IOI &mdash; Indication of Interest</td><td>An earlier, softer signal than an LOI: a rough valuation range to show genuine interest.</td></tr>
+        <tr><td>CIM &mdash; Confidential Information Memorandum</td><td>The detailed sale document a seller circulates to buyers. Preparing and analysing these is heavy, repeatable work.</td></tr>
+        <tr><td>QoE &mdash; Quality of Earnings</td><td>An accounting review testing whether reported profit is real and sustainable. Standard diligence step before closing.</td></tr>
+        <tr><td>Platform company</td><td>The first, larger acquisition in a sector &mdash; the base a firm builds on.</td></tr>
+        <tr><td>Add-on / bolt-on</td><td>A smaller business acquired and merged into the platform to add scale, capability or geography.</td></tr>
+        <tr><td>Roll-up</td><td>The strategy of buying many small companies in one industry and combining them into a larger, more valuable group.</td></tr>
+        <tr><td>Dry powder</td><td>Capital committed by investors but not yet invested &mdash; money the firm still has to deploy.</td></tr>
+        <tr><td>LP &mdash; Limited Partner</td><td>The investors who supply the capital (pension funds, family offices, individuals). They receive reporting, not control.</td></tr>
+        <tr><td>GP &mdash; General Partner</td><td>The firm itself &mdash; the managers who source deals, run the fund and make investment decisions.</td></tr>
+        <tr><td>Capital call</td><td>A request to LPs to transfer part of their committed capital, usually to fund an acquisition.</td></tr>
+        <tr><td>Waterfall</td><td>The agreed order in which exit proceeds are split between LPs and the GP, including the hurdle and carried interest.</td></tr>
+        <tr><td>Hold period</td><td>How long a firm owns a company before selling &mdash; commonly three to seven years. All value creation must land inside it.</td></tr>
+        <tr><td>100-day plan</td><td>The priority actions taken immediately after acquiring a company. A natural moment to introduce offshore support.</td></tr>
+        <tr><td>EBITDA</td><td>Earnings Before Interest, Tax, Depreciation and Amortisation &mdash; the profit measure companies are valued on.</td></tr>
+        <tr><td>EBITDA bridge</td><td>A breakdown showing how profit moved from purchase to exit &mdash; cost savings appear here as a named contribution.</td></tr>
+        <tr><td>Multiple arbitrage</td><td>Buying small companies at a low multiple of EBITDA and selling the combined group at a higher one.</td></tr>
+        <tr><td>Portfolio ops</td><td>The in-house team that improves the operating performance of portfolio companies &mdash; usually your best entry point.</td></tr>
+        </tbody></table>
+        </div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>Target profile &amp; selection</h2>
+        <p class="section-intro">Add researched firms that meet <strong>at least four</strong> of these signals. Fit matters more than size &mdash; a hands-on $50M fund with eight portfolio companies is a better target than a passive $500M allocator.</p>
+        <div class="cols2"><ul><li>Headquartered or with a real office in Phoenix, Scottsdale, Tempe, Chandler or Tucson</li><li>Lower-middle-market PE, growth equity, search fund, family office or early-stage VC</li><li>Small investment team &mdash; typically 3&ndash;25 professionals</li><li>An active portfolio of 4&ndash;25 operating companies</li><li>Control or majority positions (able to mandate operating change)</li><li>Visible operating partner, portfolio operations or value-creation function</li><li>Recent fund close, new raise or announced platform acquisition</li><li>Recently advertised for analysts, associates or fund-accounting staff</li><li>Buy-and-build / roll-up strategy with repeated add-ons</li><li>Portfolio concentrated in services, healthcare, logistics or business services</li></ul></div>
+        <div class="dodont">
+          <div class="box do"><h4>Pursue</h4><ul><li>Hands-on lower-middle-market funds with control positions</li><li>Operating partners and heads of portfolio operations</li><li>Search funds and independent sponsors (fast, decisive)</li><li>Family offices running direct investments</li></ul></div>
+          <div class="box dont"><h4>Exclude</h4><ul><li>Mega-funds with existing offshore shared services</li><li>Passive LPs, funds-of-funds and pure allocators</li><li>Minority-only investors with no operational influence</li><li>Firms mid-fundraise with no bandwidth (nurture instead)</li></ul></div>
+        </div>
+        <div class="note"><strong>Read the portfolio, not just the firm.</strong> Before outreach, open the firm&rsquo;s portfolio page and pick two companies whose back office would obviously benefit. Naming them in the first call is the single strongest credibility move in this campaign.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>The proposition &amp; angles</h2>
+        <p class="section-intro">Two doors into the same firm. The fund-level angle is easier to start; the portfolio angle is worth far more. Lead with whichever the person owns.</p>
+        <table class="t"><thead><tr><th style="width:34%">Pressure point</th><th>Angle to lead with</th></tr></thead><tbody>
+        <tr><td>Deal flow outpaces the team</td><td>Offshore analyst support for screening, market maps and comps so the team sees more deals without another US associate.</td></tr>
+        <tr><td>Diligence crunch on live deals</td><td>Diligence coordination, data-room management and data-book preparation that flexes up when a deal is hot.</td></tr>
+        <tr><td>Portfolio reporting is manual</td><td>A dedicated resource owning the monthly KPI pack and portfolio monitoring cycle across every company.</td></tr>
+        <tr><td>LP reporting eats partner time</td><td>Fund administration and investor-reporting support &mdash; capital calls, distributions, quarterly LP packs.</td></tr>
+        <tr><td>Need EBITDA uplift before exit</td><td>A portfolio-wide offshoring playbook: remove sustainable cost from back office, lift EBITDA, expand the exit multiple.</td></tr>
+        <tr><td>Add-on integration overload</td><td>Shared offshore back office absorbing finance, admin and customer support across the platform and its bolt-ons.</td></tr>
+        </tbody></table>
+        <div class="flag"><span class="lbl">The number that opens doors</span>Frame the portfolio angle in their own maths: cost removed from a portfolio company is EBITDA, and EBITDA is multiplied at exit. A modest annual saving across several companies compounds into a materially better exit value &mdash; that is the sentence that gets a meeting.</div>
+        <div class="note"><strong>Land small, expand wide.</strong> The best first commitment is a <strong>single pilot role in one portfolio company</strong>, not a fund-wide programme. It is easy to approve, quick to prove, and becomes the reference case for the rest of the portfolio.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>Priority prospect list &mdash; 15 supplied</h2>
+        <p class="section-intro">First-pass, public-source Arizona firms. <strong>Verify in HubSpot, Sales Navigator &amp; Apollo before outreach</strong> &mdash; confirm the named decision maker, current strategy and portfolio before you make contact.</p>
+        <table class="t compact"><thead><tr><th style="width:26%">Firm</th><th style="width:24%">Target contact (verify)</th><th>Why approach</th></tr></thead><tbody>
+        <tr><td>Najafi Companies (Phoenix)</td><td>Managing Director / Head of Portfolio Ops</td><td>Active private investment firm with a diversified operating portfolio &mdash; strong portfolio-wide back-office case.</td></tr>
+        <tr><td>Social Leverage (Scottsdale)</td><td>Partner / Platform Lead</td><td>Early-stage VC with a large portfolio of lean startups needing affordable operational capacity.</td></tr>
+        <tr><td>Grayhawk Capital (Phoenix)</td><td>Managing Partner</td><td>Long-standing Arizona growth investor; portfolio companies at the scaling stage where back office breaks.</td></tr>
+        <tr><td>Tallwave Capital (Phoenix)</td><td>Partner</td><td>Early-stage investor with hands-on portfolio involvement and a repeatable support need.</td></tr>
+        <tr><td>Canal Partners (Scottsdale)</td><td>Managing Partner</td><td>Growth-stage software investor; recurring finance, reporting and customer-support load in portfolio.</td></tr>
+        <tr><td>Desert Angels (Tucson)</td><td>Executive Director</td><td>Large angel network &mdash; a channel to many early-stage companies plus its own admin load.</td></tr>
+        <tr><td>Arizona Tech Investors (Scottsdale)</td><td>Executive Director / Chair</td><td>Investor network with portfolio-wide reach and screening/administration workload.</td></tr>
+        <tr><td>Sun Mountain Capital (Southwest)</td><td>Partner &mdash; Arizona</td><td>Regional investor with fund-administration and portfolio-monitoring reporting cycles.</td></tr>
+        <tr><td>Kartchner Ventures (Phoenix)</td><td>Founder / Managing Partner</td><td>Local venture investor; lean team with analytical and reporting support potential.</td></tr>
+        <tr><td>Phoenix-based independent sponsors</td><td>Principal / Deal Partner</td><td>Deal-by-deal sponsors with no permanent back office &mdash; fastest decision cycles in the market.</td></tr>
+        <tr><td>Arizona search funds (ASU / Eller alumni)</td><td>Searcher / Operating CEO</td><td>Single-acquirer operators inheriting an SME back office &mdash; ideal first offshore pilot.</td></tr>
+        <tr><td>Scottsdale single-family offices</td><td>CIO / Director of Investments</td><td>Direct-investment family offices with thin internal teams and real reporting burden.</td></tr>
+        <tr><td>Healthcare-focused AZ lower-middle-market PE</td><td>Operating Partner</td><td>Clinic and services roll-ups with heavy billing, scheduling and administration load.</td></tr>
+        <tr><td>Services / logistics roll-up sponsors (AZ)</td><td>Head of Value Creation</td><td>Buy-and-build platforms integrating add-ons &mdash; shared offshore back office is the obvious play.</td></tr>
+        <tr><td>Invest Southwest / Venture Madness network</td><td>Programme Director</td><td>Ecosystem convenor &mdash; a referral channel into most Arizona investors in one relationship.</td></tr>
+        </tbody></table>
+        <div class="flag"><span class="lbl">Expand the list</span>Add <strong>20&ndash;30 of your own researched firms</strong> via Sales Navigator, PitchBook/Crunchbase, the Arizona Technology Council, AZ Impact for Good, local deal announcements and university entrepreneurship networks. Aim for ~35&ndash;45 firms for the month.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>Buyers &amp; qualification</h2>
+        <p class="section-intro">Multi-thread each firm &mdash; reach a partner for authority and an operating or finance lead for the felt pain. In small funds these are often the same two or three people.</p>
+        <div class="grid2">
+          <div><h4>Primary decision makers</h4><ul><li>Managing Partner &middot; General Partner &middot; Founder</li><li>Operating Partner &middot; Head of Value Creation</li><li>Chief Operating Officer &middot; Chief Financial Officer</li><li>Searcher / Operating CEO (search funds)</li></ul></div>
+          <div><h4>Influencers &amp; secondary buyers</h4><ul><li>Head of Portfolio Operations</li><li>Director of Investments &middot; Principal</li><li>Fund Controller &middot; Head of Fund Administration</li><li>Portfolio company CEO or CFO (warm entry)</li></ul></div>
+        </div>
+        <h3>Qualification questions</h3>
+        <p class="section-intro">Use only what you need &mdash; the goal is a meeting, not a full diagnosis.</p>
+        <ul><li>How many operating companies are in the portfolio at the moment?</li><li>Where does the team lose the most time &mdash; sourcing and screening, diligence, or portfolio reporting?</li><li>Do you run any kind of shared services or standard operating playbook across the portfolio?</li><li>When a portfolio company needs to take cost out of its back office, how is that usually approached?</li><li>Has the firm or any portfolio company used offshore or nearshore teams before?</li></ul>
+        <div class="note"><strong>Qualified appointment.</strong> Firm fits the profile; contact is a partner, operating partner or credible sponsor; at least one confirmed business driver (fund-level capacity or portfolio value creation); meeting accepted in the Agent&rsquo;s calendar with a clear handover note in HubSpot.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>Objection handling &mdash; PE &amp; VC</h2>
+        <div class="note"><strong>How to handle any objection.</strong> Acknowledge it sincerely, reframe to the economics, then ask one question that keeps the conversation open. This audience is analytical and time-poor &mdash; be brief, be numerate, never oversell.</div>
+        <table class="t"><thead><tr><th style="width:32%">Objection</th><th>Response angle</th></tr></thead><tbody>
+        <tr><td>&ldquo;We don&rsquo;t make operating decisions for our portfolio companies.&rdquo;</td><td>Understood &mdash; we&rsquo;d never ask you to mandate it. Most firms simply add us to the preferred-partner list and let each CEO decide. You get the margin benefit without owning the decision. Would that be worth introducing to one or two of them?</td></tr>
+        <tr><td>&ldquo;Our team is small on purpose &mdash; we like it lean.&rdquo;</td><td>That&rsquo;s exactly why this works. It isn&rsquo;t headcount in Phoenix; it&rsquo;s dedicated analytical capacity at a fraction of the cost, so the partners stay senior-heavy and still see more deals. What&rsquo;s currently the first thing to fall off when deal flow spikes?</td></tr>
+        <tr><td>&ldquo;Confidentiality and data security are a problem.&rdquo;</td><td>Fair &mdash; it&rsquo;s the first thing serious firms raise. Our people work under NDA inside your systems and access controls, from a managed, supervised facility. It&rsquo;s the same control posture you&rsquo;d apply to any outsourced provider. Would a short walkthrough of the controls help?</td></tr>
+        <tr><td>&ldquo;We&rsquo;ve tried outsourcing and the quality was poor.&rdquo;</td><td>Common, and it&rsquo;s usually a scoping and management failure rather than a talent one. Brainbox is a managed model &mdash; we recruit to your brief, train, supervise and cover the role. Worth seeing how that differs from a freelance arrangement?</td></tr>
+        <tr><td>&ldquo;We&rsquo;re mid-fundraise / mid-deal &mdash; no bandwidth.&rdquo;</td><td>Completely understand, and I won&rsquo;t add to it. Can I put a note in for after close? In the meantime the Insight Article is yours &mdash; it&rsquo;s the portfolio maths in two pages.</td></tr>
+        <tr><td>&ldquo;What does this actually cost?&rdquo;</td><td>A dedicated full-time role typically runs at a fraction of the equivalent US salary, all-in and managed. The more useful number is what it does to portfolio EBITDA &mdash; which is what the Agent can model with you in 20 minutes.</td></tr>
+        </tbody></table>
+        <div class="note"><strong>Know when to stop.</strong> A clear &ldquo;no&rdquo; frees time for better-fit firms. Close the loop kindly, set a nurture date against a future trigger (new fund close, new platform acquisition), and respect every opt-out immediately.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>First-touch email</h2>
+        <p class="section-intro">Sent from Brainbox / the Agent with the Industry Insight Article attached. The Associate follows up by phone within a few days.</p>
+        <div class="script">
+          <span class="lbl">Subject &middot; A portfolio margin lever most Arizona funds haven&rsquo;t priced in</span>
+          <em>Hi [First Name]</em><br><br>
+          Most lower-middle-market firms we speak with in Phoenix and Scottsdale are running a lean investment team against growing deal flow, while every portfolio company carries a back office that was built for a smaller business.<br><br>Brainbox places dedicated, managed offshore personnel from our delivery centre in the Philippines. For an investment firm, that lands in two places. Inside the fund, it is analyst and fund-operations capacity &mdash; screening, market maps, comps, diligence coordination, portfolio KPI packs and LP reporting support &mdash; without adding US headcount against a fixed management fee.<br><br>Across the portfolio, it is a repeatable value-creation play. Sustainable cost removed from a portfolio company&rsquo;s back office is EBITDA, and EBITDA is multiplied at exit. Applied across several companies, it is one of the cleanest levers available inside a hold period.<br><br>We have attached an Industry Insight Article setting out the model, the controls around confidentiality and data, and how firms typically start &mdash; usually with a single pilot role in one portfolio company rather than a fund-wide programme.<br><br>Someone from Brainbox will reach out over the next few days to see whether a short meeting with our Agent for Arizona would be worthwhile.<br><br>
+          Kind regards<br>[Sender Name] &middot; Brainbox
+        </div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>Lead generation call script</h2>
+        <p class="section-intro">A structured prompt to secure a 20-minute meeting for the Agent &mdash; not to sell the service on the call. Note the time difference: Arizona does not observe daylight saving.</p>
+        <div class="script"><span class="lbl">Opening</span><em>Hi [First Name], this is [Caller Name] from Brainbox. We place dedicated managed offshore teams for US firms through our delivery centre in the Philippines. I&rsquo;m calling because we sent through an Insight Article on how Arizona investment firms are using offshore capability &mdash; both inside the fund and as a margin lever across the portfolio. I wanted to see whether a short conversation with our Agent for Arizona would be useful.</em></div>
+        <div class="script"><span class="lbl">Industry relevance</span><em>The reason we&rsquo;re speaking with firms like [Firm] is that the management fee is fixed, so every US hire is a real trade-off &mdash; and meanwhile the analytical and reporting load keeps growing. The bigger piece is the portfolio: cost taken out of a portfolio company&rsquo;s back office is EBITDA, and that&rsquo;s multiplied at exit. I noticed [Portfolio Company] and [Portfolio Company] in your portfolio &mdash; both are the profile where this typically works well.</em></div>
+        <div class="script"><span class="lbl">Qualification</span><em>How many operating companies are in the portfolio right now? Where does the team lose the most time &mdash; sourcing and screening, diligence, or portfolio reporting? Do you run any shared services or a standard playbook across the portfolio? Has the firm or any portfolio company used offshore teams before?</em></div>
+        <div class="script"><span class="lbl">Meeting ask</span><em>The useful next step is 20 minutes with our Agent. It isn&rsquo;t a generic outsourcing pitch &mdash; it&rsquo;s working out whether there&rsquo;s one defined role, either in the fund or in a single portfolio company, worth piloting. Would [day/time] or [day/time] suit, Arizona time?</em></div>
+        <div class="script"><span class="lbl">LinkedIn connection note (optional first touch)</span><em>Hi [First Name], I work with US investment firms on offshore analyst support and portfolio back-office capacity &mdash; usually as a straightforward EBITDA lever inside the hold period. Following [Firm]&rsquo;s recent activity; would be good to connect.</em></div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>Follow-up sequence</h2>
+        <p class="section-intro">First touch opens the door; the follow-ups win the meeting. Each adds a new angle &mdash; never resends the same message. Stop the sequence on any reply, opt-out or &ldquo;do not contact&rdquo;.</p>
+        <table class="t"><thead><tr><th style="width:20%">Touch</th><th>Purpose</th></tr></thead><tbody>
+          <tr><td class="num">1 &middot; Day 1</td><td>First-touch email + Industry Insight Article (previous page).</td></tr>
+          <tr><td class="num">2 &middot; Day 2&ndash;3</td><td>Phone call using the script; LinkedIn connection request if not already connected.</td></tr>
+          <tr><td class="num">3 &middot; Day 5</td><td>Value follow-up email &mdash; the portfolio EBITDA angle, referencing two of their own portfolio companies.</td></tr>
+          <tr><td class="num">4 &middot; Day 9</td><td>Second call + short LinkedIn message with a relevant proof point or comparable pilot.</td></tr>
+          <tr><td class="num">5 &middot; Day 14</td><td>Close-the-loop / breakup email &mdash; polite, no pressure, easy to reopen.</td></tr>
+          <tr><td class="num">Day 45+</td><td>Move to nurture; revisit on a new trigger (fund close, platform acquisition, new operating partner).</td></tr>
+        </tbody></table>
+        <div class="script"><span class="lbl">Touch 3 &middot; value follow-up email</span><em>Hi [First Name], following my note &mdash; the part most investors engage with is the portfolio maths. Take a services business in your portfolio carrying a heavy administrative back office: moving a portion of that work to a managed offshore team is sustainable cost out, which is EBITDA in, which is multiplied at exit. Looking at [Portfolio Company], it&rsquo;s the classic profile. Worth 20 minutes with our Agent to size it?</em></div>
+        <div class="script"><span class="lbl">Touch 5 &middot; close-the-loop / breakup email</span><em>Hi [First Name], I don&rsquo;t want to keep landing in your inbox. If offshore capacity &mdash; in the fund or across the portfolio &mdash; isn&rsquo;t a priority right now, no problem at all and I&rsquo;ll close the loop. If it&rsquo;s timing, tell me when to circle back, ideally after your next close, and I will. Either way the Insight Article is yours to keep.</em></div>
+        <div class="note"><strong>Multi-thread, don&rsquo;t spam.</strong> Space the sequence across the month and vary who you contact within a firm &mdash; a partner and an operating lead, never several identical messages in one day.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>The four-week plan</h2>
+        <p class="section-intro">One month, carried by the Associate. Front-load portfolio research &mdash; in this campaign, research quality is the whole advantage.</p>
+        <div class="days">
+          <div class="day"><div class="d">Week 1</div><div class="s">Verify the 15, research +20&ndash;30 firms, map each portfolio and pick two candidate companies per firm, load HubSpot, send first email wave with the Insight Article.</div></div>
+          <div class="day"><div class="d">Week 2</div><div class="s">Call wave on emailed contacts, LinkedIn connects &amp; engagement with partners and operating partners, follow-up wave 1, begin booking meetings.</div></div>
+          <div class="day"><div class="d">Week 3</div><div class="s">Second first-touch wave to remaining &amp; researched firms, multi-thread Tier 1 (partner + operating lead), convert warm replies, ask for portfolio-company introductions.</div></div>
+          <div class="day"><div class="d">Week 4</div><div class="s">Conversion push, confirm &amp; hand over booked meetings, reactivate non-responders, clean data, write month-end report.</div></div>
+        </div>
+        <table class="t"><thead><tr><th style="width:20%">Focus</th><th>What &ldquo;good&rdquo; looks like each week</th></tr></thead><tbody>
+          <tr><td class="num">Research</td><td>Every firm verified, tiered and tagged Campaign 11; portfolio reviewed and two candidate companies named per firm.</td></tr>
+          <tr><td class="num">Outreach</td><td>Personalised first touches naming real portfolio companies; the EBITDA-at-exit framing in every message.</td></tr>
+          <tr><td class="num">Calls</td><td>Priority order: warm replies, accepted connections, operating partners, then managing partners.</td></tr>
+          <tr><td class="num">Booking</td><td>Two specific times offered in Arizona time; invite sent immediately; handover note in HubSpot for the Agent.</td></tr>
+        </tbody></table>
+        <div class="note"><strong>Cross-reference the core cadence.</strong> This campaign runs inside the weekly rhythm from the Demand Generation Playbook &mdash; campaign touches count toward the Associate&rsquo;s standard first-touch, follow-up, call and conversation targets, and campaign-sourced meetings count toward booked and held appointments.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>Agent handover note</h2>
+        <p class="section-intro">Complete this in HubSpot for <strong>every</strong> booked appointment. It is what turns a booking into a converted meeting &mdash; the Agent walks in already knowing the fund, the portfolio and the angle.</p>
+        <table class="form"><tbody>
+          <tr><th style="width:26%">Firm, strategy &amp; fund size</th><td></td></tr>
+          <tr><th>Contact, role &amp; who else is in the room</th><td></td></tr>
+          <tr><th>Portfolio size &amp; two named candidate companies</th><td></td></tr>
+          <tr><th>Trigger (why now)</th><td></td></tr>
+          <tr><th>Pain hypothesis (fund-level or portfolio-level)</th><td></td></tr>
+          <tr><th>Offshore-suitable roles identified</th><td></td></tr>
+          <tr><th>Recommended angle / pilot proposed</th><td></td></tr>
+          <tr><th>Confidentiality &amp; data concerns raised</th><td></td></tr>
+          <tr><th>Objections raised &amp; responses</th><td></td></tr>
+          <tr><th>&ldquo;Do not say&rdquo; / sensitivities</th><td></td></tr>
+          <tr><th>Meeting date, time (Arizona) &amp; format</th><td></td></tr>
+        </tbody></table>
+        <div class="grid2">
+          <div class="box" style="background:var(--bb-blue-50);border:1px solid var(--bb-blue-300);border-radius:10px;padding:11px 13px">
+            <h4 style="color:var(--bb-blue-700);margin-top:0">Do include</h4>
+            <ul style="font-size:8.5pt;padding-left:16px;margin-bottom:0"><li>The exact words used about where time is lost</li><li>Named portfolio companies that fit the pilot</li><li>Whether the firm can influence portfolio operations</li></ul>
+          </div>
+          <div class="box" style="background:var(--bb-pink-50);border:1px solid var(--bb-pink-200);border-radius:10px;padding:11px 13px">
+            <h4 style="color:var(--bb-pink-700);margin-top:0">Avoid</h4>
+            <ul style="font-size:8.5pt;padding-left:16px;margin-bottom:0"><li>Quoting savings or multiples you cannot substantiate</li><li>Vague notes like &ldquo;interested in outsourcing&rdquo;</li><li>Booking without confirming who controls the decision</li></ul>
+          </div>
+        </div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>Monthly targets</h2>
+        <p class="section-intro">Fewer, higher-value accounts than a standard campaign. The benchmark is appointments <em>held</em> with a decision-making investor, not activity alone.</p>
+        <div class="stats">
+          <div class="stat"><div class="v">35&ndash;45</div><div class="l">Target firms worked (15 supplied + research)</div></div>
+          <div class="stat"><div class="v">90&ndash;120</div><div class="l">Contacts researched &amp; enriched</div></div>
+          <div class="stat"><div class="v">35&ndash;45</div><div class="l">First-touch emails with Insight Article</div></div>
+          <div class="stat"><div class="v">110&ndash;150</div><div class="l">Follow-up actions across the month</div></div>
+          <div class="stat"><div class="v">70&ndash;100</div><div class="l">Calls to priority &amp; warm contacts</div></div>
+          <div class="stat"><div class="v">18&ndash;25</div><div class="l">Live conversations / two-way exchanges</div></div>
+          <div class="stat"><div class="v">8&ndash;12</div><div class="l">Warm opportunities created in HubSpot</div></div>
+          <div class="stat"><div class="v">5&ndash;8</div><div class="l">Qualified appointments booked for the Agent</div></div>
+        </div>
+        <div class="flag"><span class="lbl">Final success measure</span>Appointments that convert into <strong>sales opportunities</strong> and ultimately a <strong>commercial transaction</strong> &mdash; ideally a pilot role inside one portfolio company that becomes the reference case for the rest. Every metric above is a leading indicator of that single revenue outcome.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <div class="cover" style="padding:14px 24px">
+          <div class="eyebrow">Month-end report &middot; Campaign 11</div>
+          <h1 style="font-size:17pt;margin:6px 0 2px">Arizona PE &amp; VC &mdash; outcomes</h1>
+          <p class="lede" style="font-size:9pt;margin:0">Completed by the Associate and reviewed with the sales lead / Marketing Manager at month-end.</p>
+        </div>
+        <table class="form"><tbody>
+          <tr><th style="width:16%">Associate</th><td style="width:34%"></td><th style="width:16%">Month</th><td style="width:34%"></td></tr>
+          <tr><th>Agent covered</th><td></td><th>Reviewed with / date</th><td></td></tr>
+        </tbody></table>
+        <h4>Activity &amp; outcomes vs target</h4>
+        <table class="form"><thead><tr><th style="width:44%">Measure</th><th class="target" style="width:18%">Target</th><th>Actual</th><th>Notes</th></tr></thead><tbody>
+          <tr><td>Firms worked</td><td class="target">35&ndash;45</td><td></td><td></td></tr>
+          <tr><td>First-touch emails sent</td><td class="target">35&ndash;45</td><td></td><td></td></tr>
+          <tr><td>Calls made</td><td class="target">70&ndash;100</td><td></td><td></td></tr>
+          <tr><td>Live conversations</td><td class="target">18&ndash;25</td><td></td><td></td></tr>
+          <tr><td>Warm opportunities created</td><td class="target">8&ndash;12</td><td></td><td></td></tr>
+          <tr><td>Qualified appointments booked</td><td class="target">5&ndash;8</td><td></td><td></td></tr>
+          <tr><td>Portfolio-company introductions secured</td><td class="target">&mdash;</td><td></td><td></td></tr>
+          <tr><td><strong>Opportunities &rarr; commercial transaction</strong></td><td class="target">&mdash;</td><td></td><td></td></tr>
+        </tbody></table>
+        <div class="grid2">
+          <div><span class="form-label">What worked / best angle &amp; trigger</span><div class="form-field" style="height:40px"></div></div>
+          <div><span class="form-label">Top objection &amp; what to change</span><div class="form-field" style="height:40px"></div></div>
+        </div>
+        <h4>Sign-off</h4>
+        <table class="form"><tbody><tr><th style="width:16%">Associate</th><td style="width:34%"></td><th style="width:16%">Sales lead</th><td style="width:34%"></td></tr></tbody></table>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+
+<section class="sheet">
+        <h2>Appendix &mdash; social advertising</h2>
+        <p class="section-intro">Four adverts, each written three ways for LinkedIn, Instagram and Facebook. Run them in sequence across the month so the audience meets a different argument each week, and always point to a single next step.</p>
+        <table class="t"><thead><tr><th style="width:12%">Advert</th><th style="width:28%">Angle</th><th>Who it is aimed at</th></tr></thead><tbody>
+          <tr><td class="num">01</td><td>Cost out is EBITDA in</td><td>Managing partners and operating partners focused on exit value.</td></tr>
+          <tr><td class="num">02</td><td>The fixed management fee</td><td>Partners at lean funds who cannot justify another US hire.</td></tr>
+          <tr><td class="num">03</td><td>Start with one role</td><td>Cautious buyers and anyone burned by outsourcing before.</td></tr>
+          <tr><td class="num">04</td><td>Kind is good business</td><td>Founder-led funds and VCs who care how their companies are run.</td></tr>
+        </tbody></table>
+        <div class="note"><strong>How to run them.</strong> LinkedIn is the primary channel &mdash; sponsored to job titles (Managing Partner, Operating Partner, Head of Portfolio Operations) within Arizona. Instagram and Facebook carry the same idea in a shorter, warmer register for retargeting and brand presence. Every advert lands on the same page and offers the same next step, so results are comparable.</div>
+        <div class="flag"><span class="lbl">House rules</span>Sentence case, Australian English, no emoji. Never quote a savings figure or a multiple you cannot substantiate. One idea per advert, one call to action, and the tone stays warm and plain &mdash; confident, never hyped.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>Advert 01 &mdash; Cost out is EBITDA in</h2>
+        <p class="section-intro">The core commercial argument, in the investor&rsquo;s own maths. Use this as the lead advert of the month.</p>
+        <div class="script"><span class="lbl">LinkedIn &middot; sponsored single image</span><em>Every dollar of sustainable cost you remove from a portfolio company is EBITDA. And EBITDA is what the company is valued on at exit.<br><br>Brainbox places dedicated, managed offshore teams into Australian and US businesses &mdash; finance, administration, customer support, reporting. For a private equity firm, that is not an outsourcing decision. It is a value-creation lever you can apply across the whole portfolio, inside the hold period.<br><br>We work with lower-middle-market funds in Phoenix, Scottsdale and Tucson. Most start with a single pilot role in one company, prove it, then repeat it.<br><br>Read the two-page insight on how the maths works &mdash; link below.</em></div>
+        <div class="script"><span class="lbl">Instagram &middot; feed post caption</span><em>Take cost out. Put EBITDA in. Sell on the multiple.<br><br>Managed offshore teams for portfolio companies &mdash; recruited, trained and supervised by Brainbox, working inside your systems.<br><br>One role. One company. Prove it, then scale it.<br><br>Link in bio for the insight article.</em></div>
+        <div class="script"><span class="lbl">Facebook &middot; feed post</span><em>Private equity is an operations business now.<br><br>Brainbox builds dedicated offshore teams for portfolio companies &mdash; back office, finance, administration and support &mdash; managed end to end so your operating partners do not have to.<br><br>Sustainable cost out. EBITDA up. A better number at exit.<br><br>Download the two-page insight article to see how firms are applying it across a portfolio.</em></div>
+        <div class="grid2">
+          <div><h4>Tags</h4><div class="lead-statuses"><span class="pill">#PrivateEquity</span><span class="pill">#ValueCreation</span><span class="pill">#PortfolioOps</span><span class="pill">#EBITDA</span><span class="pill">#Offshoring</span><span class="pill">#Arizona</span><span class="pill">#Phoenix</span><span class="pill">#Scottsdale</span><span class="pill">#AlwaysBeKind</span></div></div>
+          <div><h4>Call to action</h4><p style="font-size:9pt"><strong>Read the insight article</strong> &mdash; a two-page explanation of the portfolio maths, the controls, and how firms start. Secondary CTA: <em>Book 20 minutes with our Arizona Agent.</em></p></div>
+        </div>
+        <div class="note"><strong>Visual direction.</strong> Duotone elephant photography with the pink-to-blue gradient, full bleed, with the headline set clear over the pink field. No charts, no stock finance imagery.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>Advert 02 &mdash; Your management fee is fixed. Your workload isn&rsquo;t.</h2>
+        <p class="section-intro">Speaks to the fund itself rather than the portfolio &mdash; the easier first conversation with a lean team.</p>
+        <div class="script"><span class="lbl">LinkedIn &middot; sponsored single image</span><em>The management fee does not grow when deal flow does.<br><br>So every new hire in Phoenix is a genuine trade-off, while screening, comps, diligence coordination, portfolio KPI packs and LP reporting keep expanding.<br><br>Brainbox places dedicated offshore analysts and fund-operations support &mdash; managed by us, working in your systems, under your access controls. Your partners stay senior-heavy. Your funnel gets wider.<br><br>We are working with investment firms across Arizona. Happy to show you what a single dedicated resource covers in a month.</em></div>
+        <div class="script"><span class="lbl">Instagram &middot; feed post caption</span><em>Deal flow grew. The management fee didn&rsquo;t.<br><br>Dedicated offshore analyst and fund-operations support &mdash; screening, comps, data books, KPI packs, LP reporting.<br><br>More capacity. No new US headcount.<br><br>Link in bio.</em></div>
+        <div class="script"><span class="lbl">Facebook &middot; feed post</span><em>Small investment team, growing workload?<br><br>Brainbox provides dedicated offshore analyst and fund-operations support for private equity and venture firms &mdash; recruited to your brief, trained, supervised and covered by us.<br><br>You keep the judgement calls. We take the repeatable work off the desk.<br><br>Book a short conversation with our Arizona Agent.</em></div>
+        <div class="grid2">
+          <div><h4>Tags</h4><div class="lead-statuses"><span class="pill">#PrivateEquity</span><span class="pill">#VentureCapital</span><span class="pill">#FundOperations</span><span class="pill">#DealFlow</span><span class="pill">#InvestmentAnalyst</span><span class="pill">#Arizona</span><span class="pill">#Phoenix</span><span class="pill">#Offshoring</span><span class="pill">#AlwaysBeKind</span></div></div>
+          <div><h4>Call to action</h4><p style="font-size:9pt"><strong>Book 20 minutes with our Arizona Agent</strong> &mdash; a working session on which tasks would move, not a pitch.</p></div>
+        </div>
+        <div class="note"><strong>Visual direction.</strong> Clean white layout, generous space, a single line of Exo headline in grey with the pink accent rule. Restrained and consulting-grade &mdash; this advert should feel like a considered argument, not an offer.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>Advert 03 &mdash; Start with one role, not a programme</h2>
+        <p class="section-intro">The de-risking advert. Aimed squarely at the buyer who has tried outsourcing before and been burned.</p>
+        <div class="script"><span class="lbl">LinkedIn &middot; sponsored single image</span><em>Most firms do not need a portfolio-wide offshoring strategy. They need one role, in one company, that works.<br><br>That is how nearly every Brainbox relationship starts. We scope one position, recruit to your brief, train and supervise the person, and cover them when they are away. You measure it for a quarter. If it works, you repeat it in the next company.<br><br>It is a managed model, not a freelance marketplace &mdash; which is usually the difference between offshoring that sticks and offshoring that quietly fails.<br><br>Worth a 20-minute conversation?</em></div>
+        <div class="script"><span class="lbl">Instagram &middot; feed post caption</span><em>Tried outsourcing before and it didn&rsquo;t stick?<br><br>Usually it&rsquo;s the scoping and the management, not the person.<br><br>Brainbox is a managed model: we recruit, train, supervise and cover the role. Start with one. Prove it. Then repeat.<br><br>Link in bio.</em></div>
+        <div class="script"><span class="lbl">Facebook &middot; feed post</span><em>Start small. One role, one portfolio company, one quarter to prove it.<br><br>Brainbox recruits to your brief, trains and supervises the person, and covers the seat when they&rsquo;re away &mdash; so the result does not depend on one individual having a good week.<br><br>That is what makes offshoring stick.<br><br>Talk to our Arizona Agent about a pilot.</em></div>
+        <div class="grid2">
+          <div><h4>Tags</h4><div class="lead-statuses"><span class="pill">#PortfolioCompanies</span><span class="pill">#OperatingPartner</span><span class="pill">#SharedServices</span><span class="pill">#BackOffice</span><span class="pill">#ManagedTeams</span><span class="pill">#Arizona</span><span class="pill">#Tucson</span><span class="pill">#PrivateEquity</span><span class="pill">#AlwaysBeKind</span></div></div>
+          <div><h4>Call to action</h4><p style="font-size:9pt"><strong>Talk to us about a single pilot role</strong> &mdash; scoped, priced and measurable in one quarter.</p></div>
+        </div>
+        <div class="note"><strong>Visual direction.</strong> A single portrait of a Brainbox team member at work, warm and real, with the gradient held to a thin accent bar. People, not abstractions &mdash; this advert is about trust.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+<section class="sheet">
+        <h2>Advert 04 &mdash; Kind is good business</h2>
+        <p class="section-intro">The brand advert. Differentiates on how the work is done &mdash; and lands well with founder-led funds and venture investors.</p>
+        <div class="script"><span class="lbl">LinkedIn &middot; sponsored single image</span><em>Offshoring has a reputation problem, and most of it is deserved.<br><br>Brainbox was built on one value: always be kind. Our people are permanent employees, properly paid, developed and supported from our own facility in the Philippines &mdash; not gig workers rented by the hour. That is not a marketing line; it is why retention is high and why the work is good.<br><br>For an investor, that matters commercially. A stable, well-treated team means your portfolio company is not re-training someone new every six months.<br><br>Powerful people, performing. That is the whole proposition.</em></div>
+        <div class="script"><span class="lbl">Instagram &middot; feed post caption</span><em>Always be kind.<br><br>Our people are permanent employees &mdash; paid properly, trained, supported and part of a real team.<br><br>Turns out treating people well is also what makes the work good, and what keeps them.<br><br>Powerful people, performing.</em></div>
+        <div class="script"><span class="lbl">Facebook &middot; feed post</span><em>There is a right way to build an offshore team.<br><br>At Brainbox our people are permanent employees with real careers, working from our own facility in the Philippines. We invest in them, and they stay &mdash; which is exactly what a portfolio company needs from a back-office team.<br><br>Kindness and performance are not a trade-off.<br><br>Meet the team behind the model.</em></div>
+        <div class="grid2">
+          <div><h4>Tags</h4><div class="lead-statuses"><span class="pill">#AlwaysBeKind</span><span class="pill">#PowerfulPeoplePerformance</span><span class="pill">#TogetherWeThrive</span><span class="pill">#ResponsibleOutsourcing</span><span class="pill">#CompanyCulture</span><span class="pill">#PrivateEquity</span><span class="pill">#VentureCapital</span><span class="pill">#Arizona</span></div></div>
+          <div><h4>Call to action</h4><p style="font-size:9pt"><strong>Meet the team</strong> &mdash; see how Brainbox builds and keeps offshore teams. Secondary CTA: <em>Start a conversation.</em></p></div>
+        </div>
+        <div class="note"><strong>Visual direction.</strong> The <em>Always Be Kind</em> secondary mark in pink on white, with a real photograph of the Philippines team. Warm, human and unmistakably brand-led &mdash; no financial imagery at all.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 11 &middot; Arizona PE &amp; VC Firms</span></div>
+</section>
+</main>
+</x-dc>
+</body>
+</html>

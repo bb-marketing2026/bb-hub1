@@ -1,0 +1,123 @@
+{
+ "marketing": {
+  "fn": "Marketing",
+  "tool": "Claude",
+  "q": "Is marketing moving faster and freeing time to take on more fractional client work?",
+  "p30": {
+   "tag": "Claude Projects · Design System",
+   "intro": "The Brainbox Brand Hub anchors all written and social copy, with on-page SEO built into every web-facing piece. The BB and Blue Zoo Design Systems are built and in use. The focus now is creating client design systems, starting with Razor and WE, so the team produces on-brand client work without starting from scratch.",
+   "bullets": [
+    "Brand Hub: brand voice, Australian English, tone guide, and templates for social (LinkedIn/Instagram), blog and articles. SEO enforced on every web-facing piece: search intent, headings, meta, internal links.",
+    "BB Design System: typography, palette, spacing and document templates. Built and shared.",
+    "Blue Zoo Design System: same structure with BZ brand assets. Built and shared.",
+    "Razor and WE: build a design system per client — brand assets, palette, templates, and channel and SEO context. Shared with the account team.",
+    "Map the publishing workflow: HubSpot schedules social in advance. Explore publishing articles direct from Claude via the WordPress connector.",
+    "Decision by day 30: can proposals be produced in Claude Design repeatably? If yes, proposals move to Claude Design and we exit PandaDoc."
+   ],
+   "measure": "Brand Hub live. Razor and WE design systems built and shared. First client pieces produced and SEO-checked. Proposals in Claude Design vs PandaDoc decided."
+  },
+  "p60": {
+   "tag": "Analysis · Semrush · Time freed",
+   "intro": "Work smarter, not just more. Semrush and social data used pragmatically: keep effort on what's working, ease off what isn't, so the team moves faster and frees up time — not optimisation for its own sake. The time freed is what lets the team take on more fractional client work.",
+   "bullets": [
+    "Semrush and social read for what's actually working. Focus the content plan; don't chase rankings for the sake of it.",
+    "Recurring outputs flowing through the Projects: faster turnaround, less rework.",
+    "Hours freed tracked across the team. That capacity is the point.",
+    "Findings shared simply with the team and Sales, no heavy reporting overhead.",
+    "Adoption holds: every team member using the Projects, not just the lead."
+   ],
+   "measure": "Hours freed per week across the team. Faster turnaround and lower rework vs baseline. Capacity available for fractional client work."
+  },
+  "p90": {
+   "tag": "Client Services · Fractional work",
+   "intro": "Put the freed time to work. With BB and BZ running fast, set the team up to take on more fractional client work across design, social, SEO and web. Each client gets a dedicated structure so the team delivers compliant work across disciplines without starting from scratch. Can run as a separate client-services build.",
+   "bullets": [
+    "Client-services structure per fractional client: brand, channels, SEO and social context, templates.",
+    "Spans the services delivered: design, social, SEO optimisation, web copy.",
+    "Shared with the account team. More client work absorbed without more headcount.",
+    "Light brand and consistency check across BB, BZ and client work.",
+    "Marketing presents capacity gained and client work taken on at showcase."
+   ],
+   "measure": "Fractional client work taken on with the existing team. Client structures live. Turnaround and rework across accounts vs baseline."
+  }
+ },
+ "webdev": {
+  "fn": "Web Development",
+  "tool": "Claude",
+  "q": "Is development faster? Are performance and mobile scores improving? Are SEO and code quality issues caught before they ship?",
+  "p30": {
+   "tag": "Explore · Mockup · Review",
+   "intro": "Thirty days of structured exploration across four use cases: AI-assisted WordPress development, UI/UX mockup generation, code review and optimisation, and performance/SEO/mobile auditing. By day 30, each has been tested on a real piece of work — not just theorised.",
+   "bullets": [
+    "WordPress development: use Claude to generate custom page templates, plugin integration code and theme modifications. Test on one real build task.",
+    "UI/UX mockups: generate HTML/CSS prototypes via Claude artifacts before writing production code. Test on one new page or component.",
+    "Code review: submit one existing page or template to Claude for a full review — performance bottlenecks, render-blocking assets, unused CSS/JS, accessibility.",
+    "Performance, SEO and mobile: use Claude to audit one page for loading speed, Core Web Vitals, mobile responsiveness and on-page SEO. Document what it catches vs a manual review.",
+    "Log baseline PageSpeed Insights and Lighthouse scores (mobile and desktop) on three representative pages before any AI-assisted optimisation."
+   ],
+   "measure": "All four use cases tested on real work. Baseline Lighthouse scores documented. First code review completed. Issues caught listed and prioritised."
+  },
+  "p60": {
+   "tag": "AI in the workflow",
+   "intro": "AI is a standard step in the development process — not an occasional experiment. Every new build starts with a Claude-generated mockup. Every deployment goes through a Claude code review. Performance and mobile checks are automated into the sign-off process.",
+   "bullets": [
+    "UI/UX mockup in a Claude artifact required before any new page goes into production.",
+    "Code review via Claude required before every deployment — checklist covers loading speed, mobile responsiveness, render-blocking assets, SEO meta, image optimisation.",
+    "AI-assisted WordPress component library started: reusable blocks generated and stored in a shared Claude Project.",
+    "PageSpeed scores re-run on all pages reviewed in month 1. Document improvement vs baseline."
+   ],
+   "measure": "% of deployments going through AI code review (target: 100%). PageSpeed score improvement on reviewed pages vs day 30 baseline. Development time per new page vs manual baseline."
+  },
+  "p90": {
+   "tag": "Performance gains · Shared library",
+   "intro": "Measurable improvement in site performance and mobile scores. A shared Claude Project containing reusable WordPress components, review checklists and optimisation prompts — so any team member can maintain quality standards without always needing a senior developer.",
+   "bullets": [
+    "Lighthouse mobile and desktop scores across client sites compared to day 30 baseline. Target: meaningful improvement on at least 50% of reviewed pages.",
+    "Shared “Web Dev” Claude Project live: WordPress component templates, code-review checklist prompt, SEO audit prompt, performance checklist.",
+    "Development time per page/feature tracked and reported vs pre-adoption baseline.",
+    "Web Dev team presents performance-score improvements and time savings at showcase."
+   ],
+   "measure": "Lighthouse score improvements (mobile and desktop, all reviewed pages). Dev time per page vs baseline. Code issues caught pre-deployment vs post. Shared Project live and in use."
+  }
+ },
+ "demandgen": {
+  "fn": "Demand Generation",
+  "tool": "Claude or ChatGPT",
+  "q": "Are we booking more discovery calls? Is outreach more personalised with better reply rates? Is time from lead to first meeting reducing?",
+  "p30": {
+   "tag": "Apollo · HubSpot · Audit",
+   "intro": "Map the current workflow: Apollo sources and enriches contacts, HubSpot holds the lists and tracks engagement. Identify where AI adds the most value in that chain — research before outreach, personalised copy at scale, and smarter list prioritisation. By day 30, one AI-enhanced sequence is live and being measured against baseline.",
+   "bullets": [
+    "Audit the current workflow: how are Apollo contacts sourced, how do they move into HubSpot lists, and how are sequences managed?",
+    "Document baseline metrics in week 1: reply rate, meeting book rate, leads worked per week, list size and conversion by segment.",
+    "Build a prospect research prompt: contact or company in, context and outreach angle out — before anyone goes into a HubSpot sequence.",
+    "Write first AI-generated outreach copy. Load into a HubSpot sequence. Run alongside the existing sequence for A/B comparison.",
+    "Identify highest-volume HubSpot list segments — these are the first targets for AI personalisation."
+   ],
+   "measure": "Baseline reply rate and meeting book rate documented from HubSpot. First AI sequence live. Research prompt tested on at least 10 real prospects."
+  },
+  "p60": {
+   "tag": "Research engine · Copy generator",
+   "intro": "Any team member can research a prospect from Apollo and generate personalised outreach copy ready for a HubSpot sequence in under five minutes. AI copy A/B tested against previous templates inside HubSpot.",
+   "bullets": [
+    "Prospect brief GPT or skill live: Apollo contact or company URL in; outreach context, likely pain points, Brainbox service angle and a suggested subject line out.",
+    "Outreach copy generator built: brief in, multi-touch sequence out, formatted for direct use in HubSpot sequences.",
+    "A/B test running in HubSpot: AI copy vs previous template. Track open rate, reply rate, positive reply rate.",
+    "Lead scoring prompt built: filters and prioritises HubSpot lists by firmographics (SME, sector, headcount) to surface highest-fit contacts first."
+   ],
+   "measure": "Reply rate: AI sequence vs previous template (HubSpot data). Time to research and write outreach per lead (target: under 5 minutes). Positive reply rate vs baseline."
+  },
+  "p90": {
+   "tag": "Full workflow · HubSpot integration",
+   "intro": "End-to-end workflow in use: Apollo source → AI prospect research → AI outreach copy → HubSpot list and sequence. Meeting book rate measurably improved. Assess whether HubSpot list data can feed directly into the AI research step to remove manual input entirely.",
+   "bullets": [
+    "Full workflow in use for all active HubSpot sequences. No outreach going out without an AI research and copy step.",
+    "Meeting book rate vs day 1 baseline reported. Target: meaningful improvement.",
+    "Time from lead identified in Apollo to first meeting booked (tracked via HubSpot) averaged and reported.",
+    "Assess: can HubSpot contact exports or Apollo enrichment data feed directly into the research GPT to remove manual input?",
+    "Demand Gen presents reply rate, meeting rate and time savings at showcase."
+   ],
+   "measure": "Meeting book rate vs baseline (HubSpot). Reply rate vs baseline. Time from Apollo source to first meeting. % of HubSpot sequences using AI copy (target: 100%)."
+  }
+ }
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <style>
+    body { margin:0; background:#eef0f3; font-family:var(--font-body,'Aptos',sans-serif); color:var(--bb-grey-800); }
+    .wrap { display:flex; flex-wrap:wrap; gap:32px; padding:40px; align-items:flex-start; justify-content:center; }
+    .head { width:100%; text-align:center; margin-bottom:4px; }
+    .head h1 { font-family:var(--font-heading,'Exo',sans-serif); font-weight:600; color:var(--bb-grey-800); font-size:22pt; margin:0 0 4px; }
+    .head p { color:var(--bb-grey-500); margin:0; font-size:10.5pt; }
+    .post { width:440px; background:#fff; border:1px solid #e3e6ea; border-radius:12px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,0.08); font-size:10.5pt; }
+    .phead { display:flex; align-items:flex-start; gap:10px; padding:14px 14px 8px; }
+    .pavatar { width:48px; height:48px; border-radius:50%; object-fit:cover; flex:none; border:1px solid #e3e6ea; }
+    .pmeta { flex:1; line-height:1.25; }
+    .pname { font-family:var(--font-heading,'Exo',sans-serif); font-weight:600; color:#1d1d1f; font-size:11pt; }
+    .psub { color:#585858; font-size:8.5pt; }
+    .ptime { color:#8a8f96; font-size:8pt; margin-top:1px; }
+    .pmore { color:#8a8f96; font-weight:700; padding:0 4px; }
+    .pcaption { padding:2px 14px 10px; color:#1d1d1f; line-height:1.45; }
+    .pcaption p { margin:0 0 9px; }
+    .ptags { color:var(--bb-pink-700); font-weight:600; }
+    .pvisual { position:relative; margin:0; padding:30px 26px 20px; color:#fff; background:var(--bb-gradient-brand); min-height:150px; display:flex; flex-direction:column; justify-content:center; }
+    .pv-kicker { font-family:var(--font-mono,monospace); text-transform:uppercase; letter-spacing:0.18em; font-size:7.5pt; opacity:0.9; margin-bottom:10px; }
+    .pv-headline { font-family:var(--font-heading,'Exo',sans-serif); font-weight:600; font-size:19pt; line-height:1.08; letter-spacing:-0.01em; }
+    .pv-sub { font-size:10pt; margin-top:8px; opacity:0.95; max-width:92%; }
+    .pv-foot { display:flex; align-items:center; gap:9px; margin-top:20px; }
+    .pv-ele { height:22px; width:auto; opacity:0.95; }
+    .pv-wm { font-family:var(--font-logo,'Exo',sans-serif); letter-spacing:0.14em; font-weight:600; font-size:10pt; }
+    .vbadge { margin-left:auto; background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.35); border-radius:999px; padding:5px 12px; font-size:8pt; font-weight:600; white-space:nowrap; }
+    .pstats { display:flex; justify-content:space-between; padding:9px 14px; color:#8a8f96; font-size:8.5pt; border-bottom:1px solid #eceef0; }
+    .pactions { display:flex; }
+    .pact { flex:1; text-align:center; padding:9px 0; color:#585858; font-weight:600; font-size:9pt; }
+    .pact:hover { background:#f3f5f7; }
+    .pverified { color:var(--bb-pink); }
+  </style>
+</helmet>
+<div class="wrap">
+  <div class="head"><h1>Brainbox &middot; LinkedIn post mockups</h1><p>Four in-feed cards for Campaign 01 — Residential Building &amp; Trades. Link goes in the first comment, not the post body.</p></div>
+  
+  <article class="post">
+    <header class="phead">
+      <img class="pavatar" src="assets/brainbox-vertical-colour.jpg" alt="Brainbox">
+      <div class="pmeta"><div class="pname">Brainbox <span class="pverified">·</span></div><div class="psub">Powerful People Performance · Offshore teams for WA business</div><div class="ptime">Promoted · 🌐</div></div>
+      <div class="pmore">···</div>
+    </header>
+    <div class="pcaption"><p>It's 9pm. The site's quiet. And the builder is still at the kitchen table — chasing a supplier, formatting a quote, updating the job file.</p><p>Not because they want to. Because there's no one else to hand it to.</p><p>In most WA building and trade firms, the admin doesn't disappear at knock-off. Quotes, take-offs, variations, RFIs, progress claims, invoicing — it lands on the owners, supervisors and estimators who are already flat out.</p><p>There's a better way to think about it — and it isn't "replace your team."</p><p>📄 Comment "SEND IT" and we'll share the full Insight Article.</p><p class="ptags">#WABuilders #ConstructionAU #Offshoring #Tradies</p></div>
+    <div class="pvisual">
+      <div class="pv-kicker">THE 9PM DESK</div>
+      <div class="pv-headline">Still doing quotes at 9pm?</div>
+      <div class="pv-sub">The admin doesn't knock off when the site does.</div>
+      <div class="pv-foot"><img class="pv-ele" src="assets/brainbox-elephant-white.png" alt=""><span class="pv-wm">BRAINBOX</span><span class="vbadge">📄 Free Insight Article</span></div>
+    </div>
+    <div class="pstats"><span>👍❤️👏 128</span><span>24 comments · 9 reposts</span></div>
+    <div class="pactions">
+      <div class="pact">👍 Like</div><div class="pact">💬 Comment</div><div class="pact">🔁 Repost</div><div class="pact">➤ Send</div>
+    </div>
+  </article>
+
+  <article class="post">
+    <header class="phead">
+      <img class="pavatar" src="assets/brainbox-vertical-colour.jpg" alt="Brainbox">
+      <div class="pmeta"><div class="pname">Brainbox <span class="pverified">·</span></div><div class="psub">Powerful People Performance · Offshore teams for WA business</div><div class="ptime">Promoted · 🌐</div></div>
+      <div class="pmore">···</div>
+    </header>
+    <div class="pcaption"><p>When your estimator is also doing take-offs, supplier pricing chase, data entry and quote formatting, the quote goes out late — and the job goes to whoever got there first.</p><p>The fix usually isn't another local hire. It's giving your estimator dedicated support for the repeatable work around pricing, so they price faster and win more.</p><p>Trained, managed offshore support for the office work behind the site — while the licensed, on-site work stays exactly where it is.</p><p>📅 Book a 20-minute chat with a Brainbox rep — link in comments.</p><p class="ptags">#Estimating #ConstructionManagement #WASmallBusiness</p></div>
+    <div class="pvisual">
+      <div class="pv-kicker">QUOTE TURNAROUND</div>
+      <div class="pv-headline">Slow quotes lose jobs.</div>
+      <div class="pv-sub">Few builders have the capacity to fix it.</div>
+      <div class="pv-foot"><img class="pv-ele" src="assets/brainbox-elephant-white.png" alt=""><span class="pv-wm">BRAINBOX</span><span class="vbadge">📅 Book a 20-min chat</span></div>
+    </div>
+    <div class="pstats"><span>👍❤️👏 128</span><span>24 comments · 9 reposts</span></div>
+    <div class="pactions">
+      <div class="pact">👍 Like</div><div class="pact">💬 Comment</div><div class="pact">🔁 Repost</div><div class="pact">➤ Send</div>
+    </div>
+  </article>
+
+  <article class="post">
+    <header class="phead">
+      <img class="pavatar" src="assets/brainbox-vertical-colour.jpg" alt="Brainbox">
+      <div class="pmeta"><div class="pname">Brainbox <span class="pverified">·</span></div><div class="psub">Powerful People Performance · Offshore teams for WA business</div><div class="ptime">Promoted · 🌐</div></div>
+      <div class="pmore">···</div>
+    </header>
+    <div class="pcaption"><p>The credible version is separation of work — not replacement of people.</p><p>Your licensed trades, your supervisors, your client relationships: all stay local. What moves is the repeatable back-office work that clogs everyone's week — supplier follow-up, variation tracking, CRM updates, invoice chasing.</p><p>Done well, it's capacity and cash-flow relief. Not cost-cutting. Not sending jobs offshore.</p><p>📄 Want the full picture? Comment "ARTICLE" and we'll send the Insight piece.</p><p class="ptags">#Offshoring #ConstructionAU #BuildingIndustry #AlwaysBeKind</p></div>
+    <div class="pvisual">
+      <div class="pv-kicker">MYTH-BUST</div>
+      <div class="pv-headline">“Offshoring means replacing my team.”</div>
+      <div class="pv-sub">It's the first thing WA builders say. It's the wrong picture.</div>
+      <div class="pv-foot"><img class="pv-ele" src="assets/brainbox-elephant-white.png" alt=""><span class="pv-wm">BRAINBOX</span><span class="vbadge">📄 Free Insight Article</span></div>
+    </div>
+    <div class="pstats"><span>👍❤️👏 128</span><span>24 comments · 9 reposts</span></div>
+    <div class="pactions">
+      <div class="pact">👍 Like</div><div class="pact">💬 Comment</div><div class="pact">🔁 Repost</div><div class="pact">➤ Send</div>
+    </div>
+  </article>
+
+  <article class="post">
+    <header class="phead">
+      <img class="pavatar" src="assets/brainbox-vertical-colour.jpg" alt="Brainbox">
+      <div class="pmeta"><div class="pname">Brainbox <span class="pverified">·</span></div><div class="psub">Powerful People Performance · Offshore teams for WA business</div><div class="ptime">Promoted · 🌐</div></div>
+      <div class="pmore">···</div>
+    </header>
+    <div class="pcaption"><p>Good construction administrators, contracts people and schedulers are just as hard to find, slow to recruit and expensive to keep — and when that seat is empty, quotes slip, sites wait on suppliers, and invoicing falls behind.</p><p>There's a way to add reliable, trained back-office capacity without the local hiring struggle — a dedicated offshore team member, managed end to end, working inside your systems (Buildxact, Simpro, Xero, procore).</p><p>📅 If admin is holding your team back, let's talk. Details in the comments.</p><p class="ptags">#WAConstruction #Trades #BusinessSupport #Offshoring</p></div>
+    <div class="pvisual">
+      <div class="pv-kicker">THE OTHER SHORTAGE</div>
+      <div class="pv-headline">Everyone's talking about the trades shortage.</div>
+      <div class="pv-sub">Almost no one's talking about the office one.</div>
+      <div class="pv-foot"><img class="pv-ele" src="assets/brainbox-elephant-white.png" alt=""><span class="pv-wm">BRAINBOX</span><span class="vbadge">📅 Book a 20-min chat</span></div>
+    </div>
+    <div class="pstats"><span>👍❤️👏 128</span><span>24 comments · 9 reposts</span></div>
+    <div class="pactions">
+      <div class="pact">👍 Like</div><div class="pact">💬 Comment</div><div class="pact">🔁 Repost</div><div class="pact">➤ Send</div>
+    </div>
+  </article>
+</div>
+</x-dc>
+</body>
+</html>

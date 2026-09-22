@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script src="./hub-nav.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -45,7 +46,7 @@
     .foot .sw i { width:24px; height:15px; border-radius:3px; display:inline-block; background:linear-gradient(105deg,#3f3f3f 26%, #ff0080 125%); }
     .foot .sw i.ring { box-shadow:0 0 0 2px var(--bb-pink); }
     @media print {
-      @page { size: A4 landscape; margin: 1cm; }
+      @page { size: A4 landscape; margin: 14mm 16mm; }
       html, body { background:#fff !important; }
       .wrap { zoom: 0.62; padding: 6px 0 0; margin:0 auto; }
       .foot { break-inside: avoid; }

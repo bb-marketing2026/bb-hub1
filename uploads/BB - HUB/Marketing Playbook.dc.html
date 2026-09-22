@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #fff; }
+    .doc { box-sizing: border-box; max-width: 210mm; margin: 0 auto; padding: 40px clamp(20px,5vw,16mm) 80px; font-family: var(--font-body); font-weight: 300; color: var(--bb-grey-800); font-size: 10pt; line-height: 1.5; }
+    .doc h1,.doc h2,.doc h3,.doc h4 { font-family: var(--font-heading); color: var(--bb-grey-700); margin: 0; }
+    .doc h1 { font-weight: 600; }
+    .doc h2 { font-weight: 600; font-size: 16pt; color: var(--bb-grey-800); letter-spacing: -0.01em; margin: 24px 0 10px; padding-bottom: 7px; border-bottom: 1px solid var(--bb-grey-300); }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .doc h3 { font-weight: 600; font-size: 11.5pt; color: var(--bb-grey-700); margin: 15px 0 5px; }
+    .doc h4 { font-weight: 600; font-size: 9.5pt; color: var(--bb-grey-500); margin: 12px 0 3px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .doc p { margin: 0 0 9px; text-wrap: pretty; }
+    .doc ul,.doc ol { margin: 0 0 9px; padding-left: 17px; } .doc li { margin: 0 0 4px; } .doc li::marker { color: var(--bb-pink-400); }
+    .doc strong { font-weight: 600; color: var(--bb-grey-800); }
+    .cover { background: var(--bb-grey-800); border-radius: 18px; padding: 44px 38px; color: #fff; margin-bottom: 8px; position: relative; }
+    .cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 32%, var(--bb-pink) 118%) !important; }
+    .cover .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.22em; font-size: 7.5pt; color: rgba(255,255,255,0.72); margin-bottom: 20px; }
+    .cover .cat { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5pt; color: #fff; font-weight: 600; margin-bottom: 10px; }
+    .cover h1 { color: #fff; font-size: 32pt; line-height: 1.04; margin: 0; letter-spacing: -0.015em; }
+    .cover .lede { color: rgba(255,255,255,0.95); font-size: 12pt; max-width: 94%; margin: 12px 0 0; font-weight: 300; line-height: 1.5; }
+    .sub-note { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8.5pt; font-weight: 600; color: #fff; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.28); display: inline-block; }
+    .cover-meta { display: flex; gap: 26px; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.35); flex-wrap: wrap; }
+    .cover-meta div { font-size: 8.5pt; } .cover-meta span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; opacity: 0.8; margin-bottom: 2px; }
+    .wordmark { font-family: var(--font-logo); font-size: 16pt; letter-spacing: 0.14em; color: #fff; }
+    .cover-page { min-height: 900px; display: flex; flex-direction: column; }
+    .cover-page .cat { margin-bottom: auto; }
+    .cover-page .cover-meta { margin-top: auto; }
+    .cover-elephant { position: absolute; top: 34px; right: 36px; height: 84px; width: auto; }
+    .doc table.t { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 9.3pt; }
+    .doc table.t th { background: var(--bb-grey-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 7px 10px; border-bottom: 1.5px solid var(--bb-grey-400); font-size: 8.6pt; }
+    .doc table.t td { padding: 7px 10px; border-bottom: 1px solid var(--bb-grey-200); vertical-align: top; }
+    .doc table.t tr:nth-child(even) td { background: var(--bb-grey-50); }
+    .doc table.t .role { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); }
+    .doc table.t .num { font-family: var(--font-mono); color: var(--bb-grey-700); font-weight: 600; white-space: nowrap; font-size: 8.6pt; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; } .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .note { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); border-radius: 8px; padding: 10px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag { background: var(--bb-grey-50); border: 1px solid var(--bb-grey-200); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 11px 14px; margin: 8px 0 12px; font-size: 9.4pt; }
+    .flag .lbl,.note .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-grey-500); display: block; margin-bottom: 3px; }
+    .section-intro { color: var(--bb-grey-500); font-size: 10.5pt; margin-bottom: 12px; }
+    .part-kicker { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8pt; color: var(--bb-grey-500); font-weight: 600; margin-bottom: 2px; }
+    .rolecard { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 15px; margin-bottom: 11px; }
+    .rolecard h3 { margin: 0 0 3px; color: var(--bb-grey-800); font-size: 11pt; }
+    .rolecard .from { font-family: var(--font-mono); font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bb-grey-500); margin-bottom: 6px; }
+    .rolecard p { margin: 0; font-size: 9.4pt; }
+    .toc-row { display: flex; align-items: baseline; gap: 12px; padding: 7px 2px; border-bottom: 1px solid var(--bb-grey-200); }
+    .toc-row .n { font-family: var(--font-mono); font-size: 8pt; color: var(--bb-pink); width: 22px; flex: none; }
+    .toc-row .t { font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 10.5pt; }
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin: 6px 0 14px; }
+    .stat { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 13px 14px; }
+    .stat .v { font-family: var(--font-heading); font-weight: 600; font-size: 16pt; color: var(--bb-grey-800); line-height: 1; }
+    .stat .l { font-size: 8pt; color: var(--bb-grey-500); margin-top: 6px; line-height: 1.3; }
+    .jbanner { display: flex; align-items: center; gap: 12px; border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 11px 15px; margin: 8px 0 12px; flex-wrap: wrap; }
+    .jbanner .fn { font-family: var(--font-heading); font-weight: 600; font-size: 13pt; color: var(--bb-grey-700); }
+    .jbanner .jtag { font-family: var(--font-mono); font-size: 7pt; text-transform: uppercase; letter-spacing: 0.08em; background: var(--bb-grey-100); color: var(--bb-grey-700); border: 1px solid var(--bb-grey-300); border-radius: 999px; padding: 3px 10px; }
+    .jbanner .q { font-style: italic; color: var(--bb-grey-500); font-size: 9.3pt; margin-left: auto; }
+    .timeline { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 8px 0 14px; }
+    .tl { border-radius: 10px; padding: 10px 13px; }
+    .tl .d { font-family: var(--font-heading); font-weight: 600; font-size: 12pt; line-height: 1; }
+    .tl .tt { font-size: 8.4pt; margin-top: 4px; color: var(--bb-grey-500); }
+    .tl.p1 { background: var(--bb-grey-50); border: 1px solid var(--bb-grey-200); } .tl.p1 .d { color: var(--bb-grey-800); }
+    .tl.p2 { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); } .tl.p2 .d { color: var(--bb-blue-700); }
+    .tl.p3 { background: var(--bb-grey-50); border: 1px solid var(--bb-grey-200); } .tl.p3 .d { color: var(--bb-grey-700); }
+    .phase { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 14px 16px; margin: 0 0 12px; }
+    .phase.p1 { border-left: 4px solid var(--bb-pink); } .phase.p2 { border-left: 4px solid var(--bb-blue-300); } .phase.p3 { border-left: 4px solid var(--bb-grey-400); }
+    .phase .ph { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+    .phase .badge { font-family: var(--font-mono); font-size: 7.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 10px; border-radius: 999px; color: #fff; }
+    .phase.p1 .badge { background: var(--bb-pink); } .phase.p2 .badge { background: var(--bb-blue-300); } .phase.p3 .badge { background: var(--bb-grey-700); }
+    .phase .htag { font-family: var(--font-mono); font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.08em; color: var(--bb-grey-500); }
+    .phase .intro { font-size: 9.3pt; color: var(--bb-grey-800); margin: 0 0 8px; }
+    .phase ul { margin: 0 0 9px; padding-left: 16px; font-size: 9pt; } .phase li { margin-bottom: 4px; }
+    .measure { border-radius: 9px; padding: 9px 12px; font-size: 9pt; }
+    .measure .ml { font-family: var(--font-mono); font-size: 6.8pt; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 3px; color: var(--bb-grey-500); }
+    .measure b { font-weight: 600; color: var(--bb-grey-700); }
+    .measure.p1 { background: var(--bb-grey-50); } .measure.p2 { background: var(--bb-blue-50); } .measure.p3 { background: var(--bb-grey-50); }
+    .sheet { padding-top: 4px; }
+    .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
+    .sheet-ftr { display: none; }
+
+    .wf { margin: 4px 0 10px; padding-left: 20px; } .wf li { margin-bottom: 6px; }
+    .kvline { font-size: 9.4pt; color: var(--bb-grey-700); margin: 0 0 6px; }
+
+    table.rep { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 8.8pt; }
+    table.rep th { background: var(--bb-grey-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 6px 8px; border: 1px solid var(--bb-grey-300); font-size: 7.6pt; }
+    table.rep td { padding: 4px 8px; border: 1px solid var(--bb-grey-300); height: 14px; vertical-align: top; }
+    table.rep .grp { background: var(--bb-grey-100); font-family: var(--font-heading); font-weight: 600; color: var(--bb-grey-700); font-size: 8.4pt; }
+    table.rep .m { color: var(--bb-grey-700); } table.rep .tg { font-family: var(--font-mono); color: var(--bb-grey-500); font-size: 8pt; white-space: nowrap; }
+    @page { size: A4 portrait; margin: 10mm; }
+    @media print {
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; } html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 !important; }
+      .sheet { break-inside: avoid; display: block; margin-top: 0 !important; border-top: 0 !important; padding-top: 0 !important; }
+      .sheet + .sheet { margin-top: 8mm !important; border-top: 0 !important; }
+      .cover-sheet { break-after: page; } .cover-sheet .cover-page { min-height: 252mm; }
+      .sheet-ftr { display: flex !important; justify-content: space-between; margin-top: 10mm; padding-top: 5mm; border-top: 0.5pt solid var(--bb-grey-200); font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bb-grey-400); }
+      .sheet-ftr .r { color: var(--bb-pink); }
+      h2,h3,h4 { break-after: avoid !important; } h2 + *, h3 + *, h4 + * { break-before: avoid; }
+      .rolecard,.note,.flag,.stat,.stats,.grid3,.cover,tr,.jbanner,.timeline,.phase,.measure,.toc-row { break-inside: avoid; }
+      table.t { break-inside: avoid; } table.t thead { display: table-header-group; }
+      p, li { orphans: 3; widows: 3; }
+    }
+    /* cover-final-override */
+    .cover.cover-grad { background: linear-gradient(105deg, var(--bb-grey-800) 30%, var(--bb-pink) 120%) !important; }
+    .cover-page { min-height: 900px !important; display: flex !important; flex-direction: column !important; }
+    .cover-page .cat { margin-bottom: auto !important; }
+    .cover-page h1 { margin-top: 0 !important; }
+    .cover-page .cover-meta { margin-top: auto !important; }
+    /* table-font-override */
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, table.rep .tg, .doc table.form .target { font-family: var(--font-body) !important; }
+    /* role-body-override */
+    .doc table.t .role { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+    /* all-table-cells-body */
+    .doc table.t td, .doc table.t td .num, .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, .doc table.t .role, table.rep td, table.rep .tg, .doc table.form td, .doc table.form .target { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+  </style>
+</helmet>
+
+<main class="doc">
+
+<section class="sheet cover-sheet">
+  <div class="cover cover-page cover-grad">
+    <img class="cover-elephant" src="assets/brainbox-elephant-white.png" alt="">
+    <div class="conf">Strictly private &amp; confidential</div>
+    <div class="cat">Marketing Playbook</div>
+    <h1>How Brainbox builds the brand and arms the sellers</h1>
+    <p class="lede">How the marketing function runs at Brainbox &mdash; brand, capability, campaigns and enablement &mdash; directed by a lean AI-augmented pod that makes the sellers effective.</p>
+    <div class="sub-note">Subsidiary to the Revenue Playbook</div>
+    <div class="cover-meta">
+      <div><span>Document owner</span>Corporate Services Director</div>
+      <div><span>Issue date</span>July 2026</div>
+      <div><span>Part of</span>Revenue Playbook</div>
+      <div style="margin-left:auto;align-self:flex-end"><span class="wordmark">BRAINBOX</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet">
+  <h2>Contents</h2>
+  <div class="toc-row"><span class="n">01</span><span class="t">Purpose</span></div>
+  <div class="toc-row"><span class="n">02</span><span class="t">How marketing earns its place</span></div>
+  <div class="toc-row"><span class="n">03</span><span class="t">The capability pod</span></div>
+  <div class="toc-row"><span class="n">04</span><span class="t">Brand &amp; positioning</span></div>
+  <div class="toc-row"><span class="n">05</span><span class="t">Content &amp; thought leadership</span></div>
+  <div class="toc-row"><span class="n">06</span><span class="t">SEO &amp; answer-engine optimisation</span></div>
+  <div class="toc-row"><span class="n">07</span><span class="t">Social media</span></div>
+  <div class="toc-row"><span class="n">08</span><span class="t">Web &amp; digital</span></div>
+  <div class="toc-row"><span class="n">09</span><span class="t">Creative &amp; design</span></div>
+  <div class="toc-row"><span class="n">10</span><span class="t">How Brainbox runs campaigns</span></div>
+  <div class="toc-row"><span class="n">11</span><span class="t">Sales enablement</span></div>
+  <div class="toc-row"><span class="n">12</span><span class="t">Systems &amp; measurement</span></div>
+  <div class="toc-row"><span class="n">13</span><span class="t">AI transformation journey</span></div>
+  <div class="toc-row"><span class="n">14</span><span class="t">What good looks like</span></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <h2>Purpose</h2>
+  <p>This Marketing Playbook is the operational manual for the <strong>brand and marketing-capability layers</strong> of the Revenue Playbook. It documents how Brainbox builds and protects its brand, produces the collateral and systems every sales conversation draws on, and runs the campaigns that feed demand generation.</p>
+  <p>It sits beneath the Revenue Playbook and alongside its siblings &mdash; the Sales Playbook and the Demand Generation Playbook &mdash; and governs the Social Media Playbook beneath it. Where demand generation owns the booked meeting and sales owns the close, this document owns <strong>everything upstream</strong>: positioning, message, collateral, campaigns and the marketing technology stack.</p>
+  <div class="note"><span class="lbl">How this document is organised</span>One documented section per topic: how marketing earns its place, the pod that runs it, the Brand Hub, the channels, how campaigns are run, sales enablement, the systems and measures, and the AI transformation journey.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <h2>How marketing earns its place</h2>
+  <p class="section-intro">Marketing is the first two layers of the revenue relay &mdash; Brand custodian and Marketing capability. It exists to make the sellers effective, not to chase inbound lead volume.</p>
+  <div class="grid2">
+    <div class="rolecard"><h3>Brand custodian</h3><p>Owns and protects the Brainbox point of view, positioning and voice &mdash; the compounding asset carried into every conversation. Never traded for a short-term lead count.</p></div>
+    <div class="rolecard"><h3>Marketing capability</h3><p>Turns positioning into collateral, enablement and systems &mdash; the tools every sales conversation draws on, and the campaigns that feed demand generation.</p></div>
+  </div>
+  <div class="flag"><span class="lbl">The interface</span>Marketing hands demand generation <strong>current collateral, sharp messaging and a clean HubSpot system with attribution</strong>, and hands the brand layer <strong>proof and case studies</strong> back from delivered work. It is measured on pipeline contribution and enablement readiness, not enquiry counts.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <h2>The capability pod</h2>
+  <p class="section-intro">Three roles, all in the Philippines delivery centre, running on AI rather than manual production &mdash; a working proof of the Brainbox offshoring model.</p>
+  <div class="rolecard"><h3>Marketing Manager</h3><div class="from">Directs the pod &middot; senior role in the Revenue Playbook</div><p>Owns brand, positioning and the direction of enablement &mdash; deciding what the AI systems produce and holding the standard. Runs founder- and sales-led thought leadership; coordinates with the Commercial Manager and the US Agents as an equal. As the senior resource in the Revenue Playbook, sits on the Brainbox Executive Leadership Team.</p></div>
+  <div class="rolecard"><h3>Marketing Technologist</h3><div class="from">The pivotal role &middot; built from the SEO specialist</div><p>Owns the website and the HubSpot CRM end to end, and owns attribution so the function can prove its contribution. Builds and maintains the AI automation layer, and leads answer-engine optimisation. The whole function is built around this seat.</p></div>
+  <div class="rolecard"><h3>Content and Brand Producer</h3><div class="from">One AI-augmented role &middot; built from social + designer</div><p>Produces campaign copy, social content and sales collateral under the Manager&rsquo;s direction. Runs founder- and sales-led LinkedIn as the main organic channel. Handles routine design and video with AI tooling. Governed by the Social Media Playbook.</p></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <div class="part-kicker">Marketing &middot; Function 04</div>
+  <h2>Brand &amp; positioning</h2>
+  <p class="section-intro">The senior, compounding layer &mdash; the Brainbox point of view on offshoring and people performance, and the voice that carries it. Owned by the Marketing Manager and protected through the transformation.</p>
+  <div class="kvline"><strong>Owner:</strong> Marketing Manager (Executive Leadership Team)</div>
+  <h4>Workflow</h4>
+  <ol class="wf"><li>Maintain the Brand Hub as the single reference &mdash; voice, Australian English, tone, and the &ldquo;Always Be Kind&rdquo; principle applied to every message.</li><li>Set the quarterly positioning narrative and the message theme for each campaign, in step with the FY27 calendar.</li><li>Direct founder- and sales-led thought leadership: agree topics, hold editorial standard, approve before release.</li><li>Run a brand check on every outward asset (deck, banner, article, proposal) against the Brand Hub before it ships.</li><li>Capture delivered-client proof as case studies so the positioning stays concrete, not abstract.</li></ol>
+  <h4>Cadence</h4>
+  <table class="t"><thead><tr><th style="width:26%">When</th><th>Activity</th></tr></thead><tbody><tr><td class="num">Weekly</td><td>Brand check on the week&rsquo;s outward assets; approve founder posts.</td></tr><tr><td class="num">Monthly</td><td>Review message resonance and case-study pipeline; refresh talking points.</td></tr><tr><td class="num">Per campaign</td><td>Set the sector narrative, message theme and Industry Insight Article angle.</td></tr><tr><td class="num">Quarterly</td><td>Positioning review with the Executive Leadership Team.</td></tr></tbody></table>
+  <h4>Measures &mdash; what leadership watches</h4>
+  <table class="t"><thead><tr><th style="width:52%">Metric</th><th>Target / signal</th></tr></thead><tbody><tr><td class="role">Share of voice in target sectors</td><td class="num">Rising quarter on quarter</td></tr><tr><td class="role">Message consistency across assets</td><td class="num">100% brand-checked before release</td></tr><tr><td class="role">Thought-leadership engagement</td><td class="num">Above account benchmark</td></tr><tr><td class="role">Case studies captured</td><td class="num">&ge;1 per month</td></tr><tr><td class="role">Prospects citing brand/POV as a reason to engage</td><td class="num">Tracked in HubSpot</td></tr><tr><td class="role">Branded search volume</td><td class="num">Rising trend</td></tr><tr><td class="role">Employer-brand sentiment (PH & AU)</td><td class="num">Positive / improving</td></tr></tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+  <section class="sheet">
+  <div class="part-kicker">Marketing &middot; Function 05</div>
+  <h2>Content &amp; thought leadership</h2>
+  <p class="section-intro">Point-of-view content that builds authority and feeds the sellers &mdash; real thought leadership underpinned with kindness, produced at pace by the Producer under the Manager&rsquo;s direction.</p>
+  <div class="kvline"><strong>Owner:</strong> Content and Brand Producer (Manager approves)</div>
+  <h4>Workflow</h4>
+  <ol class="wf"><li>Maintain a rolling topic backlog drawn from contemporary issues in offshoring, HR and people performance, plus campaign sectors.</li><li>Draft two substantive blog articles a month: research with Semrush and Claude, write a human-edited draft, apply SEO at draft stage, publish to WordPress.</li><li>Produce one founder LinkedIn post per founder per week from the thought-leadership calendar.</li><li>Repurpose each article into social, EDM and enablement snippets so one idea works across channels.</li><li>Feed campaign EDMs per the individual campaign plans.</li></ol>
+  <h4>Cadence</h4>
+  <table class="t"><thead><tr><th style="width:26%">When</th><th>Activity</th></tr></thead><tbody><tr><td class="num">Weekly</td><td>1 LinkedIn post per founder; social repurposing of live content.</td></tr><tr><td class="num">Fortnightly</td><td>1 blog article published (2 per month), SEO-checked.</td></tr><tr><td class="num">Per campaign</td><td>EDM sequence + Industry Insight Article, per the campaign plan.</td></tr><tr><td class="num">Monthly</td><td>Topic backlog groomed against contemporary issues and campaign themes.</td></tr></tbody></table>
+  <h4>Measures &mdash; what leadership watches</h4>
+  <table class="t"><thead><tr><th style="width:52%">Metric</th><th>Target / signal</th></tr></thead><tbody><tr><td class="role">Blog articles published</td><td class="num">2 per month</td></tr><tr><td class="role">Founder LinkedIn posts</td><td class="num">1 per founder per week</td></tr><tr><td class="role">Avg. time brief &rarr; published</td><td class="num">Falling vs baseline</td></tr><tr><td class="role">Article engagement (reads, dwell, shares)</td><td class="num">Above benchmark</td></tr><tr><td class="role">Content-sourced conversations to sellers</td><td class="num">Tracked in HubSpot</td></tr><tr><td class="role">Repurpose ratio (assets per article)</td><td class="num">&ge;4</td></tr><tr><td class="role">Organic traffic to articles</td><td class="num">Rising trend</td></tr></tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+  <section class="sheet">
+  <div class="part-kicker">Marketing &middot; Function 06</div>
+  <h2>SEO &amp; answer-engine optimisation</h2>
+  <p class="section-intro">Making the Brainbox point of view found &mdash; in classic web search and, increasingly, as a cited source in AI answer engines (ChatGPT, Claude, Perplexity, Google AI). Owned by the Marketing Technologist.</p>
+  <div class="kvline"><strong>Owner:</strong> Marketing Technologist</div>
+  <h4>Workflow</h4>
+  <ol class="wf"><li>Enforce an on-page SEO checklist on every web-facing piece: search intent, title/meta, heading structure, internal links, image alt.</li><li>Maintain the priority topic and keyword set (below) in Semrush; focus effort where intent and winnability are highest.</li><li>Structure content for answer engines: clear question-and-answer framing, definitions, and scannable summaries that are easy to cite.</li><li>Run recurring technical audits (Core Web Vitals, crawlability, mobile) with AI-assisted review; fix in the weekly web block.</li><li>Track answer-engine visibility &mdash; whether Brainbox is cited for its priority questions.</li></ol>
+  <h4>Cadence</h4>
+  <table class="t"><thead><tr><th style="width:26%">When</th><th>Activity</th></tr></thead><tbody><tr><td class="num">Every piece</td><td>SEO checklist applied before publish.</td></tr><tr><td class="num">Weekly</td><td>Semrush read; quick technical fixes in the web block.</td></tr><tr><td class="num">Monthly</td><td>Ranking and answer-engine visibility review; topic focus adjusted.</td></tr><tr><td class="num">Quarterly</td><td>Full technical audit and content-gap analysis.</td></tr></tbody></table>
+  <h4>Measures &mdash; what leadership watches</h4>
+  <table class="t"><thead><tr><th style="width:52%">Metric</th><th>Target / signal</th></tr></thead><tbody><tr><td class="role">Priority keyword rankings</td><td class="num">Top-of-page for target terms</td></tr><tr><td class="role">Qualified organic sessions</td><td class="num">Rising trend</td></tr><tr><td class="role">Answer-engine citations (ChatGPT/Claude/Perplexity)</td><td class="num">Cited for priority questions</td></tr><tr><td class="role">Core Web Vitals (mobile & desktop)</td><td class="num">All &ldquo;good&rdquo;</td></tr><tr><td class="role">Organic-sourced enquiries</td><td class="num">Tracked in HubSpot</td></tr><tr><td class="role">Indexed priority pages</td><td class="num">100% healthy</td></tr><tr><td class="role">Content-gap coverage</td><td class="num">Closing over time</td></tr></tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+  <section class="sheet">
+  <div class="part-kicker">Marketing &middot; Function 06</div>
+  <h2>SEO &mdash; recommended target topics</h2>
+  <p class="section-intro">A starting set for web search and answer engines, weighted to buyer intent and to the questions SME owners actually ask. Refine in Semrush against difficulty and volume.</p>
+  <div class="grid2">
+    <div><h4>Commercial-intent terms (web search)</h4><ul>
+      <li>offshore staffing Australia &middot; offshore teams for small business</li>
+      <li>hire offshore admin / bookkeeper / support staff Australia</li>
+      <li>managed offshore teams Philippines</li>
+      <li>outsourcing vs offshoring for SMEs</li>
+      <li>offshore staff cost Australia</li>
+      <li>HR advisory &amp; people performance Perth / WA</li>
+      <li>sector terms: offshore support for accounting / construction / logistics / NDIS</li>
+    </ul></div>
+    <div><h4>Question framing (answer engines)</h4><ul>
+      <li>&ldquo;How much does an offshore employee cost in Australia?&rdquo;</li>
+      <li>&ldquo;Is offshoring legal / compliant for Australian businesses?&rdquo;</li>
+      <li>&ldquo;How do I manage an offshore team well?&rdquo;</li>
+      <li>&ldquo;Offshoring vs local hire &mdash; what&rsquo;s the real difference?&rdquo;</li>
+      <li>&ldquo;What roles can an SME offshore first?&rdquo;</li>
+      <li>&ldquo;How do I keep offshore staff engaged and retained?&rdquo;</li>
+    </ul></div>
+  </div>
+  <div class="note"><span class="lbl">Why question framing matters</span>Answer engines cite sources that answer a question cleanly. Each priority question gets a clear, kind, well-structured page or article section &mdash; the same content that serves classic SEO.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+  <section class="sheet">
+  <div class="part-kicker">Marketing &middot; Function 07</div>
+  <h2>Social media</h2>
+  <p class="section-intro">The main organic channel &mdash; founder- and sales-led LinkedIn that builds relationships and surfaces conversations, with Facebook supporting employer brand in the Philippines and showing Brainbox culture. Governed in detail by the Social Media Playbook.</p>
+  <div class="kvline"><strong>Owner:</strong> Content and Brand Producer (Manager approves)</div>
+  <h4>Workflow</h4>
+  <ol class="wf"><li>Schedule all posts in advance through HubSpot from the thought-leadership calendar and campaign themes.</li><li>Publish founder- and sales-led LinkedIn posts &mdash; point of view, proof and human, kind engagement.</li><li>Run Facebook to bolster the Philippines employer brand and to selectively illustrate Brainbox culture, mirrored onto LinkedIn and the website.</li><li>Engage daily: reply to comments and messages, join relevant conversations, and pass genuine sales conversations to the sellers.</li><li>Keep tone on-brand everywhere &mdash; warm, confident, Always Be Kind.</li></ol>
+  <h4>Cadence</h4>
+  <table class="t"><thead><tr><th style="width:26%">When</th><th>Activity</th></tr></thead><tbody><tr><td class="num">Weekly</td><td>1 LinkedIn post per founder; culture/employer-brand posts on Facebook.</td></tr><tr><td class="num">Daily</td><td>Comment and message engagement; hand-offs to sellers.</td></tr><tr><td class="num">Per campaign</td><td>Sector-themed social supporting the live campaign.</td></tr><tr><td class="num">Monthly</td><td>Channel review &mdash; what to do more/less of, per Semrush and social data.</td></tr></tbody></table>
+  <h4>Measures &mdash; what leadership watches</h4>
+  <table class="t"><thead><tr><th style="width:52%">Metric</th><th>Target / signal</th></tr></thead><tbody><tr><td class="role">LinkedIn impressions / reach</td><td class="num">Rising trend</td></tr><tr><td class="role">Engagement rate</td><td class="num">Above benchmark</td></tr><tr><td class="role">Follower growth in target segments</td><td class="num">Steady rise</td></tr><tr><td class="role">Conversations / intros created for sellers</td><td class="num">Tracked in HubSpot</td></tr><tr><td class="role">Facebook employer-brand reach (PH)</td><td class="num">Rising trend</td></tr><tr><td class="role">Applicant quality signal (PH hiring)</td><td class="num">Improving</td></tr><tr><td class="role">Post consistency</td><td class="num">1 per founder per week, no gaps</td></tr><tr><td class="role">Culture content published</td><td class="num">&ge;2 per month</td></tr></tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+  <section class="sheet">
+  <div class="part-kicker">Marketing &middot; Function 08</div>
+  <h2>Web &amp; digital</h2>
+  <p class="section-intro">The website and marketing technology stack &mdash; the home of attribution and inbound capture, maintained with AI-assisted build on WordPress rather than a full-time developer. Owned by the Marketing Technologist.</p>
+  <div class="kvline"><strong>Owner:</strong> Marketing Technologist (~4 hours per week)</div>
+  <h4>Workflow</h4>
+  <ol class="wf"><li>Run a weekly ~4-hour web block: content updates, fixes and new pages, built with Claude-assisted WordPress development.</li><li>Follow a dev / test / deploy process &mdash; build in a staging/test environment, review (AI code review + performance/mobile/SEO check), then deploy.</li><li>Build a dedicated landing page per campaign, aligned to the campaign message and tracked in HubSpot.</li><li>Wire all forms to HubSpot with source tracking so attribution is complete.</li><li>Maintain the AI automation and measurement layer connecting website, CRM and campaign data.</li></ol>
+  <h4>Cadence</h4>
+  <table class="t"><thead><tr><th style="width:26%">When</th><th>Activity</th></tr></thead><tbody><tr><td class="num">Weekly</td><td>~4-hour web block: updates, fixes, new pages via dev/test/deploy.</td></tr><tr><td class="num">Per campaign</td><td>Landing page built and connected to HubSpot.</td></tr><tr><td class="num">Monthly</td><td>Performance, mobile and SEO health review; attribution check.</td></tr><tr><td class="num">Quarterly</td><td>Component-library and template refresh.</td></tr></tbody></table>
+  <h4>Measures &mdash; what leadership watches</h4>
+  <table class="t"><thead><tr><th style="width:52%">Metric</th><th>Target / signal</th></tr></thead><tbody><tr><td class="role">Site performance (Lighthouse, mobile & desktop)</td><td class="num">&ldquo;Good&rdquo; / improving</td></tr><tr><td class="role">Landing-page conversion rate</td><td class="num">Rising trend</td></tr><tr><td class="role">Form submissions &rarr; HubSpot</td><td class="num">100% tracked</td></tr><tr><td class="role">Attribution coverage of pipeline</td><td class="num">Rising trend</td></tr><tr><td class="role">Page-build time</td><td class="num">Falling vs baseline</td></tr><tr><td class="role">Uptime / issues</td><td class="num">Minimal, resolved fast</td></tr><tr><td class="role">Weekly web hours held</td><td class="num">~4 hrs, on plan</td></tr><tr><td class="role">Deployments passing AI review</td><td class="num">100%</td></tr></tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+  <section class="sheet">
+  <div class="part-kicker">Marketing &middot; Function 09</div>
+  <h2>Creative &amp; design</h2>
+  <p class="section-intro">On-brand design and video at speed &mdash; a high volume of collateral produced and refreshed locally with Claude Design, governed by the BB and per-client design systems.</p>
+  <div class="kvline"><strong>Owner:</strong> Content and Brand Producer (Manager approves)</div>
+  <h4>Workflow</h4>
+  <ol class="wf"><li>Produce and keep current the core collateral set: presentations, pull-up banners, the Corporate Profile, Role Capability Maps, internal documents and campaign assets.</li><li>Work from the BB Design System so output is on-brand by default; build a per-client design system for fractional client work so it never starts from scratch.</li><li>Generate routine design and video with Claude Design; keep creative direction and final judgement human.</li><li>Version and store assets so the latest approved collateral is always what sellers use (via the Sales Enablement Catalog).</li><li>Route every asset through a brand check before release.</li></ol>
+  <h4>Cadence</h4>
+  <table class="t"><thead><tr><th style="width:26%">When</th><th>Activity</th></tr></thead><tbody><tr><td class="num">Ongoing</td><td>Collateral produced and refreshed on request and on a review cycle.</td></tr><tr><td class="num">Per campaign</td><td>Sector campaign assets, banners and the Industry Insight Article layout.</td></tr><tr><td class="num">Monthly</td><td>Collateral audit &mdash; what&rsquo;s out of date, what needs refreshing.</td></tr><tr><td class="num">Quarterly</td><td>Design-system review (BB + client systems).</td></tr></tbody></table>
+  <h4>Measures &mdash; what leadership watches</h4>
+  <table class="t"><thead><tr><th style="width:52%">Metric</th><th>Target / signal</th></tr></thead><tbody><tr><td class="role">Collateral turnaround time</td><td class="num">Falling vs baseline</td></tr><tr><td class="role">On-brand-by-default rate</td><td class="num">100% brand-checked</td></tr><tr><td class="role">Catalog currency</td><td class="num">No out-of-date assets in use</td></tr><tr><td class="role">Rework rate</td><td class="num">Falling vs baseline</td></tr><tr><td class="role">Role Capability Maps maintained</td><td class="num">Current for all live roles</td></tr><tr><td class="role">Capacity freed for fractional client work</td><td class="num">Rising</td></tr><tr><td class="role">Asset volume produced</td><td class="num">Tracked monthly</td></tr><tr><td class="role">Video pieces produced</td><td class="num">Per campaign need</td></tr></tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <h2>How Brainbox runs campaigns</h2>
+  <p class="section-intro">Campaigns are how marketing and demand generation act as one engine. Each is a focused, month-long, sector-specific push with pre-identified prospects &mdash; documented per campaign and scheduled across the year in the FY27 Campaign Planning Overview.</p>
+  <div class="grid2">
+    <div class="rolecard"><h3>Shape</h3><p>One sector per campaign, carried for a calendar month. ~15 pre-identified high-value prospects, plus accounts the Associates research and add, worked to ~40&ndash;50 per Associate.</p></div>
+    <div class="rolecard"><h3>Ownership</h3><p>The Lead Campaign Manager (Abi) coordinates prospect distribution, oversees Associate activity, and prepares the consolidated end-of-campaign report against the nominated metrics.</p></div>
+  </div>
+  <table class="t"><thead><tr><th style="width:20%">Stage</th><th>What happens</th></tr></thead><tbody>
+    <tr><td class="role">Plan</td><td>Marketing Manager sets the sector, message theme and the Industry Insight Article; prospects are distributed.</td></tr>
+    <tr><td class="role">Run</td><td>Associates work the Demand Generation Playbook cadence &mdash; first-touch with the Insight Article, calls, LinkedIn, follow-up sequence.</td></tr>
+    <tr><td class="role">Convert</td><td>Qualified appointments booked for the seller and tagged to the campaign in HubSpot.</td></tr>
+    <tr><td class="role">Report</td><td>Consolidated month-end report on activity, appointments and opportunities against target.</td></tr>
+  </tbody></table>
+  <div class="note"><span class="lbl">Cross-reference</span>Campaign execution follows the Demand Generation Playbook; the annual schedule and operating model live in the FY27 Campaign Planning Overview. Marketing produces the Industry Insight Article and collateral for each.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <h2>Sales enablement</h2>
+  <p class="section-intro">Enablement is the centre of gravity for the function &mdash; collateral current, sharp and ready the moment a seller needs it.</p>
+  <ul>
+    <li><strong>Sales Enablement Catalog</strong> &mdash; the approved, current set of decks, case studies, capability annexes and cost-comparison assets, maintained by the pod and used at the point of need.</li>
+    <li><strong>Proposals</strong> &mdash; produced through the Claude proposal skill (see the Sales Playbook), populating the template or built in Claude Design.</li>
+    <li><strong>Case studies</strong> &mdash; captured from delivered client work via Relationship management, feeding both the brand and the sellers.</li>
+  </ul>
+  <div class="flag"><span class="lbl">Readiness is the measure</span>Enablement succeeds when sellers report the collateral is current and useful at the point of need &mdash; not produced late or off the mark.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <h2>Systems &amp; measurement</h2>
+  <p class="section-intro">A connected stack, with HubSpot as the source of truth and attribution proving what works.</p>
+  <div class="grid2">
+    <div class="rolecard"><h3>HubSpot</h3><p>CRM, campaign tagging, nurture and attribution &mdash; the single source of truth shared with demand generation and sales.</p></div>
+    <div class="rolecard"><h3>Claude</h3><p>The production and automation engine &mdash; copy, design, proposals and repetitive CRM/reporting tasks.</p></div>
+    <div class="rolecard"><h3>Website &amp; analytics</h3><p>AI-assisted build; Semrush and social data read pragmatically to focus effort on what works.</p></div>
+    <div class="rolecard"><h3>Design systems</h3><p>BB and client systems that keep every output on-brand by default.</p></div>
+  </div>
+  <div class="flag"><span class="lbl">Measured on</span>Pipeline contribution, enablement readiness, attribution quality, brand reach, and capacity freed for fractional client work &mdash; not inbound lead volume.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <h2>AI transformation journey</h2>
+  <p class="section-intro">Marketing adopts AI as a staged 30/60/90-day journey. The creative direction, brand standard and final judgement stay human.</p>
+  <div class="jbanner"><span class="fn">Marketing</span><span class="jtag">Claude</span><span class="q">&ldquo;Is marketing moving faster and freeing time to take on more fractional client work?&rdquo;</span></div>
+  <div class="timeline"><div class="tl p1"><div class="d">30 days</div><div class="tt">Activate, baseline &amp; build</div></div><div class="tl p2"><div class="d">60 days</div><div class="tt">Build &amp; validate</div></div><div class="tl p3"><div class="d">90 days</div><div class="tt">Measure &amp; embed</div></div></div>
+  <div class="phase p1"><div class="ph"><span class="badge">30 days</span><span class="htag">Claude Projects · Design System</span></div><p class="intro">The Brainbox Brand Hub anchors all written and social copy, with on-page SEO built into every web-facing piece. The BB and Blue Zoo Design Systems are built and in use. The focus now is creating client design systems, starting with Razor and WE, so the team produces on-brand client work without starting from scratch.</p><ul><li>Brand Hub: brand voice, Australian English, tone guide, and templates for social (LinkedIn/Instagram), blog and articles. SEO enforced on every web-facing piece: search intent, headings, meta, internal links.</li><li>BB Design System: typography, palette, spacing and document templates. Built and shared.</li><li>Blue Zoo Design System: same structure with BZ brand assets. Built and shared.</li><li>Razor and WE: build a design system per client — brand assets, palette, templates, and channel and SEO context. Shared with the account team.</li><li>Map the publishing workflow: HubSpot schedules social in advance. Explore publishing articles direct from Claude via the WordPress connector.</li><li>Decision by day 30: can proposals be produced in Claude Design repeatably? If yes, proposals move to Claude Design and we exit PandaDoc.</li></ul><div class="measure p1"><span class="ml">Measure</span><b>Brand Hub live. Razor and WE design systems built and shared. First client pieces produced and SEO-checked. Proposals in Claude Design vs PandaDoc decided.</b></div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <h2>AI journey &mdash; 60 &amp; 90 days</h2>
+  <div class="phase p2"><div class="ph"><span class="badge">60 days</span><span class="htag">Analysis · Semrush · Time freed</span></div><p class="intro">Work smarter, not just more. Semrush and social data used pragmatically: keep effort on what's working, ease off what isn't, so the team moves faster and frees up time — not optimisation for its own sake. The time freed is what lets the team take on more fractional client work.</p><ul><li>Semrush and social read for what's actually working. Focus the content plan; don't chase rankings for the sake of it.</li><li>Recurring outputs flowing through the Projects: faster turnaround, less rework.</li><li>Hours freed tracked across the team. That capacity is the point.</li><li>Findings shared simply with the team and Sales, no heavy reporting overhead.</li><li>Adoption holds: every team member using the Projects, not just the lead.</li></ul><div class="measure p2"><span class="ml">Measure</span><b>Hours freed per week across the team. Faster turnaround and lower rework vs baseline. Capacity available for fractional client work.</b></div></div>
+  <div class="phase p3"><div class="ph"><span class="badge">90 days</span><span class="htag">Client Services · Fractional work</span></div><p class="intro">Put the freed time to work. With BB and BZ running fast, set the team up to take on more fractional client work across design, social, SEO and web. Each client gets a dedicated structure so the team delivers compliant work across disciplines without starting from scratch. Can run as a separate client-services build.</p><ul><li>Client-services structure per fractional client: brand, channels, SEO and social context, templates.</li><li>Spans the services delivered: design, social, SEO optimisation, web copy.</li><li>Shared with the account team. More client work absorbed without more headcount.</li><li>Light brand and consistency check across BB, BZ and client work.</li><li>Marketing presents capacity gained and client work taken on at showcase.</li></ul><div class="measure p3"><span class="ml">Measure</span><b>Fractional client work taken on with the existing team. Client structures live. Turnaround and rework across accounts vs baseline.</b></div></div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+<section class="sheet">
+  <h2>What good looks like</h2>
+  <div class="grid2">
+    <div class="rolecard"><h3>The output</h3><p>Brand visible and credible; collateral current and used; campaigns feeding demand generation; capacity freed for fractional client work.</p></div>
+    <div class="rolecard"><h3>The standard</h3><p>On-brand by default; SEO on every web piece; HubSpot clean with working attribution; proposals fast and consistent.</p></div>
+  </div>
+  <div class="flag"><span class="lbl">The final measure</span>Per the Revenue Playbook, success is leads that become signed, commercial engagements. Marketing&rsquo;s brand, collateral and campaigns are leading indicators of that one outcome.</div>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+
+  <section class="sheet">
+  <div class="cover" style="padding:18px 26px;margin-bottom:14px">
+    <div class="conf">Appendix &middot; Monthly report (page 1 of 2)</div>
+    <h1 style="font-size:19pt;margin:6px 0 4px">Monthly marketing report</h1>
+    <p class="lede" style="font-size:9.5pt;margin:0">One page. Compiled by the Marketing Manager and presented at the monthly leadership review to show measurable value.</p>
+  </div>
+  <table class="rep"><tbody>
+    <tr><td class="m" style="width:40%"><strong>Month</strong></td><td colspan="4"></td></tr>
+  </tbody></table>
+  <table class="rep"><thead><tr><th style="width:40%">Metric</th><th style="width:16%">Target / signal</th><th>This month</th><th>Prev</th><th>Trend</th></tr></thead><tbody>
+    <tr><td class="grp" colspan="5">Brand &amp; thought leadership</td></tr>
+    <tr><td class="m">Share of voice in target sectors</td><td class="tg">Rising</td><td></td><td></td><td></td></tr>
+    <tr><td class="m">Thought-leadership engagement</td><td class="tg">Above benchmark</td><td></td><td></td><td></td></tr>
+    <tr><td class="m">Case studies captured</td><td class="tg">&ge;1</td><td></td><td></td><td></td></tr>
+    <tr><td class="grp" colspan="5">Content &amp; SEO</td></tr>
+    <tr><td class="m">Blog articles published</td><td class="tg">2</td><td></td><td></td><td></td></tr>
+    <tr><td class="m">Qualified organic sessions</td><td class="tg">Rising</td><td></td><td></td><td></td></tr>
+    <tr><td class="m">Answer-engine citations</td><td class="tg">Cited</td><td></td><td></td><td></td></tr>
+    
+    <tr><td class="grp" colspan="5">Social</td></tr>
+    <tr><td class="m">LinkedIn impressions / reach</td><td class="tg">Rising</td><td></td><td></td><td></td></tr>
+    <tr><td class="m">Founder posts published</td><td class="tg">4+ (1/founder/wk)</td><td></td><td></td><td></td></tr>
+    <tr><td class="m">Conversations created for sellers</td><td class="tg">Tracked</td><td></td><td></td><td></td></tr>
+    <tr><td class="grp" colspan="5">Web &amp; digital</td></tr>
+    <tr><td class="m">Landing-page conversion rate</td><td class="tg">Rising</td><td></td><td></td><td></td></tr>
+    <tr><td class="m">Attribution coverage of pipeline</td><td class="tg">Rising</td><td></td><td></td><td></td></tr>
+    
+    <tr><td class="grp" colspan="5">Campaigns &amp; enablement</td></tr>
+    <tr><td class="m">Campaign qualified appointments</td><td class="tg">Per plan</td><td></td><td></td><td></td></tr>
+    <tr><td class="m">Proposal turnaround</td><td class="tg">Falling</td><td></td><td></td><td></td></tr>
+    <tr><td class="m">Catalog currency</td><td class="tg">No stale assets</td><td></td><td></td><td></td></tr>
+    <tr><td class="grp" colspan="5">Value to the business</td></tr>
+    <tr><td class="m">MQLs influenced by marketing</td><td class="tg">Rising</td><td></td><td></td><td></td></tr>
+    <tr><td class="m">Pipeline value influenced ($)</td><td class="tg">Rising</td><td></td><td></td><td></td></tr>
+    <tr><td class="m">Capacity freed for client work</td><td class="tg">Rising</td><td></td><td></td><td></td></tr>
+  </tbody></table>
+  <table class="rep"><tbody>
+    <tr><td class="m" style="width:33%"><strong>Wins this month</strong></td><td></td><td class="m" style="width:22%"><strong>Focus next month</strong></td><td colspan="2"></td></tr>
+  </tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+
+  <section class="sheet">
+  <div class="part-kicker">Appendix &middot; Monthly report (page 2 of 2)</div>
+  <h2>How each metric is measured</h2>
+  <p class="section-intro">Definitions and data sources, so the numbers are consistent month to month and defensible at the leadership review.</p>
+  <table class="t"><thead><tr><th>Metric</th><th>How it is measured</th><th>Data source</th></tr></thead><tbody>
+    <tr><td style="width:26%">Share of voice</td><td style="width:46%">Brainbox mentions/engagement as a share of tracked competitors across the priority sectors, over the month.</td><td>Semrush · LinkedIn analytics</td></tr>
+    <tr><td style="width:26%">Thought-leadership engagement</td><td style="width:46%">Reactions, comments, shares and dwell on founder posts and articles, vs the rolling 3-month benchmark.</td><td>LinkedIn analytics · HubSpot</td></tr>
+    <tr><td style="width:26%">Case studies captured</td><td style="width:46%">Count of new, approved client case studies produced in the month.</td><td>Sales Enablement Catalog</td></tr>
+    <tr><td style="width:26%">Blog articles published</td><td style="width:46%">Count of articles published to the site in the month (target 2).</td><td>WordPress · editorial calendar</td></tr>
+    <tr><td style="width:26%">Qualified organic sessions</td><td style="width:46%">Sessions from organic search matching ICP filters (geo, page intent), month on month.</td><td>GA / Search Console · HubSpot</td></tr>
+    <tr><td style="width:26%">Answer-engine citations</td><td style="width:46%">Number of priority questions where Brainbox is cited by ChatGPT / Claude / Perplexity, from a monthly prompt check.</td><td>Manual prompt audit · Semrush</td></tr>
+    <tr><td style="width:26%">LinkedIn impressions / reach</td><td style="width:46%">Total impressions across founder and company posts in the month.</td><td>LinkedIn analytics</td></tr>
+    <tr><td style="width:26%">Founder posts published</td><td style="width:46%">Count vs plan of 1 post per founder per week.</td><td>HubSpot social · calendar</td></tr>
+    <tr><td style="width:26%">Conversations created for sellers</td><td style="width:46%">Inbound DMs/comments/referrals passed to a seller and logged as a contact/deal source.</td><td>HubSpot</td></tr>
+    <tr><td style="width:26%">Landing-page conversion rate</td><td style="width:46%">Form submissions ÷ unique visitors on campaign landing pages.</td><td>HubSpot · GA</td></tr>
+    <tr><td style="width:26%">Attribution coverage of pipeline</td><td style="width:46%">Share of open pipeline with a recorded first-touch/campaign source.</td><td>HubSpot</td></tr>
+    <tr><td style="width:26%">Campaign qualified appointments</td><td style="width:46%">Booked, attended appointments tagged to the live campaign.</td><td>HubSpot (campaign tag)</td></tr>
+    <tr><td style="width:26%">Proposal turnaround</td><td style="width:46%">Avg. time from discovery/brief to proposal sent.</td><td>HubSpot · PandaDoc</td></tr>
+    <tr><td style="width:26%">MQLs influenced by marketing</td><td style="width:46%">Contacts reaching MQL with a marketing touch in the path.</td><td>HubSpot</td></tr>
+    <tr><td style="width:26%">Pipeline value influenced ($)</td><td style="width:46%">Sum of open-deal value with a marketing-sourced or -influenced touch.</td><td>HubSpot</td></tr>
+    <tr><td style="width:26%">Capacity freed for client work</td><td style="width:46%">Team hours redirected to fractional client delivery in the month.</td><td>Timesheets · Manager estimate</td></tr>
+  </tbody></table>
+  <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Marketing Playbook · Brainbox</span></div>
+</section>
+</main>
+</x-dc>
+</body>
+</html>

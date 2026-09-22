@@ -1,0 +1,1106 @@
+B R A I N B O X
+How the finance
+function runs —
+every control,
+cycle and rule.
+3 	Xero 	12-month
+Brainsource Corporation
+P O W E R F U L P E O P L E P E R F O R M A N C E
+T H E F I N A N C E P L A Y B O O K
+The systems, controls, delegations and rhythms that keep the finance
+function accurate, compliant and trusted — in one place.
+roles, one chain	sole source of truth	compliance calendar
+Brainbox Group · Philippine operations
+E D I T I O N 1 · 2 0 2 6
+I N T E R N A L — C O N T R O L L E D D O C U M E N T
+
+-- 1 of 40 --
+
+C O N T E N T S
+What’s in this playbook
+Four parts: how the function runs, what each person owns, the working checklists, and the reference
+standards — controls, delegations and policy — that keep it consistent.
+01 The operating manual
+1.1 Purpose of this playbook 	1.7 Operating philosophy & escalation
+1.2 The finance function at a glance 	1.8 Operating rhythm
+1.3 Systems of record 	1.9 Compliance calendar
+1.4 Financial controls & separation of duties 	1.10 Reporting & assurance
+1.5 Delegations & authorities 	1.11 Non-negotiable rules & outcome
+1.6 Confidentiality & information security
+02 Duty statements
+2.1 General Manager – Corporate
+2.2 Accountant
+2.3 Accounting Assistant
+2.4 Separation of duties & competency
+03 Checklists
+3.1 Month-end close
+3.2 Fortnightly payroll run
+3.3 AP & payment run
+3.4 Monthly statutory & VAT compliance
+04 Reference
+4.1 Service standards 	4.4 Significant accounting policies
+4.2 Delegations & authorities register 	4.5 Audit program
+4.3 Recurring payments schedule 	4.6 Document control
+05 Process maps
+5.1 Australian payroll (Xero) 	5.3 Philippine compliance
+5.2 Australian BAS, PAYG, FBT & company tax 	5.4 Philippine payroll
+5.5 Brainbox monthly Gantt 	5.6 Blue Zoo monthly Gantt
+5.7 Brainsource monthly Gantt
+H O W T O U S E T H I S P L A Y B O O K
+Read part one once, together, so the whole team shares the
+same picture. Keep part two close — it is the day-to-day
+reference for what you own, what you may decide, and when to
+escalate.
+C O N T R O L L E D D O C U M E N T
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	C O N T E N T S
+No changes are permitted without the express consent of a
+Director. Reviewed at least annually and re-issued — never
+changed on the run.
+
+-- 2 of 40 --
+
+01The operating manual
+Purpose, the function & systems of record 	Controls, delegations & confidentiality
+Philosophy, rhythm & compliance calendar 	Reporting, rules & outcome
+P A R T O N E
+The shared picture — the purpose of the function, the systems and controls
+that govern every transaction, the delegations that bound it, and the cycles
+that keep it compliant and predictable.
+1.1–1.3	1.4–1.6
+1.7–1.9	1.10–1.11
+
+-- 3 of 40 --
+
+1 . 1 · T H E O P E R A T I N G M A N U A L
+Purpose of this playbook
+This playbook provides a clear, transparent and consistent framework for the financial management of the
+business — one that complies with statutory obligations and the requisite Philippine Accounting Standards,
+and removes ambiguity from how finance work is done.
+Finance work fails when it relies on memory or on any one person holding the whole process. This playbook replaces that
+with structure: defined systems, separated duties, bounded authorities and a predictable calendar — so the numbers are
+accurate, the controls hold, and nothing compliance-critical is ever a surprise.
+W H O I T A P P L I E S T O
+The whole finance function — the General Manager – Corporate, the Accountant and the Accounting Assistant — and
+anyone who logs into the financial systems or exercises a financial delegation.
+W H E N Y O U M A Y D E V I A T E
+Only where a Director authorises it, or where statutory compliance requires it. Controls and separation of duties are
+never bypassed for convenience; every exception is documented and reviewed.
+A C O N T R O L L E D D O C U M E N T
+T H E A I M
+Make finance predictable, auditable and trusted — so good financial outcomes
+don’t depend on any one person remembering the right thing at the right
+moment.
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	1 . 1 · P U R P O S E
+No changes are permitted without the express consent of a Director. It is reviewed at least annually and re-issued —
+never amended on the run. Last full review and endorsement sit with the Board.
+
+-- 4 of 40 --
+
+1 . 2 · T H E O P E R A T I N G M A N U A L
+The finance function at a glance
+A small team, one chain of accountability. The finance function manages the financial administration of Brainsource
+Corporation — the Philippine operations of Brainbox Group — under Philippine Accounting Standards, accountable through
+the General Manager – Corporate to the Board.
+E N T I T Y 	Brainsource Corporation · Brainbox Group (Philippine operations)
+L E D B Y 	General Manager – Corporate (the “GM”)
+T E A M 	Accountant · Accounting Assistant
+R E P O R T S T O 	The Board / Directors — Tony & Alexis
+R E P O R T I N G S T A N D A R D 	Philippine Accounting Standards · accrual basis · PHP
+T H E F U N C T I O N S W E D E L I V E R
+Accounts payable 	Accounts receivable 	Payroll 	Banking & petty cash 	Tax & VAT (BIR)
+Statutory contributions 	Month-end & reporting 	Budget & forecasting 	Assets & capitalisation
+Insurance & investments 	Transfer pricing 	Audit, risk & compliance
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	1 . 2 · T H E F I N A N C E F U N C T I O N A T A G L A N C E
+
+-- 5 of 40 --
+
+1 . 3 · T H E O P E R A T I N G M A N U A L
+Systems of record
+A defined set of systems governs every transaction. Xero is the sole source of truth; everything reconciles back to it. If a
+system is wrong, it is corrected before work proceeds — personal records never override it.
+Xero 	S O U R C E O F T R U T H
+The financial management system — bills, invoices, GL,
+bank reconciliation, payslips. Accounts are not added or
+archived without the GM’s approval. System logins require
+Xero training.
+Reach & Frog 	R E P O R T I N G & C A S H F L O W
+Reach Reporting (management reporting) and Frog Cash
+Flow both link to Xero to inform decisions and record
+operating activity — never a substitute for Xero.
+Wise & Metrobank 	P A Y M E N T S & P A Y R O L L
+Metrobank for supplier and statutory payments; Wise for
+batch payroll to staff accounts via the recipients’ template.
+Payments are authorised, never released alone.
+BambooHR 	P E O P L E & L E A V E
+The source for leave and employee details feeding payroll.
+The Employee Masterlist and Fortnight Payroll Template
+(Excel) sit alongside it for pay calculation.
+OneDrive 	D O C U M E N T S T O R E
+Receipts and supporting documents, stored to the standard
+naming format YYYYMMDD Supplier–Summary–Amount and
+attached to the Xero bill.
+Asana 	A U D I T F I N D I N G S
+Material audit findings are tracked to closure in an Asana
+audit project, with closed findings reported periodically to
+the Board.
+T H E R U L E
+Everything reconciles to Xero. Other tools inform and support, but the books are the books — one source of truth,
+kept current and trusted.
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	1 . 3 · S Y S T E M S O F R E C O R D
+
+-- 6 of 40 --
+
+1 . 4 · T H E O P E R A T I N G M A N U A L
+Financial controls & separation of duties
+Separation of duties is the principle that no single person controls an end-to-end process. It gives the function a system of
+checks and balances — process integrity with proper security and quality control.
+Operation vs record
+Separate operational responsibility
+from record-keeping responsibility —
+the person who acts is not the only
+person who records.
+Admin vs audit
+Separate system administration from
+system auditing, and system
+ownership from certification — so
+review stays independent.
+Prepare vs approve
+The person who prepares a payment is
+not the person who approves or
+authorises it. Authorisation follows the
+delegations (1.5).
+H O W A P A Y M E N T S P L I T S A C R O S S T H E T E A M
+Prepare
+Assistant / Accountant
+Draft the bill in Xero with receipt &
+GL coding.
+Review
+Accountant
+Check validity, coding and
+supporting documents.
+Approve
+GM (per delegation)
+Approve within authority; escalate
+beyond it.
+Reconcile
+Independent reconciler
+Reconcile the bank back to Xero —
+a separate set of eyes.
+R E V I E W E D , N O T A S S U M E D
+Separation of duties is reviewed at least annually (and tested in the May separation-of-duties audit) to ensure appropriate,
+proportionate controls apply to every key system.
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	1 . 4 · F I N A N C I A L C O N T R O L S & S E P A R A T I O N O F D U T I E S
+
+-- 7 of 40 --
+
+1 . 5 · T H E O P E R A T I N G M A N U A L
+Delegations & authorities
+The Board authorises others to exercise defined powers within limits. Authority is vested in a position, not a person, and
+the Board remains ultimately accountable. The authoritative source is the Schedule of Management Authorities; the key
+Finance lines are summarised in 4.2.
+1 Exercise authority in line with the law, company policy and any conditions on the delegation — for a proper business
+purpose, with no conflict of interest.
+2 Never approve a transaction you personally benefit from, and never approve beyond your delegated limit — doing so
+breaches the policy and may constitute misconduct.
+3 A procurement authority must hold a financial delegation that meets or exceeds the contract’s aggregate annual value
+(base price, recurring fees, usage, likely renewals, variations and taxes other than recoverable VAT).
+Board
+Approves the largest commitments,
+budgets, investments, auditor and policy.
+Ultimately accountable.
+GM – Corporate
+Approves operating expenditure and
+contracts within limits; recommends
+above them; signs banking.
+Accountant
+Develops, prepares and actions —
+executes approved payments and
+prepares data; does not self-approve.
+Each action in the register is one of Develop · Recommend · Approve · Be advised · Ratify · Action — defined in full in 4.2.
+When in doubt about your limit, treat it as beyond your authority and escalate.
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	1 . 5 · D E L E G A T I O N S & A U T H O R I T I E S
+
+-- 8 of 40 --
+
+1 . 6 · T H E O P E R A T I N G M A N U A L
+Confidentiality & information security
+Finance handles the most sensitive information in the business — payroll, bank access, director and commercial data.
+Protecting it is foundational, not optional. Read this section as binding.
+T H E A B S O L U T E R U L E
+Payroll, banking and all personal data relating to staff and the directors is highly
+confidential and is not shared with any other party — including those who claim
+a “right to know”.
+Credentials & access
+Strong, unique passwords and MFA on Xero, Wise,
+Metrobank and email. Credentials are never shared; banking
+authorisation stays with the authorised person only.
+Screen & document handling
+Lock screens when away; keep payroll and bank data off
+personal devices; store records only in approved locations
+(Xero, OneDrive). Clean desk; no sensitive print-outs left out.
+Fraud & payment safety
+Verify any change to supplier or staff bank details
+independently before paying. Be alert to invoice and email
+fraud; when a request feels off, pause and confirm through a
+known channel.
+S E R I O U S M I S C O N D U C T
+Unauthorised disclosure of confidential financial or
+personal information will be treated as Serious
+Misconduct. If unsure whether something may be shared,
+say nothing and ask a Director first.
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	1 . 6 · C O N F I D E N T I A L I T Y & I N F O R M A T I O N S E C U R I T Y
+If anyone presses for salary, payment or personal financial information, the answer is a polite decline and an escalation to the
+GM or a Director. Gossip about pay or finances is strictly prohibited; unauthorised disclosure will be treated as Serious
+Misconduct.
+
+-- 9 of 40 --
+
+1 . 7 · T H E O P E R A T I N G M A N U A L
+Operating philosophy & escalation
+A few principles sit under every finance decision. They explain why the controls and cycles are shaped the way they are —
+and how an issue should move.
+Accuracy first
+The books are right before they are fast.
+Reconcile, check and support every
+figure; correct the system before
+proceeding.
+Controls hold
+Separation of duties and delegations
+are never bypassed for speed. A control
+skipped once becomes a control gone.
+Compliance on time
+Statutory dates are immovable. The
+calendar is worked ahead of time,
+never caught up to after a deadline.
+H O W A N I S S U E M O V E S
+Step 1
+Spotted
+A discrepancy, error or risk
+is noticed in the books or a
+process.
+Step 2
+Logged
+Captured with detail — in
+Xero notes or the Asana
+audit project.
+Step 3
+Assessed
+Accountant judges
+materiality & whether it’s
+within authority.
+Step 4
+Resolved or raised
+Fixed within authority, or
+escalated to the GM — and
+to the Board if material.
+Step 5
+Closed
+Closed on confirmation;
+root cause addressed so it
+doesn’t recur.
+E S C A L A T E E A R L Y
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	1 . 7 · O P E R A T I N G P H I L O S O P H Y & E S C A L A T I O N
+Anything beyond delegated authority, anything material, or anything touching fraud or a Director’s finances is raised at once
+— with the facts and the options, not just a question.
+
+-- 10 of 40 --
+
+1 . 8 · T H E O P E R A T I N G M A N U A L
+Operating rhythm
+Finance runs to fixed cycles. Pay runs are fortnightly; statutory remittances and VAT are monthly; budgets, tax and audit fall
+across the quarter and year. The calendar is the spine (1.9).
+Daily 	Process bills & receipts into Xero, reconcile bank items, monitor cash, action AP/AR as they arise.
+Fortnightly 	Payroll run (Wednesdays). Reimbursement claims drafted Monday of pay-run week; paid on pay date.
+Monthly 	Month-end close & End of Month report; bank reconciliation; recurring payments; SSS, PhilHealth, HDMF,
+HMO, withholding tax and VAT remittances.
+Quarterly 	Quarterly VAT and income tax; bi-monthly operating-budget updates and forecasts; HMO & aircon
+maintenance cycles.
+Annual 	Annual income tax & audited financial statements, annual budget, business-permit & BIR renewals, GIS,
+insurance renewals, and the five scheduled audits.
+P A Y R U N
+Fortnightly, on Wednesdays. Claims arrive in a single email
+at least three days before; payslips issue via Xero and pay
+releases via Wise.
+L O C K E D , T H E N W O R K E D
+Each cycle has an owner and a date in Xero/Asana.
+Recurring payments follow the fixed schedule in 4.3 — no
+statutory date is missed.
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	1 . 8 · O P E R A T I N G R H Y T H M
+
+-- 11 of 40 --
+
+1 . 9 · T H E O P E R A T I N G M A N U A L
+Compliance calendar
+Six statutory items recur every month — PhilHealth, HDMF (Pag-IBIG), HMO, SSS, withholding tax and VAT. The items below sit on
+top, by month. Dates are immovable; work ahead of them.
+Jul
+Statutory Compliance Audit (ext) · Lease
+Renewal (II)
+Aug
+Monthly statutory items only
+Sep
+Reimbursements/Claims Audit · Annual ITR ·
+Annual Board Meeting · Audited FS (prior yr)
+Oct
+Quarterly VAT & income tax · GIS
+Nov
+Banking Reconciliation Audit · Lease
+Renewals (I & II)
+Dec
+Income tax
+Jan
+Quarterly VAT & income tax · Business
+Permit Renewal · BIR Registration Fee
+Feb
+Monthly statutory items only
+Mar
+Financial Controls Audit · Business & Fire
+Insurance (AXA) · GIS Update
+Apr
+Quarterly VAT & income tax
+May
+Separation of Duties Audit · Aircon
+maintenance
+Jun
+HMO Renewal · income tax
+E V E R Y M O N T H , W I T H O U T F A I L
+PhilHealth (11th–15th) · HDMF (10th–14th) · SSS (25th–end) · HMO · Withholding tax (1601C & 0619E, 10th) · Monthly VAT (20th).
+Recurring operating payments follow the schedule in 4.3.
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	1 . 9 · C O M P L I A N C E C A L E N D A R
+
+-- 12 of 40 --
+
+1 . 1 0 · T H E O P E R A T I N G M A N U A L
+Reporting & assurance
+Reporting is factual and timely — it gives the Board a true picture and drives improvement. Assurance comes from a fixed
+program of audits across the year (4.5).
+C A D E N C E 	R E P O R T 	P U R P O S E
+Monthly 	End of Month report 	Position & performance for the month, drawn from
+Xero via Reach Reporting.
+Bi-monthly 	Operating budget update & forecast 	Budget vs actual and a refreshed cash-flow
+forecast (Frog).
+Quarterly 	Compliance & risk review 	Statutory lodgements confirmed; risk reviewed;
+audit findings tracked.
+Annual 	Audited financial statements 	External audit, annual ITR and statements
+presented to the Board.
+F A C T U A L & N E U T R A L
+Reports state the position plainly — no spin. Exceptions
+and risks are surfaced clearly so the Board can act early.
+F I N D I N G S T O C L O S U R E
+Material audit findings are tracked in the Asana audit
+project; closed findings are reported back to the Board.
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	1 . 1 0 · R E P O R T I N G & A S S U R A N C E
+
+-- 13 of 40 --
+
+1 . 1 1 · T H E O P E R A T I N G M A N U A L
+Non-negotiable rules & outcome
+1 Xero is the sole source of truth — everything reconciles to it; accounts change only with the GM’s approval.
+2 Separation of duties holds — no one person prepares, approves and reconciles the same payment.
+3 No one approves beyond their delegated limit, or where they personally benefit — doing so may constitute
+misconduct.
+4 Statutory dates are never missed — the compliance calendar is worked ahead of every deadline.
+5 Payroll, banking and personal financial data are confidential — never disclosed; unauthorised disclosure is Serious
+Misconduct.
+6 The Finance team reviews this playbook every quarter and gives the Board assurance of completion; it changes only
+with a Director’s express consent and is re-issued — never amended on the run.
+This playbook exists to make finance trustworthy.
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	1 . 1 1 · N O N - N E G O T I A B L E R U L E S & O U T C O M E
+O P E R A T I N G O U T C O M E
+When it is followed, the numbers are accurate, the controls hold, compliance is never late, and the Board can rely
+on what it sees. Predictable finance builds trust — and trust is what lets the business move with confidence.
+
+-- 14 of 40 --
+
+02Duty statements
+General Manager – Corporate 	Accounting Assistant
+Accountant 	Separation of duties & competency
+P A R T T W O
+What each person owns — their purpose, the decisions they may make, and
+when to escalate. Three roles, one chain of accountability through the
+General Manager – Corporate to the Board.
+2.1	2.3
+2.2	2.4
+
+-- 15 of 40 --
+
+GM
+2 . 1 · D U T Y S T A T E M E N T
+General Manager – Corporate
+The control & accountability authority for the finance function
+R E P O R T I N G L I N E
+The Board / Directors
+P A T T E R N
+Full-time
+S C O P E
+The whole finance function
+The GM – Corporate holds firm control over the finance function — ensuring the books are accurate, controls hold, compliance
+is on time and the Board can trust what it sees. The role is accountable for outcomes and integrity, approves within delegated
+authority, and is the escalation point for the team.
+W H A T G R E A T L O O K S L I K E
+The function runs quietly and correctly — clean audits, no missed statutory dates, no control breaches, and a Board that is
+never surprised. The team is clear, capable and well-separated in their duties.
+Control & approvals
+Approve expenditure, contracts & payments within delegation;
+recommend above it; govern the chart of accounts.
+Compliance & treasury
+Oversee statutory lodgements & BIR payments; sign banking;
+recommend budgets & investments to the Board.
+Reporting & audit
+Present monthly & annual reporting; recommend the auditor;
+ensure findings are tracked to closure.
+Team & controls
+Lead the Accountant & Assistant; uphold separation of duties; own
+the quarterly playbook review & Board assurance.
+M A Y
+Approve expenditure & contracts within limits
+Sign banking & authorise payments
+Recommend budgets, investments & auditor to the Board
+Approve chart-of-accounts changes
+M A Y N O T
+Approve beyond delegated limits or own benefit
+Bypass separation of duties
+Commit the Board’s reserved matters alone
+Amend this playbook without a Director’s consent
+P E R F O R M A N C E I S M E A S U R E D B Y
+Accurate books, clean audit outcomes, on-time compliance, no control
+breaches, and Board confidence in the numbers.
+N O N - N E G O T I A B L E
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	2 . 1 · G E N E R A L M A N A G E R – C O R P O R A T E
+Controls hold · delegations respected · confidentiality
+absolute · compliance never late.
+
+-- 16 of 40 --
+
+A
+2 . 2 · D U T Y S T A T E M E N T
+Accountant
+The execution & integrity engine of the books
+R E P O R T I N G L I N E
+GM – Corporate
+P A T T E R N
+Full-time
+F O C U S
+Close, payroll & reconciliation
+The Accountant keeps the books accurate and the cycles on time — running month-end close, payroll, reconciliations, VAT and
+statutory preparation. The role prepares and actions; it does not self-approve payments, and works strictly within separation-of-
+duties controls.
+W H A T G R E A T L O O K S L I K E
+The books reconcile cleanly and on time, payroll is always correct and on date, VAT and contributions are prepared ahead of
+deadline, and every figure is supported — ready for audit at any moment.
+Month-end & reconciliation
+Run the close, reconcile bank & balance sheet, and prepare the
+End of Month report from Xero.
+Payroll
+Run fortnightly payroll — masterlist, leave from BambooHR,
+payslips in Xero, batch payment via Wise.
+Tax & statutory
+Prepare VAT, withholding tax, SSS, PhilHealth & HDMF; action BIR &
+government payments on approval.
+AP, AR & budget
+Draft bills & invoices, manage AR collection, develop the budget &
+update operating forecasts.
+M A Y
+Prepare & action payments once approved
+Run payroll & issue payslips
+Prepare statutory lodgements & reconciliations
+Develop the budget & forecasts
+M A Y N O T
+Approve own payments or beyond authority
+Add or archive Xero accounts without the GM
+Release banking without authorisation
+Disclose payroll or personal data
+P E R F O R M A N C E I S M E A S U R E D B Y
+Clean, on-time reconciliations; accurate payroll; statutory items
+prepared ahead of deadline; audit-ready support for every figure.
+N O N - N E G O T I A B L E
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	2 . 2 · A C C O U N T A N T
+Prepare, don’t self-approve · reconcile to Xero · never
+miss a statutory date.
+
+-- 17 of 40 --
+
+AA
+2 . 3 · D U T Y S T A T E M E N T
+Accounting Assistant
+Accurate capture, clean records & reliable support
+R E P O R T I N G L I N E
+Accountant · GM – Corporate
+P A T T E R N
+Full-time
+F O C U S
+Data entry, AP & records
+The Accounting Assistant keeps the source data clean and complete — capturing bills, receipts and reimbursements accurately
+into Xero, maintaining orderly records, and supporting the Accountant through the cycles. The role provides the first half of every
+separated process: prepare and record, never approve.
+W H A T G R E A T L O O K S L I K E
+Every bill and receipt is captured promptly, coded correctly and supported by a properly named document; records are tidy
+and findable; and the Accountant never has to chase missing detail.
+AP & data entry
+Draft bills in Xero on delivery, code to the GL, and attach correctly
+named receipts from OneDrive.
+Receipts & reimbursements
+Check and record employee expense claims as bills for the pay-
+run, with valid supporting receipts.
+Petty cash & filing
+Maintain petty cash records and keep documents filed to the
+standard so anything is found in seconds.
+Cycle support
+Support payroll, month-end and audit by preparing data accurately
+and on time for the Accountant.
+M A Y
+Draft bills & record transactions in Xero
+Check & record reimbursement claims
+Maintain petty cash & records
+Prepare data to support the cycles
+M A Y N O T
+Approve or authorise any payment
+Run payroll or release funds
+Change Xero accounts or master data
+Disclose payroll or personal data
+P E R F O R M A N C E I S M E A S U R E D B Y
+Prompt, accurate capture; correct coding; complete supporting
+documents; tidy records; reliable support through every cycle.
+N O N - N E G O T I A B L E
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	2 . 3 · A C C O U N T I N G A S S I S T A N T
+Capture accurately · record, never approve ·
+confidentiality absolute.
+
+-- 18 of 40 --
+
+2 . 4 · D U T Y S T A T E M E N T S
+Separation of duties & competency
+Who does what across a transaction — and who must not do it too. No single person prepares, approves and reconciles the same
+payment. Reviewed at least annually and tested in the May audit.
+ACTIVITY 	ASSISTANT 	ACCOUNTANT 	GM – CORP
+Draft bills & capture receipts 	Prepare 	Review 	—
+Approve payment 	— 	— 	Approve*
+Release / authorise in bank 	— 	Execute 	Authorise
+Run payroll 	Support 	Run 	Approve
+Bank reconciliation 	— 	Reconcile 	Review
+Chart of accounts change 	— 	Recommend 	Approve
+C O M P E T E N C Y & T R A I N I N G
+Anyone logging into the financial system (other than for
+approvals or authorisations) must have completed the
+required Xero training. Competency is reviewed with the
+annual separation-of-duties review.
+* W I T H I N D E L E G A T I O N
+The GM approves only within their delegated limit; amounts
+above it are recommended to the Board. Approval and the
+bank authorisation that follows never rest with the person
+who prepared the payment.
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	2 . 4 · S E P A R A T I O N O F D U T I E S & C O M P E T E N C Y
+
+-- 19 of 40 --
+
+03Checklists
+Month-end close 	AP & payment run
+Fortnightly payroll run 	Monthly statutory & VAT compliance
+P A R T T H R E E
+Tick and sign. These are the working checklists behind the cycles in part one
+— carried out on the ground, then recorded in Xero.
+3.1	3.3
+3.2	3.4
+
+-- 20 of 40 --
+
+3 . 1 · C H E C K L I S T · M O N T H L Y
+Month-end close
+Close the month cleanly so the End of Month report is accurate and audit-ready. Everything reconciles to Xero.
+C A P T U R E & R E C O N C I L E
+All bills & invoices entered for the period
+All receipts attached & correctly coded
+Bank reconciled to Xero for every account
+Petty cash counted & reconciled
+Credit-card transactions billed & reconciled
+A D J U S T & R E V I E W
+Accruals, prepayments & depreciation posted
+Intercompany / transfer-pricing invoice raised
+Balance-sheet accounts reviewed & supported
+Budget vs actual variances explained
+End of Month report prepared (Reach)
+S I G N - O F F
+Reconciliations reviewed independently
+Report reviewed & approved by the GM
+Period locked in Xero
+A L W A Y S
+Separation of duties maintained
+Every figure supported & audit-ready
+PERIOD 	PREPARED BY 	APPROVED (GM)
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	3 . 1 · M O N T H - E N D C L O S E
+
+-- 21 of 40 --
+
+3 . 2 · C H E C K L I S T · F O R T N I G H T L Y
+Fortnightly payroll run
+Run on Wednesdays. Work it in order so pay is accurate, on time, and properly approved before release.
+P R E P A R E
+Duplicate latest payroll sheet; name to pay-period end
+Update from Employee Masterlist (new hires / changes)
+Extract leave from BambooHR; plot into template
+Plot holidays & premiums (100% regular / 30% special)
+Calculate gross, deductions, contributions & net
+P R O C E S S & P A Y
+Build pay run in Xero; match the payroll template
+Review & finalise; GM approves the run
+Confirm any bank-detail change independently
+Populate & import Wise recipients’ template
+Submit batch; send payslips via Xero
+S T A T U T O R Y C H E C K
+At the first cut-off of the year, check for updated government contribution tables. Ensure staff deductions equal the remittances
+submitted (SSS, PhilHealth, HDMF, withholding tax).
+PAY PERIOD 	PREPARED BY 	APPROVED (GM)
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	3 . 2 · F O R T N I G H T L Y P A Y R O L L R U N
+
+-- 22 of 40 --
+
+3 . 3 · C H E C K L I S T · P E R P A Y M E N T
+AP & payment run
+From invoice to reconciled payment — prepared by one person, approved by another, authorised in the bank, then reconciled. No
+step is skipped or combined.
+R E C E I V E & R E C O R D
+Receive invoice on delivery of goods/services
+Confirm goods/services received & in good order
+Save receipt to OneDrive (standard naming)
+Draft bill in Xero; code to GL; attach receipt
+Submit the bill for approval
+A P P R O V E , P A Y & R E C O N C I L E
+GM approves within delegation (escalate if above)
+Verify payee bank details independently
+Process payment in Metrobank; authorise
+Save the OR; notify the vendor
+Reconcile the payment to Xero (separate person)
+R E I M B U R S E M E N T S
+Claims arrive in a single email at least three days before the pay run; check validity, draft bills on the Monday of pay-run week, and
+pay on the pay date with the rest of the batch.
+PAYEE & REFERENCE 	PREPARED 	APPROVED
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	3 . 3 · A P & P A Y M E N T R U N
+
+-- 23 of 40 --
+
+3 . 4 · C H E C K L I S T · M O N T H L Y
+Monthly statutory & VAT compliance
+The six monthly lodgements that must never be late. Prepare ahead, remit by the due date, and file the proof.
+C O N T R I B U T I O N S
+Withholding tax — 1601C & 0619E (by 10th)
+HDMF / Pag-IBIG (10th–14th)
+PhilHealth (11th–15th, EPRS)
+SSS (25th–end)
+HMO premium
+T A X & P R O O F
+Monthly VAT declaration (by 20th)
+Reconcile deductions to remittances
+GM reviews & approves remittances
+File confirmations & ORs to OneDrive
+Record payments & reconcile in Xero
+D O N ’ T F O R G E T T H E Q U A R T E R
+MONTH 	PREPARED BY 	APPROVED (GM)
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	3 . 4 · M O N T H L Y S T A T U T O R Y & V A T C O M P L I A N C E
+Quarterly VAT (25th, Oct/Jan/Apr/Jul) and quarterly income tax (15th, Oct/Jan/Apr) sit on top of the monthly run — check the
+compliance calendar (1.9) at the start of every month.
+
+-- 24 of 40 --
+
+04Reference
+Service standards 	Significant accounting policies
+Delegations & authorities register 	Audit program
+Recurring payments schedule 	Document control
+P A R T F O U R
+The standards that keep it all consistent — service standards, the
+delegations register, recurring payments, accounting policy, the audit
+program, and how this document is controlled.
+4.1	4.4
+4.2	4.5
+4.3	4.6
+
+-- 25 of 40 --
+
+4 . 1 · R E F E R E N C E
+Service standards — what great looks like
+These qualitative standards apply across the whole function. They describe the bar the finance team holds — not targets, but
+how the work should always feel to the Board and everyone it touches.
+Accurate
+Figures are right the first time and reconcile to Xero. Every
+number is supported and audit-ready without a scramble.
+On time
+Pay runs, remittances and lodgements land on or before the
+date — the calendar is worked ahead, never caught up to.
+Controlled
+Separation of duties and delegations hold every time.
+Controls are never traded away for speed or convenience.
+Discreet
+Payroll, banking and personal data are held in absolute
+confidence; security is instinctive (see 1.6).
+Compliant
+Work follows Philippine Accounting Standards and statutory
+obligation — correct, not just convenient.
+Kind & clear
+Plain, helpful communication with staff, suppliers and the
+Board. Firm on controls, warm in manner. Always Be Kind.
+T H E S I N G L E M E A S U R E
+The Board trusts the numbers without re-checking them, the auditor finds no surprises, and no statutory date is ever
+missed. Trust in the books is the measure of the function.
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	4 . 1 · S E R V I C E S T A N D A R D S
+
+-- 26 of 40 --
+
+4 . 2 · R E F E R E N C E
+Delegations & authorities register
+Key Finance lines from the Schedule of Management Authorities (the authoritative source). Thresholds are in PHP and based on a
+contract’s aggregate annual value.
+DECISION 	BOARD 	GM 	ACCOUNTANT
+Asset purchase < Php40,000 	— 	Approve 	—
+Asset purchase < Php500,000 	Advised 	Approve† 	—
+Asset purchase > Php500,000 	Approve 	Recommend 	—
+Contracts < 1yr or < Php250,000 	Advised 	Approve 	Action
+Contracts > 1yr or > Php250,000 	Approve 	Recommend 	—
+Annual budget 	Approve 	Recommend 	Develop
+Operating expenses (payment) 	Approve 	Action 	Develop
+Open / close bank accounts 	Ratify 	Approve 	Recommend
+BIR & other government payments 	Review 	Approve 	Action
+Internal audit (annual) 	Approve 	Advised 	Action
+W H A T T H E A C T I O N S M E A N
+Develop prepare/draft · Recommend put to next level · Approve decide & activate
+· Be advised informed after · Ratify confirm a prior approval · Action carry out the
+approved task
+† & T H E R U L E
+† GM approves if within budget. Authority is vested in a position,
+not a person; never approve beyond your limit or where you
+benefit. The full register is the Schedule of Management
+Authorities.
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	4 . 2 · D E L E G A T I O N S & A U T H O R I T I E S R E G I S T E R
+
+-- 27 of 40 --
+
+4 . 3 · R E F E R E N C E
+Recurring payments schedule
+The standing payments of Brainsource Corporation, by cycle. Dates are the day of the month (or window) each is due.
+M O N T H L Y
+Withholding taxes (1601C & 0619E) 	10 HDMF (Pag-IBIG) 	10–14
+PhilHealth 	11–15 SSS 	25–31
+Monthly VAT 	20 TL Plaza rent 	1–5
+Hensonville property payment 	28 Water (TL) · Electric · Converge 	20
+Shuttle service 	28–31 Office cleaner 	Alt. Fri
+Q U A R T E R L Y
+Quarterly VAT 	Oct/Jan/Apr/Jul 25
+Quarterly income tax 	Oct/Jan/Apr 15
+HMO 	Jul
+Aircon maintenance 	May/Aug/Nov
+A N N U A L
+Annual income tax 	Oct 15
+Business permit & BIR reg. fee 	Jan
+Insurance — business & fire (AXA) 	Mar
+HMO renewal 	Jun
+Windows shown are the standard due dates; the Hensonville payment must clear before the 1st. Confirm exact dates against the
+current BIR and provider schedules each period.
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	4 . 3 · R E C U R R I N G P A Y M E N T S S C H E D U L E
+
+-- 28 of 40 --
+
+4 . 4 · R E F E R E N C E
+Significant accounting policies
+A plain-language summary of the policies that govern the books. The authoritative wording lives in the Finance Operations Manual;
+these are the working essentials.
+Basis of preparation
+General-purpose statements under Philippine Accounting
+Standards, on the accrual basis and historical cost — modified
+where applicable by fair value.
+VAT
+Revenue, expenses and assets are net of VAT except where not
+recoverable from the BIR. The net VAT due to/from the BIR sits in
+payables/receivables.
+Fixed assets & capitalisation
+Carried at cost (or fair value) less depreciation. Equipment
+under the capitalisation threshold (~$1,000) is expensed and
+held on an asset inventory listing instead.
+Depreciation
+Straight-line over useful life from the date ready for use; rates,
+residuals and useful lives reviewed each reporting period.
+Receivables & payables
+Receivables reviewed for collectability; uncollectible debts
+written off when identified. Trade payables are unsecured and
+normally paid within 30 days.
+Employee benefits & leases
+Benefits provided for as services are rendered. Finance leases
+capitalised; operating-lease payments expensed over the term.
+Current vs non-current is judged on the 12-month operating cycle. Figures are rounded to the nearest dollar; the chart of accounts
+changes only with the GM’s approval.
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	4 . 4 · S I G N I F I C A N T A C C O U N T I N G P O L I C I E S
+
+-- 29 of 40 --
+
+4 . 5 · R E F E R E N C E
+Audit program
+Controls are tested on a fixed schedule, in a spirit of collaboration and improvement. Findings are tracked to closure in Asana and
+reported to the Board.
+AUDIT 	TYPE 	WHEN
+Financial controls 	Internal 	March
+Separation of duties 	Internal 	May
+Statutory compliance 	External 	July
+Reimbursements & expense claims 	Internal 	September
+Banking reconciliation 	Internal 	November
+H O W A N A U D I T R U N S
+Scope
+Draft scope; Board endorses.
+Conduct
+Run or commission to the template.
+Report
+Present the report to the Board.
+Track
+Findings to closure in Asana.
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	4 . 5 · A U D I T P R O G R A M
+
+-- 30 of 40 --
+
+4 . 6 · R E F E R E N C E
+Document control
+A controlled document and a living one — reviewed on a strict quarterly cycle by the Finance team, with completion assurance
+to the Board, and re-issued as the function evolves.
+Q U A R T E R L Y R E V I E W O B L I G A T I O N
+The Finance team must review this playbook every quarter to confirm it remains current
+— and provide assurance of completed review to the Board.
+D O C U M E N T 	Finance Playbook — Brainsource Corporation
+E D I T I O N 	Edition 1 · 2026 — first iteration
+O W N E R 	General Manager – Corporate
+R E V I E W 	Quarterly by the Finance team; assurance to the Board
+E N D O R S E M E N T 	Board of Directors
+C L A S S I F I C A T I O N 	Internal — controlled document
+R E L A T E D D O C U M E N T S
+Finance Operations Manual (full policies & procedures) · Schedule of Management Authorities (delegations register) · the company
+Procurement Policy. Where this playbook differs from habit or memory, the playbook wins.
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	4 . 6 · D O C U M E N T C O N T R O L
+No changes are made without the express consent of a Director. Reviews are logged; changes are re-issued, never made on the run.
+
+-- 31 of 40 --
+
+05Process maps
+Australian payroll (Xero) 	Philippine compliance
+Australian BAS, PAYG, FBT & company tax 	Philippine payroll
+Brainbox monthly Gantt 	Blue Zoo monthly Gantt
+Brainsource monthly Gantt
+P A R T F I V E
+Standard, at-a-glance process maps for the most common finance
+functions across the group — the shape of each process, end to end. The
+detailed steps live in the checklists and the Finance Operations Manual.
+5.1	5.3
+5.2	5.4
+5.5	5.6
+5.7
+
+-- 32 of 40 --
+
+5 . 1 · P R O C E S S M A P
+Australian payroll in Xero A U · X E R O P A Y R O L L · S T P
+Each pay cycle in Xero Payroll — from confirming employee data to filing Single Touch Payroll and paying super. Separation of duties
+applies: the preparer is not the approver.
+Set up Confirm employee details & super fund › Check award rates & SG % › Confirm pay calendar
+Process Create pay run for the period › Enter hours, leave & allowances › Xero calculates gross, PAYG-W & super
+Review &
+approve
+Check totals & variances › Authorised approver signs off the pay run
+Pay & STP Pay staff (ABA / bank file) › Payslips issue automatically › File STP to the ATO on/before payday
+Super &
+reconcile
+Pay super with each pay run (same day) › Reconcile wages, PAYG-W & super to GL
+K E Y D A T E S
+STP filed on/before each payday · super now paid with each pay
+run, on the same day as payroll · PAYG-W reported on the BAS.
+C O N T R O L
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	5 . 1 · A U S T R A L I A N P A Y R O L L I N X E R O
+Phase 1
+Phase 2
+Phase 3
+Phase 4
+Phase 5
+Preparer ≠ approver; bank-detail changes verified independently;
+pay data held in confidence.
+
+-- 33 of 40 --
+
+5 . 2 · P R O C E S S M A P
+Australian BAS, PAYG, FBT & company tax A U · A T O L O D G E M E N T S
+Four ATO obligations, the same four-step shape — gather & reconcile, prepare, review & approve, then lodge & pay. Most are lodged
+through the tax/BAS agent, which extends the due dates shown.
+GATHER & RECONCILE 	PREPARE 	REVIEW & APPROVE 	LODGE & PAY
+BAS · GST 	Reconcile GST & bank in
+Xero
+Prepare BAS (GST, PAYG-W
+& instalment)
+GM reviews & approves 	Lodge & pay ATO · 28th
+after period
+PAYG 	PAYG-W from STP; confirm
+instalment rate
+Carried onto the BAS 	Reviewed with the BAS 	Paid with the BAS
+FBT 	Identify fringe benefits
+provided
+Gross-up & calculate
+taxable value
+GM & tax agent review 	Lodge & pay · 21 May (later
+via agent)
+Company tax 	Finalise year-end accounts Tax reconciliation &
+adjustments
+Prepare CTR with tax agent;
+Board review
+Lodge & pay/refund · agent
+due date
+N O T E
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	5 . 2 · A U S T R A L I A N B A S , P A Y G , F B T & C O M P A N Y T A X
+Monthly /
+quarterly
+W’holding &
+instalment
+Annual · Apr–Mar
+Annual return
+Due dates assume lodgement through the registered tax/BAS agent, which generally extends them — confirm each period against the ATO
+lodgement program. GST & PAYG-W reconcile back to Xero and STP before lodging.
+
+-- 34 of 40 --
+
+5 . 3 · P R O C E S S M A P
+Philippine compliance P H · B I R & S T A T U T O R Y
+Every PH lodgement follows the same five-step shape. Three streams run on it — statutory contributions, tax, and the annual filings. Dates
+are immovable; the calendar (1.9) drives the month.
+Gather 	Pull the period’s payroll, sales & purchase data from Xero and the payroll workbook.
+Compute &
+prepare
+Compute amounts due; prepare the BIR form or contribution schedule (1601C/0619E, VAT, SSS, PhilHealth, HDMF).
+Review &
+approve
+GM reviews and approves; deductions are reconciled to the amounts being remitted.
+File & remit File and pay by the due date — eFPS/eBIR for BIR, EPRS for PhilHealth, and accredited banks / Bayad Centers.
+File proof &
+reconcile
+Save confirmations & ORs to OneDrive; record the payment and reconcile in Xero.
+Contributions
+Withholding tax (10th) · HDMF (10–14) ·
+PhilHealth (11–15) · SSS (25–end) · HMO
+Tax
+Monthly VAT (20th) · Quarterly VAT (25th) ·
+Quarterly & annual income tax
+Annual
+Annual ITR & audited FS · Business permit &
+BIR reg. · GIS · insurance
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	5 . 3 · P H I L I P P I N E C O M P L I A N C E
+Step 1
+Step 2
+Step 3
+Step 4
+Step 5
+
+-- 35 of 40 --
+
+5 . 4 · P R O C E S S M A P
+Philippine payroll P H · F O R T N I G H T L Y · W I S E
+The fortnightly run for Brainsource — built in the payroll workbook, finalised in Xero, paid through Wise, then remitted to the agencies.
+Preparer is not the approver.
+Prepare Duplicate latest payroll sheet › Update from Employee Masterlist › Extract leave from BambooHR
+Compute Plot leave & holiday premiums (100% / 30%) › Calculate gross, deductions, contributions & net
+Payslips &
+approve
+Build pay run in Xero; match the template › GM approves; issue payslips
+Pay (Wise) Verify any bank-detail change › Populate & import recipients’ CSV › Submit batch; Wise releases pay
+Remit &
+reconcile
+Remit SSS, PhilHealth, HDMF & withholding tax › Reconcile deductions to remittances in Xero
+C A D E N C E
+Fortnightly on Wednesdays. PH regular-holiday premium 100%,
+special non-working 30% (treated as ordinary days unless also a
+WA holiday).
+C O N T R O L
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	5 . 4 · P H I L I P P I N E P A Y R O L L
+Phase 1
+Phase 2
+Phase 3
+Phase 4
+Phase 5
+Preparer ≠ approver; bank-detail changes verified; payroll data
+strictly confidential.
+
+-- 36 of 40 --
+
+5 . 5 · P R O C E S S M A P
+Brainbox — monthly Gantt B B · A U
+Every recurring finance task across the month, by day. Solid bars run monthly; pay-run bars in lighter blue. Windows are indicative — confirm against
+1.9 and 4.3. Superannuation is paid with each pay run.
+Brainbox · monthly
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	5 . 5 · B R A I N B O X — M O N T H L Y G A N T T
+1 	5 	10 	15 	20 	25 	30
+Update cash flow (weekly)
+Download & file bank statements
+Reconcile prior-month transactions
+Calculate Future Fund transfers
+FF transfer to InvestSmart
+Payroll #1–#3 processing
+Pay run — mid month
+Pay run — end month
+Review renewing subscriptions
+BAS (GST & PAYG-W)
+Review & update asset register
+End-month Compliance Report
+Report budget departures
+
+-- 37 of 40 --
+
+5 . 6 · P R O C E S S M A P
+Blue Zoo — monthly Gantt B Z · A U
+Every recurring finance task across the month, by day. Solid bars run monthly; pay-run bars in lighter purple. Windows are indicative — confirm against
+1.9 and 4.3. Superannuation is paid with each pay run.
+Blue Zoo · monthly
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	5 . 6 · B L U E Z O O — M O N T H L Y G A N T T
+1 	5 	10 	15 	20 	25 	30
+Update cash flow (weekly)
+Download & file bank statements
+Reconcile prior-month transactions
+Calculate Future Fund transfers
+FF transfer to InvestSmart
+Payroll #1–#3 processing
+Pay run — mid month
+Pay run — end month
+Review renewing subscriptions
+BAS (GST & PAYG-W)
+Review & update asset register
+End-month Compliance Report
+Report budget departures
+
+-- 38 of 40 --
+
+5 . 7 · P R O C E S S M A P
+Brainsource — monthly Gantt B S · P H
+Every recurring finance task across the month, by day. Solid bars run monthly; outlined bars are periodic (quarterly); dashed bars run as needed.
+Windows are indicative — confirm against 1.9 and 4.3.
+Brainsource · monthly 	Quarterly 	As needed
+B R A I N B O X G R O U P · F I N A N C E P L A Y B O O K 	5 . 7 · B R A I N S O U R C E — M O N T H L Y G A N T T
+1 	5 	10 	15 	20 	25 	30
+Update cash flow (weekly)
+BBT rent
+P&L / GL entry check
+Payroll #1 & pay runs
+Withholding tax (1601C/0619E)
+PAG-IBIG (HDMF)
+PhilHealth
+HMO
+Utilities (net/elec/water)
+VAT (monthly)
+Income tax (quarterly)
+SSS
+HV amortization (clear by 1st)
+Report budget departures
+New-hire enrolments (as needed)
+
+-- 39 of 40 --
+
+B R A I N B O X
+Always Be Kind
+Accurate books, sound
+controls, trust earned.
+I N T E R N A L — C O N T R O L L E D D O C U M E N T
+Structure is what lets finance be both rigorous and kind — clear systems,
+separated duties and a steady calendar that protect the business and the
+people in it. Keep this playbook close, and review it every quarter.
+P O W E R F U L P E O P L E P E R F O R M A N C E
+B R A I N S O U R C E C O R P O R A T I O N · B R A I N B O X G R O U P
+F I N A N C E P L A Y B O O K
+E D I T I O N 1 · 2 0 2 6
+
+-- 40 of 40 --
+

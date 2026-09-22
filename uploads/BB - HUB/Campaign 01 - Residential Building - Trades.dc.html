@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: #fff; }
+    .doc { box-sizing: border-box; max-width: 210mm; margin: 0 auto; background: inherit;
+           padding: 40px clamp(20px, 5vw, 16mm) 80px;
+           font-family: var(--font-body); font-weight: 300; color: var(--bb-grey-800);
+           font-size: 10pt; line-height: 1.5; }
+    .doc h1, .doc h2, .doc h3, .doc h4 { font-family: var(--font-heading); color: var(--bb-grey-700); margin: 0; }
+    .doc h1 { font-weight: 600; }
+    .doc h2 { font-weight: 600; font-size: 16pt; color: var(--bb-pink); letter-spacing: -0.01em;
+              margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--bb-pink); text-wrap: balance; }
+    .doc h3 { font-weight: 600; font-size: 11.5pt; color: var(--bb-grey-700); margin: 16px 0 5px; text-wrap: balance; }
+    .doc h4 { font-weight: 600; font-size: 9.5pt; color: var(--bb-pink-700); margin: 12px 0 3px;
+              text-transform: uppercase; letter-spacing: 0.06em; }
+    .doc p { margin: 0 0 8px; text-wrap: pretty; }
+    .doc ul, .doc ol { margin: 0 0 8px; padding-left: 17px; }
+    .doc li { margin: 0 0 3px; text-wrap: pretty; }
+    .doc li::marker { color: var(--bb-pink-400); }
+    .doc strong { font-weight: 600; color: var(--bb-grey-800); }
+    .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.16em;
+               font-size: 8pt; color: var(--bb-pink); font-weight: 600; }
+    .cover { background: var(--bb-gradient-brand); border-radius: 18px; padding: 40px 36px; color: #fff; margin-bottom: 8px; }
+    .cover .eyebrow { color: rgba(255,255,255,0.92); }
+    .cover h1 { color: #fff; font-size: 30pt; line-height: 1.05; margin: 14px 0 10px; letter-spacing: -0.015em; }
+    .cover .lede { color: rgba(255,255,255,0.95); font-size: 11.5pt; max-width: 92%; margin: 0; font-weight: 300; }
+    .cover-meta { display: flex; gap: 26px; margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.35); flex-wrap: wrap; }
+    .cover-meta div { font-size: 8.5pt; }
+    .cover-meta span { display: block; text-transform: uppercase; letter-spacing: 0.1em; font-size: 7pt; opacity: 0.8; margin-bottom: 2px; }
+    .wordmark { font-family: var(--font-logo); font-size: 16pt; letter-spacing: 0.14em; color: #fff; }
+    .doc table.t { width: 100%; border-collapse: collapse; margin: 6px 0 12px; font-size: 9pt; }
+    .doc table.t th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading);
+                      font-weight: 600; text-align: left; padding: 6px 9px; border-bottom: 1.5px solid var(--bb-pink-200); font-size: 8.5pt; }
+    .doc table.t td { padding: 6px 9px; border-bottom: 1px solid var(--bb-grey-200); vertical-align: top; }
+    .doc table.t tr:nth-child(even) td { background: var(--bb-grey-50); }
+    .doc table.t.compact td { padding: 4px 9px; }
+    .doc table.t .num { font-family: var(--font-mono); color: var(--bb-pink-700); white-space: nowrap; font-weight: 600; }
+    .cols2 { columns: 2; column-gap: 28px; } .cols2 ul { margin-top: 0; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .script { background: var(--bb-pink-50); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 9px 13px; margin: 6px 0 12px; font-size: 9pt; color: var(--bb-grey-800); }
+    .script .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .script em { font-style: italic; color: var(--bb-grey-700); }
+    .note { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-100); border-radius: 8px; padding: 9px 13px; margin: 6px 0 12px; font-size: 9pt; }
+    .flag { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); border-left: 3px solid var(--bb-pink); border-radius: 0 8px 8px 0; padding: 10px 13px; margin: 6px 0 12px; font-size: 9pt; }
+    .flag .lbl { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 7pt; color: var(--bb-pink-700); display: block; margin-bottom: 3px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 6px 0 14px; }
+    .stat { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 12px 13px; }
+    .stat .v { font-family: var(--font-heading); font-weight: 600; font-size: 16pt; color: var(--bb-pink); line-height: 1; }
+    .stat .l { font-size: 8pt; color: var(--bb-grey-500); margin-top: 5px; line-height: 1.3; }
+    .days { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0 12px; }
+    .day { border: 1px solid var(--bb-grey-200); border-radius: 12px; padding: 11px 12px; }
+    .day .d { font-family: var(--font-heading); font-weight: 600; font-size: 10pt; color: var(--bb-pink); }
+    .day .s { font-size: 8pt; color: var(--bb-grey-500); margin-top: 4px; line-height: 1.35; }
+    .dodont { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 6px 0 12px; }
+    .dodont .box { border-radius: 10px; padding: 10px 13px; font-size: 9pt; }
+    .dodont .do { background: var(--bb-blue-50); border: 1px solid var(--bb-blue-300); }
+    .dodont .dont { background: var(--bb-pink-50); border: 1px solid var(--bb-pink-200); }
+    .dodont h4 { margin-top: 0; } .dodont .do h4 { color: var(--bb-blue-700); } .dodont .dont h4 { color: var(--bb-pink-700); }
+    .dodont ul { padding-left: 16px; margin-bottom: 0; }
+    .lead-statuses { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 12px; }
+    .pill { background: #fff; border: 1px solid var(--bb-pink-200); color: var(--bb-grey-700); border-radius: 999px; padding: 3px 11px; font-size: 8pt; font-family: var(--font-heading); }
+    .section-intro { color: var(--bb-grey-500); font-size: 10pt; margin-bottom: 10px; }
+    .form-field { border: 1px solid var(--bb-grey-300); border-radius: 6px; height: 22px; margin-bottom: 6px; }
+    .form-label { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.07em; color: var(--bb-grey-500); font-family: var(--font-mono); display: block; margin-bottom: 3px; }
+    .doc table.form { width: 100%; border-collapse: collapse; margin: 4px 0 10px; font-size: 8.5pt; }
+    .doc table.form th { background: var(--bb-pink-50); color: var(--bb-grey-700); font-family: var(--font-heading); font-weight: 600; text-align: left; padding: 5px 7px; border: 1px solid var(--bb-grey-300); font-size: 7.5pt; }
+    .doc table.form td { padding: 5px 7px; border: 1px solid var(--bb-grey-300); height: 20px; vertical-align: top; }
+    .doc table.form .target { font-family: var(--font-mono); color: var(--bb-pink-700); font-size: 8pt; white-space: nowrap; }
+    .ie-body { font-size: 9.6pt; }
+    .sheet { padding-top: 4px; }
+    .sheet + .sheet { margin-top: 36px; border-top: 1px dashed var(--bb-grey-200); }
+    .sheet > h2:first-child { margin-top: 4px; }
+    .sheet-ftr { display: none; }
+
+
+    .cover .conf { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.22em; font-size: 7.5pt; color: rgba(255,255,255,0.72); margin-bottom: 20px; }
+    .cover .cat { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.18em; font-size: 8.5pt; color: var(--bb-pink); font-weight: 600; margin-bottom: 10px; }
+    .cover-page { min-height: 900px; display: flex; flex-direction: column; }
+    .cover-page h1 { margin-top: 4px; }
+    .cover-page .cover-meta { margin-top: auto; }
+    @media print { .cover-sheet .cover-page { min-height: 252mm; } .cover-sheet { break-after: page; } }
+
+    .cover-page { position: relative; }
+    .cover-elephant { position: absolute; top: 34px; right: 36px; height: 84px; width: auto; }
+
+    /* ===== Subdued (Boardroom) palette ===== */
+    .doc h2 { color: var(--bb-grey-800) !important; border-bottom: 1px solid var(--bb-grey-300) !important; padding-bottom: 7px; }
+    .doc h2::before { content: ""; display: inline-block; width: 16px; height: 3px; background: var(--bb-pink); border-radius: 2px; margin-right: 10px; vertical-align: middle; }
+    .doc h3 { color: var(--bb-grey-700) !important; }
+    .doc h4 { color: var(--bb-grey-500) !important; }
+    .cover:not(.cover-grad) { background: var(--bb-grey-800) !important; }
+    .ldiv { background: var(--bb-grey-800) !important; }
+    .tree .root, .handoff { background: var(--bb-grey-800) !important; }
+    .tree .branch > .bh { background: var(--bb-grey-100) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t th { background: var(--bb-grey-50) !important; border-bottom: 1.5px solid var(--bb-grey-400) !important; color: var(--bb-grey-700) !important; }
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj { color: var(--bb-grey-700) !important; }
+    .flag { background: var(--bb-grey-50) !important; border-color: var(--bb-grey-200) !important; border-left-color: var(--bb-pink) !important; }
+    .flag .lbl { color: var(--bb-grey-500) !important; }
+    .part-kicker { color: var(--bb-grey-500) !important; }
+    .stat .v { color: var(--bb-grey-800) !important; }
+    .rolecard h3 { color: var(--bb-grey-800) !important; }
+    .pill { border-color: var(--bb-grey-300) !important; }
+    .script { border-left-color: var(--bb-pink) !important; }
+    .script .lbl, .note .lbl { color: var(--bb-grey-500) !important; }
+
+    @page { size: A4 portrait; margin: 10mm; }
+    @media print {
+      html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { margin: 0; padding: 0; }
+      .doc { max-width: none !important; margin: 0 !important; padding: 0 !important; box-shadow: none !important; border: none !important; }
+      #dc-root, .sc-host { height: auto !important; }
+      .sheet { break-before: page; min-height: 274mm; display: flex; flex-direction: column;
+               box-sizing: border-box; margin-top: 0 !important; border-top: 0 !important; padding-top: 0 !important; }
+      .sheet:first-of-type { break-before: auto; }
+      .sheet > h2:first-child, .sheet > .cover:first-child { margin-top: 0 !important; }
+      .sheet-ftr { display: flex !important; justify-content: space-between; align-items: baseline;
+             margin-top: auto; padding-top: 5mm; border-top: 0.5pt solid var(--bb-grey-200);
+             font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bb-grey-400); }
+      .sheet-ftr .r { color: var(--bb-pink); }
+      h2, h3, h4 { break-after: avoid !important; }
+      h2 + *, h3 + *, h4 + * { break-before: avoid; }
+      figure, pre, blockquote, img, svg, tr, .stat, .day, .script, .note, .flag, .box,
+      .stats, .days, .dodont, .lead-statuses, .grid3, .cover { break-inside: avoid; }
+      table.t, table.form { break-inside: avoid; }
+      table.t thead, table.form thead { display: table-header-group; }
+      table.t tr, table.form tr { break-inside: avoid; }
+      p, li { orphans: 3; widows: 3; }
+    }
+    /* table-font-override */
+    .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, table.rep .tg, .doc table.form .target { font-family: var(--font-body) !important; }
+    /* role-body-override */
+    .doc table.t .role { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+    /* all-table-cells-body */
+    .doc table.t td, .doc table.t td .num, .doc table.t .num, .doc table.t .stg, .doc table.t .maj, .doc table.t .min, .doc table.t .role, table.rep td, table.rep .tg, .doc table.form td, .doc table.form .target { font-family: var(--font-body) !important; font-weight: 400 !important; color: var(--bb-grey-800) !important; }
+  </style>
+</helmet>
+
+<main class="doc">
+<section class="sheet cover-sheet">
+  <div class="cover cover-page">
+    <img class="cover-elephant" src="assets/brainbox-elephant.png" alt="">
+    <div class="conf">Strictly private &amp; confidential</div>
+    <div class="cat">Demand Generation Campaign · 01 of 10</div>
+    <h1>Residential building &amp; specialist trades</h1>
+    <p class="lede">A one-month prospecting campaign for a Brainbox Associate — targeting WA residential builders, renovators and specialist trade contractors that carry heavy administrative load and tight local labour supply.</p>
+    <div class="cover-meta">
+      <div><span>Campaign owner</span>Associate: ____________________</div>
+      <div><span>Issued</span>July 2026 &middot; Ref. BB-DGC-01</div>
+      <div><span>Entry product</span>Project admin / estimating / scheduling assistant</div>
+      <div style="margin-left:auto;align-self:flex-end"><span class="wordmark">BRAINBOX</span></div>
+    </div>
+  </div>
+</section>
+
+  <section class="sheet">
+  <h3>Campaign at a glance</h3>
+        <p class="section-intro">The Associate carries this campaign for one month and reports achievements at month-end against the targets below. Work the 15 supplied contacts first, then add your own researched targets in the same profile.</p>
+        <div class="stats">
+          <div class="stat"><div class="v">15</div><div class="l">Priority contacts supplied (verify before outreach)</div></div>
+          <div class="stat"><div class="v">25–35</div><div class="l">Additional accounts the Associate researches &amp; adds</div></div>
+          <div class="stat"><div class="v">6–10</div><div class="l">Qualified appointments for the Commercial Manager this month</div></div>
+          <div class="stat"><div class="v">1</div><div class="l">Industry Insight Article attached to every first touch</div></div>
+        </div>
+        <div class="note"><strong>How the campaign runs.</strong> Work the 15 supplied contacts first, add your own researched targets to reach ~40–50 accounts, and run the four-week cadence in this pack. Every appointment is booked for the Brainbox <strong>Commercial Manager</strong>, recorded in HubSpot, and tagged <em>Campaign 01 · Residential Building &amp; Trades</em>.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 01 · Residential Building &amp; Trades</span></div>
+</section>
+
+<section class="sheet">
+        <h2>Why this industry</h2>
+        <div class="grid2">
+          <div><h4>The pressure</h4><p style="font-size:9pt">Quoting, take-offs, supplier follow-up, project scheduling, variation tracking, invoice chasing and client updates all compete with the work that actually protects margin on site. Owners, supervisors, estimators and project managers absorb this admin themselves because another senior local hire is slow and expensive.</p></div>
+          <div><h4>The opportunity</h4><p style="font-size:9pt">The strongest use case is not replacing site-based people. It is giving the local team reliable support for the recurring work that slows them down between jobs — so throughput improves without adding local overhead. The best entry product is a dedicated project administration, estimating support or scheduling assistant.</p></div>
+        </div>
+        <div class="flag"><span class="lbl">Market shape</span>Fragmented at the SME level with no single dominant player — ideal for outreach. <strong>Avoid the major builders</strong> and target <strong>10–80 person builders, renovators and specialist trade contractors</strong> (electrical, plumbing, fabrication and fit-out).</div>
+        <h3>Offshore-suitable roles to lead with</h3>
+        <div class="lead-statuses"><span class="pill">Estimating support &amp; take-offs</span><span class="pill">Procurement admin</span><span class="pill">Supplier follow-up</span><span class="pill">Job &amp; project scheduling</span><span class="pill">Variation tracking</span><span class="pill">Maintenance coordination</span><span class="pill">CRM updates</span><span class="pill">Invoice chasing &amp; job costing</span><span class="pill">Client update comms</span></div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 01 · Residential Building &amp; Trades</span></div></section>
+
+<section class="sheet">
+        <h2>Instant Expert</h2>
+        <p class="section-intro">A five-minute brief so you can talk to a residential building &amp; trades prospect like someone who understands their world — not a caller reading a script.</p>
+        <div class="ie-body">
+        <h4>The labour market they live in</h4><p>WA residential building and specialist trades have ridden a long demand wave straight into a persistent skills shortage. Competition for licensed tradespeople, supervisors and estimators is intense, and the same shortage extends to the office: good construction administrators, contracts and scheduling staff are hard to find, slow to recruit and expensive to keep.</p>
+        <h4>Why the admin load hurts</h4><p>Building is a high-transaction, document-heavy business. A single job generates quotes, take-offs, purchase orders, supplier follow-ups, variations, RFIs, compliance paperwork, progress claims, invoices and constant client updates. In a 10–80 person firm there is rarely a deep back office, so it lands on owners, supervisors, estimators and project managers doing admin at night — time not spent winning or pricing work.</p>
+        <h4>The pressures shaping their year</h4><p>Margins are tight. Years of materials and labour cost inflation, fixed-price contracts signed before costs rose, and well-publicised construction insolvencies have made owners cost-conscious and cautious about fixed overhead. Slow quote turnaround loses jobs, poor supplier follow-up delays sites, and weak invoicing strangles cash flow.</p>
+        <h4>Where offshore support fits</h4><p>The credible message is separation of work, not replacement of people. Licensed, on-site and client-facing work stays local; the repeatable back-office process work can be handled by a dedicated, trained, supervised offshore team member at a fraction of a local hire — capacity and cash-flow relief, not cost-cutting.</p>
+        <h4>Talk like an insider</h4><p>Know the language: take-offs, variations, RFIs, progress claims, retentions, defects, practical completion, PC/PS items. Know the tools: Buildxact, Databuild, Simpro, ServiceM8, procore, Xero, MYOB. Listen first and name the one workflow that clearly hurts most.</p>
+        </div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 01 · Residential Building &amp; Trades</span></div></section>
+
+<section class="sheet">
+        <h2>Target profile &amp; selection</h2>
+        <p class="section-intro">Add researched accounts that meet <strong>at least four</strong> of these signals. Verify size and ownership before adding — the model fits owner-led SMEs.</p>
+        <div class="cols2"><ul><li>10–80 employees, WA-based or meaningful WA office</li><li>Residential builder, renovator, or specialist trade (electrical, plumbing, fabrication, fit-out)</li><li>Owner-led, founder-led or principal-run</li><li>Visible estimators, project coordinators, schedulers or office staff on LinkedIn</li><li>Recently advertised for admin, estimating, scheduling or contracts support</li><li>Uses buildable software (Simpro, ServiceM8, Buildxact, Databuild, Xero, MYOB, procore)</li><li>Growth signals: new projects, display homes, contracts, extra supervisors</li><li>Labour-pressure signals: repeated job ads, long vacancies, "urgent hiring"</li><li>Recurring, process-heavy admin behind on-site delivery</li></ul></div>
+        <div class="dodont">
+          <div class="box do"><h4>Pursue</h4><ul><li>10–80 person builders, renovators &amp; trade contractors</li><li>Owner / founder-led businesses</li><li>Firms actively recruiting office or estimating support</li><li>Recurring quoting, scheduling &amp; job-admin load</li></ul></div>
+          <div class="box dont"><h4>Exclude</h4><ul><li>Major / tier-one builders with shared-service back offices</li><li>Sole traders too small to support a role</li><li>Purely on-site work with no separable admin</li><li>Already in active offshore arrangements (unless reviewing)</li></ul></div>
+        </div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 01 · Residential Building &amp; Trades</span></div></section>
+
+<section class="sheet">
+        <h2>The proposition &amp; angles</h2>
+        <p class="section-intro">Lead with a specific pressure point, not a generic offshore pitch. Match the angle to the person and the trigger.</p>
+        <table class="t"><thead><tr><th style="width:34%">Pressure point</th><th>Angle to lead with</th></tr></thead><tbody>
+        <tr><td>Quote turnaround too slow</td><td>Offshore estimating support &amp; take-offs so quotes go out faster without pulling the estimator off pricing.</td></tr><tr><td>Supervisors buried in admin</td><td>A project administration assistant handling variations, RFIs, supplier follow-up and client updates.</td></tr><tr><td>Scheduling bottlenecks</td><td>A scheduling assistant coordinating trades, deliveries and maintenance bookings.</td></tr><tr><td>Procurement follow-up slipping</td><td>Procurement admin chasing suppliers, purchase orders and delivery confirmations.</td></tr><tr><td>Cash flow / invoicing lag</td><td>Invoice chasing, job-costing support and debtor follow-up to tighten cash flow.</td></tr><tr><td>Messy CRM / lost leads</td><td>CRM discipline — data hygiene, lead logging and pipeline updates.</td></tr>
+        </tbody></table>
+        <div class="note"><strong>Keep it concrete.</strong> Prospects respond to one or two named workflows they recognise from their own week — a specific pressure point lands far better than "back-office support".</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 01 · Residential Building &amp; Trades</span></div></section>
+
+<section class="sheet">
+        <h2>Priority prospect list — 15 supplied</h2>
+        <p class="section-intro">First-pass, public-source targets. <strong>Verify in HubSpot, Sales Navigator &amp; Apollo before outreach</strong> — confirm contact, size and fit. Names marked "verify" need a confirmed decision maker first.</p>
+        <table class="t compact"><thead><tr><th style="width:26%">Company</th><th style="width:26%">Best contact</th><th>Why approach</th></tr></thead><tbody>
+        <tr><td>Modular WA</td><td>Jason Sjoland, Managing Director</td><td>Transportable and modular home builder with project administration, estimating and procurement support potential.</td></tr><tr><td>JWH Group</td><td>Julian Walter, Managing Director</td><td>WA home building group with document, scheduling, estimating and supplier-follow-up support potential.</td></tr><tr><td>Perth Renovations Co</td><td>Stewart Rawson, Owner</td><td>Renovation builder with likely estimating, scheduling, client update and project admin pressure.</td></tr><tr><td>Danny Hellwig Electrical</td><td>Danny Hellwig, Managing Director</td><td>Commercial and industrial electrical contractor with job admin, scheduling and documentation support potential.</td></tr><tr><td>Mason Electrical</td><td>Tom Mason, Managing Director and Operations Manager</td><td>Electrical contractor with quoting, project coordination and compliance-document support potential.</td></tr><tr><td>Rayco Plumbing Contractors</td><td>Grant Raynor, Managing Director</td><td>Residential construction plumbing contractor with scheduling, builder liaison and job administration pressure.</td></tr><tr><td>Morris Infrastructure / Morris Commercial Plumbing</td><td>Luke Morris, Managing Director</td><td>Commercial plumbing business with project administration and procurement follow-up potential.</td></tr><tr><td>Diploma Plumbing</td><td>Ron Grant, Managing Director</td><td>Plumbing contractor with maintenance, job scheduling and administration support potential.</td></tr><tr><td>ADCO Group</td><td>Adam Di Placido, Managing Director</td><td>Electrical, commercial and fire services group with workflow and documentation support potential.</td></tr><tr><td>Modern Home Improvers</td><td>Bruce Sertorio, Managing Director</td><td>Renovation and home improvement business with estimating and project administration needs.</td></tr><tr><td>Renew Renovations &amp;amp; Building</td><td>Dean Beament, Owner and Director</td><td>Renovation builder with quote preparation, client update and project coordination support potential.</td></tr><tr><td>Built WA</td><td>Jon Stone, WA Director</td><td>WA construction division with document control, tender support and project administration potential.</td></tr><tr><td>Into Place</td><td>Troy Gorton, Managing Director</td><td>Design-focused residential builder and property construction business with admin support potential.</td></tr><tr><td>Western Australian Electric Company</td><td>Kevin McGinty, Owner</td><td>Electrical contractor target for quoting, service coordination and job administration support.</td></tr><tr><td>Vantage West Electrical Services &amp;amp; Technologies</td><td>Managing Director / General Manager to verify</td><td>Commercial, industrial and mining electrical contractor with scheduling, procurement and document support potential. <em>Verify contact.</em></td></tr>
+        </tbody></table>
+        <div class="flag"><span class="lbl">Expand the list</span>Add <strong>25–35 of your own researched accounts</strong> that fit the profile — surfaced via Sales Navigator, job ads, industry directories and referrals. Aim for ~40–50 accounts for the month.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 01 · Residential Building &amp; Trades</span></div></section>
+
+<section class="sheet">
+        <h2>Buyers &amp; qualification</h2>
+        <p class="section-intro">Multi-thread each account — reach a senior decision maker for authority and an operational person for the felt pain.</p>
+        <div class="grid2">
+          <div><h4>Primary decision makers</h4><ul><li>Owner · Founder · Managing Director</li><li>General Manager · Director</li><li>Construction / Operations Manager</li></ul></div>
+          <div><h4>Influencers &amp; secondary buyers</h4><ul><li>Estimating Manager · Head Estimator</li><li>Project / Contracts Manager</li><li>Office Manager · Finance / Admin lead</li></ul></div>
+        </div>
+        <h3>Qualification questions</h3>
+        <p class="section-intro">Use only what you need — the goal is a meeting, not a full diagnosis.</p>
+        <ul><li>Can I ask, are your supervisors or project managers still carrying a lot of the job administration themselves?</li><li>Do quotes, supplier follow-up or job scheduling ever become a bottleneck?</li><li>Do you currently have any offshore or remote admin support in the business?</li><li>Are there any recurring tasks that your local team should not really be doing anymore?</li></ul>
+        <div class="note"><strong>Qualified appointment.</strong> Company fits the profile; contact is a decision maker or credible sponsor; at least one confirmed business driver; meeting accepted in the Commercial Manager's calendar with a clear handover note in HubSpot.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 01 · Residential Building &amp; Trades</span></div></section>
+
+<section class="sheet">
+        <h2>Objection handling — residential building &amp; trades</h2>
+        <div class="note"><strong>How to handle any objection.</strong> Acknowledge it sincerely, reframe to the business issue, then ask one question that keeps the conversation open. Never argue and never oversell — the goal is a short meeting for the Commercial Manager, not winning the point on the call.</div>
+        <table class="t"><thead><tr><th style="width:32%">Objection</th><th>Response angle</th></tr></thead><tbody>
+        <tr><td>“My jobs are all on-site.”</td><td>Absolutely — and we'd never touch the on-site work. What we support is the office trail behind it: quotes, variations, supplier follow-up, scheduling and invoicing. Which of those eats the most of your team's week?</td></tr><tr><td>“I tried a VA and it failed.”</td><td>That's common, and usually it's a scoping and management problem, not the person. Brainbox is a managed model — we recruit, train, supervise and cover for the role, working inside your systems. Worth seeing how that differs?</td></tr><tr><td>“Quoting is too technical to hand off.”</td><td>The pricing judgement stays with your estimator — always. What an offshore assistant does is the take-offs, supplier pricing chase, data entry and quote formatting so the estimator prices faster. Would faster quotes win more work?</td></tr><tr><td>“Cash flow's tight right now.”</td><td>Understood — which is often the reason to look. Chasing invoices and job-costing is exactly the work an offshore role tightens, and it costs a fraction of a local admin hire. Happy to compare the numbers.</td></tr><tr><td>“We're too small for this.”</td><td>Many of our building clients are 15–40 people. One part-time offshore role removes the admin an owner or supervisor is doing after hours — without building a bigger local team.</td></tr><tr><td>“Just send me information.”</td><td>Happy to — it may be more useful to first know whether estimating, scheduling or invoicing is the bigger pressure, so I send the right example. Which one is it?</td></tr>
+        </tbody></table>
+        <div class="note"><strong>Know when to stop.</strong> A clear "no" frees time for better-fit accounts. Close the loop kindly, set a nurture date if there's a future trigger, and respect every opt-out immediately.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 01 · Residential Building &amp; Trades</span></div></section>
+
+<section class="sheet">
+        <h2>First-touch email</h2>
+        <p class="section-intro">Sent from Brainbox / the Commercial Manager with the Industry Insight Article attached. The Associate follows up by phone within a few days.</p>
+        <div class="script">
+          <span class="lbl">Subject · Practical offshore support for WA builders and trade contractors</span>
+          <em>Hi [First Name]</em><br><br>
+          WA builders and specialist trade contractors are carrying more administrative pressure than many businesses realise. Quoting, take-offs, supplier follow-up, project scheduling, variation tracking, invoice chasing and client updates all compete with the work that actually protects margin on site.<br><br>Brainbox works with Australian businesses to place dedicated offshore personnel from our delivery centre in the Philippines. For builders and trade contractors, the strongest use case is not replacing site-based people. It is giving owners, supervisors, estimators and project managers reliable support for the work that slows them down between jobs.<br><br>We have attached an Industry Insight Article that looks more closely at the labour and capacity issues affecting this part of the market. It also outlines how offshore project administration, estimating support, scheduling assistance and procurement follow-up can help a business improve throughput without adding another senior local hire.<br><br>The relevant opportunity for [Company] may sit in one or two specific pressure points. It may be quote turnaround, project admin, supplier coordination, job-costing support, maintenance administration or CRM discipline.<br><br>Someone from Brainbox will be reaching out over the next few days to see whether we can schedule a short meeting with our Commercial Manager. The purpose would be to discuss whether offshore support could remove some of the recurring administrative load from your local team.<br><br>
+          Kind regards<br>[Sender Name] · Brainbox
+        </div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 01 · Residential Building &amp; Trades</span></div></section>
+
+<section class="sheet">
+        <h2>Lead generation call script</h2>
+        <p class="section-intro">A structured prompt to secure a 20-minute meeting for the Commercial Manager — not to sell the service on the call.</p>
+        <div class="script"><span class="lbl">Opening</span><em>Hi [First Name], this is [Caller Name] from Brainbox in Perth. We work with Australian businesses to place dedicated offshore staff through our delivery centre in the Philippines. I am calling because we sent through an Industry Insight Article on labour and administration pressure in WA building and specialist trades. I wanted to see whether it would be worth arranging a short discussion with our Commercial Manager.</em></div>
+        <div class="script"><span class="lbl">Industry relevance</span><em>The reason we are speaking with builders and trade contractors is that the pressure is not only on site. It is also in quoting, take-offs, supplier follow-up, scheduling, variation tracking, job admin, invoice chasing and client updates. Many businesses in the sector do not need another senior local person for that work. They need reliable support around the estimator, project manager, supervisor or owner.</em></div>
+        <div class="script"><span class="lbl">Qualification</span><em>Can I ask, are your supervisors or project managers still carrying a lot of the job administration themselves? Do quotes, supplier follow-up or job scheduling ever become a bottleneck? Do you currently have any offshore or remote admin support in the business? Are there any recurring tasks that your local team should not really be doing anymore?</em></div>
+        <div class="script"><span class="lbl">Meeting ask</span><em>The useful next step would be a 20-minute discussion with our Commercial Manager. The purpose would not be to push a generic offshore solution. It would be to identify whether there is a defined role in your workflow that could be supported offshore. Would [day/time] or [day/time] suit for that discussion?</em></div>
+        <div class="script"><span class="lbl">LinkedIn connection note (optional first touch)</span><em>Hi [First Name], I work with WA residential building &amp; trades businesses on offshore estimating support &amp; take-offs, procurement admin, supplier follow-up support. Noticed [Company]'s work — would be good to connect.</em></div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 01 · Residential Building &amp; Trades</span></div></section>
+
+<section class="sheet">
+        <h2>Follow-up sequence</h2>
+        <p class="section-intro">First touch opens the door; the follow-ups win the meeting. Each adds a new angle — never resends the same message. Stop the sequence on any reply, opt-out or "do not contact".</p>
+        <table class="t"><thead><tr><th style="width:20%">Touch</th><th>Purpose</th></tr></thead><tbody>
+          <tr><td class="num">1 · Day 1</td><td>First-touch email + Industry Insight Article (previous page).</td></tr>
+          <tr><td class="num">2 · Day 2–3</td><td>Phone call using the script; LinkedIn connection request if not already connected.</td></tr>
+          <tr><td class="num">3 · Day 5</td><td>Value follow-up email — one specific angle from the proposition page.</td></tr>
+          <tr><td class="num">4 · Day 9</td><td>Second call + short LinkedIn message with a relevant proof point.</td></tr>
+          <tr><td class="num">5 · Day 14</td><td>Close-the-loop / breakup email — polite, no pressure, easy to reopen.</td></tr>
+          <tr><td class="num">Day 45+</td><td>Move to nurture; revisit on a new trigger (hiring, growth, new work).</td></tr>
+        </tbody></table>
+        <div class="script"><span class="lbl">Touch 3 · value follow-up email</span><em>Hi [First Name], following my note on offshore support for builders — the pressure point most WA firms raise first is quote turnaround. Getting take-offs, supplier pricing and quote formatting off the estimator's desk usually gets quotes out days faster. Would a short call with our Commercial Manager be worth 20 minutes to see if it fits [Company]?</em></div>
+        <div class="script"><span class="lbl">Touch 5 · close-the-loop / breakup email</span><em>Hi [First Name], I don't want to keep landing in your inbox. If offshore admin, estimating or scheduling support isn't a priority right now, no problem at all — I'll close the loop. If it's just bad timing, tell me when to circle back and I will. Either way, the Industry Insight Article is yours to keep.</em></div>
+        <div class="note"><strong>Multi-thread, don't spam.</strong> Space the sequence across the month and vary who you contact within an account — never several identical messages to one firm in a day.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 01 · Residential Building &amp; Trades</span></div></section>
+
+<section class="sheet">
+        <h2>The four-week plan</h2>
+        <p class="section-intro">One month, carried by the Associate. Front-load research and first touches; protect the back half for conversion and booking.</p>
+        <div class="days">
+          <div class="day"><div class="d">Week 1</div><div class="s">Verify the 15, research +25–35, map buyers &amp; triggers, load HubSpot, send first email wave with the Insight Article.</div></div>
+          <div class="day"><div class="d">Week 2</div><div class="s">Call wave on emailed contacts, LinkedIn connects &amp; engagement, follow-up wave 1, begin booking meetings.</div></div>
+          <div class="day"><div class="d">Week 3</div><div class="s">Second first-touch wave to remaining &amp; researched accounts, multi-thread Tier 1, convert warm replies, referral asks.</div></div>
+          <div class="day"><div class="d">Week 4</div><div class="s">Conversion push, confirm &amp; hand over booked meetings, reactivate non-responders, clean data, write month-end report.</div></div>
+        </div>
+        <table class="t"><thead><tr><th style="width:20%">Focus</th><th>What "good" looks like each week</th></tr></thead><tbody>
+          <tr><td class="num">Research</td><td>Every account verified, tiered and tagged Campaign 01; buyers mapped with a named trigger.</td></tr>
+          <tr><td class="num">Outreach</td><td>Personalised first touches with the Insight Article attached; one strong reason per message.</td></tr>
+          <tr><td class="num">Calls</td><td>Priority order: warm replies, accepted connections, openers, Tier 1 decision makers.</td></tr>
+          <tr><td class="num">Booking</td><td>Two specific times offered; invite sent immediately; handover note in HubSpot for the Commercial Manager.</td></tr>
+        </tbody></table>
+        <div class="note"><strong>Cross-reference the core cadence.</strong> This campaign runs inside the weekly rhythm from the Demand Generation Playbook — campaign touches count toward the Associate's standard first-touch, follow-up, call and conversation targets, and campaign-sourced meetings count toward booked and held appointments.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 01 · Residential Building &amp; Trades</span></div></section>
+
+<section class="sheet">
+        <h2>Commercial Manager handover note</h2>
+        <p class="section-intro">Complete this in HubSpot for <strong>every</strong> booked appointment. It is what turns a booking into a converted meeting — the Commercial Manager walks in already knowing the pain, the room and the angle.</p>
+        <table class="form"><tbody>
+          <tr><th style="width:26%">Company &amp; size</th><td></td></tr>
+          <tr><th>Contact, role &amp; who else is in the room</th><td></td></tr>
+          <tr><th>Trigger (why now)</th><td></td></tr>
+          <tr><th>Pain hypothesis</th><td></td></tr>
+          <tr><th>Offshore-suitable roles identified</th><td></td></tr>
+          <tr><th>Recommended angle / entry product</th><td></td></tr>
+          <tr><th>Software &amp; systems in use</th><td></td></tr>
+          <tr><th>Objections raised &amp; responses</th><td></td></tr>
+          <tr><th>"Do not say" / sensitivities</th><td></td></tr>
+          <tr><th>Meeting date, time &amp; format</th><td></td></tr>
+        </tbody></table>
+        <div class="grid2">
+          <div class="box" style="background:var(--bb-blue-50);border:1px solid var(--bb-blue-300);border-radius:10px;padding:11px 13px">
+            <h4 style="color:var(--bb-blue-700);margin-top:0">Do include</h4>
+            <ul style="font-size:8.5pt;padding-left:16px;margin-bottom:0"><li>The exact words the prospect used about their pain</li><li>The specific trigger you found</li><li>One clear recommended entry product</li></ul>
+          </div>
+          <div class="box" style="background:var(--bb-pink-50);border:1px solid var(--bb-pink-200);border-radius:10px;padding:11px 13px">
+            <h4 style="color:var(--bb-pink-700);margin-top:0">Avoid</h4>
+            <ul style="font-size:8.5pt;padding-left:16px;margin-bottom:0"><li>Over-promising scope or pricing</li><li>Vague notes like "keen, wants to chat"</li><li>Booking without confirming the decision maker attends</li></ul>
+          </div>
+        </div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 01 · Residential Building &amp; Trades</span></div></section>
+
+<section class="sheet">
+        <h2>Monthly targets</h2>
+        <p class="section-intro">The benchmark is appointments <em>held</em> with a good-fit residential building &amp; trades prospect, not activity alone.</p>
+        <div class="stats">
+          <div class="stat"><div class="v">40–50</div><div class="l">Target accounts worked (15 supplied + research)</div></div>
+          <div class="stat"><div class="v">100–140</div><div class="l">Contacts researched &amp; enriched</div></div>
+          <div class="stat"><div class="v">40–50</div><div class="l">First-touch emails with Insight Article</div></div>
+          <div class="stat"><div class="v">120–160</div><div class="l">Follow-up actions across the month</div></div>
+          <div class="stat"><div class="v">80–120</div><div class="l">Calls to priority &amp; warm contacts</div></div>
+          <div class="stat"><div class="v">20–30</div><div class="l">Live conversations / two-way exchanges</div></div>
+          <div class="stat"><div class="v">10–15</div><div class="l">Warm opportunities created in HubSpot</div></div>
+          <div class="stat"><div class="v">6–10</div><div class="l">Qualified appointments booked for the Commercial Manager</div></div>
+        </div>
+        <div class="flag"><span class="lbl">Final success measure</span>Appointments that convert into <strong>sales opportunities</strong> and ultimately a <strong>commercial transaction</strong>. Every metric above is a leading indicator of that single revenue outcome.</div>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 01 · Residential Building &amp; Trades</span></div></section>
+
+<section class="sheet">
+        <div class="cover" style="padding:14px 24px">
+          <div class="eyebrow">Month-end report · Campaign 01</div>
+          <h1 style="font-size:17pt;margin:6px 0 2px">Residential Building &amp; Trades — outcomes</h1>
+          <p class="lede" style="font-size:9pt;margin:0">Completed by the Associate and reviewed with the sales lead / Marketing Manager at month-end.</p>
+        </div>
+        <table class="form"><tbody>
+          <tr><th style="width:16%">Associate</th><td style="width:34%"></td><th style="width:16%">Month</th><td style="width:34%"></td></tr>
+          <tr><th>Commercial Manager covered</th><td></td><th>Reviewed with / date</th><td></td></tr>
+        </tbody></table>
+        <h4>Activity &amp; outcomes vs target</h4>
+        <table class="form"><thead><tr><th style="width:44%">Measure</th><th class="target" style="width:18%">Target</th><th>Actual</th><th>Notes</th></tr></thead><tbody>
+          <tr><td>Accounts worked</td><td class="target">40–50</td><td></td><td></td></tr>
+          <tr><td>First-touch emails sent</td><td class="target">40–50</td><td></td><td></td></tr>
+          <tr><td>Calls made</td><td class="target">80–120</td><td></td><td></td></tr>
+          <tr><td>Live conversations</td><td class="target">20–30</td><td></td><td></td></tr>
+          <tr><td>Warm opportunities created</td><td class="target">10–15</td><td></td><td></td></tr>
+          <tr><td>Qualified appointments booked</td><td class="target">6–10</td><td></td><td></td></tr>
+          <tr><td>Appointments held</td><td class="target">—</td><td></td><td></td></tr>
+          <tr><td><strong>Opportunities → commercial transaction</strong></td><td class="target">—</td><td></td><td></td></tr>
+        </tbody></table>
+        <div class="grid2">
+          <div><span class="form-label">What worked / best angle &amp; trigger</span><div class="form-field" style="height:40px"></div></div>
+          <div><span class="form-label">Top objection &amp; what to change</span><div class="form-field" style="height:40px"></div></div>
+        </div>
+        <h4>Sign-off</h4>
+        <table class="form"><tbody><tr><th style="width:16%">Associate</th><td style="width:34%"></td><th style="width:16%">Sales lead</th><td style="width:34%"></td></tr></tbody></table>
+        <div class="sheet-ftr"><span>Always Be Kind</span><span class="r">Campaign 01 · Residential Building &amp; Trades</span></div></section>
+</main>
+</x-dc>
+</body>
+</html>

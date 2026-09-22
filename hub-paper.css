@@ -1,0 +1,93 @@
+/* Brainbox Hub — paper framing.
+   On screen, a document reads as the page it prints to: grey desk, white A4 sheet,
+   generous inside margins, running head. Print geometry stays owned by each document's @page. */
+
+@media screen {
+  body {
+    background: #f1f0ef !important;
+    padding: 34px 20px 60px;
+    box-sizing: border-box;
+  }
+  .doc {
+    background: #fff;
+    width: 100%;
+    max-width: 210mm;
+    margin: 0 auto !important;
+    padding: 20mm 18mm 18mm !important;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(40, 40, 45, .06), 0 16px 44px rgba(40, 40, 45, .11);
+  }
+  .bb-runhead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid var(--bb-grey-300, #d8d8d8);
+  }
+  .bb-runhead .bb-rh-brand {
+    font-family: var(--font-heading, "Exo", system-ui, sans-serif);
+    font-weight: 600;
+    font-size: 10pt;
+    color: var(--bb-grey-800, #3f3f3f);
+    letter-spacing: -0.005em;
+  }
+  .bb-runhead .bb-rh-conf {
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-size: 7pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--bb-pink, #FF0080);
+    white-space: nowrap;
+  }
+  @media (max-width: 640px) {
+    body { padding: 16px 10px 48px; }
+    .doc { padding: 12mm 9mm 12mm !important; }
+  }
+}
+
+@media print {
+  /* Guaranteed page margin even when the print dialog's own margin is set to None:
+     a slim @page margin plus real padding inside the sheet. */
+  @page { margin: 10mm !important; }
+  .doc {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 4mm 8mm !important;
+    box-sizing: border-box !important;
+  }
+  /* Each content sheet starts its own page. */
+  .doc .sheet + .sheet {
+    break-before: page;
+    page-break-before: always;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    border-top: 0 !important;
+  }
+  .bb-runhead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0 0 14px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #d8d8d8;
+    break-inside: avoid;
+  }
+  .bb-runhead .bb-rh-brand {
+    font-family: var(--font-heading, "Exo", system-ui, sans-serif);
+    font-weight: 600;
+    font-size: 9pt;
+    color: #3f3f3f;
+  }
+  .bb-runhead .bb-rh-conf {
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-size: 6.5pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #FF0080;
+  }
+  /* the cover sheet carries its own branding — no running head above it */
+  .cover-sheet .bb-runhead, .bb-runhead.bb-oncover { display: none !important; }
+}
