@@ -3,14 +3,15 @@
 repo: bb-marketing2026/bb-hub1
 branch: main
 host: vercel — project `bb-hub` (team BB-Marketing / bb-marketing1)
-url: https://bb-hub-bb-marketing1.vercel.app
+url: https://brainbox-hub.vercel.app
 
 ## Last sync
 
-date: 2026-09-22T01:24:00Z
+date: 2026-09-23T00:00:00Z
 commit: (repo tree a78cbe8eebba — read only; no push made from this project)
 
 ### Updated in this project
+- Landing page header: Home and Export as PDF now hidden on the home view, shown inside libraries.
 - Rebuilt the landing page as `Playbook Hub.dc.html` — 11 playbook library cards plus a six-level hierarchy, replacing the old `Hub.dc.html` tree.
 - Added `hub-nav.js` — floating Back / Hub pills and a Print · Save as PDF pill injected into all 37 documents.
 - Added `hub-paper.css` — A4 paper framing on screen, guaranteed print margins, one page per sheet, running head.

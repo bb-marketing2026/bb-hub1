@@ -48,8 +48,8 @@
   </div>
   <div style="display:flex;align-items:center;gap:8px;margin-left:auto">
     <button id="bbback" hidden data-act="back" style="display:inline-flex;align-items:center;gap:7px;font-family:var(--font-body);font-size:12px;font-weight:500;color:#4a4a4a;background:#fff;border:1px solid #e0e0e0;border-radius:999px;padding:7px 14px;cursor:pointer;transition:background .2s ease-out,border-color .2s ease-out,color .2s ease-out" style-hover="background:#fff0f7;border-color:#FF0080;color:#c2005f">← Back</button>
-    <a href="#home" style="display:inline-flex;align-items:center;gap:7px;font-family:var(--font-body);font-size:12px;font-weight:500;color:#4a4a4a;background:#fff;border:1px solid #e0e0e0;border-radius:999px;padding:7px 14px;text-decoration:none;transition:background .2s ease-out,border-color .2s ease-out,color .2s ease-out" style-hover="background:#fff0f7;border-color:#FF0080;color:#c2005f">Home</a>
-    <button data-act="hubprint" style="display:inline-flex;align-items:center;gap:7px;font-family:var(--font-body);font-size:12px;font-weight:500;color:#fff;background:#FF0080;border:1px solid #FF0080;border-radius:999px;padding:7px 15px;cursor:pointer;transition:background .2s ease-out" style-hover="background:#d1006b;border-color:#d1006b">Export as PDF</button>
+    <a id="bbhomebtn" hidden href="#home" style="display:inline-flex;align-items:center;gap:7px;font-family:var(--font-body);font-size:12px;font-weight:500;color:#4a4a4a;background:#fff;border:1px solid #e0e0e0;border-radius:999px;padding:7px 14px;text-decoration:none;transition:background .2s ease-out,border-color .2s ease-out,color .2s ease-out" style-hover="background:#fff0f7;border-color:#FF0080;color:#c2005f">Home</a>
+    <button id="bbprintbtn" hidden data-act="hubprint" style="display:inline-flex;align-items:center;gap:7px;font-family:var(--font-body);font-size:12px;font-weight:500;color:#fff;background:#FF0080;border:1px solid #FF0080;border-radius:999px;padding:7px 15px;cursor:pointer;transition:background .2s ease-out" style-hover="background:#d1006b;border-color:#d1006b">Export as PDF</button>
   </div>
 </div>
 
@@ -753,6 +753,8 @@ class Component extends DCLogic {
       crumb.hidden = target === 'home';
       crumbSep.hidden = target === 'home';
       backBtn.hidden = target === 'home';
+      root.querySelector('#bbhomebtn').hidden = target === 'home';
+      root.querySelector('#bbprintbtn').hidden = target === 'home';
       window.scrollTo(0, 0);
     };
 
