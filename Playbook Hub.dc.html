@@ -8,13 +8,14 @@
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
-  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
-  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
-  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
-  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
-  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
-  <link rel="stylesheet" href="_ds/brainbox-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <link rel="stylesheet" href="_ds/bb-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/fonts/fonts.css">
+  <link rel="stylesheet" href="_ds/bb-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/bb-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/bb-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/bb-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/bb-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/tokens/base.css">
+  <link rel="stylesheet" href="_ds/bb-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/styles.css">
+  <script src="_ds/bb-design-system-5ef09e1e-728b-4c73-9668-6117b0c43dd7/_ds_bundle.js"></script>
   <style>
     body { margin:0; background:#faf9f8; font-family:var(--font-body); color:var(--bb-grey-800); -webkit-font-smoothing:antialiased; }
     [hidden] { display:none !important; }
@@ -82,9 +83,14 @@
       <div id="bbresultsrow" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px"></div>
     </div>
 
-    <div id="bbrecent" hidden style="margin-bottom:26px">
-      <div style="font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:#9a9a9a;margin-bottom:9px">Recently opened</div>
-      <div id="bbrecentrow" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+    <div id="bbrecent" hidden style="margin-bottom:34px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
+        <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.19em;text-transform:uppercase;color:#8d8d8d;font-weight:600">Recently opened</span>
+        <span style="flex:1;height:1px;background:#e8e8e8"></span>
+        <button data-act="clearrecent" style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#9a9a9a;background:none;border:0;padding:0;cursor:pointer" style-hover="color:#FF0080">Clear</button>
+      </div>
+      <p style="margin:0 0 14px;font-size:12.5px;line-height:1.55;color:#9a9a9a;font-weight:300">Pick up where you left off — your last five documents on this device.</p>
+      <div id="bbrecentrow" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px"></div>
     </div>
 
     <div id="bblibhead" style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
@@ -776,16 +782,31 @@ class Component extends DCLogic {
 
     const paintRecent = () => {
       const byKey = {};
-      rows.forEach(r => { byKey[r.getAttribute('data-k')] = { t: titleOf(r), h: r.querySelector('a[href]').getAttribute('href') }; });
-      const items = read('bb-hub-recent').filter(k => byKey[k]).slice(0, 6);
+      rows.forEach(r => {
+        const k = r.getAttribute('data-k');
+        if (byKey[k]) return;
+        const sec = r.closest('[data-lib]');
+        byKey[k] = { t: titleOf(r), h: r.querySelector('a[href]').getAttribute('href'), lib: sec ? NAMES[sec.getAttribute('data-lib')] : '' };
+      });
+      const items = read('bb-hub-recent').filter(k => byKey[k]).slice(0, 5);
       recentRow.textContent = '';
-      items.forEach(k => {
+      items.forEach((k, i) => {
+        const d = byKey[k];
         const a = document.createElement('a');
-        a.href = byKey[k].h;
-        a.textContent = byKey[k].t;
-        a.style.cssText = 'display:inline-flex;align-items:center;font-family:var(--font-body);font-size:12px;color:#4a4a4a;text-decoration:none;background:#fff;border:1px solid #e6e6e6;border-radius:999px;padding:6px 13px;transition:border-color .18s ease-out,color .18s ease-out';
-        a.addEventListener('mouseenter', () => { a.style.borderColor = '#FF0080'; a.style.color = '#c2005f'; });
-        a.addEventListener('mouseleave', () => { a.style.borderColor = '#e6e6e6'; a.style.color = '#4a4a4a'; });
+        a.href = d.h;
+        a.style.cssText = 'display:flex;flex-direction:column;gap:5px;padding:14px 16px;background:#fff;border:1px solid #ededed;border-left:3px solid #FF0080;border-radius:12px;text-decoration:none;box-shadow:0 1px 2px rgba(40,40,45,.04);transition:transform .2s ease-out,box-shadow .2s ease-out';
+        const kick = document.createElement('span');
+        kick.textContent = (i === 0 ? 'Last opened' : d.lib ? d.lib : 'Document');
+        kick.style.cssText = 'font-family:var(--font-mono);font-size:8px;letter-spacing:0.13em;text-transform:uppercase;color:' + (i === 0 ? '#FF0080' : '#a0a0a0');
+        const t = document.createElement('span');
+        t.textContent = d.t;
+        t.style.cssText = 'font-family:var(--font-heading);font-weight:600;font-size:13.5px;line-height:1.25;color:#3f3f3f';
+        const go = document.createElement('span');
+        go.textContent = 'Continue reading →';
+        go.style.cssText = 'margin-top:auto;padding-top:6px;font-family:var(--font-body);font-size:11.5px;font-weight:500;color:#FF0080';
+        a.appendChild(kick); a.appendChild(t); a.appendChild(go);
+        a.addEventListener('mouseenter', () => { a.style.transform = 'translateY(-2px)'; a.style.boxShadow = '0 8px 20px rgba(255,0,128,.12)'; });
+        a.addEventListener('mouseleave', () => { a.style.transform = ''; a.style.boxShadow = '0 1px 2px rgba(40,40,45,.04)'; });
         recentRow.appendChild(a);
       });
       recentWrap.hidden = items.length === 0;
@@ -875,6 +896,7 @@ class Component extends DCLogic {
         paintSaved();
         return;
       }
+      if (e.target.closest && e.target.closest('[data-act="clearrecent"]')) { write('bb-hub-recent', []); paintRecent(); return; }
       if (e.target.closest && e.target.closest('[data-act="hubprint"]')) window.print();
       if (e.target.closest && e.target.closest('[data-act="back"]')) {
         if (history.length > 1) history.back(); else location.hash = '#home';

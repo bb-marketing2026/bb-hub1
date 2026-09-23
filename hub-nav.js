@@ -156,6 +156,6 @@
 
   var r = read('bb-hub-recent').filter(function (x) { return x !== file; });
   r.unshift(file);
-  write('bb-hub-recent', r.slice(0, 8));
+  write('bb-hub-recent', r.slice(0, 5));
   if (location.hash === '#print') setTimeout(function () { window.print(); }, 900);
 })();
